@@ -15,7 +15,7 @@
 @keyframes drift { from { background-position: 0 0; } to { background-position: 100% 0; } }
 .tag { margin: 0; max-width: 40ch; font-size: 19px; line-height: 1.45; color: #c9c7da; }
 .tag em { font-weight: 700; }
-.modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.modes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .mode {
   text-align: left; display: flex; flex-direction: column; gap: 6px; padding: 16px; min-width: 0;
   background: rgba(13,16,34,.86); border: 1px solid var(--line); border-radius: 12px;

@@ -30,7 +30,7 @@
   }
   function renderSlots() {
     $('#slots').textContent = S.mode === 'daily' ? `${S.slots} launch${S.slots === 1 ? '' : 'es'} left · misses use one` : '';
-    $('#skip').textContent = S.mode === 'daily' ? 'Pass' : `Skip prompt (−${SKIP_COST}s)`;
+    $('#skip').textContent = S.mode === 'daily' ? 'Pass' : S.mode === 'explore' ? 'Next question' : `Skip question (−${SKIP_COST}s)`;
     if (S.mode === 'daily') {
       const dots = $('#daily-dots');
       dots.replaceChildren(...Array.from({ length: DAILY_PROMPTS }, (_, i) => h('i', { class: i < S.idx ? 'on' : i === S.idx ? 'now' : '' })));
@@ -57,7 +57,7 @@
     let card;
     if (j.ok) {
       card = h('div', { class: 'verdict' },
-        UI.badge(j.tier, S.mode === 'daily' ? `${j.tier.pts} pts` : `+${j.tier.fuel}s fuel`),
+        UI.badge(j.tier, S.mode === 'voyage' ? `+${j.tier.fuel}s fuel` : `${j.tier.pts} pts`),
         h('span', { class: 'v-ans' }, j.item.name),
         h('span', { class: 'v-why' }, j.fuzzy ? [UI.fixLine(j.typed, j.item.name), ' Typo fixed.'] : `${j.tier.name} answer for ${p.what}.`),
         h('span', { class: 'v-pts' }, '+' + gain));
@@ -65,7 +65,7 @@
       card = h('div', { class: 'verdict miss' }, UI.missBadge(),
         h('span', { class: 'v-ans' }, j.item ? j.item.name : j.raw),
         h('span', { class: 'v-why' }, UI.missText(p, j)),
-        h('span', { class: 'v-pts' }, S.mode === 'daily' ? '0' : `−${MISS_COST}s`));
+        h('span', { class: 'v-pts' }, S.mode === 'voyage' ? `−${MISS_COST}s` : '0'));
     }
     res.replaceChildren(...[card, j.ok ? UI.farther(p, j) : null].filter(Boolean));
   }
@@ -161,13 +161,13 @@
     $('#result').replaceChildren(h('div', { class: 'verdict miss' }, UI.missBadge('Skipped'),
       h('span', { class: 'v-ans' }, p.ask + (p.rule ? ' ' + p.rule : '')),
       h('span', { class: 'v-why' }, 'Here is what was out there.'),
-      h('span', { class: 'v-pts' }, S.mode === 'daily' ? '0' : `−${SKIP_COST}s`)), ...[UI.farther(p, null, 5)].filter(Boolean));
+      h('span', { class: 'v-pts' }, S.mode === 'voyage' ? `−${SKIP_COST}s` : '0')), ...[UI.farther(p, null, 5)].filter(Boolean));
     if (S.mode === 'daily') {
       while (S.slots > 0) { S.grid.push(0); S.slots--; }
       S.slots = 1; useSlot();
       return;
     }
-    S.fuel -= SKIP_COST;
+    if (S.mode === 'voyage') S.fuel -= SKIP_COST;
     if (S.fuel <= 0) return end();
     nextPrompt();
   }
@@ -266,7 +266,7 @@
       }
       S = fresh(mode);
       S.day = day;
-      S.theme = mode === 'voyage' ? UI.store.get('theme', 'all') : 'all';
+      S.theme = mode === 'daily' ? 'all' : UI.store.get('theme', 'all');
       if (rec) Object.assign(S, { dist: rec.dist || 0, grid: rec.grid || [], finds, idx: Math.min(DAILY_PROMPTS - 1, rec.idx || 0), resumeSlots: rec.slots });
       if (mode === 'daily') {
         const rng = FO.rng('daily-' + day);
@@ -274,12 +274,13 @@
         for (let i = 0; i < DAILY_PROMPTS; i++) { const p = FO.makePrompt(rng, { minPool: 10, recent: S.recent, avoid: S.avoid, avoidN: 6 }); S.recent.add(p.id); S.daily.push(p); }
       } else S.rng = FO.rng(Date.now() + ':' + Math.random());
       UI.show('s-play');
-      $('#play-mode').textContent = mode === 'daily' ? 'Daily Orbit' : 'Voyage';
-      $('#fuel-wrap').hidden = mode === 'daily';
+      $('#play-mode').textContent = mode === 'daily' ? 'Daily Orbit' : mode === 'explore' ? 'Explore' : 'Voyage';
+      $('#fuel-wrap').hidden = mode !== 'voyage';
       $('#daily-dots').hidden = mode !== 'daily';
       $('#streak').hidden = mode === 'daily';
       $('#result').replaceChildren(h('p', { class: 'note' }, mode === 'daily'
-        ? 'Two launches per prompt. Rarer answers score more. No clock, so take your time.'
+        ? 'Two launches per question. Rarer answers score more. No clock, so take your time.'
+        : mode === 'explore' ? 'No clock and no end. Answer, skip, and see the rare answers you could have given.'
         : 'Fuel burns every second. Rare answers refuel more. Misses cost 5 seconds.'));
       renderHud();
       nextPrompt();

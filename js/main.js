@@ -19,7 +19,7 @@
 
   function go(where) {
     Fx.sfx.unlock();
-    if (where === 'voyage' || where === 'daily') FO.Solo.start(where);
+    if (where === 'voyage' || where === 'daily' || where === 'explore') FO.Solo.start(where);
     else if (where === 'crew') { UI.show('s-crew'); FO.CrewView.entry(); }
     else if (where === 'howto') UI.show('s-howto');
     else if (where === 'chart') FO.Collection.show();
@@ -71,5 +71,5 @@
   }
   const m = location.hash.match(/^#crew-([a-z]{4})$/i);
   if (m) { UI.show('s-crew'); FO.CrewView.entry(m[1].toUpperCase()); }
-  else if (location.hash === '#voyage' || location.hash === '#daily') go(location.hash.slice(1));
+  else if (['#voyage', '#daily', '#explore'].includes(location.hash)) go(location.hash.slice(1));
 })();

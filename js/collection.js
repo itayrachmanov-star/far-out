@@ -34,8 +34,8 @@
       h('dl', { class: 'stats' },
         [['Answers given', s.answers], ['Rare finds', s.rare], ['Games played', s.games], ['Far Out finds', entries.filter((e) => e.c === 1).length]]
           .map(([k, v]) => h('div', null, h('dt', null, k), h('dd', null, Number(v).toLocaleString())))),
-      entries.length ? [group(1), group(2)] : h('p', { class: 'note' },
-        'Your chart is empty. Find Deep Space or Far Out answers in any mode and they are charted here for good.'));
+      ...(entries.length ? [group(1), group(2)].filter(Boolean) : [h('p', { class: 'note' },
+        'Your chart is empty. Find Deep Space or Far Out answers in any mode and they are charted here for good.')]));
   }
 
   FO.Collection = {

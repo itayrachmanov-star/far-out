@@ -197,14 +197,14 @@ taiwan:3; hainan:3; hong kong island:3; singapore:3; phuket:3; koh samui:3; lang
 celebes:3; luzon:3; mindanao:3; cebu:3; boracay:3; palawan:3; guam:3; samoa:3; tonga:3; new caledonia:3;
 vanuatu:3; isle of wight:3; isle of man:3; jersey:3; guernsey:3; anglesey:3; skye:3; isle of skye:3; lewis:3; orkney:3;
 shetland:3; hebrides:3; iona:3; lindisfarne:3; holy island:3; mull:3; islay:3; arran:3; barra:3; tiree:3;
-canna:3; rum:3; eigg:3; muck:3; staffa:3; fair isle:3; corfu:2; rhodes:2; santorini:2; mykonos:2;
-kos:2; zakynthos|zante:2; naxos:2; paros:2; lesbos:2; capri:2; elba:2; ischia:2; sark:2; alderney:2;
-herm:2; lundy:2; scilly:2; tresco:2; bornholm:2; gotland:2; oland:2; funen:2; zealand:2; aland:2;
-saaremaa:2; faroe islands:2; svalbard:2; spitsbergen:2; jan mayen:2; lofoten:2; senja:2; madeira:2; azores:2; canary islands:2;
-gran canaria:2; lanzarote:2; fuerteventura:2; la palma:2; la gomera:2; menorca|minorca:2; formentera:2; gozo:2; lampedusa:2; pantelleria:2;
-stromboli:2; vulcano:2; lipari:2; ustica:2; rottnest island:1; kangaroo island:1; fraser island:1; magnetic island:1; lord howe island:1; norfolk island:1;
-christmas island:1; macquarie island:1; tristan da cunha:1; saint helena:1; ascension island:1; falkland islands:1; south georgia:1; pitcairn:1; chiloe:1; tierra del fuego:1;
-juan fernandez:1; isabela:1;
+canna:3; rum:3; eigg:3; muck:3; staffa:3; fair isle:3; corfu:2; rhodes:2; mykonos:2; kos:2;
+zakynthos|zante:2; naxos:2; paros:2; lesbos:2; capri:2; elba:2; ischia:2; sark:2; alderney:2; herm:2;
+lundy:2; scilly:2; tresco:2; bornholm:2; gotland:2; oland:2; funen:2; zealand:2; aland:2; saaremaa:2;
+faroe islands:2; svalbard:2; spitsbergen:2; jan mayen:2; lofoten:2; senja:2; madeira:2; azores:2; canary islands:2; gran canaria:2;
+lanzarote:2; fuerteventura:2; la palma:2; la gomera:2; menorca|minorca:2; formentera:2; gozo:2; lampedusa:2; pantelleria:2; stromboli:2;
+vulcano:2; lipari:2; ustica:2; rottnest island:1; kangaroo island:1; fraser island:1; magnetic island:1; lord howe island:1; norfolk island:1; christmas island:1;
+macquarie island:1; tristan da cunha:1; saint helena:1; ascension island:1; falkland islands:1; south georgia:1; pitcairn:1; chiloe:1; tierra del fuego:1; juan fernandez:1;
+isabela:1;
 ` },
   { id: "q-greek-island", theme: "Travel", ask: "Name a Greek island", what: "a Greek island", items: `
 crete:5; santorini|thira:5; mykonos:5; rhodes:5; corfu|kerkyra:5; zakynthos|zante:4; kos:4; naxos:4; paros:4; kefalonia|cephalonia:4;
@@ -223,17 +223,17 @@ cayman islands|grand cayman:4; dominican republic:4; haiti:4; martinique:4; guad
 nevis:3; dominica:3; st martin|sint maarten|saint martin:3; st barts|saint barthelemy|st barthelemy:3; anguilla:3; montserrat:3; british virgin islands|bvi:3; us virgin islands:3; st thomas:3; st john:3;
 st croix:3; tortola:3; virgin gorda:3; hispaniola:3; st vincent:3; the grenadines:3; mustique:3; bequia:3; saba:3; st eustatius|statia:3;
 barbuda:3; cozumel:3; roatan:3; eleuthera:3; exuma:3; grand bahama:3; abaco:3; union island:2; canouan:2; mayreau:2;
-carriacou:2; marie-galante:2; les saintes:2; margarita island:2; san andres:2; providencia:2; bimini:2; andros:2; cat island:2; san salvador:2;
-great inagua:2; acklins:2; crooked island:2; bay islands:2; utila:2; little corn island:2; isla mujeres:2; vieques:2; culebra:2; mona island:2;
-jost van dyke:2; anegada:2; necker island:2; little cayman:1; cayman brac:1; grand turk:1; providenciales:1; north caicos:1; middle caicos:1; south caicos:1;
+carriacou:2; marie-galante:2; les saintes:2; margarita island:2; providencia:2; bimini:2; andros:2; cat island:2; san salvador:2; great inagua:2;
+acklins:2; crooked island:2; bay islands:2; utila:2; little corn island:2; isla mujeres:2; vieques:2; culebra:2; mona island:2; jost van dyke:2;
+anegada:2; necker island:2; san andres:2; little cayman:1; cayman brac:1; grand turk:1; providenciales:1; north caicos:1; middle caicos:1; south caicos:1;
 salt cay:1; saona island:1; navassa island:1; los roques:1; la tortuga:1; sombrero:1; redonda:1; la desirade:1; petit st vincent:1; petite martinique:1;
 ` },
   { id: "q-holiday-island", theme: "Travel", ask: "Name a holiday destination island", what: "a holiday destination island", items: `
-ibiza:5; majorca|mallorca:5; tenerife:5; crete:5; bali:5; hawaii:5; maldives:5; jamaica:5; santorini:4; mykonos:4;
-corfu:4; rhodes:4; malta:4; cyprus:4; sicily:4; sardinia:4; corsica:4; maui:4; tahiti:4; bora bora:4;
-fiji:4; barbados:4; seychelles:4; zanzibar:4; phuket:4; canary islands:4; madeira:4; lanzarote:4; gran canaria:4; fuerteventura:4;
-menorca|minorca:4; kos:4; zante|zakynthos:4; capri:4; bahamas:4; aruba:4; st lucia:4; antigua:4; cuba:4; puerto rico:4;
-koh samui|ko samui:4; oahu:3; kauai:3; big island:3; langkawi:3; penang:3; lombok:3; boracay:3; palawan:3; cebu:3;
+ibiza:5; majorca|mallorca:5; tenerife:5; crete:5; bali:5; hawaii:5; maldives:5; jamaica:5; mykonos:4; corfu:4;
+rhodes:4; malta:4; cyprus:4; sicily:4; sardinia:4; corsica:4; maui:4; tahiti:4; bora bora:4; fiji:4;
+barbados:4; seychelles:4; zanzibar:4; phuket:4; canary islands:4; madeira:4; lanzarote:4; gran canaria:4; fuerteventura:4; menorca|minorca:4;
+kos:4; zante|zakynthos:4; capri:4; bahamas:4; aruba:4; st lucia:4; antigua:4; cuba:4; puerto rico:4; koh samui|ko samui:4;
+santorini:4; oahu:3; kauai:3; big island:3; langkawi:3; penang:3; lombok:3; boracay:3; palawan:3; cebu:3;
 koh phi phi|ko phi phi:3; koh phangan|ko phangan:3; koh tao|ko tao:3; koh lanta|ko lanta:3; phu quoc:3; sri lanka:3; reunion:3; bermuda:3; cayman islands:3; turks and caicos:3;
 bonaire:3; curacao:3; st barts:3; st martin:3; anguilla:3; tobago:3; grenada:3; dominica:3; martinique:3; guadeloupe:3;
 isle of wight:3; jersey:3; guernsey:3; isle of man:3; skye:3; anglesey:3; tasmania:3; kangaroo island:3; fraser island:3; whitsunday islands:3;
