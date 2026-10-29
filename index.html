@@ -1,0 +1,179 @@
+<title>Far Out</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Far Out: the game of rare answers. Everyone says apple. Say rambutan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/screens.css">
+
+<canvas id="sky" aria-hidden="true"></canvas>
+
+<main id="app">
+  <!-- HOME -->
+  <section id="s-home" class="screen home">
+    <header class="brand">
+      <p class="eyebrow">The game of rare answers</p>
+      <h1 class="logo" aria-label="Far Out"><span>FAR</span><span>OUT</span></h1>
+      <p class="tag">Everyone says <em>apple</em>. You say <em>rambutan</em>.<br>The rarer your answer, the farther you fly.</p>
+    </header>
+
+    <ol class="scale" aria-label="Rarity scale, common to rare">
+      <li class="t5"><b>Low Orbit</b><span>10</span></li>
+      <li class="t4"><b>Moonshot</b><span>25</span></li>
+      <li class="t3"><b>Red Planet</b><span>45</span></li>
+      <li class="t2"><b>Deep Space</b><span>70</span></li>
+      <li class="t1"><b>Far Out</b><span>100</span></li>
+    </ol>
+
+    <nav class="modes">
+      <button class="mode" data-go="voyage" type="button">
+        <span class="mode-k">Solo · endless</span>
+        <b>Voyage</b>
+        <span class="mode-d">Endless prompts. Rare answers refuel your ship. How far can you get?</span>
+        <span class="mode-s" id="best-voyage">No voyage yet</span>
+      </button>
+      <button class="mode" data-go="daily" type="button">
+        <span class="mode-k">Solo · once a day</span>
+        <b>Daily Orbit</b>
+        <span class="mode-d">Six prompts, two answers each. Same prompts for everyone today.</span>
+        <span class="mode-s" id="best-daily">Ready</span>
+      </button>
+      <button class="mode crew" data-go="crew" type="button">
+        <span class="mode-k">Online · 2–10 players</span>
+        <b>Crew</b>
+        <span class="mode-d">Play with friends. Answers nobody else gave earn a Lone Signal bonus.</span>
+        <span class="mode-s">Create or join a room</span>
+      </button>
+    </nav>
+
+    <footer class="home-foot">
+      <button class="link" data-go="howto" type="button">How to play</button>
+      <button class="link" id="mute" type="button">Sound: on</button>
+      <span class="mono" id="bank-stat"></span>
+    </footer>
+  </section>
+
+  <!-- SOLO PLAY (Voyage + Daily) -->
+  <section id="s-play" class="screen play" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
+      <span class="hud-mode" id="play-mode">Voyage</span>
+      <div class="hud-dist"><span id="distance">0</span><small>ly</small></div>
+      <div class="hud-streak" id="streak" title="Streak multiplier">×1</div>
+    </div>
+    <div class="fuel" id="fuel-wrap">
+      <div class="fuel-bar"><i id="fuel"></i></div>
+      <span class="mono" id="fuel-label">Fuel 45s</span>
+    </div>
+    <div class="dots" id="daily-dots" hidden></div>
+
+    <div class="stage">
+      <article class="prompt" id="prompt">
+        <p class="p-cat" id="p-cat">Fruits</p>
+        <h2 class="p-ask" id="p-ask">Name a fruit</h2>
+        <p class="p-rule" id="p-rule"></p>
+        <p class="p-meta mono" id="p-meta"></p>
+      </article>
+
+      <form class="answer" id="answer-form" autocomplete="off">
+        <label for="ans" class="sr">Your answer</label>
+        <input id="ans" name="ans" type="text" maxlength="48" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your rarest answer">
+        <button class="btn primary" type="submit">Launch</button>
+      </form>
+      <div class="row-actions">
+        <button class="link" id="skip" type="button">Skip prompt</button>
+        <span class="slots mono" id="slots"></span>
+      </div>
+
+      <div class="result" id="result" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- SOLO GAME OVER -->
+  <section id="s-over" class="screen over" hidden>
+    <p class="eyebrow" id="over-k">Out of fuel</p>
+    <h2 class="over-h"><span id="over-dist">0</span><small>ly</small></h2>
+    <p class="over-best" id="over-best"></p>
+    <div class="hist" id="over-hist" aria-label="Answers by rarity"></div>
+    <dl class="stats" id="over-stats"></dl>
+    <div class="over-actions">
+      <button class="btn primary" id="again" type="button">Fly again</button>
+      <button class="btn" id="share" type="button">Copy result</button>
+      <button class="btn ghost" data-home type="button">Menu</button>
+    </div>
+    <textarea id="share-text" class="share-text" readonly hidden aria-label="Result text to copy"></textarea>
+  </section>
+
+  <!-- CREW (online) -->
+  <section id="s-crew" class="screen crew" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Leave and go to menu">&larr;</button>
+      <span class="hud-mode">Crew</span>
+      <span class="hud-room mono" id="crew-room"></span>
+      <span class="hud-net mono" id="crew-net"></span>
+    </div>
+    <div id="crew-body" class="crew-body"></div>
+  </section>
+
+  <!-- HOW TO PLAY -->
+  <section id="s-howto" class="screen howto" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
+      <span class="hud-mode">How to play</span>
+    </div>
+    <div class="howto-body">
+      <h2>Say what nobody else says.</h2>
+      <p>Each prompt asks you to name something: <em>a bird</em>, <em>a country with exactly 5 letters</em>, <em>a cheese starting with G</em>. Any real answer counts. The less obvious it is, the more it scores.</p>
+      <ol class="scale wide">
+        <li class="t5"><b>Low Orbit</b><span>10</span><i>What everyone says first</i></li>
+        <li class="t4"><b>Moonshot</b><span>25</span><i>Common</i></li>
+        <li class="t3"><b>Red Planet</b><span>45</span><i>Known, not a first thought</i></li>
+        <li class="t2"><b>Deep Space</b><span>70</span><i>Takes some knowledge</i></li>
+        <li class="t1"><b>Far Out</b><span>100</span><i>Expert-level, still real</i></li>
+      </ol>
+      <h3>Voyage</h3>
+      <p>Fuel burns every second. Valid answers refuel you, and rarer answers refuel more. Wrong answers cost 5 seconds. Valid answers in a row raise your multiplier up to ×2.</p>
+      <h3>Daily Orbit</h3>
+      <p>Six prompts, two answers each, no clock. Everyone gets the same prompts today, so compare scores with friends.</p>
+      <h3>Crew</h3>
+      <p>One player creates a room and shares the code or link. Everyone answers the same prompt at once. An answer only you gave earns a <b>Lone Signal</b> (+50%). If two players give the same answer, they <b>collide</b> and split the points. Answers missing from the word bank go to a quick crew vote.</p>
+      <p class="note">Small typos are forgiven. Plurals, capital letters and accents don't matter.</p>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/core.js"></script>
+<!-- DATA:start -->
+<script src="data/culture-1.js"></script>
+<script src="data/culture-2.js"></script>
+<script src="data/culture-3.js"></script>
+<script src="data/culture-4.js"></script>
+<script src="data/culture-5.js"></script>
+<script src="data/everyday-1.js"></script>
+<script src="data/everyday-2.js"></script>
+<script src="data/everyday-3.js"></script>
+<script src="data/everyday-4.js"></script>
+<script src="data/everyday-5.js"></script>
+<script src="data/everyday-6.js"></script>
+<script src="data/everyday-7.js"></script>
+<script src="data/nature-1.js"></script>
+<script src="data/nature-10.js"></script>
+<script src="data/nature-2.js"></script>
+<script src="data/nature-3.js"></script>
+<script src="data/nature-4.js"></script>
+<script src="data/nature-5.js"></script>
+<script src="data/nature-6.js"></script>
+<script src="data/nature-7.js"></script>
+<script src="data/nature-8.js"></script>
+<script src="data/nature-9.js"></script>
+<!-- DATA:end -->
+<script src="js/fx.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/solo.js"></script>
+<script src="js/net.js"></script>
+<script src="js/crew.js"></script>
+<script src="js/crew-view.js"></script>
+<script src="js/main.js"></script>

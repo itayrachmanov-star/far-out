@@ -1,0 +1,90 @@
+FarOut.addCategories([
+  { id: "sportsgear", name: "Sports Equipment", ask: "a piece of sports equipment", items: `
+ball:5; baseball bat|bat:5; basketball:5; football:5; soccer ball:5; tennis racket|tennis racquet|racket|racquet:5; golf club:5; helmet:5; hockey stick:5; skis:5;
+puck|hockey puck:4; skates|ice skates:4; snowboard:4; baseball glove|glove|mitt|catchers mitt:4; golf ball:4; tennis ball:4; goal|goalpost:4; net:4; dumbbell:4; boxing gloves:4;
+volleyball:4; baseball:4; bowling ball:4; skateboard:4; weights:4; jump rope|skipping rope:4; bicycle|bike:4; shin guards|shin pads:4; cleats|football boots|soccer cleats:4; whistle:4;
+treadmill:4; yoga mat:4; punching bag|heavy bag:4; barbell:4; kettlebell:4; surfboard:4; swim goggles|goggles:4; bow:4; arrow:3; archery target|target:4;
+pool cue|cue stick|cue:4; rugby ball:4; cricket bat:4; stopwatch:4; trampoline:4; frisbee:4; hoop|basketball hoop:4; mouthguard|mouth guard:3; football helmet:3; tee|golf tee:3;
+ski poles:3; ski boots:3; resistance bands:3; medicine ball:3; exercise ball|stability ball|swiss ball:3; stationary bike|exercise bike:3; elliptical:3; bowling pins|pins:3; cricket ball:3; wicket|stumps:3;
+bails:2; croquet mallet:2; polo mallet:2; lacrosse stick:3; golf bag:3; putter:3; golf driver|driver:3; wedge:2; bowling shoes:3; horseshoe:2;
+boomerang:2; sled:3; snowshoes:3; ice axe:2; crampons:2; climbing rope:3; harness|climbing harness:3; carabiner:2; chalk bag:2; climbing shoes:2;
+pickleball paddle|paddle:2; squash racket:2; fencing sword|foil|epee|sabre|saber:3; fencing mask:2; javelin:3; discus:3; shot put|shot:3; hurdle|hurdles:3; pole vault pole|vaulting pole:3; starting blocks:2;
+baton|relay baton:3; high jump bar|crossbar:2; gymnastics rings|rings:3; balance beam:3; pommel horse:3; parallel bars:3; uneven bars:2; vault:2; mat|gym mat:3; foam roller:3;
+pull-up bar:3; weight bench|bench:3; squat rack:2; weight plates|plates:3; wrist wraps:2; headgear:3; speed bag:3; boxing ring:3; ping pong paddle|table tennis bat|table tennis paddle:3; ping pong ball|table tennis ball:3;
+ping pong table|table tennis table:3; foosball table:2; air hockey table:2; pool table|billiard table|snooker table:3; chalk|cue chalk:3; shuttlecock|birdie:3; badminton racket:3; badminton net:2; volleyball net:3; tennis net:3;
+beach volleyball:3; softball:3; kickball:2; dodgeball:3; handball:2; water polo ball:2; bocce balls:2; cornhole bags:2; horseshoes:2; croquet set:2;
+golf cart:2; golf glove:1; nine iron|iron:1; sand wedge:1; hockey skates:2; figure skates:1; hockey helmet:2; hockey gloves:1;
+hockey net:2; goalie pads|goalie gloves|goalkeeper gloves:2; goalie mask:2; chest protector:1; catchers mask:2; batting helmet:2; batting gloves:1; batting tee:1; pitching machine:1;
+home plate|base|bases:2; baseball cap:2; football pads|shoulder pads:2; jersey:2; tackling dummy:1; blocking sled:1; corner flag:1; scoreboard:2;
+traffic cones|cones|training cones:2; agility ladder:1; kickboard:1; pull buoy:1; swim cap:2; lane rope:1; diving board:2; 
+snorkel:2; scuba tank|oxygen tank:2; fins|flippers:2; wetsuit:2; wakeboard:2; water skis:2; paddleboard:2; kayak paddle|paddle blade:1; oar:2; canoe:2;
+sail:1; life jacket:2; bodyboard|boogie board:2; skimboard:1; windsurfing board|windsurf board:1; kiteboard:1; rowing machine:2; rowing shell|racing shell:1; crew oar:1; coxswain megaphone:1;
+bobsled:1; luge:1; curling stone:1; curling broom:1; snowboard boots:1; ski goggles:2; ski helmet:2; ski bindings|bindings:1;
+dartboard:2; darts:3; cricket pads:2; cricket gloves:1; cricket stumps:1; polo stick:1; saddle:1; stirrups:1; horse jump:1;
+compound bow:1; crossbow:1; quiver:1; quarterstaff:1; quoits:1; xc skis|cross-country skis:1; yoga block:1; yoga strap:1; yardage book:1; zamboni:1;
+paintball gun|paintball marker:1; airsoft gun:1; hula hoop:2; stepper:1; step platform|aerobic step:1; ab roller:1; rowing oar:1; sandbag:1;
+battle ropes:1; plyo box:1; foam mat:1; hand grips:1; grip strengthener:1; jump box:1; weight vest:1; ankle weights:1; sweatband:1;
+tennis shoes:2; running shoes:3; sneakers:2; basketball shoes:1; cycling helmet|bike helmet:3; knee pads:2; elbow pads:2; wrist guards:1; roller skates:2; rollerblades|inline skates:2;
+bmx bike:1; mountain bike:1; road bike:1; bike pump:1; water bottle:2; gym bag:2; 
+` },
+  { id: "toy", name: "Toys", ask: "a toy", items: `
+lego:5; doll:5; teddy bear|teddy:5; ball:5; barbie:5; building blocks|blocks:5; puzzle|jigsaw puzzle:4; action figure:4; toy car|toy cars|hot wheels|matchbox car:4; toy truck:3;
+train set|toy train|model train:4; stuffed animal|plush|plushie|soft toy|stuffed toy:4; kite:4; jump rope|skipping rope:4; yo-yo|yoyo:4; slinky:4; rubiks cube|rubik's cube:4; play-doh|playdough|play dough|playdoh:4; etch a sketch:3; magic 8 ball|magic eight ball:2;
+frisbee:3; hula hoop:4; spinning top|top:3; marbles:4; jacks:3; dominoes:3; nerf gun|nerf blaster|nerf:4; water gun|water pistol|super soaker:4; cap gun:2; toy soldiers|army men:4;
+dollhouse|doll house:3; cabbage patch kids|cabbage patch doll:3; tickle me elmo:3; furby:4; tamagotchi:4; beanie babies:3; pogs:2; pokemon cards:3; trading cards:2; 
+tonka truck|tonka:3; mr potato head|mr. potato head:4; lincoln logs:3; erector set:2; k'nex|knex:3; tinkertoys:2; meccano:2; duplo:3; playmobil:3; transformers:4;
+gi joe|g.i. joe:3; he-man:3; thomas the tank engine|thomas the train:3; polly pocket:3; my little pony:3; bratz:3; american girl doll:3; raggedy ann:2; care bears:3; koosh ball:2;
+silly putty:3; slime:3; pop it|pop-it:3; fidget spinner:3; fidget toys:2; bubbles|bubble wand|bubble blower:3; sidewalk chalk:2; jack-in-the-box|jack in the box:3; music box:3; rocking horse:3;
+hobby horse|stick horse:3; pogo stick:3; scooter:3; tricycle:3; skateboard:2; roller skates:2; rollerblades:2; wagon|little red wagon:2; sled:2; sandbox:2;
+pail and shovel|sand bucket|sand toys:2; water balloon:2; balloon:4; whistle:2; kazoo:3; harmonica:2; toy piano:3; toy drum|drum:2; xylophone:3; tambourine:2;
+maracas:2; toy phone:2; toy kitchen|play kitchen:3; play food:2; tea set|toy tea set:2; costume|dress-up:2; toy tool set:2; toy cash register:2; puppet|hand puppet:3; finger puppets:2;
+marionette:2; ventriloquist dummy:2; robot|toy robot:3; remote control car|rc car:4; drone|toy drone:2; remote control helicopter|rc helicopter:2; toy plane|toy airplane:2; toy boat:2; rubber duck|rubber ducky:4; bath toys:2;
+rattle:3; teether:2; mobile|crib mobile:2; stacking rings:2; shape sorter:2; pegboard:2; abacus:2; alphabet blocks:2; flash cards:2; magnetic letters:2;
+view-master|viewmaster:2; kaleidoscope:2; telescope:2; chemistry set:2; science kit:2; lite-brite:2; spirograph:2; easy-bake oven:2; jenga:3; uno:3;
+simon:2; bop it:2; magna doodle:1; rock em sock em robots|rock 'em sock 'em robots:1; stretch armstrong:1; weebles:1; wiffle ball:1; nerf ball:2; hacky sack|footbag:1; diabolo:1;
+cup and ball|ball in a cup|kendama:2; pinwheel:2; gyroscope:1; newtons cradle|newton's cradle:1; plastic dinosaurs|dinosaur toys|toy dinosaur:3; squishmallows:3; lol surprise:2; hatchimals:2; beyblade:3;
+fingerlings:1; zhu zhu pets:1; webkinz:1; build-a-bear|build a bear:2; skip-it:1; cats cradle|cat's cradle|string game:1; paper airplane:2; tin soldiers:1; wooden train|brio:2; kinetic sand:2;
+magna-tiles|magnatiles:2; rainbow loom:2; loom bands:1; zoetrope:1; zoomer:1; zoids:1; kewpie doll:1; baby doll:3; rag doll:2; paper doll:2;
+barbie dreamhouse:1; ken doll|ken:2; monster high:2; bionicle:1; hot wheels track:1; scalextric:2; slot car:2; toy garage:1; toy farm:2;
+toy barn:1; toy animals|animal figures:3; toy castle:2; toy knights:1; toy pirate ship:1; toy fort:1; toy tractor:2; toy bulldozer:1;
+toy fire truck:2; toy police car:1; toy helicopter:1; toy rocket:1; toy spaceship:1; buzz lightyear:2; woody:2; star wars figures:2; power rangers:2;
+ninja turtles:2; troll doll:2; pet rock:1; gak:1; floam:1;
+
+` },
+  { id: "author", name: "Famous Authors & Writers", ask: "a famous author or writer", items: `
+william shakespeare|shakespeare:5; charles dickens|dickens:5; jane austen|austen:5; mark twain|twain|samuel clemens:5; stephen king|king:5; j.k. rowling|jk rowling|j k rowling|rowling:5; j.r.r. tolkien|jrr tolkien|j r r tolkien|tolkien:5; ernest hemingway|hemingway:5; f. scott fitzgerald|f scott fitzgerald|scott fitzgerald|fitzgerald:4; george orwell|orwell:5;
+agatha christie|christie:5; roald dahl|dahl:5; dr. seuss|dr seuss|seuss|theodor geisel:5; edgar allan poe|poe:4; leo tolstoy|tolstoy:4; c.s. lewis|cs lewis|c s lewis|lewis:4; george r.r. martin|george rr martin|george r r martin|grrm|martin:4; dan brown:4; arthur conan doyle|conan doyle|doyle:4; lewis carroll|carroll:4;
+jules verne|verne:4; h.g. wells|hg wells|h g wells|wells:4; fyodor dostoevsky|dostoevsky|dostoyevsky:4; homer:4; dante alighieri|dante:4; geoffrey chaucer|chaucer:4; mary shelley:4; robert frost|frost:4; walt whitman|whitman:4; emily dickinson|dickinson:4;
+maya angelou|angelou:4; oscar wilde|wilde:4; anton chekhov|chekhov:3; victor hugo|hugo:4; alexandre dumas|dumas:4; franz kafka|kafka:4; johann wolfgang von goethe|goethe:3; miguel de cervantes|cervantes:4; gabriel garcia marquez|garcia marquez|marquez:4; haruki murakami|murakami:4;
+toni morrison|morrison:4; harper lee|lee:4; john steinbeck|steinbeck:4; j.d. salinger|jd salinger|j d salinger|salinger:4; kurt vonnegut|vonnegut:4; ray bradbury|bradbury:4; isaac asimov|asimov:4; douglas adams|adams:4; terry pratchett|pratchett:4; neil gaiman|gaiman:4;
+suzanne collins|collins:4; stephenie meyer|meyer:4; rick riordan|riordan:4; john green:3; john grisham|grisham:4; james patterson|patterson:3; michael crichton|crichton:4; nicholas sparks|sparks:3; bram stoker|stoker:4; h.p. lovecraft|hp lovecraft|h p lovecraft|lovecraft:3;
+charlotte bronte:3; emily bronte:3; thomas hardy|hardy:3; virginia woolf|woolf:4; james joyce|joyce:4; william golding|golding:3; aldous huxley|huxley:3; rudyard kipling|kipling:4; robert louis stevenson|stevenson:4; j.m. barrie|jm barrie|j m barrie|barrie:3;
+a.a. milne|aa milne|a a milne|milne:3; beatrix potter|potter:4; enid blyton|blyton:4; louisa may alcott|alcott:3; judy blume|blume:4; shel silverstein|silverstein:4; eric carle|carle:3; jeff kinney|kinney:3; r.l. stine|rl stine|r l stine|stine:3; david walliams|walliams:3;
+jonathan swift|swift:4; herman melville|melville:4; jack london|london:4; cormac mccarthy|mccarthy:3; margaret atwood|atwood:4; ayn rand|rand:3; hans christian andersen|andersen:4; brothers grimm|grimm|jacob grimm|wilhelm grimm:4; aesop:3; anne frank|frank:4;
+virgil:2; john milton|milton:3; lord byron|byron:3; william wordsworth|wordsworth:3; percy bysshe shelley|percy shelley|shelley:3; john keats|keats:3; samuel taylor coleridge|coleridge:3; langston hughes|hughes:3; sylvia plath|plath:3; t.s. eliot|ts eliot|t s eliot|eliot:3;
+w.b. yeats|wb yeats|w b yeats|yeats:3; dylan thomas:3; george bernard shaw|bernard shaw|shaw:3; arthur miller:3; tennessee williams:3; samuel beckett|beckett:3; henrik ibsen|ibsen:3; moliere:3; gustave flaubert|flaubert:3; marcel proust|proust:3;
+albert camus|camus:3; jean-paul sartre|sartre:3; voltaire:3; emile zola|zola:3; antoine de saint-exupery|saint-exupery:3; hermann hesse|hesse:3; umberto eco|eco:3; jorge luis borges|borges:3; pablo neruda|neruda:3; isabel allende|allende:3;
+paulo coelho|coelho:3; kazuo ishiguro|ishiguro:3; salman rushdie|rushdie:3; chinua achebe|achebe:3; alice walker:3; zora neale hurston|hurston:3; james baldwin|baldwin:3; william faulkner|faulkner:3; jack kerouac|kerouac:3; joseph heller|heller:3;
+arthur c. clarke|arthur c clarke|clarke:3; philip k. dick|philip k dick|dick:3; robert heinlein|heinlein:3; frank herbert|herbert:3; ursula k. le guin|ursula le guin|le guin:3; brandon sanderson|sanderson:2; tom clancy|clancy:3; danielle steel|steel:3; dean koontz|koontz:2; anne rice|rice:3;
+colleen hoover|hoover:2; raymond chandler|chandler:3; john le carre|le carre:2; daphne du maurier|du maurier:3; anne bronte:2; d.h. lawrence|dh lawrence|d h lawrence|lawrence:3; e.m. forster|em forster|e m forster|forster:3; graham greene|greene:3; ian fleming|fleming:3; kenneth grahame|grahame:2;
+l. frank baum|l frank baum|frank baum|baum:2; l.m. montgomery|lm montgomery|l m montgomery|montgomery:2; laura ingalls wilder|ingalls wilder|wilder:2; e.b. white|eb white|e b white|white:2; beverly cleary|cleary:2; madeleine l'engle|madeleine lengle|l'engle:2; maurice sendak|sendak:2; dav pilkey|pilkey:2; lemony snicket|snicket:2; philip pullman|pullman:2;
+julia donaldson|donaldson:2; daniel defoe|defoe:2; walter scott|sir walter scott|scott:2; nathaniel hawthorne|hawthorne:2; henry james:2; edith wharton|wharton:2; truman capote|capote:2; philip roth|roth:2; john updike|updike:2; margaret mitchell|mitchell:2;
+khaled hosseini|hosseini:2; markus zusak|zusak:2; astrid lindgren|lindgren:2; charles perrault|perrault:2; rumi:2; kahlil gibran|gibran:2; rabindranath tagore|tagore:2; amy tan|tan:2; elena ferrante|ferrante:2; elie wiesel|wiesel:2;
+vladimir nabokov|nabokov:2; nikolai gogol|gogol:2; alexander pushkin|pushkin:2; aleksandr solzhenitsyn|solzhenitsyn:2; milan kundera|kundera:2; chimamanda ngozi adichie|adichie:2; bill bryson|bryson:2; malcolm gladwell|gladwell:2; yuval noah harari|harari:2; charles bukowski|bukowski:2;
+allen ginsberg|ginsberg:2; robert burns|burns:2; alfred lord tennyson|tennyson:2; christopher marlowe|marlowe:2; sophocles:2; sappho:2; zadie smith|smith:2; seamus heaney|heaney:1; harold pinter|pinter:1; tom stoppard|stoppard:1;
+august strindberg|strindberg:1; bertolt brecht|brecht:1; eugene o'neill|eugene oneill|oneill:1; honore de balzac|balzac:1; stendhal:1; guy de maupassant|maupassant:1; thomas mann|mann:1; friedrich schiller|schiller:1; gunter grass|grass:1; italo calvino|calvino:1;
+mario vargas llosa|vargas llosa:1; julio cortazar|cortazar:1; octavio paz:1; yukio mishima|mishima:1; wole soyinka|soyinka:1; ralph ellison|ellison:1; richard wright:1; octavia butler|butler:1; robert jordan:1; patrick rothfuss|rothfuss:1;
+veronica roth:1; nora roberts:1; lee child|child:1; clive barker|barker:1; dashiell hammett|hammett:1; evelyn waugh|waugh:1; george eliot:2; edith nesbit|nesbit:1; eoin colfer|colfer:1; jacqueline wilson:1;
+michael morpurgo|morpurgo:1; anthony horowitz|horowitz:1; malorie blackman|blackman:1; henry fielding|fielding:1; laurence sterne|sterne:1; samuel richardson:1; anthony trollope|trollope:1; william makepeace thackeray|thackeray:1; elizabeth gaskell|gaskell:1; wilkie collins:1;
+willa cather|cather:1; theodore dreiser|dreiser:1; sinclair lewis:1; upton sinclair|sinclair:1; john dos passos|dos passos:1; thomas wolfe:1; norman mailer|mailer:1; saul bellow|bellow:1; don delillo|delillo:1; thomas pynchon|pynchon:1;
+david foster wallace|dfw:1; jonathan franzen|franzen:1; donna tartt|tartt:1; alice munro|munro:1; louis l'amour|louis lamour|l'amour:1; zane grey:1; elmore leonard:1; kate chopin|chopin:1; charlotte perkins gilman|perkins gilman:1; mitch albom|albom:1;
+yann martel|martel:1; stieg larsson|larsson:1; jo nesbo|nesbo:1; henning mankell|mankell:1; omar khayyam|khayyam:1; r.k. narayan|rk narayan|narayan:1; arundhati roy|roy:1; jhumpa lahiri|lahiri:1; vikram seth|seth:1; amitav ghosh|ghosh:1;
+maxine hong kingston|kingston:1; lu xun:1; mo yan:1; cixin liu|liu cixin:1; kenzaburo oe:1; banana yoshimoto|yoshimoto:1; natsume soseki|soseki:1; yasunari kawabata|kawabata:1; alberto moravia|moravia:1; primo levi|levi:1;
+viktor frankl|frankl:1; mikhail bulgakov|bulgakov:1; boris pasternak|pasternak:1; ivan turgenev|turgenev:1; maxim gorky|gorky:1; jose saramago|saramago:1; fernando pessoa|pessoa:1; karl ove knausgaard|knausgaard:1; michel houellebecq|houellebecq:1; vaclav havel|havel:1;
+czeslaw milosz|milosz:1; wislawa szymborska|szymborska:1; ismail kadare|kadare:1; orhan pamuk|pamuk:1; naguib mahfouz|mahfouz:1; doris lessing|lessing:1; nadine gordimer|gordimer:1; j.m. coetzee|jm coetzee|coetzee:1; alan paton|paton:1; patrick white:1;
+peter carey:1; tim winton|winton:1; thomas keneally|keneally:1; colleen mccullough|mccullough:1; banjo paterson|paterson:1; henry lawson:1; dale carnegie|carnegie:1; napoleon hill:1; robert kiyosaki|kiyosaki:1; hunter s. thompson|hunter s thompson|hunter thompson:1;
+william s. burroughs|william s burroughs|burroughs:1; ken kesey|kesey:1; ogden nash:1; wilfred owen|owen:1; siegfried sassoon|sassoon:1; robert browning|browning:1; elizabeth barrett browning|barrett browning:1; christina rossetti:1; john donne|donne:1; andrew marvell|marvell:1;
+alexander pope|pope:1; edmund spenser|spenser:1; ben jonson|jonson:1; john bunyan|bunyan:1; thomas malory|sir thomas malory|malory:1; ovid:1; euripides:1; aeschylus:1; aristophanes:1; plutarch:1;
+herodotus:1; horace:1; seneca:1; giovanni boccaccio|boccaccio:1; petrarch:1; ellery queen:1; francisco de quevedo|quevedo:1; raymond queneau|queneau:1; yevgeny zamyatin|zamyatin:1; rudolfo anaya:1;
+` }
+]);

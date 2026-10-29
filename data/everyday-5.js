@@ -1,0 +1,103 @@
+FarOut.addCategories([
+  { id: "emotion", name: "Emotions & Feelings", ask: "an emotion or feeling", items: `
+happy|happiness:5; sad|sadness:5; angry|anger|mad:5; scared|afraid|fear|fearful:5; excited|excitement:5; love:5; joy|joyful:5; hate|hatred:4; surprised|surprise:5; nervous|nervousness:4;
+anxious|anxiety:5; jealous|jealousy:5; bored|boredom:4; frustrated|frustration:4; proud|pride:4; embarrassed|embarrassment:4; lonely|loneliness:4; guilty|guilt:4; confused|confusion:4; stressed|stress:4;
+worried|worry:4; disgusted|disgust:4; ashamed|shame:4; hopeful|hope:4; grateful|gratitude|thankful:4; calm|calmness:4; content|contentment:4; curious|curiosity:4; envy|envious:3; regret|regretful:3;
+disappointed|disappointment:4; hurt:4; depressed|depression:4; overwhelmed:4; relieved|relief:4; shocked|shock:4; shy|shyness:4; terrified|terror:3; thrilled:3; furious|fury:3;
+irritated|irritation:3; annoyed|annoyance:3; upset:4; unhappy:3; miserable|misery:3; satisfied|satisfaction:3; sorry:2; relaxed:3; peaceful|peace:3; confident|confidence:4;
+optimistic|optimism:3; nostalgic|nostalgia:3; panicked|panic:3; rage:3; suspicious|suspicion:3; sympathy:3; empathy:3; compassion:3; amused|amusement:3; heartbroken|brokenhearted:3;
+insecure|insecurity:3; ecstatic|ecstasy:3; elated:2; euphoric|euphoria:3; grief|grieving:3; sorrow:3; homesick|homesickness:3; cheerful|cheerfulness:3; delighted|delight:3; determined|determination:3;
+awkward|awkwardness:3; tense|tension:3; hysterical:2; horrified|horror:3; devastated:3; humiliated|humiliation:3; overjoyed:2; joyous:2; jubilant:1; hopeless|hopelessness:3;
+helpless|helplessness:2; powerless:1; trapped:1; sleepy:2; tired|fatigue:3; exhausted:3; weary:2; energetic:2; restless|restlessness:2; impatient|impatience:3;
+agitated:2; amazed|amazement:3; awe|awestruck:3; anticipation:3; apathetic|apathy:2; indifferent|indifference:2; numb|numbness:2; empty|emptiness:2; blissful|bliss:3;
+serene|serenity:2; tranquil|tranquility:2; secure|security:2; safe:2; loved:2; loving:2; affection|affectionate:3; fondness|fond:2; adoration|adore:1; lust|lustful:2;
+passion|passionate:3; desire:2; longing:2; yearning|yearn:2; wistful|wistfulness:1; melancholy|melancholic:2; gloomy|gloom:2; despair|despairing:3; anguish:2; distress|distressed:2;
+dread:3; unease|uneasy:3; uncomfortable|discomfort:3; apprehensive|apprehension:2; fearless:1; brave|bravery:2; courage|courageous:2; cautious|caution:2; wary:1; paranoid|paranoia:3;
+mortified:2; self-conscious:2; bashful:1; timid|timidity:1; sheepish:1; flustered:2; flattered:1; smug|smugness:2; arrogant:1; conceited:1;
+vain|vanity:1; greedy|greed:2; selfish:1; spiteful|spite:1; vengeful|vengeance:1; bitter|bitterness:2; resentful|resentment:3; hostile|hostility:2; contempt:2; scorn:1;
+indignant|indignation:1; outraged|outrage:3; offended:2; insulted:2; betrayed|betrayal:3; abandoned:2; rejected|rejection:3; neglected:1; ignored:1; excluded:1;
+isolated|isolation:2; alienated:1; unloved:1; unwanted:1; worthless:2; inadequate:1; inferior:1; remorse:3; repentant:1;
+sympathetic:2; tender:1; touched:1; moved:1; inspired|inspiration:3; motivated|motivation:3; enthusiastic|enthusiasm:3; eager|eagerness:2; keen:1;
+zealous|zeal:1; fervent:1; giddy:2; gleeful|glee:2; elation:1; exhilarated|exhilaration:2; playful|playfulness:2; silly:2; mischievous:1;
+glad:3; pleased:3; gratified:1; fulfilled|fulfillment:2; accomplished:1; triumphant|triumph:2; victorious:1; trusting|trust:3; faith:2;
+doubt|doubtful:3; skeptical|skepticism:2; uncertain|uncertainty:2; unsure:2; hesitant|hesitation:2; reluctant:2; ambivalent|ambivalence:2; torn:1; conflicted:2; perplexed:1;
+puzzled:2; bewildered:2; baffled:1; dazed:1; disoriented:1; lost:2; dismayed|dismay:2; shaken:1; stunned:2; speechless:1;
+astonished|astonishment:2; startled:2; alarmed|alarm:2; frightened:3; petrified:2; spooked:1; creeped out:1; jittery:1; jumpy:1; edgy:1;
+on edge:1; uptight:1; cranky:2; grumpy:3; grouchy:2; irritable:2; moody:2; sulky:1; sullen:1; 
+bummed:1; down:2; blue:2; low:1; glum:1; dejected:2; discouraged:2; disheartened:1; crushed:2; heavyhearted|heavy-hearted:1;
+mournful:1; woeful:1; forlorn:1; nauseated|nauseous|queasy:1; schadenfreude:2; ennui:1; saudade:1; wanderlust:2;
+hygge:1; qualm:1; zestful|zest:1;
+` },
+  { id: "shape", name: "Shapes", ask: "a shape", items: `
+circle:5; square:5; triangle:5; rectangle:5; oval:4; star:4; heart:4; diamond:4; pentagon:4; hexagon:4;
+octagon:4; cube:4; sphere:4; pyramid:4; cylinder:4; cone:4; crescent:4; rhombus:4; trapezoid|trapezium:3; parallelogram:3;
+ellipse:4; cross:4; polygon:3; prism:3; cuboid:3; spiral:3; lightning bolt:3; arrow:3; kite:3; semicircle:3;
+heptagon:3; nonagon:2; decagon:2; dodecagon:2; hendecagon:1; quadrilateral:3; torus|donut:3; tetrahedron:3; octahedron:3; dodecahedron:3;
+icosahedron:3; hemisphere:3; ellipsoid:2; spheroid:2; helix:3; zigzag:3; teardrop:3; oblong:3; pentagram:3; hexagram|star of david:3;
+trefoil:2; cardioid:2; deltoid:1; astroid:1; lens:1; vesica piscis:1; reuleaux triangle:1; mobius strip:2; klein bottle:1; tesseract|hypercube:2;
+frustum:2; scalene triangle:2; isosceles triangle:3; equilateral triangle:3; right triangle|right-angled triangle|right angle triangle:2; chevron:3; lune:2; sector:2; segment:2; arc:3;
+line:2; curve:2; plus sign|plus:2; square pyramid:2; triangular prism:2; rhomboid:2; parallelepiped:1; antiprism:1; geodesic dome:2; capsule:2;
+stadium:1; squircle:1; superellipse:1; egg shape|ovoid:2; blob:1; quatrefoil:2; quarter circle:1; quadrant:1; annulus|ring:2; lozenge:2;
+crescent moon:2; bowtie:1; hourglass:3; ribbon:1; wave:2; sine wave:1; parabola:2;
+hyperbola:2; sinusoid:1; cycloid:1; lemniscate|infinity symbol|infinity:2; fractal:2; koch snowflake:1; sierpinski triangle:1; platonic solid:2; archimedean solid:1; polyhedron:2;
+octagonal prism:1; hexagonal prism:1; pentagonal prism:1; hexagonal pyramid:1; triangular pyramid:1; cuboctahedron:1; truncated icosahedron:1; rhombic dodecahedron:1; icosidodecahedron:1; stellated dodecahedron:1;
+wedge:2; disc|disk:2; 
+` },
+  { id: "unit", name: "Units of Measurement", ask: "a unit of measurement", items: `
+meter|metre:5; mile:5; inch:5; foot|feet:5; pound:5; kilogram|kilo:5; liter|litre:5; ounce:5; gallon:5; kilometer|kilometre:5;
+gram:4; yard:4; centimeter|centimetre:4; millimeter|millimetre:4; second:4; minute:4; hour:4; day:4; cup:4; tablespoon:4;
+teaspoon:4; pint:4; quart:4; celsius|centigrade:4; fahrenheit:4; degree:4; watt:4; volt:4; acre:4; ton|tonne:4; calorie:4; byte:4;
+week:4; month:4; year:4; milligram:4; milliliter|millilitre:4; ampere|amp:4; hertz:4; megabyte:4; gigabyte:4; kelvin:4;
+ohm:3; newton:3; joule:3; pascal:3; kilowatt:3; horsepower:4; decibel:4; knot:3; percent:3; kilobyte:3;
+hectare:3; light year|lightyear:3; bit:3; terabyte:3; dozen:3; stone:3; mph|miles per hour:3; kph|kmh|kilometers per hour|km/h:3; carat:3; barrel:3;
+nautical mile:3; parsec:3; fathom:3; furlong:3; chain:2; rod:2; league:3; hand:3; span:2; cubit:3;
+ell:2; barleycorn:2; thou|mil:2; point:2; pica:2; square foot|square feet:3; square meter|square metre:3; square mile:2; are:2; barn:2;
+hundredweight:2; grain:2; dram:2; troy ounce:2; pennyweight:1; scruple:1; slug:2; cord:2; board foot:1; bushel:3;
+peck:2; firkin:1; hogshead:1; gill:2; fluid ounce:3; jigger:2; pinch:3; dash:3; smidgen:2; drop:3;
+millisecond:3; microsecond:3; nanosecond:3; decade:3; century:3; millennium:3; fortnight:3; lustrum:1; rankine:1; reaumur:1;
+coulomb:3; farad:3; henry:2; tesla:3; weber:2; siemens:2; lumen:3; lux:3; candela:3; mole:3;
+becquerel:2; gray:2; sievert:2; katal:1; radian:3; steradian:1; kilohertz:3; megahertz:3; gigahertz:3; btu|british thermal unit:3;
+therm:2; kilowatt-hour|kilowatt hour|kwh:3; megawatt:3; gigawatt:2; electronvolt|electron volt:1; erg:2; dyne:2; poise:1; torr:2; bar:3;
+atmosphere|atm:3; psi|pounds per square inch:3; millibar:1; mmhg|millimeter of mercury:1; mach:3; rpm|revolutions per minute:3; gauss:2; maxwell:1; oersted:1; curie:2;
+roentgen:2; rad:2; rem:2; kilocalorie:3; diopter|dioptre:1; pixel:3; dpi|dots per inch:1; baud:2; ppm|parts per million:2; gradian|gon:1;
+arcminute:1; arcsecond:1; megaton:3; kiloton:3; gross:2; score:3; ream:2; bale:2; angstrom:3; micrometer|micrometre|micron:3;
+nanometer|nanometre:3; picometer|picometre:1; femtometer|fermi:1; astronomical unit|au:3; kilobit:1; megabit:2; gigabit:2; petabyte:2; exabyte:1; zettabyte:1;
+yottabyte:1; attosecond:1; femtosecond:1; picosecond:1; hectopascal:1; kilopascal:1; megapascal:1; milliampere|milliamp:1; microampere:1; kilovolt:1;
+millivolt:1; kiloohm:1; megaohm:1; kilojoule:2; megajoule:1; kilonewton:1; metric ton|metric tonne:2; short ton:1; long ton:1; microgram:2;
+nanogram:1; meter per second|metre per second:2; foot-pound|foot pound:1; newton-meter|newton meter:1; pound-force:1; square kilometer|square kilometre:2; cubic meter|cubic metre:2; cubic foot|cubic feet:2; cubic inch:1;
+square inch:2; square yard:1; square centimeter:1; cubic centimeter|cc:2; cubic yard:1; liter per minute:1; gallon per minute|gpm:1; acre-foot:1; hectoliter:1; centiliter:1;
+deciliter:1; decimeter:1; hectometer:1; decameter|dekameter:1; kilogram-force:1; fluid dram:1; imperial gallon:2; us gallon:1; metric cup:1; 
+shot:2; jiffy:1;
+eon|aeon:2; sol:1; julian day:1; sidereal day:1; leap year:1; olympiad:1;
+quire:1; quintal:1; quarter:2; x unit:1; yobibyte:1; 
+zeptosecond:1; zolotnik:1; zentner:1;
+` },
+  { id: "fabric", name: "Fabrics & Materials", ask: "a fabric or material", items: `
+cotton:5; silk:5; wool:5; polyester:5; leather:5; denim:5; wood:5; metal:5; plastic:5; glass:5;
+linen:4; velvet:4; nylon:4; satin:4; fleece:4; cashmere:4; paper:4; steel:5; iron:4; aluminum|aluminium:4;
+copper:4; gold:4; silver:4; stone:4; concrete:4; brick:4; rubber:4; lace:4; flannel:4; corduroy:4;
+spandex|lycra|elastane:4; rayon:3; tweed:4; suede:4; canvas:4; chiffon:3; jersey:3; acrylic:3; felt:4; fur:4;
+plaid|tartan:3; cardboard:4; clay:3; cement:4; ceramic:4; porcelain:3; brass:3; bronze:4; marble:4; granite:4;
+bamboo:4; cork:3; fiberglass|fibreglass:3; plywood:4; tin:3; lead:3; titanium:3; stainless steel:3; cast iron:3; styrofoam|polystyrene:3;
+pvc:3; silicone:3; foam:3; latex:3; wax:3; plaster:3; drywall|plasterboard:3; sand:3; lumber|timber:3; oak:3;
+pine:3; mahogany:3; teak:3; cedar:3; maple:3; walnut:3; birch:3; ebony:2; balsa:2;
+terry cloth|terrycloth|terry:3; mesh:3; muslin:3; gingham:3; tulle:3; taffeta:3; organza:3; damask:3; brocade:3; chenille:3;
+crepe:3; seersucker:2; twill:3; poplin:2; chambray:2; gabardine:2; jacquard:2; velour:2; viscose:2; mohair:3;
+angora:2; alpaca:3; merino:3; hemp:3; jute:3; burlap|hessian:3; faux fur:2; faux leather|pleather:2; vinyl:3; neoprene:3;
+gore-tex|goretex:3; microfiber|microfibre:3; calico:2; cheesecloth:2; gauze:2; herringbone:2; houndstooth:2; kevlar:3; pashmina:2; plush:2;
+tapestry:2; velveteen:2; pewter:3; zinc:3; nickel:3; chromium|chrome:2; platinum:3; wrought iron:2; asbestos:2;
+carbon fiber|carbon fibre:2; resin:2; epoxy:2; teflon:2; polyethylene:2; limestone:3; sandstone:2; slate:3; ivory:3; bone:3;
+rattan:3; wicker:3; straw:3; stucco:1; mortar:2; asphalt|tarmac:3; gravel:3; quartz:3; mdf:2; particleboard|chipboard:2;
+georgette:2; ramie:2; sisal:2; raffia:2; batiste:2; cambric:2; challis:2; charmeuse:2; chino:2; chintz:2;
+cretonne:1; dimity:1; drill:2; duck:2; dupioni:1; faille:1; flannelette:1; foulard:1; grosgrain:1; habotai:1;
+khaki:2; lame:1; lawn:2; linsey-woolsey:1; loden:1; madras:1; moleskin:2; moire:1; nankeen:1; ninon:1;
+oilcloth:2; organdy:1; oxford cloth|oxford:1; paisley:2; percale:2; pique:2; ponte:1; sailcloth:1; sateen:2; scrim:1;
+serge:2; shantung:1; sharkskin:1; sheeting:1; ticking:1; toile:2; tricot:2; tussah:1; vicuna:1; voile:2;
+waffle weave|waffle cloth:1; worsted:2; zibeline:1; qiviut:1; quilted fabric|quilting:1; ultrasuede:1; yak wool:1; zephyr cloth:1; horn:1; thatch:1;
+solder:1; gypsum:1; veneer:1; hardboard:1; obsidian:1; quicksilver:1; yarn:1; xylonite:1; zirconium:1; zeolite:1;
+amber:1; basalt:1; chalk:1; coal:3; diamond:3; flint:1; glass wool:1; graphite:3; jade:1; lava rock:1;
+magnesium:1; mica:1; pumice:1; tar:1; vellum:2; parchment:2; papyrus:2;
+rice paper:1; tissue paper:1; aluminum foil|tin foil:1; bubble wrap:1; kraft paper:1; construction paper:1; plexiglass|perspex|acrylic glass:2; polycarbonate:1;
+polypropylene:1; polyurethane:1; bakelite:1; celluloid:1; formica:1; linoleum:1; astroturf:1; tarpaulin:1; oilskin:1;
+` }
+]);

@@ -1,0 +1,73 @@
+FarOut.addCategories([
+  { id: "dinosaur", name: "Dinosaurs & Prehistoric Animals", ask: "a dinosaur or prehistoric animal", items: `
+tyrannosaurus rex|t-rex|t rex|trex|tyrannosaurus:5; velociraptor|raptor:5; triceratops:5; stegosaurus:5;
+brachiosaurus:5; diplodocus:5; brontosaurus:5; apatosaurus:4; spinosaurus:5; ankylosaurus:5; allosaurus:4;
+pterodactyl|pterodactylus:5; pteranodon:4; woolly mammoth|mammoth:5; saber-toothed tiger|sabre-toothed tiger|saber-toothed cat|smilodon:5;
+megalodon:4; mastodon:4; dire wolf:3; iguanodon:4; parasaurolophus:4; pachycephalosaurus:4; dilophosaurus:4;
+gallimimus:3; carnotaurus:4; giganotosaurus:4; archaeopteryx:3; compsognathus:3; megalosaurus:3; baryonyx:3;
+utahraptor:3; deinonychus:3; oviraptor:3; protoceratops:3; styracosaurus:3; maiasaura:3; plesiosaur|plesiosaurus:4;
+mosasaurus|mosasaur:4; ichthyosaur|ichthyosaurus:3; pterosaur:3; quetzalcoatlus:3; trilobite:4; ammonite:3;
+dimetrodon:4; dodo:3; giant ground sloth|megatherium:3; glyptodon:3; woolly rhinoceros|woolly rhino:3; cave bear:3;
+cave lion:3; megaloceros|irish elk:3; elephant bird|aepyornis:3; moa:3; great auk:3; thylacine|tasmanian tiger:3;
+titanoboa:3; dunkleosteus:3; liopleurodon:3; elasmosaurus:3; therizinosaurus:3; argentinosaurus:3; microraptor:3;
+troodon:3; ceratosaurus:3; pentaceratops:3; torosaurus:2; centrosaurus:2; edmontosaurus:3; hadrosaurus|hadrosaur:3;
+corythosaurus:3; lambeosaurus:2; saurolophus:2; psittacosaurus:3; struthiomimus:3; ornithomimus:3; titanosaurus:3;
+patagotitan:3; supersaurus:3; seismosaurus:2; camarasaurus:3; mamenchisaurus:3; amargasaurus:3; plateosaurus:3;
+coelophysis:3; herrerasaurus:2; eoraptor:2; cryolophosaurus:3; albertosaurus:3; gorgosaurus:2; daspletosaurus:2;
+tarbosaurus:2; acrocanthosaurus:3; carcharodontosaurus:3; torvosaurus:2; suchomimus:3; irritator:2; dromaeosaurus:2;
+achillobator:2; gigantoraptor:2; citipati:2; kentrosaurus:3; huayangosaurus:2; scelidosaurus:2; nodosaurus:2;
+euoplocephalus:2; polacanthus:2; edmontonia:2; sauropelta:2; minmi:2; muttaburrasaurus:2; leaellynasaura:2;
+hypsilophodon:2; dryosaurus:2; camptosaurus:2; ouranosaurus:2; shantungosaurus:2; olorotitan:2; pachyrhinosaurus:2;
+einiosaurus:2; chasmosaurus:2; anchiceratops:2; arrhinoceratops:2; kosmoceratops:2; nasutoceratops:2;
+yi qi:2; sinosauropteryx:3; caudipteryx:2; confuciusornis:2; anchiornis:2; dracorex:2; stygimoloch:2;
+stegoceras:2; homalocephale:2; dreadnoughtus:3; futalognkosaurus:2; sauroposeidon:2; barosaurus:1; nigersaurus:3;
+concavenator:1; majungasaurus:1; masiakasaurus:1; rajasaurus:1; dilong:1; guanlong:1; yutyrannus:1; zuul:3;
+regaliceratops:1; deltadromeus:1; rhamphorhynchus:3; dimorphodon:2; tapejara:1; hatzegopteryx:1;
+kronosaurus:2; pliosaur|pliosaurus:2; nothosaurus:1; tylosaurus:2; archelon:2; short-faced bear|arctodus:2; american lion:1;
+giant beaver|castoroides:1; paraceratherium|indricotherium|baluchitherium:2; andrewsarchus:2; basilosaurus:2; ambulocetus:1;
+pakicetus:1; eohippus|hyracotherium:2; deinotherium:1; gomphotherium:1; platybelodon:1; entelodont|hell pig:2;
+diprotodon:2; megalania|varanus priscus:2; sarcosuchus|supercroc:3; deinosuchus:3; purussaurus:2; gastornis|diatryma:2;
+terror bird|phorusrhacos|phorusrhacid:3; argentavis:2; anomalocaris:3; eurypterid|sea scorpion:3; meganeura:3;
+arthropleura:3; edaphosaurus:2; lystrosaurus:2; cynognathus:1; moschops:1; gorgonopsid:1; tiktaalik:3; ichthyostega:2;
+acanthostega:1; hallucigenia:3; opabinia:2; wiwaxia:1; pikaia:1; passenger pigeon:3; steller's sea cow:2; quagga:2;
+aurochs:2; doedicurus:1; macrauchenia:1; toxodon:1; thylacoleo|marsupial lion:2; procoptodon:1; helicoprion:2;
+xiphactinus:2; leedsichthys:2; hesperornis:1; amphicyon|bear dog:1; hyaenodon:1; uintatherium:1;
+brontotherium|titanothere:1; homotherium|scimitar cat:2; haast's eagle:2; elasmotherium|siberian unicorn:2;
+sivatherium:1; megalonyx:1; mylodon:1; dinofelis:1; arsinoitherium:1; moeritherium:1; palaeomastodon:1; titanis:1;
+kelenken:1; pelagornis:1; teratorn:1; nyctosaurus:1; istiodactylus:1; cave hyena:2; steppe mammoth:1; columbian mammoth:2;
+dwarf mammoth:1; american mastodon:2; giant kangaroo:1; sauropod:3; theropod:3; ceratopsian:2; ornithopod:1; stegosaur:2;
+ankylosaur:2; abelisaurus:1; alioramus:1; anchisaurus:1; avimimus:1; bambiraptor:1; beipiaosaurus:1; brachylophosaurus:1;
+chilesaurus:1; dacentrurus:1; dicraeosaurus:1; eotyrannus:1; europasaurus:1; giraffatitan:2; hylaeosaurus:1; jobaria:1;
+kritosaurus:1; lesothosaurus:1; lufengosaurus:1; mapusaurus:1; megaraptor:1; microceratus:1; monolophosaurus:1;
+mononykus:1; neovenator:1; ornitholestes:1; prosaurolophus:1; saltasaurus:2; sinraptor:1; sinornithosaurus:1;
+tenontosaurus:1; thescelosaurus:1; tuojiangosaurus:1; unenlagia:1; vulcanodon:1; yangchuanosaurus:1; zuniceratops:1;
+ubirajara:1; udanoceratops:1; uberabatitan:1; ultrasaurus:1; xiaosaurus:1; zalmoxes:1; zephyrosaurus:1; ichthyornis:1;
+hesperosaurus:1; dubreuillosaurus:1; cetiosaurus:1; shunosaurus:1; omeisaurus:1; haplocanthosaurus:1; brachytrachelopan:1;
+isanosaurus:1; qantassaurus:1; qijianglong:1; xenoceratops:1
+` },
+  { id: "gem-mineral", name: "Gemstones & Minerals", ask: "a gemstone or mineral", items: `
+diamond:5; ruby:5; emerald:5; sapphire:5; amethyst:5; pearl:5; opal:5; topaz:5; garnet:5; turquoise:4; aquamarine:4;
+jade:5; quartz:5; amber:4; onyx:4; peridot:4; citrine:4; agate:4; jasper:3; lapis lazuli|lapis:4; moonstone:4; obsidian:4;
+tourmaline:4; tanzanite:3; alexandrite:3; zircon:3; spinel:3; beryl:3; morganite:3; bloodstone:3; carnelian|cornelian:3;
+chalcedony:2; chrysoprase:2; cat's eye:3; tiger's eye|tigers eye:4; malachite:4; rose quartz:4; smoky quartz:3; coral:4;
+sunstone:3; labradorite:3; iolite:2; kunzite:2; tsavorite:2; demantoid:2; rhodolite:2; almandine:2; pyrope:2; spessartine:2;
+rhodonite:2; rhodochrosite:2; sodalite:3; sugilite:1; charoite:2; larimar:2; azurite:3; chrysocolla:2; aventurine:3;
+hematite:3; pyrite|fool's gold|fools gold:4; selenite:3; moldavite:2; ametrine:2; prehnite:1; apatite:2; fluorite|fluorspar:3;
+calcite:3; aragonite:2; kyanite:2; sphene|titanite:1; benitoite:1; painite:1; taaffeite:1; musgravite:1; red beryl|bixbite:1;
+rubellite:1; indicolite:1; dioptase:1; diopside:1; danburite:1; hiddenite:1; andalusite:1; zoisite:1; unakite:1; serpentine:2;
+soapstone|steatite:2; pietersite:1; howlite:2; variscite:1; amazonite:2; tektite:1; dumortierite:1; shungite:1;
+petrified wood:2; fire opal:3; black opal:3; mother of pearl|nacre:3; cubic zirconia:3; moissanite:2; blue topaz:3;
+imperial topaz:1; star sapphire:2; padparadscha:2; heliodor:1; golden beryl:1; chrysoberyl:2; jet:2;
+feldspar:3; mica:3; gypsum:3; talc:3; halite|rock salt:3; orthoclase:1; corundum:2; magnetite:3; limonite:1; goethite:1;
+galena:3; sphalerite:2; chalcopyrite:2; cinnabar:3; bauxite:3; barite|baryte:1; cassiterite:2; rutile:2; ilmenite:1;
+chromite:1; molybdenite:1; uraninite|pitchblende:2; bornite:1; cuprite:1; covellite:1; stibnite:2; realgar:1; orpiment:1;
+graphite:4; sulfur|sulphur:3; olivine:3; pyroxene:2; amphibole:1; hornblende:2; augite:1; biotite:2; muscovite:2;
+plagioclase:1; albite:1; microcline:1; zeolite:2; kaolinite:2; kaolin|china clay:2; asbestos:3; epidote:1; staurolite:1;
+dolomite:3; borax:3; coltan:2; spodumene:1; lepidolite:1; flint:3; chert:2; pumice:3; vermiculite:1; wollastonite:1;
+tremolite:1; actinolite:1; siderite:1; smithsonite:1; magnesite:1; anhydrite:1; alunite:1; monazite:1; bastnaesite:1;
+columbite:1; scheelite:1; wolframite:1; celestine|celestite:1;
+granite:4; marble:4; limestone:3; sandstone:3; slate:3; basalt:3; quartzite:2; gneiss:2; schist:2; shale:2; coal:4; chalk:3;
+travertine:2; tuff:1; diorite:1; gabbro:1; rhyolite:1; andesite:1; conglomerate:1; breccia:1; scoria:1; igneous rock:1;
+hornfels:1;
+` },
+]);

@@ -1,0 +1,62 @@
+FarOut.addCategories([
+  { id: "element", name: "Chemical Elements", ask: "a chemical element", items: `
+oxygen:5; hydrogen:5; helium:5; carbon:5; gold:5; iron:5; silver:5; nitrogen:5; copper:5; sodium:5; calcium:5;
+aluminium|aluminum:5;
+neon:4; uranium:4; lithium:4; platinum:4; mercury:4; lead:4; tin:4; zinc:4; nickel:4; chlorine:4; sulfur|sulphur:4;
+phosphorus:4; magnesium:4; potassium:4; silicon:4; titanium:4; argon:4; plutonium:4;
+fluorine:3; boron:3; cobalt:3; chromium:3; manganese:3; tungsten|wolfram:3; krypton:3; xenon:3; radon:3; iodine:3;
+bromine:3; arsenic:3; cadmium:3; barium:3; radium:3; polonium:3; iridium:3; antimony:3; thorium:3; palladium:3;
+zirconium:3; vanadium:3; molybdenum:3; selenium:3; beryllium:3; bismuth:3; strontium:3; gallium:3; caesium|cesium:3;
+osmium:3;
+einsteinium:2; curium:2; americium:2; californium:2; germanium:2; rubidium:2; scandium:2; yttrium:2; niobium:2;
+technetium:2; ruthenium:2; rhodium:2; tellurium:2; indium:2; neodymium:2; cerium:2; europium:2; lanthanum:2;
+gadolinium:2; erbium:2; hafnium:2; tantalum:2; rhenium:2; thallium:2; francium:2; actinium:2; protactinium:2;
+neptunium:2; oganesson:2; astatine:2;
+berkelium:1; fermium:1; mendelevium:1; nobelium:1; lawrencium:1; rutherfordium:1; dubnium:1; seaborgium:1; bohrium:1;
+hassium:1; meitnerium:1; darmstadtium:1; roentgenium:1; copernicium:1; nihonium:1; flerovium:1; moscovium:1;
+livermorium:1; tennessine:1; praseodymium:1; promethium:1; samarium:1; terbium:1; dysprosium:1; holmium:1; thulium:1;
+ytterbium:1; lutetium:1;
+` },
+  { id: "body-part", name: "Parts of the Body", ask: "a part of the human body", items: `
+head:5; arm:5; leg:5; hand:5; foot|feet:5; eye:5; ear:5; nose:5; mouth:5; finger:5; toe:5; heart:5; brain:5; stomach:5;
+lung:5; knee:5; elbow:5; shoulder:5; neck:5; back:5; chest:5; hair:5; skin:5; tooth|teeth:5; tongue:5; liver:5;
+kidney:5; skull:5; spine:5; rib:5; thumb:5; ankle:5; wrist:4; hip:4; face:4; lip:4; chin:4; cheek:4; forehead:4;
+thigh:4; calf:4; shin:4; heel:4; palm:4; knuckle:4; fingernail|nail:4; toenail:4; belly|tummy:4; abdomen:4; waist:4;
+navel|belly button:4; throat:4; jaw:4; eyebrow:4; eyelash:4; eyelid:4; nostril:4; earlobe:4; temple:4; scalp:4;
+bone:4; muscle:4; vein:4; artery:4; blood:4; intestine|intestines:4; bladder:4; pancreas:4; spleen:3; gallbladder|gall bladder:3;
+appendix:4; esophagus|oesophagus:3; windpipe|trachea:3; diaphragm:3; tonsil:3; larynx|voice box:3; thyroid:3;
+biceps|bicep:4; triceps|tricep:3; abs|abdominals|abdominal muscles:4; pecs|pectorals|pectoral:4; glutes|gluteus maximus:3;
+quadriceps|quads|quadricep:3; hamstring:4; deltoid:3; trapezius|traps:3; latissimus dorsi|lats:3; achilles tendon|achilles:4;
+tendon:3; ligament:3; cartilage:3; joint:3; collarbone|clavicle:4; shoulder blade|scapula:3; breastbone|sternum:3;
+ribcage|rib cage:4; pelvis:4; tailbone|coccyx:3; kneecap|patella:4; shinbone|tibia:4; fibula:3; thighbone|femur:4;
+humerus:4; radius:3; ulna:3; mandible|jawbone:3; cranium:3; vertebra:4; sacrum:3; phalanges|phalanx:3;
+carpal|carpals:2; metacarpal:2; tarsal:2; metatarsal:2; talus:2; calcaneus:2; hyoid:2; maxilla:2; stapes|stirrup:2;
+incus|anvil:2; malleus|hammer:2; temporal bone:1; parietal bone:1; frontal bone:1; occipital bone:1; sphenoid:1;
+ethmoid:1; zygomatic bone|cheekbone:3; nasal bone:1; lacrimal bone:1; vomer:1; atlas:1; cervical vertebrae:1; lumbar vertebrae|lumbar:2;
+thoracic vertebrae:1; ilium:2; ischium:1; pubis:1;
+index finger|pointer finger|forefinger:4; middle finger:3; ring finger:3; pinky|pinkie|little finger:3; big toe|great toe:3; little toe:3; instep:2; arch:3; sole:3;
+fingertip:3; cuticle:3; forearm:3; upper arm:3; armpit|underarm:3; calf muscle:3; groin:3; flank:2; loin:1;
+buttock|buttocks|bottom:3; lower back:3; upper back:3; small of the back:2;
+nape:3; adam's apple:3; sideburn:1; mustache|moustache:3; beard:3; stubble:1; eyeball:3; pupil:3; iris:3; cornea:3;
+retina:3; lens:3; sclera:2; optic nerve:3; tear duct:3; lacrimal gland:1; conjunctiva:1; macula:1; fovea:1; vitreous humor:1;
+eardrum|tympanic membrane:3; cochlea:3; ear canal:3; eustachian tube:2; pinna|auricle:2; ossicles:2; semicircular canals:2;
+inner ear:3; middle ear:2; outer ear:2; uvula:3; epiglottis:3; palate:3; gum|gums:3; molar:3; incisor:3; canine:3; premolar:3;
+wisdom tooth:3; enamel:2; dentin:1; pulp:1; salivary gland:3; vocal cord|vocal chord|vocal folds:3; sinus:3; nasal cavity:2;
+septum:2; pharynx:3; bronchus|bronchi:3; bronchiole:2; alveolus|alveoli:3; pleura:1; aorta:3; vena cava:3;
+capillary:2; ventricle:2; atrium:2; heart valve:2; mitral valve:2; pulmonary artery:2; jugular vein:2; carotid artery:2;
+femoral artery:1; coronary artery:2; pericardium:1; cerebrum:2; cerebellum:3; brainstem|brain stem:3; medulla|medulla oblongata:2;
+thalamus:2; hypothalamus:2; amygdala:2; hippocampus:2; cortex|cerebral cortex:2; corpus callosum:2; frontal lobe:2;
+parietal lobe:2; temporal lobe:2; occipital lobe:2; pons:2; pineal gland:2; pituitary gland|pituitary:2; basal ganglia:1;
+spinal cord:3; nerve:3; neuron:2; sciatic nerve:2; vagus nerve:2; ulnar nerve:2; median nerve:1; meninges:1;
+adrenal gland|adrenal:2; thymus:2; parathyroid:2; endocrine gland:1; sweat gland:2; sebaceous gland:1; lymph node:2;
+lymph:2; bone marrow:2; marrow:2; plasma:2; platelet:2; red blood cell:2; white blood cell:2;
+duodenum:2; jejunum:2; ileum:2; small intestine:3; large intestine:3; colon:3; rectum:2; cecum|caecum:2; bowel:2;
+uterus|womb:2; ovary:2; fallopian tube:2; cervix:2; placenta:2; prostate:2; testicle|testis:2;
+urethra:2; ureter:2; breast:3; umbilical cord:2;
+masseter:2; sternocleidomastoid:2; rotator cuff:2; psoas:2; iliopsoas:1; erector spinae:2; rectus abdominis:2;
+transversus abdominis:1; oblique|obliques:2; brachialis:1; brachioradialis:1; adductor:2; abductor:1; gracilis:1;
+platysma:1; orbicularis oculi:1; zygomaticus:1; rhomboid:2; soleus:2; gastrocnemius:2; tibialis anterior:1; sartorius:1;
+teres major:1; supraspinatus:1; infraspinatus:1; subscapularis:1; serratus anterior:1; intercostal muscle|intercostals:1;
+pectoralis major:2; pectoralis minor:1; gluteus medius:1; gluteus minimus:1; piriformis:1; hip flexor:2;
+meniscus:2; bursa:1; fascia:1; synovial fluid:1; patellar tendon:1` },
+]);
