@@ -13,9 +13,8 @@
   <!-- HOME -->
   <section id="s-home" class="screen home">
     <header class="brand">
-      <p class="eyebrow">The game of rare answers</p>
       <h1 class="logo" aria-label="Far Out"><span>FAR</span><span>OUT</span></h1>
-      <p class="tag">Everyone says <em>apple</em>. You say <em>rambutan</em>.<br>The rarer your answer, the farther you fly.</p>
+      <p class="tag">The game of rare answers. Everyone says apple, you say rambutan. The rarer your answer, the farther you fly.</p>
     </header>
 
     <ol class="scale" aria-label="Rarity scale, common to rare">
@@ -28,26 +27,29 @@
 
     <nav class="modes">
       <button class="mode" data-go="voyage" type="button">
-        <span class="mode-k">Solo · endless</span>
         <b>Voyage</b>
-        <span class="mode-d">Endless prompts. Rare answers refuel your ship. How far can you get?</span>
+        <span class="mode-d">Play alone against the clock. Rare answers refuel your ship, and the questions never run out.</span>
         <span class="mode-s" id="best-voyage">No voyage yet</span>
       </button>
       <button class="mode" data-go="daily" type="button">
-        <span class="mode-k">Solo · once a day</span>
         <b>Daily Orbit</b>
-        <span class="mode-d">Six prompts, two answers each. Same prompts for everyone today.</span>
+        <span class="mode-d">Six questions, two answers each, no clock. Everyone gets the same six today.</span>
         <span class="mode-s" id="best-daily">Ready</span>
       </button>
       <button class="mode crew" data-go="crew" type="button">
-        <span class="mode-k">Online · 2–10 players</span>
         <b>Crew</b>
-        <span class="mode-d">Play with friends. Answers nobody else gave earn a Lone Signal bonus.</span>
+        <span class="mode-d">Play online with 2 to 10 friends. An answer nobody else gave earns a bonus.</span>
         <span class="mode-s">Create or join a room</span>
       </button>
     </nav>
 
+    <div class="home-theme">
+      <p id="theme-label">Voyage topic</p>
+      <div id="home-themes"></div>
+    </div>
+
     <footer class="home-foot">
+      <button class="link" data-go="chart" type="button" id="chart-link">Your star chart</button>
       <button class="link" data-go="howto" type="button">How to play</button>
       <button class="link" id="mute" type="button">Sound: on</button>
       <span class="mono" id="bank-stat"></span>
@@ -78,7 +80,7 @@
 
       <form class="answer" id="answer-form" autocomplete="off">
         <label for="ans" class="sr">Your answer</label>
-        <input id="ans" name="ans" type="text" maxlength="48" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your rarest answer">
+        <input id="ans" name="ans" type="text" maxlength="48" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type your rarest answer">
         <button class="btn primary" type="submit">Launch</button>
       </form>
       <div class="row-actions">
@@ -99,7 +101,7 @@
     <dl class="stats" id="over-stats"></dl>
     <div class="over-actions">
       <button class="btn primary" id="again" type="button">Fly again</button>
-      <button class="btn" id="share" type="button">Copy result</button>
+      <button class="btn" id="share" type="button">Share result</button>
       <button class="btn ghost" data-home type="button">Menu</button>
     </div>
     <textarea id="share-text" class="share-text" readonly hidden aria-label="Result text to copy"></textarea>
@@ -114,6 +116,16 @@
       <span class="hud-net mono" id="crew-net"></span>
     </div>
     <div id="crew-body" class="crew-body"></div>
+  </section>
+
+  <!-- STAR CHART -->
+  <section id="s-chart" class="screen chart" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
+      <span class="hud-mode">Star chart</span>
+    </div>
+    <p class="chart-intro">Every Deep Space and Far Out answer you find is charted here, in this browser.</p>
+    <div id="chart-body" class="chart-body"></div>
   </section>
 
   <!-- HOW TO PLAY -->
@@ -138,13 +150,15 @@
       <p>Six prompts, two answers each, no clock. Everyone gets the same prompts today, so compare scores with friends.</p>
       <h3>Crew</h3>
       <p>One player creates a room and shares the code or link. Everyone answers the same prompt at once. An answer only you gave earns a <b>Lone Signal</b> (+50%). If two players give the same answer, they <b>collide</b> and split the points. Answers missing from the word bank go to a quick crew vote.</p>
-      <p class="note">Small typos are forgiven. Plurals, capital letters and accents don't matter.</p>
+      <h3>Typos</h3>
+      <p>Spell it how it sounds. "Brocoli" counts as Broccoli and "Phillipines" as the Philippines, and the game shows what it fixed. If a typo is close to two answers, it asks which one you meant, with no penalty. Plurals, capital letters and accents never matter.</p>
     </div>
   </section>
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
+<script src="js/text.js"></script>
 <script src="js/core.js"></script>
 <!-- DATA:start -->
 <script src="data/culture-1.js"></script>
@@ -169,9 +183,33 @@
 <script src="data/nature-7.js"></script>
 <script src="data/nature-8.js"></script>
 <script src="data/nature-9.js"></script>
+<script src="data/q-food-1.js"></script>
+<script src="data/q-food-2.js"></script>
+<script src="data/q-food-3.js"></script>
+<script src="data/q-life-1.js"></script>
+<script src="data/q-mind-1.js"></script>
+<script src="data/q-nature-1.js"></script>
+<script src="data/q-nature-10.js"></script>
+<script src="data/q-nature-11.js"></script>
+<script src="data/q-nature-12.js"></script>
+<script src="data/q-nature-13.js"></script>
+<script src="data/q-nature-14.js"></script>
+<script src="data/q-nature-2.js"></script>
+<script src="data/q-nature-3.js"></script>
+<script src="data/q-nature-4.js"></script>
+<script src="data/q-nature-5.js"></script>
+<script src="data/q-nature-6.js"></script>
+<script src="data/q-nature-7.js"></script>
+<script src="data/q-nature-8.js"></script>
+<script src="data/q-nature-9.js"></script>
+<script src="data/q-pop-1.js"></script>
+<script src="data/q-pop-2.js"></script>
+<script src="data/q-world-1.js"></script>
+<script src="data/q-world-2.js"></script>
 <!-- DATA:end -->
 <script src="js/fx.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/collection.js"></script>
 <script src="js/solo.js"></script>
 <script src="js/net.js"></script>
 <script src="js/crew.js"></script>

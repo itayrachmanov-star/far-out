@@ -18,10 +18,10 @@
   // ---------- rendering ----------
   function renderPrompt() {
     const p = S.prompt;
-    $('#p-cat').textContent = p.cat.name + (S.mode === 'daily' ? ` · Prompt ${S.idx + 1} of ${DAILY_PROMPTS}` : '');
+    $('#p-cat').textContent = S.mode === 'daily' ? `Question ${S.idx + 1} of ${DAILY_PROMPTS}, ${p.cat.name.toLowerCase()}` : p.cat.name;
     $('#p-ask').textContent = p.ask;
     $('#p-rule').textContent = p.rule;
-    $('#p-meta').textContent = `${p.pool.length} answers on our charts`;
+    $('#p-meta').textContent = `${p.pool.length} known answers`;
     Fx.pop($('#prompt'), 'enter');
     renderSlots();
     const inp = $('#ans');
@@ -59,7 +59,7 @@
       card = h('div', { class: 'verdict' },
         UI.badge(j.tier, S.mode === 'daily' ? `${j.tier.pts} pts` : `+${j.tier.fuel}s fuel`),
         h('span', { class: 'v-ans' }, j.item.name),
-        h('span', { class: 'v-why' }, j.fuzzy ? `Read as ${j.item.name}. Close enough.` : `${j.tier.name} answer for ${p.cat.ask}${p.rule ? ' ' + p.rule : ''}.`),
+        h('span', { class: 'v-why' }, j.fuzzy ? [UI.fixLine(j.typed, j.item.name), ' Typo fixed.'] : `${j.tier.name} answer for ${p.what}.`),
         h('span', { class: 'v-pts' }, '+' + gain));
     } else {
       card = h('div', { class: 'verdict miss' }, UI.missBadge(),
@@ -77,7 +77,7 @@
       S.slots = S.resumeSlots || DAILY_SLOTS;
       S.resumeSlots = 0;
     } else {
-      S.prompt = FO.makePrompt(S.rng, { minPool: 6, recent: S.recent, avoid: S.avoid });
+      S.prompt = FO.makePrompt(S.rng, { minPool: 6, recent: S.recent, avoid: S.avoid, theme: S.theme });
       S.recent.add(S.prompt.id);
     }
     S.used = new Set();
@@ -89,6 +89,14 @@
     const p = S.prompt, j = FO.judge(p, text, S.used);
     if (j.why === 'empty') return;
     const form = $('#answer-form');
+    if (j.why === 'maybe') { // a typo close to several answers: ask, no penalty
+      $('#result').replaceChildren(h('div', { class: 'verdict maybe' }, h('span', { class: 'badge ask' }, 'Typo?'),
+        h('span', { class: 'v-ans' }, String(text).trim()),
+        h('span', { class: 'v-why' }, UI.didYouMean(j.options, (it) => submit(it.name))),
+        h('span', { class: 'v-pts' }, '')));
+      Fx.sfx.flip();
+      return;
+    }
     if (j.ok) {
       S.used.add(j.item);
       S.streak++;
@@ -97,6 +105,7 @@
       S.dist += gain;
       S.finds.push({ name: j.item.name, tier: j.tier, prompt: p.ask + (p.rule ? ' ' + p.rule : '') });
       if (S.mode === 'voyage') S.fuel = Math.min(FUEL_MAX, S.fuel + j.tier.fuel);
+      if (FO.Collection) FO.Collection.add(j.item, j.tier, p);
       verdict(p, j, gain);
       renderHud(gain);
       Fx.warp(1.2 + (5 - j.tier.c) * 0.55, j.tier.c);
@@ -184,6 +193,7 @@
     const prevBest = UI.store.get('best.voyage', 0);
     if (mode === 'voyage' && S.dist > prevBest) UI.store.set('best.voyage', S.dist);
     if (mode === 'daily') { S.idx = DAILY_PROMPTS; S.slots = 0; saveDaily(); }
+    if (FO.Collection) FO.Collection.gamePlayed();
     showOver(mode, S, prevBest);
   }
 
@@ -212,7 +222,7 @@
     st.share = [`Far Out · ${mode === 'daily' ? 'Daily Orbit ' + (st.day || today()) : 'Voyage'}`, `${st.dist.toLocaleString()} ly`, grid,
       rarest ? `Rarest find: ${rarest.name} (${rarest.tier.name})` : ''].filter(Boolean).join('\n');
     $('#share-text').hidden = true;
-    $('#share').onclick = () => UI.copy(st.share, $('#share-text'));
+    $('#share').onclick = () => UI.share(st.share + (/^https?:/.test(location.protocol) && !FO.Net.inArtifact ? '\n' + location.origin + location.pathname : ''), $('#share-text'));
     $('#again').textContent = mode === 'daily' ? 'Play Voyage' : 'Fly again';
     $('#again').onclick = () => FO.Solo.start('voyage');
     if (st.dist > 0) setTimeout(() => { Fx.sfx[counts[1] || st.dist > prevBest ? 'win' : 'over'](); if (st.dist > prevBest || counts[1] >= 2) Fx.confetti(); }, 300);
@@ -232,6 +242,7 @@
       }
       S = fresh(mode);
       S.day = day;
+      S.theme = mode === 'voyage' ? UI.store.get('theme', 'all') : 'all';
       if (rec) Object.assign(S, { dist: rec.dist || 0, grid: rec.grid || [], finds, idx: Math.min(DAILY_PROMPTS - 1, rec.idx || 0), resumeSlots: rec.slots });
       if (mode === 'daily') {
         const rng = FO.rng('daily-' + day);

@@ -92,7 +92,8 @@
     el.replaceChildren(
       h('div', { class: 'field' }, h('label', null, 'Rounds'), seg([5, 8, 12], g.R, set('R'), !host)),
       h('div', { class: 'field' }, h('label', null, 'Seconds'), seg([20, 30, 45, 60], g.T, set('T'), !host)),
-      h('div', { class: 'field' }, h('label', null, 'Answers each'), seg([1, 2, 3], g.A, set('A'), !host)));
+      h('div', { class: 'field' }, h('label', null, 'Answers each'), seg([1, 2, 3], g.A, set('A'), !host)),
+      h('div', { class: 'field wide' }, h('label', null, 'Theme'), UI.themePicker(g.th || 'all', set('th'), !host)));
   }
 
   function players() {
@@ -117,7 +118,7 @@
   function timerEl() { return h('div', { class: 'timer', id: 'crew-timer' }, h('div', { class: 'timer-bar' }, h('i', { id: 'crew-tbar' })), h('b', { id: 'crew-tsec' }, '')); }
   function promptEl(p, g, small) {
     return h('article', { class: 'prompt enter' },
-      h('p', { class: 'p-cat' }, `Round ${g.r} of ${g.R} · ${p.cat.name}`),
+      h('p', { class: 'p-cat' }, `Round ${g.r} of ${g.R}, ${p.cat.name.toLowerCase()}`),
       h('h2', { class: 'p-ask', style: small ? { fontSize: 'clamp(30px, 6vw, 44px)' } : null }, p.ask),
       h('p', { class: 'p-rule' }, p.rule));
   }
@@ -138,13 +139,20 @@
     Fx.warp(1.5);
     Fx.sfx.flip();
   }
-  function submit(input, form, msg) {
-    const r = Cr().addAnswer(input.value);
-    if (r && r !== 'unknown') { msg.textContent = r; Fx.shake(form); Fx.sfx.bad(); return; }
-    msg.textContent = r === 'unknown' ? "That one isn't on our charts. The crew will vote on it." : '';
-    if (input.value.trim()) { Fx.sfx.key(); Fx.burstAt(input, 3, 10); }
+  function submit(input, form, msg, text) {
+    const r = Cr().addAnswer(text != null ? text : input.value);
+    if (r.options) {
+      msg.replaceChildren(UI.didYouMean(r.options, (it) => submit(input, form, msg, it.name)));
+      Fx.sfx.flip();
+      return;
+    }
+    if (!r.ok) { msg.textContent = r.msg; Fx.shake(form); Fx.sfx.bad(); return; }
+    msg.replaceChildren(r.fixed ? h('span', null, UI.fixLine(r.fixed.typed, r.fixed.name), ' Typo fixed.')
+      : r.unknown ? "That one isn't on our charts. The crew will vote on it." : '');
+    if (input.value.trim() || text) { Fx.sfx.key(); Fx.burstAt(input, 3, 10); }
     input.value = '';
     mine();
+    input.focus({ preventScroll: true });
   }
   function flushInput() {
     const input = $('#crew-ans');
@@ -174,7 +182,7 @@
     });
     mount(timerEl(), h('div', { class: 'panel' },
       h('h2', null, 'Crew vote'),
-      h('p', null, `These answers aren't on our charts. Do they count as ${st.prompt.cat.ask}${st.prompt.rule ? ' ' + st.prompt.rule : ''}? Accepted answers score as Deep Space.`),
+      h('p', null, `These answers aren't on our charts. Do they count as ${st.prompt.what}? Accepted answers score as Deep Space.`),
       h('div', { class: 'vote-list', id: 'vote-list' }, rows),
       h('button', { class: 'btn primary', type: 'button', id: 'vote-send', onclick: () => { Cr().sendVotes(); refresh(); } }, 'Send votes')),
       h('ul', { class: 'players', id: 'crew-players' }));

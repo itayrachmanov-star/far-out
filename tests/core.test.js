@@ -1,10 +1,11 @@
 // Node test of js/core.js against the real data files. Run: node tests/core.test.js
 const fs = require('fs'), path = require('path'), assert = require('assert');
 global.window = global;
+require(path.join(__dirname, '../js/text.js'));
 require(path.join(__dirname, '../js/core.js'));
 for (const f of fs.readdirSync(path.join(__dirname, '../data')).filter((f) => f.endsWith('.js')).sort()) require(path.join(__dirname, '../data', f));
 const FO = window.FarOut;
-console.log(`${FO.cats.length} categories, ${FO.cats.reduce((n, c) => n + c.items.length, 0)} answers, ${FO.countPrompts()} prompts`);
+console.log(`${FO.qs.length} questions, ${FO.cats.length} categories, ${FO.cats.reduce((n, c) => n + c.items.length, 0)} answers, ${FO.countPrompts()} prompts`);
 
 const any = (id) => FO.buildPrompt({ c: id, t: 'any' });
 const has = (id) => !!FO.catById[id];
@@ -37,6 +38,32 @@ expect('river', {}, 'the river thames', true);
 expect('mountain', {}, 'Mount Everest', true);
 expect('cat-breed', {}, 'persian cat', true);
 expect('proglang', {}, 'C++', true);
+// typo fixing
+function fix(id, text, want) {
+  if (!has(id)) return;
+  const j = FO.judge(FO.buildPrompt({ c: id, t: 'any' }), text);
+  const got = j.ok ? j.item.name : j.why === 'maybe' ? 'maybe:' + j.options.map((o) => o.name).join('/') : j.why;
+  assert.strictEqual(got, want, `${id} "${text}" → ${got}`);
+  checks++;
+}
+fix('vegetable', 'brocoli', 'Broccoli');
+fix('vegetable', 'brocolli', 'Broccoli');
+fix('vegetable', 'zuchini', 'Zucchini');
+fix('country', 'phillipines', 'Philippines');
+fix('country', 'columbia', 'Colombia');
+fix('fruit', 'aple', 'Apple');
+fix('fruit', 'bannana', 'Banana');
+fix('fruit', 'pinapple', 'Pineapple');
+fix('mammal', 'girafe', 'Giraffe');
+fix('mammal', 'hippopotamous', 'Hippopotamus');
+fix('us-state', 'massachusets', 'Massachusetts');
+fix('us-state', 'missisipi', 'Mississippi');
+fix('country', 'austrailia', 'Australia');
+fix('capital', 'budapesht', 'Budapest');
+// a real answer from another list is never "corrected" into this one
+FO.addQuestions([{ id: 'q-test-europe', theme: 'Geography', ask: 'Name a European country', what: 'a European country', items: 'austria:4; france:5; germany:5; spain:5; italy:5; portugal:4; poland:4; greece:4; norway:4; sweden:4; finland:3; denmark:4; ireland:4; belgium:3; netherlands:4; switzerland:4' }]);
+fix('q-test-europe', 'australia', 'unknown');
+fix('q-test-europe', 'austira', 'Austria');
 expect('fastfood', {}, "McDonald's", true);
 expect('element', {}, 'unobtainium', false, 'unknown');
 
@@ -53,6 +80,7 @@ const rng = FO.rng('test');
 const seen = new Set();
 for (let i = 0; i < 2000; i++) {
   const p = FO.makePrompt(rng, { minPool: 6 });
+  if (p.cat.id === 'q-test-europe') continue;
   assert(p.pool.length >= 6, 'pool too small: ' + p.id);
   const q = FO.buildPrompt(JSON.parse(JSON.stringify(p.spec)));
   assert.strictEqual(q.id, p.id);

@@ -1,60 +1,32 @@
-/* Far Out — core: word bank, answer matching, prompt generation, scoring.
-   Pure logic, no DOM. Data files call FarOut.addCategories([...]). */
+/* Far Out — core: answer lists, typo-tolerant matching, endless prompts, scoring. Pure logic, no DOM.
+   Data files call FarOut.addCategories([...]) (broad lists: "a bird") and
+   FarOut.addQuestions([...]) (curated questions: "Name a red fruit"). */
 (function () {
   'use strict';
   const FO = (window.FarOut = window.FarOut || {});
-  FO.cats = [];
+  const { norm, strip, letters, keyOf, dist, sound, title } = FO.text;
+  FO.cats = [];   // broad categories
+  FO.qs = [];     // curated questions
   FO.catById = Object.create(null);
+  const allKeys = new Set(); // every answer in the game: a real thing is never "corrected" into a different one
 
-  // ---------- text ----------
-  const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/&/g, ' and ').replace(/\+/g, ' plus ').replace(/#/g, ' sharp ').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
-  const strip = (s) => norm(s).replace(/^(the|a|an) /, '');
-  const letters = (f) => f.replace(/[^a-z]/g, '');
+  // ---------- themes ----------
+  FO.THEMES = [
+    { id: 'food', name: 'Food & Drink', re: /food|drink|cook|kitchen|dish|dessert|bread|pasta|cheese|fruit|veg|nut|herb|spice|breakfast|fastfood/i },
+    { id: 'nature', name: 'Animals & Nature', re: /animal|bird|fish|sea|insect|reptile|mammal|dog|cat-breed|tree|flower|plant|nature|dinosaur|weather/i },
+    { id: 'world', name: 'Places & History', re: /geo|countr|capital|city|cities|state|river|mountain|island|travel|history|landmark|empire|language|currency|world/i },
+    { id: 'culture', name: 'Movies, Music & Fame', re: /movie|film|tv|music|song|band|game|book|author|painter|art|famous|celebr|superhero|people|president|dance|instrument|myth|god/i },
+    { id: 'sport', name: 'Sport & Games', re: /sport|team|olymp|ball|player|club|toy|hobby|game/i },
+    { id: 'science', name: 'Science & Tech', re: /science|space|element|body|health|medic|tech|computer|proglang|math|unit|shape|gem|mineral|chem|physics/i },
+    { id: 'life', name: 'Everyday Life', re: /home|house|everyday|school|job|work|cloth|fashion|vehicle|transport|tool|kitchen|holiday|money|brand|feel|emotion|colou?r|fabric|camp|subject/i },
+    { id: 'words', name: 'Words', re: /word|rhyme|letter|idiom/i },
+  ];
+  const themeOf = (label) => (FO.THEMES.find((t) => t.re.test(label)) || { id: 'life' }).id;
 
-  function singular(w) {
-    if (w.length > 4 && w.endsWith('ies')) return w.slice(0, -3) + 'y';
-    if (w.length > 4 && /(ches|shes|sses|xes|zes|oes)$/.test(w)) return w.slice(0, -2);
-    if (w.length > 3 && w.endsWith('s') && !/(ss|us|is)$/.test(w)) return w.slice(0, -1);
-    return w;
-  }
-  const keyOf = (s) => strip(s).split(' ').map(singular).join('');
-
-  const FILLER = /\b(river|mount|mt|mountains?|volcano|islands?|isle|lake|city|breed|dog|cat|language|cheese|dance|bread|pasta|the)\b/g;
-
-  // Optimal-string-alignment distance with an early exit above `max`.
-  function dist(a, b, max) {
-    const m = a.length, n = b.length;
-    if (Math.abs(m - n) > max) return max + 1;
-    let p2 = null, p1 = Array.from({ length: n + 1 }, (_, j) => j);
-    for (let i = 1; i <= m; i++) {
-      const cur = [i];
-      let rowMin = i;
-      for (let j = 1; j <= n; j++) {
-        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-        let v = Math.min(p1[j] + 1, cur[j - 1] + 1, p1[j - 1] + cost);
-        if (p2 && i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, p2[j - 2] + 1);
-        cur[j] = v;
-        if (v < rowMin) rowMin = v;
-      }
-      if (rowMin > max) return max + 1;
-      p2 = p1; p1 = cur;
-    }
-    return p1[n];
-  }
-
-  // ---------- data ----------
-  // Data is lowercase; restore display casing: "kfc" → KFC, "mcdonalds" → McDonalds, "st john" → St John.
-  const NOT_ACRONYM = new Set(['st', 'mr', 'mrs', 'dr', 'jr', 'sr', 'ft', 'mt', 'vs', 'pt', 'nd', 'rd', 'th', 'ms', 'grrrl']);
-  const title = (s) => s.replace(/[a-z0-9]+/g, (w) => {
-    if (/^[b-df-hj-np-tv-xz]{2,5}$/.test(w) && !NOT_ACRONYM.has(w)) return w.toUpperCase();
-    if (/^mc[a-z]{2}/.test(w)) return 'Mc' + w[2].toUpperCase() + w.slice(3);
-    return w[0].toUpperCase() + w.slice(1);
-  });
-
-  function parseCat(c) {
+  // ---------- lists ----------
+  function parseList(src) {
     const items = [], index = new Map();
-    for (const raw of String(c.items).split(';')) {
+    for (const raw of String(src).split(';')) {
       const m = raw.trim().match(/^(.*):([1-5])$/);
       if (!m) continue;
       const names = m[1].split('|').map((s) => s.trim()).filter(Boolean);
@@ -63,41 +35,70 @@
       items.push(item);
       for (const n of names) {
         const k = keyOf(n);
-        if (k && !index.has(k)) index.set(k, { item, f: strip(n) });
+        if (!k || index.has(k)) continue;
+        index.set(k, { item, f: strip(n), s: sound(k) });
+        allKeys.add(k);
       }
     }
-    return { id: c.id, name: c.name, ask: c.ask, items, index };
+    return { items, index };
   }
+  function addList(def, kind, min) {
+    if (!def || !def.id || FO.catById[def.id] || !def.items) return;
+    const { items, index } = parseList(def.items);
+    if (items.length < min) return;
+    const list = kind === 'q'
+      ? { kind, id: def.id, name: String(def.theme || 'Mixed'), ask: String(def.ask), what: String(def.what), items, index }
+      : { kind, id: def.id, name: String(def.name), ask: `Name ${def.ask}`, what: String(def.ask), items, index };
+    list.theme = themeOf(kind === 'q' ? `${list.name} ${def.id}` : `${def.id} ${def.name}`);
+    (kind === 'q' ? FO.qs : FO.cats).push(list);
+    FO.catById[list.id] = list;
+  }
+  FO.addCategories = (arr) => arr.forEach((c) => addList(c, 'cat', 12));
+  FO.addQuestions = (arr) => arr.forEach((c) => addList(c, 'q', 15));
 
-  FO.addCategories = function (arr) {
-    for (const c of arr) {
-      if (!c || !c.id || FO.catById[c.id]) continue;
-      const cat = parseCat(c);
-      if (cat.items.length < 12) continue;
-      FO.cats.push(cat);
-      FO.catById[cat.id] = cat;
-    }
-  };
+  // ---------- matching ----------
+  const FILLER = /\b(river|mount|mt|mountains?|volcano|islands?|isle|lake|city|breed|dog|cat|language|cheese|dance|bread|pasta|the|a|an)\b/g;
 
-  function match(cat, text) {
+  /** Find what the player meant. Returns {hit, f, fuzzy} for one answer, {options} when a typo
+      could be several answers, or null. `keep(item, f)` filters candidates (rule, already used). */
+  function match(list, text, keep) {
     const k = keyOf(text);
     if (!k) return null;
-    const hit = cat.index.get(k);
-    if (hit) return { item: hit.item, f: hit.f, fuzzy: false };
-    // "Nile River", "Mount Everest", "Persian cat": retry without the category's filler words.
+    const exact = list.index.get(k);
+    if (exact) return { item: exact.item, f: exact.f, fuzzy: false };
     const k2 = keyOf(norm(text).replace(FILLER, ' '));
-    const hit2 = k2 && k2 !== k && cat.index.get(k2);
-    if (hit2) return { item: hit2.item, f: hit2.f, fuzzy: false };
-    if (k.length < 5) return null;
-    const max = k.length >= 9 ? 2 : 1;
-    let best = null, bestD = max + 1, tie = false;
-    for (const [kk, v] of cat.index) {
-      if (Math.abs(kk.length - k.length) > max) continue;
-      const d = dist(k, kk, max);
-      if (d < bestD) { bestD = d; best = v; tie = false; }
-      else if (d === bestD && best && v.item !== best.item) tie = true;
+    const ex2 = k2 && k2 !== k && list.index.get(k2);
+    if (ex2) return { item: ex2.item, f: ex2.f, fuzzy: false };
+    if (k.length < 3) return null;
+    const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same
+
+    const L = k.length, maxD = L >= 13 ? 3 : L >= 8 ? 2 : L >= 4 ? 1 : 0, s = sound(k);
+    const best = new Map(); // item -> {score, f}
+    for (const [kk, v] of list.index) {
+      let score = Infinity;
+      if (known) {
+        if (L >= 5 && v.s === s) { const d = dist(k, kk, 2); if (d <= 2) score = 0.5 + 0.15 * d; }
+        if (score === Infinity) continue;
+      } else if (maxD && Math.abs(kk.length - L) <= maxD) {
+        const d = dist(k, kk, maxD);
+        if (d <= maxD) score = d + (kk[0] !== k[0] ? 0.5 : 0);
+      }
+      const cap = Math.max(2, Math.ceil(L * 0.4));
+      if (known) { /* scored above */ } else if (L >= 4 && s.length >= 3 && v.s === s) { const d = dist(k, kk, cap); if (d <= cap) score = Math.min(score, 0.5 + 0.15 * d); }
+      else if (L >= 6 && s.length >= 4 && Math.abs(v.s.length - s.length) <= 1 && dist(s, v.s, 1) <= 1 && dist(k, kk, 3) <= 3) score = Math.min(score, 1.6);
+      if (!known && L >= 5 && kk.length > L && kk.startsWith(k) && L >= kk.length * 0.6) score = Math.min(score, 1.2); // unfinished word
+      if (score === Infinity) continue;
+      const cur = best.get(v.item);
+      if (!cur || score < cur.score) best.set(v.item, { score, f: v.f });
     }
-    return best && !tie ? { item: best.item, f: best.f, fuzzy: true } : null;
+    if (!best.size) return null;
+    const ranked = [...best].map(([item, x]) => ({ item, ...x })).sort((a, b) => a.score - b.score || b.item.c - a.item.c);
+    const allowed = keep ? ranked.filter((x) => keep(x.item, x.f)) : ranked;
+    if (!allowed.length) return { item: ranked[0].item, f: ranked[0].f, fuzzy: true, blocked: true };
+    const top = allowed[0].score;
+    const near = allowed.filter((x) => x.score <= top + 0.12);
+    if (near.length > 1) return { options: near.slice(0, 3).map((x) => x.item) };
+    return { item: allowed[0].item, f: allowed[0].f, fuzzy: true };
   }
 
   // ---------- rarity tiers (redshift scale: the farther, the redder) ----------
@@ -109,27 +110,18 @@
     1: { c: 1, name: 'Far Out', pts: 100, fuel: 14, cls: 't1' },
   };
 
-  // ---------- prompt rules ----------
+  // ---------- prompt rules (only natural ones) ----------
   const RULES = {
-    any: { w: 3, label: () => '', test: () => true },
-    start: { w: 7, label: (v) => `starting with ${v.toUpperCase()}`, test: (f, v) => f.startsWith(v) },
-    end: { w: 2.5, label: (v) => `ending in ${v.toUpperCase()}`, test: (f, v) => letters(f).endsWith(v) },
-    has: { w: 2, label: (v) => `with ${'aefhilmnorsx'.includes(v) ? 'an' : 'a'} ${v.toUpperCase()} in it`, test: (f, v) => f.includes(v) },
-    len: { w: 2, label: (v) => `with exactly ${v} letters`, test: (f, v) => letters(f).length === v },
-    long: { w: 1.2, label: () => 'with 10 or more letters', test: (f) => letters(f).length >= 10 },
-    short: { w: 1.2, label: () => 'with 5 letters or fewer', test: (f) => letters(f).length <= 5 },
-    words: { w: 1, label: () => 'that is two or more words', test: (f) => f.includes(' ') },
-    dbl: { w: 1, label: () => 'with a double letter, like EE or LL', test: (f) => /([a-z])\1/.test(letters(f)) },
-    noe: { w: 1, label: () => 'without the letter E', test: (f) => !f.includes('e') },
-    same: { w: 0.8, label: () => 'that starts and ends with the same letter', test: (f) => { const l = letters(f); return l.length > 1 && l[0] === l[l.length - 1]; } },
-    vowel: { w: 1, label: () => 'starting with a vowel', test: (f) => /^[aeiou]/.test(f) },
+    any: { w: 4, label: () => '', test: () => true },
+    start: { w: 6, label: (v) => `starting with ${v.toUpperCase()}`, test: (f, v) => f.startsWith(v) },
+    end: { w: 1.2, label: (v) => `ending in ${v.toUpperCase()}`, test: (f, v) => letters(f).endsWith(v) },
+    len: { w: 1.4, label: (v) => `with exactly ${v} letters`, test: (f, v) => letters(f).length === v },
+    long: { w: 0.6, label: () => 'with 10 or more letters', test: (f) => letters(f).length >= 10 },
+    short: { w: 0.6, label: () => 'with 5 letters or fewer', test: (f) => letters(f).length <= 5 },
+    words: { w: 0.5, label: () => 'that is two or more words', test: (f) => f.includes(' ') },
   };
-  const PARAMS = {
-    start: 'abcdefghijklmnopqrstuvwxyz'.split(''),
-    end: 'aehklnorsty'.split(''),
-    has: 'zxqjkvwybpfg'.split(''),
-    len: [3, 4, 5, 6, 7, 8, 9],
-  };
+  const Q_RULES = { any: 8, start: 2 };
+  const PARAMS = { start: 'abcdefghijklmnoprstuvwyz'.split(''), end: 'aehklnorsty'.split(''), len: [4, 5, 6, 7, 8] };
 
   FO.rng = function (seed) {
     let h = 1779033703 ^ String(seed).length;
@@ -143,52 +135,60 @@
     };
   };
   const pick = (rng, arr) => arr[Math.floor(rng() * arr.length)];
-  function weighted(rng) {
-    const keys = Object.keys(RULES);
-    let r = rng() * keys.reduce((s, k) => s + RULES[k].w, 0);
-    for (const k of keys) { r -= RULES[k].w; if (r <= 0) return k; }
+  function weighted(rng, weights) {
+    const keys = Object.keys(weights);
+    let r = rng() * keys.reduce((s, k) => s + weights[k], 0);
+    for (const k of keys) { r -= weights[k]; if (r <= 0) return k; }
     return 'any';
   }
-  const poolOf = (cat, t, v) => cat.items.filter((it) => RULES[t].test(it.f, v));
+  const CAT_W = Object.fromEntries(Object.entries(RULES).map(([k, v]) => [k, v.w]));
+  const poolOf = (list, t, v) => list.items.filter((it) => RULES[t].test(it.f, v));
 
   /** Rebuild a prompt from its serializable spec {c, t, v}. */
   FO.buildPrompt = function (spec) {
-    const cat = FO.catById[spec.c] || FO.cats[0];
+    const list = FO.catById[spec.c] || FO.qs[0] || FO.cats[0];
     const rule = Object.prototype.hasOwnProperty.call(RULES, spec.t) ? spec.t : 'any';
     let v;
     if (rule === 'len') v = Math.max(1, Math.min(30, Math.round(+spec.v) || 5));
     else if (PARAMS[rule]) v = typeof spec.v === 'string' && /^[a-z]$/.test(spec.v) ? spec.v : 'a';
-    const pool = poolOf(cat, rule, v);
+    const pool = poolOf(list, rule, v);
     const maxC = pool.reduce((m, it) => Math.max(m, it.c), 1);
     return {
-      spec: { c: cat.id, t: rule, v },
-      id: `${cat.id}:${rule}:${v ?? ''}`,
-      cat, pool,
+      spec: { c: list.id, t: rule, v },
+      id: `${list.id}:${rule}:${v ?? ''}`,
+      cat: list, pool,
       shift: Math.min(2, 5 - maxC), // a hard rule makes its own best-known answers "obvious"
-      ask: `Name ${cat.ask}`,
+      ask: list.ask,
+      what: list.what + (rule === 'any' ? '' : ' ' + RULES[rule].label(v)),
       rule: RULES[rule].label(v),
       test: (f) => RULES[rule].test(f, v),
     };
   };
 
+  /** Next prompt. opts: minPool, recent (Set of ids), avoid (recent list ids), theme, qShare. */
   FO.makePrompt = function (rng, opts = {}) {
     const minPool = opts.minPool || 6, recent = opts.recent || new Set(), avoid = opts.avoid || [];
-    for (let tries = 0; tries < 120; tries++) {
-      const cat = pick(rng, FO.cats);
-      if (tries < 80 && avoid.includes(cat.id)) continue;
-      const t = weighted(rng);
+    const inTheme = (l) => !opts.theme || opts.theme === 'all' || l.theme === opts.theme;
+    const qs = FO.qs.filter(inTheme), cats = FO.cats.filter(inTheme);
+    const qShare = opts.qShare ?? 0.7;
+    for (let tries = 0; tries < 160; tries++) {
+      const useQ = qs.length && (!cats.length || rng() < qShare);
+      const list = pick(rng, useQ ? qs : cats.length ? cats : FO.cats);
+      if (!list || (tries < 100 && avoid.includes(list.id))) continue;
+      const t = weighted(rng, useQ ? Q_RULES : CAT_W);
+      if (useQ && t === 'start' && list.items.length < 40) continue;
       let v;
       if (PARAMS[t]) {
-        const ok = PARAMS[t].filter((x) => poolOf(cat, t, x).length >= minPool);
+        const ok = PARAMS[t].filter((x) => poolOf(list, t, x).length >= minPool);
         if (!ok.length) continue;
         v = pick(rng, ok);
       }
-      const p = FO.buildPrompt({ c: cat.id, t, v });
+      const p = FO.buildPrompt({ c: list.id, t, v });
       if (p.pool.length < minPool || recent.has(p.id)) continue;
-      if (opts.avoid) { avoid.push(cat.id); if (avoid.length > (opts.avoidN || 4)) avoid.shift(); }
+      if (opts.avoid) { avoid.push(list.id); if (avoid.length > (opts.avoidN || 6)) avoid.shift(); }
       return p;
     }
-    return FO.buildPrompt({ c: pick(rng, FO.cats).id, t: 'any' });
+    return FO.buildPrompt({ c: pick(rng, FO.qs.length ? FO.qs : FO.cats).id, t: 'any' });
   };
 
   /** How many distinct prompts the bank can produce (for the home screen). */
@@ -200,22 +200,29 @@
         else if (poolOf(cat, t).length >= minPool) n++;
       }
     }
+    for (const q of FO.qs) n += 1 + (q.items.length >= 40 ? PARAMS.start.filter((v) => poolOf(q, 'start', v).length >= minPool).length : 0);
     return n;
   };
 
   FO.effOf = (p, item) => Math.max(1, Math.min(5, item.c + p.shift));
 
   /** Judge one typed answer against a prompt.
-      ok:true → {item, tier, pts}; ok:false → why: empty | unknown | rule | repeat */
+      ok:true → {item, tier, pts, fuzzy, typed}
+      ok:false → why: empty | unknown | rule | repeat | maybe (options: items to choose from) */
   FO.judge = function (p, text, used) {
     const raw = norm(text);
     if (!raw) return { ok: false, why: 'empty', raw };
-    const m = match(p.cat, text);
+    const keep = (item, f) => p.test(f) && !(used && used.has(item));
+    const m = match(p.cat, text, keep);
     if (!m) return { ok: false, why: 'unknown', raw, ruleOk: p.test(strip(text)) };
-    if (!p.test(m.f)) return { ok: false, why: 'rule', raw, item: m.item };
+    if (m.options) return { ok: false, why: 'maybe', raw, options: m.options };
+    if (m.blocked || !p.test(m.f)) {
+      if (used && used.has(m.item) && p.test(m.f)) return { ok: false, why: 'repeat', raw, item: m.item };
+      return { ok: false, why: 'rule', raw, item: m.item };
+    }
     if (used && used.has(m.item)) return { ok: false, why: 'repeat', raw, item: m.item };
     const tier = FO.TIERS[FO.effOf(p, m.item)];
-    return { ok: true, raw, item: m.item, tier, pts: tier.pts, fuzzy: m.fuzzy };
+    return { ok: true, raw, item: m.item, tier, pts: tier.pts, fuzzy: m.fuzzy, typed: m.fuzzy ? String(text).trim() : '' };
   };
 
   /** A few valid answers per tier, rarest first, to show what else was out there. */
@@ -229,6 +236,4 @@
     }
     return out;
   };
-
-  FO.text = { norm, strip, keyOf };
 })();

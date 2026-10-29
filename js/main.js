@@ -10,6 +10,9 @@
     const d = UI.store.get('daily.' + FO.Solo.today(), null);
     $('#best-daily').textContent = !d ? "Today's orbit is ready" : d.done === false ? `In progress · ${(d.dist || 0).toLocaleString()} ly` : `Today: ${(d.dist || 0).toLocaleString()} ly · see result`;
     Fx.cruise(0.35);
+    const n = FO.Collection.count();
+    $('#chart-link').textContent = n ? `Your star chart (${n})` : 'Your star chart';
+    $('#home-themes').replaceChildren(UI.themePicker(UI.store.get('theme', 'all'), (t) => UI.store.set('theme', t)));
   }
 
   function go(where) {
@@ -17,6 +20,7 @@
     if (where === 'voyage' || where === 'daily') FO.Solo.start(where);
     else if (where === 'crew') { UI.show('s-crew'); FO.CrewView.entry(); }
     else if (where === 'howto') UI.show('s-howto');
+    else if (where === 'chart') FO.Collection.show();
   }
 
   document.addEventListener('click', (e) => {
@@ -30,6 +34,11 @@
     FO.Solo.submit($('#ans').value);
   });
   $('#ans').addEventListener('input', () => Fx.sfx.key());
+  // Phones: keep the answer box above the on-screen keyboard.
+  document.addEventListener('focusin', (e) => {
+    if (innerWidth >= 640 || !e.target.matches('#ans, #crew-ans')) return;
+    setTimeout(() => e.target.closest('form').scrollIntoView({ block: 'center', behavior: Fx.reduce ? 'auto' : 'smooth' }), 300);
+  });
   $('#skip').addEventListener('click', () => FO.Solo.skip());
 
   const mute = $('#mute');
@@ -41,10 +50,14 @@
     if (e.key === 'Escape' && UI.current !== 's-home' && !e.target.closest('input')) home();
   });
 
-  const cats = FO.cats.length, answers = FO.cats.reduce((n, c) => n + c.items.length, 0);
-  $('#bank-stat').textContent = `${cats} categories · ${answers.toLocaleString()} answers · ${FO.countPrompts().toLocaleString()} prompts`;
+  const lists = FO.qs.length + FO.cats.length, answers = FO.qs.concat(FO.cats).reduce((n, c) => n + c.items.length, 0);
+  $('#bank-stat').textContent = `${lists.toLocaleString()} topics and ${answers.toLocaleString()} known answers`;
 
   home();
+  // Installed-app support (GitHub Pages and other real hosts only; never inside claude.ai).
+  if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
+    navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });
+  }
   const m = location.hash.match(/^#crew-([a-z]{4})$/i);
   if (m) { UI.show('s-crew'); FO.CrewView.entry(m[1].toUpperCase()); }
   else if (location.hash === '#voyage' || location.hash === '#daily') go(location.hash.slice(1));

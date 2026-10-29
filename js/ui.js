@@ -51,6 +51,14 @@
     toastT = setTimeout(() => { t.hidden = true; }, ms);
   };
 
+  /** Share sheet on phones (where allowed), else copy. */
+  UI.share = async function (text, fallback) {
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      try { await navigator.share({ text }); return true; } catch (e) { if (e && e.name === 'AbortError') return false; }
+    }
+    return UI.copy(text, fallback);
+  };
+
   /** Copy text; on refusal, reveal a selectable textarea instead. */
   UI.copy = async function (text, fallback) {
     try {
@@ -85,9 +93,36 @@
   /** Plain-language reason for a missed answer. */
   UI.missText = function (p, j) {
     const typed = j.raw ? `“${j.raw}”` : 'That';
-    if (j.why === 'rule') return `${j.item.name} is ${p.cat.ask}, but not one ${p.rule}.`;
+    if (j.why === 'rule') return `${j.item.name} is ${p.cat.what}, but not one ${p.rule}.`;
     if (j.why === 'repeat') return `You already used ${j.item.name} here.`;
-    return `${typed} isn't in our star charts as ${p.cat.ask}. Check the spelling or try another.`;
+    if (j.why === 'maybe') return `${typed} is close to more than one answer. Pick the one you meant.`;
+    return `${typed} isn't on our star charts as ${p.what}. Check the spelling or try another.`;
+  };
+
+  /** "brocoli → Broccoli" with the fixed letters highlighted. */
+  UI.fixLine = function (typed, name) {
+    return UI.h('span', { class: 'fixline' }, UI.h('s', null, typed), UI.h('i', { 'aria-hidden': 'true' }, '→'),
+      UI.h('b', null, FO.text.diff(typed, name).map((sg) => (sg.fix ? UI.h('mark', null, sg.t) : sg.t))));
+  };
+
+  /** Theme chips ("Everything", "Food & Drink"…); only themes that have prompts are shown. */
+  UI.themePicker = function (current, onPick, disabled) {
+    const has = (id) => FO.qs.some((l) => l.theme === id) || FO.cats.some((l) => l.theme === id);
+    const opts = [{ id: 'all', name: 'Everything' }].concat(FO.THEMES.filter((t) => has(t.id)));
+    const wrap = UI.h('div', { class: 'themes', role: 'group', 'aria-label': 'Theme' });
+    const paint = (cur) => wrap.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.th === cur)));
+    for (const t of opts) {
+      wrap.append(UI.h('button', { type: 'button', class: 'theme-chip', 'data-th': t.id, 'aria-pressed': String(t.id === current), disabled: disabled || null,
+        onclick: () => { paint(t.id); onPick(t.id); } }, t.name));
+    }
+    return wrap;
+  };
+
+  /** "Did you mean…" buttons. onPick(item) runs when one is chosen. */
+  UI.didYouMean = function (options, onPick) {
+    return UI.h('div', { class: 'dym', role: 'group', 'aria-label': 'Did you mean' }, UI.h('span', null, 'Did you mean'),
+      options.map((it) => UI.h('button', { type: 'button', class: 'dym-btn', onclick: () => onPick(it) }, it.name)),
+      UI.h('span', null, '?'));
   };
 
   /** "Farther out" chips: real answers rarer than the one given. */

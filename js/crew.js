@@ -49,7 +49,7 @@
   /** Game state from the host's presence: untrusted, so rebuild it field by field. */
   function cleanGame(g) {
     if (!g || typeof g !== 'object' || !PHASES.includes(g.ph)) return null;
-    const out = { ph: g.ph, gid: int(g.gid, 0, 1e6, 0), r: int(g.r, 0, 99, 0), R: int(g.R, 1, 30, 8), T: int(g.T, 5, 120, 30), A: int(g.A, 1, 3, 1), left: int(g.left, 0, 120000, 0) };
+    const out = { ph: g.ph, gid: int(g.gid, 0, 1e6, 0), r: int(g.r, 0, 99, 0), R: int(g.R, 1, 30, 8), T: int(g.T, 5, 120, 30), A: int(g.A, 1, 3, 1), left: int(g.left, 0, 120000, 0), th: str(g.th, 12) || 'all' };
     if (g.s && typeof g.s === 'object') out.s = { c: str(g.s.c, 40), t: str(g.s.t, 10), v: typeof g.s.v === 'number' ? int(g.s.v, 1, 30, 5) : str(g.s.v, 1) || undefined };
     if (Array.isArray(g.u)) out.u = g.u.slice(0, 40).map((x) => ({ a: str(x && x.a, 48), by: Array.isArray(x && x.by) ? x.by.filter((s) => typeof s === 'string').slice(0, 12) : [] }));
     if (Array.isArray(g.res)) out.res = g.res.slice(0, 40).map((r) => ({ p: str(r && r.p, 64), a: str(r && r.a, 48), c: int(r && r.c, 0, 5, 0), pts: int(r && r.pts, 0, 1000, 0), f: r && (r.f === 'L' || r.f === 'X') ? r.f : '', v: r && r.v ? 1 : 0, m: str(r && r.m, 10) }));
@@ -118,27 +118,30 @@
   }
 
   // ---------- my actions ----------
-  /** Add one answer. Returns an error string for answers that can't count, 'unknown' for vote-bound ones, else ''. */
+  /** Add one answer. Returns {ok, msg, options, fixed:{typed,name}, unknown}. Typos are stored fixed. */
   function addAnswer(text) {
     const g = C.g, a = C.myA;
-    if (!g || g.ph !== 'ask' || !a || a.d) return 'Answers are locked.';
-    const t = text.trim().slice(0, 48);
-    if (!t) return '';
-    const key = FO.text.keyOf(t);
-    if (!key) return 'Use English letters or numbers.';
+    if (!g || g.ph !== 'ask' || !a || a.d) return { msg: 'Answers are locked.' };
+    let t = text.trim().slice(0, 48);
+    if (!t) return { ok: true };
+    if (!FO.text.keyOf(t)) return { msg: 'Use English letters or numbers.' };
     const j = FO.judge(C.prompt, t);
+    if (j.why === 'maybe') return { options: j.options };
+    if (j.why === 'rule') return { msg: `${j.item.name} is ${C.prompt.cat.what}, but not one ${C.prompt.rule}.` };
+    if (j.why === 'unknown' && !j.ruleOk) return { msg: `That isn't ${C.prompt.what}.` };
+    const fixed = j.ok && j.fuzzy ? { typed: t, name: j.item.name } : null;
+    if (fixed) t = j.item.name;
+    const key = FO.text.keyOf(t);
     const same = a.l.some((x) => {
       if (FO.text.keyOf(x) === key) return true;
       const jx = FO.judge(C.prompt, x);
       return j.ok && jx.ok && jx.item === j.item;
     });
-    if (same) return 'You already said that.';
-    if (j.why === 'rule') return `${j.item.name} is ${C.prompt.cat.ask}, but not one ${C.prompt.rule}.`;
-    if (j.why === 'unknown' && !j.ruleOk) return `That isn't ${C.prompt.cat.ask} ${C.prompt.rule}.`;
+    if (same) return { msg: 'You already said that.' };
     a.l.push(t);
     if (a.l.length >= (g.A || 1)) a.d = true;
     push();
-    return j.why === 'unknown' ? 'unknown' : '';
+    return { ok: true, fixed, unknown: j.why === 'unknown' };
   }
   function removeAnswer(i) { if (C.myA && !C.myA.d) { C.myA.l.splice(i, 1); push(); } }
   function lock() { if (C.myA && !C.myA.d) { C.myA.d = true; push(); } }
@@ -162,7 +165,7 @@
     nextRound();
   }
   function nextRound() {
-    const p = FO.makePrompt(C.rng, { minPool: 10, recent: C.recent, avoid: C.avoid });
+    const p = FO.makePrompt(C.rng, { minPool: 10, recent: C.recent, avoid: C.avoid, theme: C.hg.th || 'all' });
     C.recent.add(p.id);
     setPhase({ ph: 'ask', r: (C.hg.r || 0) + 1, s: p.spec, left: C.hg.T * 1000, res: null, u: null });
   }
@@ -293,7 +296,7 @@
     leave();
     C.code = code;
     C.isHost = host;
-    if (host) C.hg = { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, A: 2, sc: [], left: 0 };
+    if (host) C.hg = { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, A: 2, th: 'all', sc: [], left: 0 };
     C.sess = await FO.Net.open(code, host);
     C.kind = C.sess.kind;
     C.hostMissing = performance.now();
