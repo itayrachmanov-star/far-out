@@ -181,6 +181,18 @@
     if (S.fuel <= 0) end();
   }
 
+  /** Consecutive days with a finished Daily Orbit. */
+  const dayBefore = (day) => { const d = new Date(day + 'T12:00:00'); d.setDate(d.getDate() - 1); return d.toISOString().slice(0, 10); };
+  function bumpStreak(day) {
+    const s = UI.store.get('streak', { last: '', n: 0 });
+    if (s.last === day) return;
+    UI.store.set('streak', { last: day, n: s.last === dayBefore(day) ? s.n + 1 : 1 });
+  }
+  function streakNow() {
+    const s = UI.store.get('streak', { last: '', n: 0 }), t = today();
+    return s.last === t || s.last === dayBefore(t) ? s.n : 0;
+  }
+
   // Fuel doesn't burn while the tab is hidden.
   document.addEventListener('visibilitychange', () => { if (S) S.lastT = performance.now(); });
 
@@ -194,6 +206,7 @@
     if (mode === 'voyage' && S.dist > prevBest) UI.store.set('best.voyage', S.dist);
     if (mode === 'daily') { S.idx = DAILY_PROMPTS; S.slots = 0; saveDaily(); }
     if (FO.Collection) FO.Collection.gamePlayed();
+    if (mode === 'daily') bumpStreak(S.day);
     showOver(mode, S, prevBest);
   }
 
@@ -204,7 +217,10 @@
     const best = $('#over-best');
     if (mode === 'voyage') {
       best.replaceChildren(st.dist > prevBest && st.dist > 0 ? h('b', null, 'New personal record.') : `Personal best: ${Math.max(prevBest, st.dist).toLocaleString()} ly`);
-    } else best.textContent = 'New prompts tomorrow.';
+    } else {
+      const n = streakNow();
+      best.textContent = n > 1 ? `${n}-day streak. New questions tomorrow.` : 'New questions tomorrow. Come back to start a streak.';
+    }
     const counts = [0, 0, 0, 0, 0, 0];
     st.finds.forEach((f) => counts[f.tier.c]++);
     const total = st.finds.length || 1;
@@ -220,9 +236,17 @@
     $('#over-stats').replaceChildren(...stats.map(([k, v]) => h('div', null, h('dt', null, k), h('dd', null, String(v)))));
     const grid = (mode === 'daily' ? st.grid : st.finds.map((f) => f.tier.c)).slice(0, 24).map((c) => UI.EMOJI[c]).join('');
     st.share = [`Far Out · ${mode === 'daily' ? 'Daily Orbit ' + (st.day || today()) : 'Voyage'}`, `${st.dist.toLocaleString()} ly`, grid,
-      rarest ? `Rarest find: ${rarest.name} (${rarest.tier.name})` : ''].filter(Boolean).join('\n');
+      rarest ? `Rarest find: ${rarest.name} (${rarest.tier.name})` : '', mode === 'daily' && streakNow() > 1 ? `${streakNow()}-day streak` : ''].filter(Boolean).join('\n');
     $('#share-text').hidden = true;
     $('#share').onclick = () => UI.share(st.share + (/^https?:/.test(location.protocol) && !FO.Net.inArtifact ? '\n' + location.origin + location.pathname : ''), $('#share-text'));
+    const img = $('#share-img');
+    img.hidden = !(FO.ShareCard && FO.ShareCard.available());
+    img.onclick = () => FO.ShareCard.share({
+      title: mode === 'daily' ? `Daily Orbit, ${st.day || today()}` : 'Voyage', dist: st.dist,
+      grid: mode === 'daily' ? st.grid : st.finds.map((f) => f.tier.c), rarest: rarest ? { name: rarest.name, c: rarest.tier.c } : null,
+      extra: mode === 'daily' && streakNow() > 1 ? `${streakNow()}-day streak` : '',
+      url: /^https?:/.test(location.protocol) ? (location.host + location.pathname).replace(/\/$/, '') : '', text: st.share,
+    });
     $('#again').textContent = mode === 'daily' ? 'Play Voyage' : 'Fly again';
     $('#again').onclick = () => FO.Solo.start('voyage');
     if (st.dist > 0) setTimeout(() => { Fx.sfx[counts[1] || st.dist > prevBest ? 'win' : 'over'](); if (st.dist > prevBest || counts[1] >= 2) Fx.confetti(); }, 300);
@@ -265,6 +289,6 @@
       UI.onLeave(() => { clearInterval(ticker); if (S) S.over = true; });
     },
     submit, skip,
-    today,
+    today, streakNow,
   };
 })();

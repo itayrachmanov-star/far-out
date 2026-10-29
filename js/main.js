@@ -8,7 +8,9 @@
     const best = UI.store.get('best.voyage', 0);
     $('#best-voyage').textContent = best ? `Best: ${best.toLocaleString()} ly` : 'No voyage yet';
     const d = UI.store.get('daily.' + FO.Solo.today(), null);
-    $('#best-daily').textContent = !d ? "Today's orbit is ready" : d.done === false ? `In progress · ${(d.dist || 0).toLocaleString()} ly` : `Today: ${(d.dist || 0).toLocaleString()} ly · see result`;
+    const streak = FO.Solo.streakNow();
+    $('#best-daily').textContent = !d ? (streak > 1 ? `Keep your ${streak}-day streak going` : "Today's six are ready")
+      : d.done === false ? `In progress, ${(d.dist || 0).toLocaleString()} ly so far` : `Done today: ${(d.dist || 0).toLocaleString()} ly${streak > 1 ? `, ${streak}-day streak` : ''}`;
     Fx.cruise(0.35);
     const n = FO.Collection.count();
     $('#chart-link').textContent = n ? `Your star chart (${n})` : 'Your star chart';
@@ -54,6 +56,15 @@
   $('#bank-stat').textContent = `${lists.toLocaleString()} topics and ${answers.toLocaleString()} known answers`;
 
   home();
+  // First visit: a three-step intro.
+  if (!UI.store.get('seen', false) && !location.hash) {
+    const intro = $('#intro'), done = (go) => { intro.hidden = true; UI.store.set('seen', true); if (go) go(); };
+    intro.hidden = false;
+    $('#intro-go').onclick = () => done(() => window.FarOut && document.querySelector('[data-go=voyage]').click());
+    $('#intro-close').onclick = () => done();
+    intro.addEventListener('keydown', (e) => { if (e.key === 'Escape') done(); });
+    setTimeout(() => $('#intro-go').focus(), 50);
+  }
   // Installed-app support (GitHub Pages and other real hosts only; never inside claude.ai).
   if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
     navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });

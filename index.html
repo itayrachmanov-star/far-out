@@ -102,6 +102,7 @@
     <div class="over-actions">
       <button class="btn primary" id="again" type="button">Fly again</button>
       <button class="btn" id="share" type="button">Share result</button>
+      <button class="btn" id="share-img" type="button" hidden>Share image</button>
       <button class="btn ghost" data-home type="button">Menu</button>
     </div>
     <textarea id="share-text" class="share-text" readonly hidden aria-label="Result text to copy"></textarea>
@@ -156,6 +157,21 @@
   </section>
 </main>
 
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-h" hidden>
+  <div class="intro-card">
+    <h2 id="intro-h">How Far Out works</h2>
+    <ol class="intro-steps">
+      <li><b>You get a question,</b> like “Name a red fruit”.</li>
+      <li><b>Type any real answer.</b> Typos are fine; the game fixes them or asks what you meant.</li>
+      <li><b>Rarer answers fly farther.</b> Strawberry is Low Orbit, 10 points. Lingonberry is Far Out, 100.</li>
+    </ol>
+    <div class="over-actions">
+      <button class="btn primary" type="button" id="intro-go">Start a voyage</button>
+      <button class="btn ghost" type="button" id="intro-close">Look around first</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <script src="js/text.js"></script>
@@ -188,12 +204,16 @@
 <script src="data/q-food-3.js"></script>
 <script src="data/q-life-1.js"></script>
 <script src="data/q-mind-1.js"></script>
+<script src="data/q-mind-2.js"></script>
 <script src="data/q-nature-1.js"></script>
 <script src="data/q-nature-10.js"></script>
 <script src="data/q-nature-11.js"></script>
 <script src="data/q-nature-12.js"></script>
 <script src="data/q-nature-13.js"></script>
 <script src="data/q-nature-14.js"></script>
+<script src="data/q-nature-15.js"></script>
+<script src="data/q-nature-16.js"></script>
+<script src="data/q-nature-17.js"></script>
 <script src="data/q-nature-2.js"></script>
 <script src="data/q-nature-3.js"></script>
 <script src="data/q-nature-4.js"></script>
@@ -210,6 +230,7 @@
 <script src="js/fx.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/collection.js"></script>
+<script src="js/sharecard.js"></script>
 <script src="js/solo.js"></script>
 <script src="js/net.js"></script>
 <script src="js/crew.js"></script>

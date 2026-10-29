@@ -1,0 +1,16 @@
+FarOut.addQuestions([
+  { id: "q-dinosaur", theme: "Animals", ask: "Name a dinosaur", what: "a dinosaur", items: `
+tyrannosaurus rex|t. rex|t rex|trex|tyrannosaurus:5; triceratops:5; velociraptor|raptor:5; stegosaurus:5; brachiosaurus:4; diplodocus:4; brontosaurus|apatosaurus:4; ankylosaurus:4; spinosaurus:4; allosaurus:3; pterodactyl|pteranodon:3; iguanodon:3; parasaurolophus:3;
+pachycephalosaurus:3; gallimimus:3; dilophosaurus:3; compsognathus:3; carnotaurus:3; giganotosaurus:3; archaeopteryx:2; deinonychus:3; utahraptor:2; oviraptor:2; protoceratops:2; styracosaurus:2; maiasaura:2; hadrosaurus|hadrosaur|duck-billed dinosaur:2;
+baryonyx:2; megalosaurus:2; plateosaurus:2; coelophysis:2; herrerasaurus:1; eoraptor:1; therizinosaurus:2; argentinosaurus:2; titanosaur|titanosaurus:2; camarasaurus:1; mamenchisaurus:1; seismosaurus:1; supersaurus:1;
+ceratosaurus:1; albertosaurus:2; gorgosaurus:1; daspletosaurus:1; tarbosaurus:1; acrocanthosaurus:1; carcharodontosaurus:1; edmontosaurus:2; corythosaurus:1; lambeosaurus:1; kentrosaurus:1; scelidosaurus:1; hypsilophodon:1; othnielia:1; psittacosaurus:1;
+microraptor:2; troodon:2; sinosauropteryx:1; yutyrannus:1; dracorex:1; stygimoloch:1; pentaceratops:1; torosaurus:1; chasmosaurus:1; centrosaurus:1; ouranosaurus:1; amargasaurus:2; nigersaurus:1; saltasaurus:1; minmi:1; polacanthus:1; nodosaurus:1; euoplocephalus:1; stegoceras:1;
+` },
+  { id: "q-reptile-amphibian", theme: "Animals", ask: "Name a reptile or amphibian", what: "a reptile or amphibian", items: `
+snake:5; frog:5; turtle:5; lizard:5; crocodile:5; alligator:5; toad:5; tortoise:5; salamander:4; newt:4; gecko:4; iguana:4; chameleon:4; komodo dragon:4; cobra:3; python:3; tadpole:2; axolotl:4; bullfrog:3; tree frog:3; poison dart frog:3; skink:3; monitor lizard:3; gila monster:3; bearded dragon:3; anole:2; caiman:3; gharial:3; terrapin:3; sea turtle:3;
+snapping turtle:3; box turtle:2; leatherback:2; green turtle:2; hawksbill:2; loggerhead:2; galapagos tortoise|giant tortoise:3; rattlesnake:3; boa constrictor|boa:3; anaconda:3; viper:2; mamba:2; copperhead:2; garter snake:2; slow worm:2; glass lizard:1; horned lizard|horny toad:2; thorny devil:2; frilled lizard:2; basilisk:2; flying dragon:1;
+marine iguana:2; chuckwalla:1; tuatara:3; goanna:2; blue-tongued skink|blue tongue skink:2; leopard gecko:2; tokay gecko:1; cane toad:3; natterjack:1; common frog:2; tree toad:1; spadefoot:1; fire salamander:2; hellbender:2; olm:2; mudpuppy:1; siren:1; caecilian:2; amphiuma|congo eel:1; giant salamander|chinese giant salamander:2; goliath frog:2; glass frog:2; red-eyed tree frog|red eyed tree frog:3;
+ surinam toad:1; african clawed frog|clawed frog:1; hairy frog:1; pacman frog:1; horned frog:1; mantella:1; strawberry poison frog|strawberry poison-dart frog:1; golden poison frog:1; mexican axolotl:1; tiger salamander:2; spotted salamander:1; red-spotted newt:1; great crested newt:2; smooth newt:1; palmate newt:1; alpine newt:1;
+saltwater crocodile|saltie:3; nile crocodile:3; american alligator:2; chinese alligator:1; black caiman:1; spectacled caiman:1; dwarf crocodile:1; false gharial:1; mugger crocodile:1; sea snake:2; king cobra:2; reticulated python:1; ball python:1; corn snake:2; milk snake:1; king snake:1; sidewinder:1; taipan:1; boomslang:1; coral snake:2;
+` },
+]);

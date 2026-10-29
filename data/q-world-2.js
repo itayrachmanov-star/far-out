@@ -28,9 +28,8 @@ elche:2; castellon:2; figueres:2; reus:2; palencia:2; zamora:2; toro:2; medina d
 alcala de henares:2; getafe:2; leganes:2; alcorcon:2; mostoles:2; fuenlabrada:2; parla:2; torrejon:2; rivas:2; pozuelo:2;
 majadahonda:2; las rozas:2; boadilla:2; collado villalba:2; cadaques:2; roses:2; tossa de mar:2; lloret de mar:2; blanes:2; salou:2;
 cambrils:2; tortosa:2; peniscola:2; gandia:2; denia:2; javea:2; calpe:2; altea:2; torrevieja:2; orihuela:2;
-mazarron:2; aguilas:2; vera:2; mojacar:2; nerja:2; fuengirola:2; estepona:2; antequera:2; ubeda:2; baeza:2;
-jaen:2; linares:2; motril:1; almunecar:1; salobrena:1; guadix:1; baza:1; ubeda:1; baeza:1; jaen:1;
-linares:1; antequera:1; nerja:1;
+mazarron:2; aguilas:2; vera:2; mojacar:2; fuengirola:2; estepona:2; motril:1; almunecar:1; salobrena:1; guadix:1;
+baza:1; ubeda:1; baeza:1; jaen:1; linares:1; antequera:1; nerja:1;
 ` },
   { id: "q-uk-city", theme: "Cities", ask: "Name a city in the UK", what: "a city in the UK", items: `
 london:5; manchester:5; birmingham:5; liverpool:5; edinburgh:5; glasgow:5; cardiff:4; leeds:4; sheffield:4; bristol:4;
@@ -66,13 +65,120 @@ venice:3; sausalito:3; big sur:3; modesto:2; redding:2; eureka:2; truckee:2; sou
 bishop:2; lancaster:2; palmdale:2; santa ana:2; oceanside:2; encinitas:2; chula vista:2; escondido:2; temecula:2; ontario:2;
 pomona:2; santa maria:2; thousand oaks:2; simi valley:2; santa clarita:2; burlingame:2; san rafael:2; vallejo:2; walnut creek:2; livermore:2;
 pleasanton:2; davis:2; chico:2; yuba city:2; merced:2; visalia:2; salinas:2; gilroy:2; compton:2; hayward:2;
-redwood city:2; menlo park:2; los gatos:2; saratoga:2; campbell:2; milpitas:2; pacifica:2; half moon bay:2; santa monica pier:2; manhattan beach:2;
-hermosa beach:2; redondo beach:2; long beach ca:2; fullerton:2; orange:2; tustin:2; costa mesa:2; dana point:2; san clemente:2; laguna niguel:2;
-mission viejo:2; lake forest:2; corona:2; murrieta:2; hemet:2; indio:2; palm desert:2; rancho mirage:2; cathedral city:2; yucaipa:2;
-redlands:2; fontana:2; rancho cucamonga:2; upland:2; claremont:2; arcata:1; crescent city:1; yreka:1; weaverville:1; red bluff:1;
-oroville:1; paradise:1; auburn:1; grass valley:1; nevada city:1; placerville:1; jackson:1; sutter creek:1; angels camp:1; sonora:1;
-mariposa:1; oakhurst:1; coarsegold:1; three rivers:1; porterville:1; tulare:1; hanford:1; delano:1; taft:1; ridgecrest:1;
-barstow:1; needles:1; twentynine palms:1; joshua tree:1; yucca valley:1; borrego springs:1; julian:1; ramona:1; poway:1; el cajon:1;
-la mesa:1; santee:1; national city:1; imperial beach:1; coronado:1; calexico:1; el centro:1; brawley:1;
+redwood city:2; menlo park:2; los gatos:2; saratoga:2; campbell:2; milpitas:2; pacifica:2; half moon bay:2; manhattan beach:2; hermosa beach:2;
+redondo beach:2; fullerton:2; orange:2; tustin:2; costa mesa:2; dana point:2; san clemente:2; laguna niguel:2; mission viejo:2; lake forest:2;
+corona:2; murrieta:2; hemet:2; indio:2; palm desert:2; rancho mirage:2; cathedral city:2; yucaipa:2; redlands:2; fontana:2;
+rancho cucamonga:2; upland:2; claremont:2; arcata:1; crescent city:1; yreka:1; weaverville:1; red bluff:1; oroville:1; paradise:1;
+auburn:1; grass valley:1; nevada city:1; placerville:1; jackson:1; sutter creek:1; angels camp:1; sonora:1; mariposa:1; oakhurst:1;
+coarsegold:1; three rivers:1; porterville:1; tulare:1; hanford:1; delano:1; taft:1; ridgecrest:1; barstow:1; needles:1;
+twentynine palms:1; joshua tree:1; yucca valley:1; borrego springs:1; julian:1; ramona:1; poway:1; el cajon:1; la mesa:1; santee:1;
+national city:1; imperial beach:1; coronado:1; calexico:1; el centro:1; brawley:1;
+` },
+  { id: "q-texas-city", theme: "Cities", ask: "Name a city in Texas", what: "a city in Texas", items: `
+houston:5; dallas:5; austin:5; san antonio:5; fort worth:5; el paso:5; arlington:4; corpus christi:4; plano:4; lubbock:4;
+galveston:4; amarillo:4; waco:4; irving:4; laredo:3; garland:3; brownsville:3; mcallen:3; abilene:3; midland:3;
+odessa:3; beaumont:3; tyler:3; san marcos:3; college station:3; denton:3; frisco:3; mckinney:3; round rock:3; killeen:3;
+wichita falls:3; san angelo:3; victoria:3; port arthur:3; texarkana:3; marfa:3; fredericksburg:3; new braunfels:3; south padre island:3; pasadena:3;
+sugar land:3; the woodlands:3; katy:3; conroe:3; humble:2; grapevine:2; richardson:2; mesquite:2; carrollton:2; lewisville:2;
+allen:2; rockwall:2; southlake:2; grand prairie:2; pearland:2; league city:2; baytown:2; missouri city:2; bryan:2; longview:2;
+nacogdoches:2; lufkin:2; paris:2; sherman:2; denison:2; gainesville:2; weatherford:2; cleburne:2; temple:2; harlingen:2;
+edinburg:2; mission:2; pharr:2; weslaco:2; del rio:2; eagle pass:2; uvalde:2; kerrville:2; boerne:2; seguin:2;
+georgetown:2; pflugerville:2; cedar park:2; leander:2; lockhart:2; bastrop:2; canyon:2; pecos:2; alpine:2; fort stockton:2;
+big spring:2; snyder:2; sweetwater:2; plainview:2; pampa:2; borger:2; dumas:2; hereford:2; vernon:2; childress:2;
+stephenville:1; brownwood:1; san saba:1; llano:1; marble falls:1; burnet:1; lampasas:1; gatesville:1; hamilton:1; comanche:1;
+brady:1; junction:1; sonora:1; ozona:1; rockport:1; port aransas:1; aransas pass:1; ingleside:1; portland:1; sinton:1;
+beeville:1; goliad:1; cuero:1; gonzales:1; luling:1; yoakum:1; hallettsville:1; schulenburg:1; columbus:1; eagle lake:1;
+wharton:1; bay city:1; freeport:1; angleton:1; lake jackson:1; alvin:1; friendswood:1; kemah:1; seabrook:1; la porte:1;
+` },
+  { id: "q-us-city", theme: "Cities", ask: "Name a city in the United States", what: "a city in the United States", items: `
+new york|new york city|nyc:5; los angeles|la:5; chicago:5; miami:5; las vegas:5; san francisco:5; boston:5; seattle:5; houston:5; dallas:5;
+atlanta:5; washington dc|washington:5; philadelphia:4; san diego:4; phoenix:4; denver:4; new orleans:4; orlando:4; austin:4; nashville:4;
+detroit:4; portland:4; san antonio:4; minneapolis:4; baltimore:4; honolulu:4; pittsburgh:4; cleveland:4; st louis:4; kansas city:4;
+charlotte:4; salt lake city:4; tampa:4; san jose:4; milwaukee:3; memphis:3; indianapolis:3; columbus:3; cincinnati:3; oakland:3;
+sacramento:3; albuquerque:3; tucson:3; el paso:3; oklahoma city:3; louisville:3; raleigh:3; richmond:3; buffalo:3; rochester:3;
+omaha:3; tulsa:3; santa fe:3; anchorage:3; savannah:3; charleston:3; jacksonville:3; fort worth:3; boise:3; fresno:3;
+long beach:3; newark:3; providence:3; hartford:3; albany:3; madison:3; des moines:3; little rock:3; birmingham:3; fort lauderdale:3;
+key west:3; palm springs:3; scottsdale:3; reno:3; lexington:3; norfolk:3; virginia beach:3; juneau:3; santa barbara:3; brooklyn:3;
+manhattan:3; jersey city:2; baton rouge:2; jackson:2; montgomery:2; mobile:2; tallahassee:2; gainesville:2; st petersburg:2; sarasota:2;
+naples:2; fort myers:2; daytona beach:2; tampa bay:2; boulder:2; colorado springs:2; fort collins:2; aspen:2; vail:2; cheyenne:2;
+laramie:2; casper:2; billings:2; missoula:2; bozeman:2; helena:2; spokane:2; tacoma:2; bellevue:2; olympia:2;
+eugene:2; salem:2; bend:2; medford:2; anaheim:2; riverside:2; bakersfield:2; stockton:2; san bernardino:2; chattanooga:2;
+knoxville:2; greensboro:2; durham:2; winston-salem:2; asheville:2; wilmington:2; columbia:2; greenville:2; augusta:2; macon:2;
+huntsville:2; lincoln:2; wichita:2; topeka:2; sioux falls:2; fargo:2; bismarck:2; rapid city:2; duluth:2; st paul:2;
+green bay:2; grand rapids:2; ann arbor:2; flint:2; toledo:2; akron:2; dayton:2; youngstown:2; erie:2; scranton:2;
+allentown:2; harrisburg:2; lancaster:2; trenton:2; atlantic city:2; wilmington de:2; dover:2; annapolis:2; arlington:2; alexandria:2;
+roanoke:2; lynchburg:2; charlottesville:2; newport:2; burlington:2; portland maine:2; bangor:2; concord:2; manchester:2; worcester:2;
+springfield:2; new haven:2; stamford:2; bridgeport:2; fairbanks:1; nome:1; ketchikan:1; sitka:1; kodiak:1; hilo:1;
+kona:1; lahaina:1; wailuku:1; lihue:1; kapaa:1; honolulu county:1; galveston:1; pensacola:1; panama city:1; destin:1;
+biloxi:1; gulfport:1; tupelo:1; natchez:1; vicksburg:1; hattiesburg:1; meridian:1; lafayette:1; lake charles:1; shreveport:1;
+monroe:1; alexandria la:1; texarkana:1; fort smith:1; fayetteville:1; hot springs:1; jonesboro:1; paducah:1; bowling green:1; owensboro:1;
+lexington ky:1; covington:1; cape girardeau:1; joplin:1; branson:1; springfield mo:1; st joseph:1; columbia mo:1;
+` },
+  { id: "q-canada-city", theme: "Cities", ask: "Name a Canadian city", what: "a Canadian city", items: `
+toronto:5; vancouver:5; montreal:5; ottawa:5; calgary:5; edmonton:4; winnipeg:4; quebec city|quebec:4; halifax:4; victoria:4;
+niagara falls:4; banff:4; whistler:4; hamilton:3; london:3; kitchener:3; saskatoon:3; regina:3; st johns:3; fredericton:3;
+charlottesville:3; charlottetown:3; whitehorse:3; yellowknife:3; iqaluit:3; mississauga:3; brampton:3; surrey:3; laval:3; markham:3;
+gatineau:3; burnaby:3; kelowna:3; kamloops:3; nanaimo:3; windsor:3; kingston:3; waterloo:3; sudbury:3; thunder bay:3;
+barrie:3; oshawa:3; moncton:3; saint john:3; lethbridge:3; red deer:3; medicine hat:3; fort mcmurray:3; vaughan:2; richmond:2;
+oakville:2; burlington:2; prince george:2; abbotsford:2; grande prairie:2; brandon:2; sault ste marie:2; guelph:2; cambridge:2; peterborough:2;
+trois-rivieres:2; sherbrooke:2; saguenay:2; chicoutimi:2; sydney:2; truro:2; corner brook:2; gander:2; labrador city:2; dawson city:2;
+jasper:2; canmore:2; lake louise:2; tofino:2; squamish:2; penticton:2; vernon:2; kimberley:2; revelstoke:2; golden:2;
+cranbrook:2; nelson:2; trail:2; castlegar:2; rossland:2; powell river:2; campbell river:2; courtenay:2; duncan:2; sidney:2;
+saanich:2; moose jaw:1; swift current:1; prince albert:1; north battleford:1; yorkton:1; estevan:1; flin flon:1; thompson:1; the pas:1;
+churchill:1; portage la prairie:1; steinbach:1; selkirk:1; dauphin:1; kenora:1; dryden:1; fort frances:1; timmins:1; north bay:1;
+sault:1; elliot lake:1; orillia:1; midland:1; collingwood:1; owen sound:1; goderich:1; sarnia:1; chatham:1; leamington:1;
+stratford:1; woodstock:1; brantford:1; welland:1; st catharines:1; niagara-on-the-lake:1; cobourg:1; belleville:1; brockville:1; cornwall:1;
+pembroke:1; smiths falls:1; perth:1;
+` },
+  { id: "q-australia-city", theme: "Cities", ask: "Name an Australian city", what: "an Australian city", items: `
+sydney:5; melbourne:5; brisbane:5; perth:5; adelaide:5; canberra:4; hobart:4; darwin:4; gold coast:4; newcastle:4;
+cairns:4; wollongong:3; townsville:3; geelong:3; alice springs:3; byron bay:3; ballarat:3; bendigo:3; launceston:3; toowoomba:3;
+sunshine coast:3; noosa:3; fremantle:3; broome:3; kalgoorlie:3; parramatta:3; coffs harbour:3; port macquarie:3; mackay:2; rockhampton:2;
+bundaberg:2; hervey bay:2; bunbury:2; albany:2; geraldton:2; port hedland:2; mildura:2; wagga wagga:2; albury:2; dubbo:2;
+tamworth:2; orange:2; bathurst:2; penrith:2; katherine:2; mount isa:2; coober pedy:2; port augusta:2; whyalla:2; mount gambier:2;
+devonport:2; burnie:2; bondi:2; manly:2; surfers paradise:2; broadbeach:2; southport:2; ipswich:2; logan:2; redcliffe:2;
+caloundra:2; maroochydore:2; mooloolaba:2; airlie beach:2; mission beach:2; port douglas:2; cooktown:2; karratha:2; esperance:2; margaret river:2;
+busselton:2; mandurah:2; rockingham:2; joondalup:2; wangaratta:1; shepparton:1; warrnambool:1; portland:1; horsham:1; hamilton:1;
+swan hill:1; echuca:1; sale:1; bairnsdale:1; lakes entrance:1; traralgon:1; morwell:1; wonthaggi:1; queanbeyan:1; goulburn:1;
+nowra:1; bowral:1; katoomba:1; lithgow:1; mudgee:1; armidale:1; lismore:1; ballina:1; grafton:1; tweed heads:1;
+murwillumbah:1; kingaroy:1; gympie:1; maryborough:1; emerald:1; longreach:1; winton:1; charleville:1; roma:1; st george:1;
+goondiwindi:1;
+` },
+  { id: "q-china-city", theme: "Cities", ask: "Name a city in China", what: "a city in China", items: `
+beijing|peking:5; shanghai:5; hong kong:5; shenzhen:5; guangzhou|canton:5; chengdu:4; chongqing:4; xian:4; nanjing:4; hangzhou:4;
+tianjin:4; wuhan:4; macau|macao:4; suzhou:3; qingdao:3; dalian:3; harbin:3; shenyang:3; kunming:3; lhasa:3;
+xiamen:3; guilin:3; lijiang:3; luoyang:3; zhengzhou:3; jinan:3; changsha:3; nanchang:3; fuzhou:3; hefei:3;
+taiyuan:3; urumqi:3; lanzhou:3; nanning:3; haikou:3; guiyang:3; ningbo:3; wuxi:3; foshan:3; dongguan:3;
+zhuhai:3; sanya:3; datong:3; kashgar:3; dunhuang:3; pingyao:3; yangshuo:3; dali:3; zhangjiajie:3; shijiazhuang:2;
+hohhot:2; xining:2; yinchuan:2; changchun:2; shantou:2; wenzhou:2; yantai:2; weihai:2; tangshan:2; baoding:2;
+handan:2; anyang:2; kaifeng:2; xuzhou:2; yangzhou:2; zhenjiang:2; changzhou:2; nantong:2; jiaxing:2; shaoxing:2;
+huangshan:2; wuyishan:2; quanzhou:2; zhangzhou:2; jingdezhen:2; jiujiang:2; yichang:2; jingzhou:2; xiangyang:2; shiyan:2;
+zunyi:2; anshun:2; kaili:2; baoshan:2; lincang:2; jinghong:2; xishuangbanna:2; tengchong:2; shangri-la:2; ya'an:2;
+leshan:2; mianyang:2; deyang:2; zigong:2; luzhou:2; yibin:2; nanchong:2; dazhu:2; lhasa prefecture:1; shigatse:1;
+tsedang:1; nyingchi:1; qamdo:1; ngari:1; golmud:1; dulan:1; delingha:1; tianshui:1; jiayuguan:1; zhangye:1;
+wuwei:1; jiuquan:1; hami:1; turpan:1; korla:1; aksu:1; hotan:1; yining:1; karamay:1; shihezi:1;
+altay:1;
+` },
+  { id: "q-india-city", theme: "Cities", ask: "Name a city in India", what: "a city in India", items: `
+delhi|new delhi:5; mumbai|bombay:5; kolkata|calcutta:5; chennai|madras:5; bangalore|bengaluru:5; hyderabad:4; jaipur:4; agra:4; varanasi|benares:4; pune:4;
+ahmedabad:4; goa:4; amritsar:4; lucknow:3; kanpur:3; nagpur:3; indore:3; bhopal:3; patna:3; surat:3;
+vadodara|baroda:3; chandigarh:3; jodhpur:3; udaipur:3; jaisalmer:3; mysore|mysuru:3; kochi|cochin:3; trivandrum|thiruvananthapuram:3; madurai:3; coimbatore:3;
+visakhapatnam|vizag:3; shimla:3; darjeeling:3; rishikesh:3; haridwar:3; srinagar:3; leh:3; pondicherry|puducherry:3; guwahati:3; pushkar:3;
+ooty:3; munnar:3; hampi:3; bhubaneswar:2; ranchi:2; dehradun:2; jammu:2; panaji:2; mangalore:2; nashik:2;
+aurangabad:2; kolhapur:2; raipur:2; jabalpur:2; gwalior:2; allahabad|prayagraj:2; meerut:2; ludhiana:2; jalandhar:2; ajmer:2;
+bikaner:2; kota:2; mount abu:2; khajuraho:2; bodh gaya:2; gaya:2; mathura:2; vrindavan:2; ayodhya:2; ujjain:2;
+nanded:2; solapur:2; belgaum|belagavi:2; hubli:2; dharwad:2; davangere:2; shimoga:2; tirupati:2; vijayawada:2; guntur:2;
+warangal:2; rajahmundry:2; kakinada:2; nellore:2; salem:2; tiruchirappalli|trichy:2; tirunelveli:2; kanyakumari:2; thanjavur:2; rameswaram:2;
+kollam:2; alappuzha|alleppey:2; kozhikode|calicut:2; thrissur:2; kannur:2; kasaragod:2; palakkad:2; shillong:1; imphal:1; aizawl:1;
+kohima:1; itanagar:1; agartala:1; gangtok:1; siliguri:1; kalimpong:1; jorhat:1; dibrugarh:1; tezpur:1; silchar:1;
+port blair:1; kavaratti:1; daman:1; diu:1; silvassa:1; dadra:1; karaikal:1; mahe:1; yanam:1;
+` },
+  { id: "q-european-capital", theme: "Cities", ask: "Name a European capital", what: "a European capital", items: `
+paris:5; london:5; rome:5; berlin:5; madrid:5; lisbon:4; vienna:4; amsterdam:4; brussels:4; dublin:4;
+athens:4; prague:4; budapest:4; warsaw:4; stockholm:4; oslo:4; copenhagen:4; moscow:4; helsinki:3; reykjavik:3;
+bern|berne:3; bucharest:3; sofia:3; belgrade:3; zagreb:3; kyiv|kiev:3; edinburgh:3; cardiff:3; ankara:3; ljubljana:2;
+bratislava:2; tallinn:2; riga:2; vilnius:2; minsk:2; valletta:2; nicosia:2; luxembourg:2; monaco:2; sarajevo:2;
+skopje:2; tirana:2; belfast:2; chisinau:2; podgorica:1; pristina:1; andorra la vella:1; vaduz:1; san marino:1; vatican city:1;
+tbilisi:1; yerevan:1; baku:1;
 ` },
 ]);

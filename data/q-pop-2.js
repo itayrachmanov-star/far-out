@@ -11,7 +11,7 @@ bad boys:3; beverly hills cop:3; the karate kid|karate kid:3; step up:2; pitch p
 jumanji:3; paddington:3; sing:2; hotel transylvania:2; trolls:2; alvin and the chipmunks:2; garfield:2; scooby-doo:2; the smurfs|smurfs:2; teenage mutant ninja turtles|tmnt:4; power rangers:3; mortal kombat:2;
 street fighter:1; tomb raider:3; kill bill:3; spy kids:3; sherlock holmes:3; dirty harry:3; jack reacher:2; jack ryan:2; the transporter|transporter:2; the expendables|expendables:3; the equalizer|equalizer:2; meet the parents|meet the fockers:3;
 dumb and dumber:3; waynes world:2; bill and ted:3; wallace and gromit:3; john wick:5; captain america:3; iron man:3; thor:3; guardians of the galaxy:3;
-deadpool:3; venom:2; wonder woman:2; aquaman:2; the avengers:2; the fantastic four|fantastic four:2; blade:2; hellboy:2; a quiet place:2; the lego movie|lego movie:2; the hobbit:4;
+deadpool:3; venom:2; wonder woman:2; aquaman:2; the fantastic four|fantastic four:2; blade:2; hellboy:2; a quiet place:2; the lego movie|lego movie:2; the hobbit:4;
 the santa clause|santa clause:3; the parent trap:2; freaky friday:2; honey i shrunk the kids:3; the muppets|muppet movie:3; beetlejuice:2; the addams family|addams family:3; the fly:1; evil dead:2;
 child's play:3; hellraiser:2; texas chainsaw massacre:3; the omen:2; poltergeist:2; the ring:2; the grudge:2; pet sematary:1; children of the corn:1; critters:1; tremors:2; predator vs alien:1;
 ` },
