@@ -36,14 +36,6 @@ little miss fickle|fickle:3; little miss dotty|dotty:3; little miss lucky|lucky:
 little miss fun|fun:2; little miss busy:2; little miss brainy|brainy:2; little miss hug|hug:1; little miss whoops|whoops:2; little miss bad|bad:2; little miss quick|quick:2; little miss inventor:1; little miss fabulous:1;
 ` },
 
-  { id: "q-easy-drseuss", theme: "Kids", ask: "Name a Dr Seuss book or character", what: "a Dr Seuss book or character", items: `
-the cat in the hat|cat in the hat:5; the grinch|grinch:5; green eggs and ham:5; the lorax|lorax:5; oh the places you'll go|oh the places youll go:5; horton:4; thing one:4; thing two:4; how the grinch stole christmas:4; one fish two fish red fish blue fish|one fish two fish:4; horton hears a who:4; fox in socks:4;
-hop on pop:4; cindy lou who:4; sam-i-am|sam i am:3; yertle the turtle|yertle:3; the sneetches|sneetches:3; the whos|whos:3; whoville:3; horton hatches the egg:3; dr seuss's abc|dr seuss abc:3; the once-ler|once-ler|once ler:3; max:2; sally:2;
-conrad the fish|the fish:2; mr brown can moo:2; there's a wocket in my pocket|wocket in my pocket:2; bartholomew cubbins|500 hats of bartholomew cubbins|the 500 hats of bartholomew cubbins:2; the butter battle book|butter battle book:2; if i ran the zoo:2; ten apples up on top:2; the cat in the hat comes back:2; oh the thinks you can think:2; what pet should i get:2; thidwick the big-hearted moose|thidwick:2;
-on beyond zebra:2; gertrude mcfuzz:2; truffula tree|truffula:2; jojo:2; sour kangaroo:2; gerald mcboing-boing|gerald mcboing boing:1; the zax|zax:1; the foot book:1; mcelligot's pool:1; the king's stilts:1; daisy-head mayzie:1; i can read with my eyes shut:1;
-marvin k mooney will you please go now:1; scrambled eggs super:1; the 5000 fingers of dr t:1; the sleep book:1; hunches in bunches:1; i am not going to get up today:1; sylvester mcmonkey mcbean|mcbean:1; solla sollew|i had trouble in getting to solla sollew:1;
-the lorax's bar-ba-loots|bar-ba-loots:1; swomee-swans|swomee swans:1; humming-fish|humming fish:1;
-` },
 
   { id: "q-easy-preschool-tv", theme: "Kids", ask: "Name a character from a preschool TV show", what: "a character from a preschool TV show", items: `
 peppa pig|peppa:5; bluey:5; dora|dora the explorer:5; thomas the tank engine|thomas:5; tinky winky:5; dipsy:5; laa-laa|laa laa:5; po:5; bob the builder|bob:5; george pig|george:4; percy:4; chase:4; marshall:4; skye:4; rubble:4; pingu:4;
@@ -219,5 +211,91 @@ scissors|shears:5; comb:5; hairdryer|hair dryer|blow dryer:5; brush|hairbrush:5;
 gel|hair gel:3; conditioner:3; towel:3; razor|cut-throat razor:3; curling tongs|curling iron|tongs:3; rollers|curlers|hair rollers:3; sink|basin|backwash|backwash basin:3; spray bottle|water spray:3; pins|hair pins|grips|kirby grips|bobby pins|bobby pin:3; apron:3; magazines|magazine:3; foils|foil|highlights:2; bleach:2; mousse:2;
 wax|hair wax|pomade:2; hair bands|hair band|hair tie:2; wide-tooth comb|wide tooth comb:2; gloves:2; coffee|tea|cup of tea:2; appointment book|appointment diary|diary:2; till|cash register:2; broom|dustpan:2; tail comb|rat tail comb|rat-tail comb:1; diffuser:1; hot brush:1; crimper:1; thinning scissors|thinning shears|texturising scissors:1; neck brush|neck duster:1;
 sectioning clips|sectioning clip|duckbill clips:1; tint brush|tinting bowl|tint bowl:1; perm rods:1; mannequin head|dummy head|mannequin:1; hair extensions|extensions:1; wig:1; trolley:1; hair net:1; hair powder:1; dry shampoo:1; scalp massager:1;
+` },
+
+  { id: "q-easy-has-legs", theme: "Everyday", ask: "Name something that has legs", what: "something with legs", items: `
+table:5; chair:5; spider:5; dog:5; human|person:4; cat:4; horse:4; insect:4; bed:4; stool:4; desk:4; piano:4; trousers|pants:4; sofa|couch:3; tripod:3; ant:3; crab:3; chicken:3; frog:3; cow:3;
+centipede:3; easel:3; ironing board:3; deckchair|deck chair:3; bench:3; tights|stockings:3; jeans:3; shorts:3; flamingo:3; ostrich:3; giraffe:3; kangaroo:3; doll:3; robot:3; dinosaur:3; grasshopper:3; lizard:3; monkey:3; bird:3;
+millipede:2; lobster:2; bee:2; wardrobe:2; leg of a journey|leg of a relay race|leg:2; trestle table|trestle:2; sawhorse:2; stepladder:2; cot|crib:2; high chair|highchair:2; bar stool:2; dresser|sideboard:2; music stand:2; snooker table|pool table:2; barbecue|bbq:2; mannequin:2; teddy bear|teddy:2; rabbit:2;
+tiger:2; elephant:2; dancer:2; footballer:2; caterpillar:2; flea:2; beetle:2; turtle:2; tortoise:2; lamb:2; pig:2; gorilla:2; bath with feet|clawfoot bath:1; microphone stand:1; telescope:1; zimmer frame|walker:1; puppet:1; action figure:1; sofa bed:1; piano stool:1; drum stand:1;
+` },
+
+  { id: "q-easy-has-teeth", theme: "Everyday", ask: "Name something that has teeth", what: "something with teeth", items: `
+comb:5; saw:5; zip|zipper:5; shark:5; gear|cog:5; rake:5; human|person|mouth:4; crocodile|alligator:4; dog:4; vampire:4; piranha:4; t rex|tyrannosaurus:4; cat:3; lion:3; tiger:3; dragon:3; hippo:3; wolf:3; bear:3; horse:3;
+key:3; chainsaw:3; bread knife|serrated knife:3; snake:3; beaver:3; rabbit:3; rat:3; sabre-toothed tiger|sabre tooth|smilodon:3; velociraptor:3; megalodon:3; bat:3; werewolf:3; monster:3; jaws:3; dracula:3; baby:3; dentures|false teeth:3; circular saw|buzz saw:3;
+hacksaw:2; bike chain|sprocket|chain:2; mousetrap|bear trap:2; postage stamp|stamp:2; crocodile clip|hair clip:2; pliers:2; spider:2; squirrel:2; mouse:2; walrus:2; elephant:2; barracuda:2; moray eel|eel:2; sheep:2; cow:2; pig:2; hedgehog:2; zombie:2; jigsaw:2;
+film strip|film:1; wrench:1; narwhal:1; wolf eel:1; pufferfish:1; gremlin:1; band saw:1; meat tenderiser:1; ratchet:1; lawn rake:1; cheese grater:1; pinking shears:1; stapler remover:1; zipper pull:1;
+` },
+
+  { id: "q-easy-has-tail", theme: "Everyday", ask: "Name something that has a tail", what: "something with a tail", items: `
+dog:5; cat:5; horse:5; mouse:5; fish:5; kite:5; comet:5; mermaid:5; monkey:4; plane|aeroplane|airplane:4; cow:4; lion:4; rat:4; squirrel:4; fox:4; peacock:4; lizard:4; dragon:4; devil:4; kangaroo:4;
+beaver:4; dinosaur:4; pig:3; tiger:3; donkey:3; dolphin:3; whale:3; shark:3; snake:3; crocodile:3; scorpion:3; rabbit:3; bird:3; coat|tailcoat|tuxedo:3; shirt:3; ponytail|pony tail:3; coin:3; tadpole:3; bull:3; sheep:3;
+deer:3; wolf:3; elephant:3; zebra:3; skunk:2; raccoon:2; possum|opossum:2; lemur:2; meerkat:2; chameleon:2; seahorse:2; platypus:2; rocket|space rocket:2; goat:2; bear:2; giraffe:2; anteater:2; sperm cell|sperm:1; swallowtail butterfly|swallowtail:1; bird of paradise:1; fantail pigeon|fantail:1;
+hippo:1; rhino:1; tapir:1; okapi:1; pangolin:1; armadillo:1; sloth:1; orca:2; manta ray:1; stingray:2; dragonfly:1; wagtail:1; paradise whydah:1;
+` },
+
+  { id: "q-easy-has-face", theme: "Everyday", ask: "Name something that has a face", what: "something with a face", items: `
+clock:5; person|human:5; emoji|smiley:5; coin:4; watch:4; cliff|cliff face:4; mountain|mountain face:4; doll:4; moon:4; playing card:4; snowman:4; pumpkin|jack o'lantern:4; mask:3; cat:3; dog:3; monkey:3; teddy bear|teddy:3; scarecrow:3; clown:3; sun:3;
+mannequin:3; statue:3; portrait|painting:3; photograph|photo:3; puppet:3; robot:3; owl:3; gargoyle:3; golf club:3; hammer:3; big ben|clock tower:3; facebook:3; gingerbread man:3; mr potato head|potato head:3; man in the moon:3; thomas the tank engine|thomas:3; coal face|coal:2; die|dice:2; cube:2;
+building:2; rock face|rock:2; pyramid:2; mount rushmore:2; sphinx:2; lion:2; baboon:2; bulldog:2; pug:2; totem pole:2; tennis racket|racket:2; cricket bat|bat:2; banknote|bank note:2; stamp:2; mona lisa:2; hello kitty:2; mickey mouse:2; pac-man|pacman:2; drum:1; tarot card:1;
+climbing wall|wall:1; glacier:1; lightning mcqueen:1; sundial:1; compass:2; thermometer:1; radio dial:1; speedometer:1; ferris wheel:1; moai:2; easter island head:1;
+` },
+
+  { id: "q-easy-has-keys", theme: "Everyday", ask: "Name something that has keys", what: "something with keys", items: `
+piano:5; keyboard|computer keyboard:5; car:5; house|front door|door:4; typewriter:4; keyring|key ring|keychain:4; map:4; organ:4; phone|mobile phone|telephone:4; accordion:3; calculator:3; laptop:3; saxophone:3; clarinet:3; flute:3; safe:3;
+lock:3; padlock:3; locker:3; keypad:3; cash register|till:3; synthesizer|synth|keytar:3; harpsichord:3; jailer|jailor|prison guard:3; saint peter|st peter:3; locksmith:3; chest|treasure chest:3; ignition|car ignition:3; atm|cash machine:2; melodica|pianica:2; harmonium:2; player piano|pianola:2; electric piano:2; teletype|telegraph:2;
+morse code key|telegraph key:2; janitor|caretaker:2; receptionist|hotel receptionist:2; bag|handbag|pocket:2; diary:2; toy piano:2; florida:2; answer sheet|answer key|cheat sheet:2; remote control|remote:2; trumpet:1; celesta:1; word processor:1; cage:1; jewellery box|jewelry box:1; bunch of keys:1; key west:1; spreadsheet:1; game controller|controller:1; clavichord:1;
+fortepiano:1; concertina:1; ondes martenot:1; bandoneon:1;
+` },
+
+  { id: "q-easy-has-scales", theme: "Everyday", ask: "Name something that has scales", what: "something with scales", items: `
+fish:5; snake:5; dragon:5; weighing scales|bathroom scales|kitchen scales|scales:5; lizard:4; crocodile:4; piano:4; map:4; mermaid:4; lady justice|justice:4; libra:3; pangolin:3; butterfly|moth:3; reptile:3; dinosaur:3; guitar:3; musician:3; ruler:3; scale model|model:3; smaug:3;
+basilisk:3; godzilla:3; pine cone|pinecone:3; thermometer:2; kettle|limescale:2; tortoise:2; turtle:2; iguana:2; gecko:2; chameleon:2; goldfish:2; salmon:2; trout:2; carp:2; cod:2; loch ness monster|nessie:2; sea serpent|sea monster:2; wyvern:2; diagram|chart|graph:2; richter scale|richter:2;
+chainmail|chain mail|scale armour:2; roof tiles|shingles:2; dragon fruit|pitaya:2; artichoke:2; bearded dragon:2; komodo dragon|komodo:2; shark:1; scoville scale:1; beaufort scale:1; kelvin scale:1; seismograph:1; speedometer:1; snakeskin boots:1; salak|snake fruit:1; gila monster:1; thorny devil:1; caiman:1; gharial:1; pike:1; barramundi:1; armadillo:1;
+` },
+
+  { id: "q-easy-has-eye", theme: "Everyday", ask: "Name something that has an eye", what: "something with an eye", items: `
+needle:5; storm|hurricane|cyclone:5; potato:5; person|human|face:4; camera:4; london eye:4; owl:4; cyclops:4; sauron|eye of sauron:4; minion:4; cat's eyes|cats eyes|road stud:4; cat:3; dog:3; peacock feather|peacock:3; bullseye|bull's eye|target:3; hook and eye|hook:3; spider:3; fly:3; eagle:3; fish:3; snake:3;
+eye of horus|horus:3; illuminati|all-seeing eye|eye of providence:3; doll:3; teddy bear|teddy:3; mr potato head:3; monster:3; alien:3; mike wazowski:3; binoculars:3; peephole|door peephole|spyhole:3; swiss cheese:3; pineapple:3; coconut:3; tornado:2; dollar bill|one dollar bill:2; telescope:2; periscope:2; security camera|cctv:2; eyelet:2;
+whirlpool|maelstrom:2; typhoon:2; peacock butterfly:2; big brother:2; private eye:2; sphinx:1; microscope eyepiece|microscope:1; fisheye lens:1; drone:1; rope eye|eye splice:1; eyebolt|eye bolt:1; vortex:1; great red spot:1; boot:1; owl butterfly:1; tiger:1; cobra:1; hawk:2; frog:2; lizard:2;
+` },
+
+  { id: "q-easy-has-neck", theme: "Everyday", ask: "Name something that has a neck", what: "something with a neck", items: `
+bottle:5; giraffe:5; guitar:5; shirt|jumper|sweater:4; person|human:4; swan:4; ostrich:4; vase:3; violin:3; horse:3; turtle:3; tortoise:3; goose:3; flamingo:3; camel:3; llama:3; alpaca:3; dinosaur|brachiosaurus:3; loch ness monster|nessie:3; dress|top:3;
+polo neck|turtleneck:3; jar:3; bottleneck|bottle neck:3; bass guitar|bass:3; crane:3; heron:3; stork:3; duck:3; chicken:3; vulture:3; balloon:3; cat:3; dog:3; cello:2; banjo:2; ukulele:2; flask:2; decanter:2; emu:2; cobra:2; snake:2; plesiosaur:2; mannequin:2; statue:2; doll:2;
+tooth:2; mandolin:2; double bass:2; harp:2; tennis racket|racket:2; saxophone:2; light bulb|lightbulb:2; conical flask|round-bottom flask:2; anglepoise lamp|desk lamp|lamp:2; lion:2; neck of the woods:1; gourd:1; hoodie:1; femur|thigh bone:1; lute:1; sitar:1; microphone:1; bagpipes:1; robot:2; teddy:1; owl:1;
+` },
+
+  { id: "q-easy-can-peel", theme: "Everyday", ask: "Name something you can peel", what: "something you can peel", items: `
+banana:5; orange:5; potato:5; apple:4; carrot:4; sticker:4; onion:4; egg|boiled egg:4; paint:4; wallpaper:4; skin|sunburnt skin|sunburn:4; prawn|shrimp:4; garlic:3; kiwi:3; mango:3; satsuma:3; clementine:3; mandarin:3; tangerine:3; lemon:3;
+pineapple:3; grapefruit:3; sweet potato:3; label:3; plaster|sticking plaster|band-aid:3; bark|tree bark:3; nail polish:3; sweet wrapper|wrapper:3; lime:2; peach:2; pear:2; cucumber:2; parsnip:2; beetroot:2; butternut squash|squash:2; pumpkin:2; lychee:2; avocado:2; plantain:2; tomato:2;
+grape:2; sellotape|sticky tape|tape:2; vinyl sticker|decal:2; glue:2; face mask|peel-off face mask:2; yogurt lid|foil lid|lid:2; cling film|clingfilm:2; price tag:2; string cheese|cheese string:2; chestnut:2; corn on the cob|corn:2; ginger:2; courgette|zucchini:1; turnip:1; swede|rutabaga:1; papaya:1;
+melon:1; birch bark:1; cork:1; candle wax|wax:1; lino|linoleum:1; peanut:1; asparagus:1; almond:1; chickpea:1; broad bean:1; kohlrabi:1; celeriac:1; mangosteen:1; passion fruit:1;
+` },
+
+  { id: "q-easy-can-squeeze", theme: "Everyday", ask: "Name something you can squeeze", what: "something you can squeeze", items: `
+lemon:5; toothpaste:5; orange:5; sponge:5; stress ball:5; lime:3; ketchup bottle|ketchup:4; mustard:3; mayonnaise|mayo:3; grapefruit:3; tea bag|teabag:4; hand:4; hug|cuddle:4; playdough|play dough|plasticine:4; slime:4; squishy toy|squishy:3; squeaky toy|squeaky duck|rubber duck:4; bagpipes:3; accordion:3;
+bicycle horn|horn|hooter:3; trigger:3; piping bag|icing bag:4; flannel|washcloth|wet cloth|cloth:3; mop:3; juice:3; squeeze bottle|squeezy bottle:4; washing-up liquid|washing up liquid:4; pillow|cushion:3; tube of glue|glue tube:3; tube of paint|paint tube:3; sun cream|suncream|sunscreen:3; fidget toy|fidget:3; dough|bread dough:3; juice pouch|pouch:3;
+pimple|spot|zit:3; cheeks|baby's cheeks:3; teddy bear|teddy:3; tomato:2; clay:2; concertina:2; juicer:2; garlic press:2; towel:2; wet hair|hair:2; hose|garden hose:2; grape:2; cream:2; honey bear:2; hair gel|gel:2; rubber bulb|bulb:1; clown nose:1; potato ricer|ricer:1; tight shoes|shoes:2; orange squash|squash bottle:1;
+cheese curds|curds:1; blueberry:1; stress toy:1; mayonnaise sachet|sachet:1; foam ball:1;
+` },
+
+  { id: "q-easy-can-pop", theme: "Everyday", ask: "Name something you can pop", what: "something you can pop", items: `
+balloon:5; bubble|soap bubble:5; bubble wrap:5; popcorn:5; party popper|party poppers:5; cork:4; pimple|spot|zit:4; bubblegum bubble|bubble gum:4; ears|your ears:4; toast|toaster:4; question|the question:4; water balloon|water bomb:4; champagne bottle|champagne:4; jack-in-the-box|jack in the box:4; christmas cracker|cracker:4; blister:3; tyre|tire:3;
+weasel|pop goes the weasel:3; paper bag:3; bottle top|bottle cap|lid:3; knuckles|knuckle:3; pop-up tent:3; firecracker|banger|firework:3; popping candy|pop rocks:3; corn kernels|corn|kernels:3; pop-up ad|popup|pop-up window:3; can of fizzy drink|can:3; back|your back:2; pill|pills:2; pop-up book:2; inflatable|air bed|lilo|paddling pool:2; football|ball:2; pop quiz:2;
+cap gun|cap:2; blister pack|blister wrap:2; crisp packet|crisp bag:2; pop tart:1; pop socket:1; pop music|pop song:1; pop-up shop:1; pop-up restaurant:1; foil lid:1; seed pod|balsam pod:1; hip joint|hip:1; jaw:1; neck|your neck:1; bubble tea:1; bubble pack:2;
+` },
+
+  { id: "q-easy-can-blow", theme: "Everyday", ask: "Name something you can blow", what: "something you can blow", items: `
+nose:5; bubble|bubbles:5; balloon:5; candle|candles:5; dandelion|dandelion clock:5; whistle:4; trumpet:4; kiss|a kiss:4; fuse|a fuse:4; party blower:4; horn:3; recorder:3; flute:3; harmonica:3; saxophone:3; tuba:3; trombone:3; glass:3; raspberry:3;
+bubblegum|bubble gum:3; dust:3; kazoo:3; straw:3; hot soup|soup:3; hot tea|tea|coffee|hot drink:3; air|cold air:3; wind:3; leaf blower|leaves:3; storm|gale:3; vuvuzela:3; fire:3; tyre|tire:3; bugle:2; clarinet:2; bagpipes:2; smoke ring|smoke rings|smoke:2; steam:2; didgeridoo:2; conch shell|conch:2;
+bottle:2; peashooter|pea shooter:2; blowpipe|blow dart:2; chance|opportunity:2; your mind|mind:2; your money|money|budget:2; gasket|a gasket:2; your top|top:2; ocarina:2; pan pipes|panpipes:2; air horn|airhorn:2; foghorn:2; inflatable|lilo|air bed|paddling pool:2; lid|your lid:1; shofar|ram's horn:1; alphorn|alpenhorn:1; bubble wand:1; embers:1; egg:1; pipe|bubble pipe:1; cover|your cover:1;
+` },
+
+  { id: "q-easy-can-stack", theme: "Everyday", ask: "Name something you can stack", what: "something you can stack", items: `
+plates:5; books:5; blocks|building blocks|lego|lego bricks:5; cups:5; pancakes:5; bricks:4; chairs:4; boxes:4; coins:4; cards|playing cards:4; stones|rocks|pebbles:4; firewood|logs|wood:4; cans|tins:4; jenga|jenga blocks:4; hay bales|hay:3; tyres|tires:3; crates:3; towels:3; pillows|cushions:3;
+dominoes:3; paper|papers:3; money|notes|banknotes|cash:3; dishes:3; bowls:3; waffles:3; burgers|burger:3; poker chips|casino chips|chips:3; washing|laundry|clothes:3; sandbags:3; wedding cake|tiered cake|cakes:3; cookies|biscuits:3; stacking cups|stacking rings|stacking toy:3; russian dolls|nesting dolls|matryoshka:3; pizza boxes:2; saucers:2;
+pots|saucepans:2; tupperware|containers:2; shopping|groceries:2; sandwiches|sandwich:2; pennies|pence:2; jumpers|sweaters:2; bags|sacks:2; pallets|pallet:2; shipping containers:2; dice:2; cannonballs:2; oranges:2; doughnuts:2; cupcakes:2; ice cream scoops|scoops:2; people|acrobats|cheerleaders|human pyramid:2; tables:2; trays:2; bunk beds|bunk bed:2;
+cement bags:1; tomatoes:1; benches:1; speakers:1; sport stacking|cup stacking:1; sacks of potatoes|sacks:1; hockey pucks|pucks:1; bales of straw|straw bales|straw:1;
 ` },
 ]);
