@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const FO = window.FarOut, UI = FO.UI, Fx = FO.Fx, h = UI.h, $ = UI.$;
-  const FUEL_MAX = 60, FUEL_START = 45, MISS_COST = 5, SKIP_COST = 3;
+  const FUEL_MAX = 60, FUEL_START = 45, MISS_COST = 3, SKIP_COST = 3;
   const DAILY_PROMPTS = 6, DAILY_SLOTS = 2;
 
   let S = null, ticker = 0;
@@ -30,7 +30,7 @@
     inp.focus({ preventScroll: true });
   }
   function renderSlots() {
-    $('#slots').textContent = S.mode === 'daily' ? `${S.slots} launch${S.slots === 1 ? '' : 'es'} left · misses use one` : '';
+    $('#slots').textContent = S.mode === 'daily' ? `${S.slots} launch${S.slots === 1 ? '' : 'es'} left. A miss uses one.` : '';
     $('#skip').textContent = S.mode === 'daily' ? 'Pass' : S.mode === 'explore' ? 'Next question' : `Skip question (−${SKIP_COST}s)`;
     if (S.mode === 'daily') {
       const dots = $('#daily-dots');
@@ -57,7 +57,7 @@
     const res = $('#result');
     let card;
     if (j.ok) {
-      card = h('div', { class: 'verdict' },
+      card = h('div', { class: 'verdict ' + j.tier.cls },
         UI.badge(j.tier, S.mode === 'voyage' ? `+${j.tier.fuel}s fuel` : `${j.tier.pts} pts`),
         h('span', { class: 'v-ans' }, j.item.name),
         h('span', { class: 'v-why' }, j.fuzzy ? [UI.fixLine(j.typed, j.item.name), ' Typo fixed.'] : `${j.tier.name} answer for ${p.what}.`),
@@ -107,6 +107,8 @@
       S.finds.push({ name: j.item.name, tier: j.tier, prompt: p.ask + (p.rule ? ' ' + p.rule : '') });
       if (S.mode === 'voyage') S.fuel = Math.min(FUEL_MAX, S.fuel + j.tier.fuel);
       if (FO.Collection) FO.Collection.add(j.item, j.tier, p);
+      FO.Progress.event('answer', { pts: j.pts, tier: j.tier.c, fuzzy: j.fuzzy, theme: p.cat.theme });
+      Fx.buzz(j.tier.c <= 2 ? 'big' : 'ok');
       verdict(p, j, gain);
       renderHud(gain);
       Fx.warp(1.2 + (5 - j.tier.c) * 0.55, j.tier.c);
@@ -115,9 +117,10 @@
       if (S.mode === 'daily') { S.grid.push(j.tier.c); useSlot(); }
       else { const s = S; s.busy = true; setTimeout(() => { if (S !== s) return; s.busy = false; if (!s.over) nextPrompt(); }, 900); }
     } else {
-      S.streak = 0;
-      S.misses++;
-      if (S.mode === 'voyage') S.fuel -= MISS_COST;
+      const free = j.why === 'repeat'; // using an answer twice is a slip, not a miss
+      if (!free) { S.streak = 0; S.misses++; }
+      if (S.mode === 'voyage' && !free) S.fuel -= MISS_COST;
+      Fx.buzz('bad');
       verdict(p, j);
       renderHud();
       form.classList.add('bad');
@@ -151,7 +154,7 @@
     const nextIdx = S.slots > 0 ? S.idx : S.idx + 1;
     UI.store.set('daily.' + S.day, { dist: S.dist, grid: S.grid, finds: S.finds.map((f) => [f.name, f.tier.c]),
       idx: nextIdx, slots: S.slots > 0 ? S.slots : DAILY_SLOTS, done: nextIdx >= DAILY_PROMPTS });
-    if (nextIdx >= DAILY_PROMPTS) bumpStreak(S.day);
+    if (nextIdx >= DAILY_PROMPTS) { bumpStreak(S.day); FO.Progress.event('best', { daily: streakNow() }); }
   }
 
   function skip() {
@@ -206,6 +209,7 @@
     const mode = S.mode;
     const prevBest = UI.store.get('best.voyage', 0);
     if (mode === 'voyage' && S.dist > prevBest) UI.store.set('best.voyage', S.dist);
+    if (mode === 'voyage') FO.Progress.event('best', { voyage: S.dist, streak: S.bestStreak });
     if (mode === 'daily') { S.idx = DAILY_PROMPTS; S.slots = 0; saveDaily(); }
     if (FO.Collection) FO.Collection.gamePlayed();
     showOver(mode, S, prevBest);
@@ -213,7 +217,7 @@
 
   function showOver(mode, st, prevBest) {
     UI.show('s-over');
-    $('#over-k').textContent = mode === 'daily' ? `Daily Orbit · ${st.day || today()}` : 'Out of fuel';
+    $('#over-k').textContent = mode === 'daily' ? `Daily Orbit, ${st.day || today()}` : mode === 'explore' ? 'Exploring done' : 'Out of fuel';
     Fx.countUp($('#over-dist'), 0, st.dist, 1100);
     const best = $('#over-best');
     if (mode === 'voyage') {
@@ -236,7 +240,7 @@
     ];
     $('#over-stats').replaceChildren(...stats.map(([k, v]) => h('div', null, h('dt', null, k), h('dd', null, String(v)))));
     const grid = (mode === 'daily' ? st.grid : st.finds.map((f) => f.tier.c)).slice(0, 24).map((c) => UI.EMOJI[c]).join('');
-    st.share = [`Far Out · ${mode === 'daily' ? 'Daily Orbit ' + (st.day || today()) : 'Voyage'}`, `${st.dist.toLocaleString()} ly`, grid,
+    st.share = [`Far Out, ${mode === 'daily' ? 'Daily Orbit ' + (st.day || today()) : 'Voyage'}`, `${st.dist.toLocaleString()} ly`, grid,
       rarest ? `Rarest find: ${rarest.name} (${rarest.tier.name})` : '', mode === 'daily' && streakNow() > 1 ? `${streakNow()}-day streak` : ''].filter(Boolean).join('\n');
     $('#share-text').hidden = true;
     $('#share').onclick = () => UI.share(st.share + (/^https?:/.test(location.protocol) && !FO.Net.inArtifact ? '\n' + location.origin + location.pathname : ''), $('#share-text'));
@@ -256,7 +260,7 @@
 
   // ---------- public ----------
   FO.Solo = {
-    start(mode) {
+    start(mode, opts = {}) {
       const day = today();
       const rec = mode === 'daily' ? UI.store.get('daily.' + day, null) : null;
       const finds = rec && Array.isArray(rec.finds) ? rec.finds.filter((f) => FO.TIERS[f[1]]).map(([name, c]) => ({ name, tier: FO.TIERS[c] })) : [];
@@ -267,7 +271,7 @@
       }
       S = fresh(mode);
       S.day = day;
-      S.theme = mode === 'daily' ? 'all' : UI.store.get('theme', 'all');
+      S.theme = mode === 'daily' ? 'all' : opts.theme || UI.theme();
       if (rec) Object.assign(S, { dist: rec.dist || 0, grid: rec.grid || [], finds, idx: Math.min(DAILY_PROMPTS - 1, rec.idx || 0), resumeSlots: rec.slots });
       if (mode === 'daily') {
         const rng = FO.rng('daily-' + day);
@@ -279,10 +283,11 @@
       $('#fuel-wrap').hidden = mode !== 'voyage';
       $('#daily-dots').hidden = mode !== 'daily';
       $('#streak').hidden = mode === 'daily';
+      $('#hint').hidden = mode !== 'explore';
       $('#result').replaceChildren(h('p', { class: 'note' }, mode === 'daily'
         ? 'Two launches per question. Rarer answers score more. No clock, so take your time.'
         : mode === 'explore' ? 'No clock and no end. Answer, skip, and see the rare answers you could have given.'
-        : 'Fuel burns every second. Rare answers refuel more. Misses cost 5 seconds.'));
+        : 'Fuel burns every second. Rare answers refuel more. A wrong answer costs 3 seconds.'));
       renderHud();
       nextPrompt();
       Fx.warp(2);
@@ -291,6 +296,18 @@
       UI.onLeave(() => { clearInterval(ticker); if (S) S.over = true; });
     },
     submit, skip,
+    /** Explore: show how a rarer unused answer starts. */
+    hint() {
+      if (!S || S.over || S.mode !== 'explore') return;
+      const p = S.prompt, it = p.pool.filter((x) => FO.effOf(p, x) <= 3 && !S.used.has(x)).sort(() => Math.random() - 0.5)[0];
+      if (!it) return;
+      const tier = FO.TIERS[FO.effOf(p, it)];
+      $('#result').replaceChildren(h('div', { class: 'verdict maybe' }, h('span', { class: 'badge ask' }, 'Hint'),
+        h('span', { class: 'v-ans' }, it.name.slice(0, 2) + it.name.slice(2).replace(/[a-z0-9]/gi, '_')),
+        h('span', { class: 'v-why' }, `A ${tier.name} answer, ${it.name.replace(/[^a-z0-9]/gi, '').length} letters.`), h('span', { class: 'v-pts' }, '')));
+      Fx.sfx.flip();
+      $('#ans').focus({ preventScroll: true });
+    },
     today, streakNow,
   };
 })();

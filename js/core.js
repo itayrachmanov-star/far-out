@@ -12,8 +12,8 @@
 
   // ---------- themes ----------
   FO.THEMES = [
-    { id: 'food', name: 'Food & Drink' }, { id: 'nature', name: 'Animals & Nature' }, { id: 'world', name: 'Places & Travel' },
-    { id: 'history', name: 'History & People' }, { id: 'screen', name: 'Movies & TV' }, { id: 'music', name: 'Music' },
+    { id: 'screen', name: 'TV & Movies' }, { id: 'food', name: 'Food & Drink' }, { id: 'nature', name: 'Animals & Nature' },
+    { id: 'world', name: 'Places & Travel' }, { id: 'history', name: 'History & People' }, { id: 'music', name: 'Music' },
     { id: 'arts', name: 'Books, Art & Myths' }, { id: 'sport', name: 'Sport' }, { id: 'games', name: 'Games & Hobbies' },
     { id: 'science', name: 'Science & Space' }, { id: 'tech', name: 'Tech & Internet' }, { id: 'body', name: 'Body & Health' },
     { id: 'life', name: 'Everyday Life' }, { id: 'words', name: 'Words & Language' }, { id: 'kids', name: 'Family friendly' },
@@ -44,7 +44,7 @@
     kids: /^(color)$/,
   };
   const themeOf = (kind, def) => {
-    if (kind === 'q') return LABEL_THEME[String(def.theme || '').toLowerCase()] || 'life';
+    if (kind === 'q') return /^q-easy-/.test(def.id) ? 'kids' : LABEL_THEME[String(def.theme || '').toLowerCase()] || 'life'; // the easy set is all family friendly
     return Object.keys(CAT_THEME).find((t) => CAT_THEME[t].test(def.id)) || 'life';
   };
 

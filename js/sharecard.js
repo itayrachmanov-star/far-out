@@ -3,46 +3,54 @@
   'use strict';
   const FO = window.FarOut, UI = FO.UI, Fx = FO.Fx;
   const W = 1080, H = 1350;
-  const COLORS = { 1: '#ff3d7f', 2: '#ff8a4c', 3: '#ffd166', 4: '#7fe3d1', 5: '#a9c8ff', 0: '#262b47' };
+  const COLORS = { 1: '#ffcb45', 2: '#a98dff', 3: '#ff7a5c', 4: '#52e0b4', 5: '#a9b5dc', 0: '#30337f' };
+  const SKY = '#1b1c4e', FG = '#fbf8ff', MUTED = '#b1b3e6';
+
+  /** Largest font size (from max) at which text fits in width. */
+  function fit(x, text, weight, family, max, width) {
+    let size = max;
+    do { x.font = `${weight} ${size}px ${family}`; size -= 6; } while (x.measureText(text).width > width && size > 40);
+    return size + 6;
+  }
 
   async function draw(r) {
     try { await document.fonts.ready; } catch (e) { /* fall back to system fonts */ }
     const cv = document.createElement('canvas');
     cv.width = W; cv.height = H;
     const x = cv.getContext('2d');
-    x.fillStyle = '#05060d'; x.fillRect(0, 0, W, H);
-    const glow = x.createRadialGradient(W * 0.8, H * 0.15, 20, W * 0.8, H * 0.15, 700);
-    glow.addColorStop(0, 'rgba(255,61,127,.35)'); glow.addColorStop(1, 'rgba(255,61,127,0)');
-    x.fillStyle = glow; x.fillRect(0, 0, W, H);
+    x.fillStyle = SKY; x.fillRect(0, 0, W, H);
     const rng = FO.rng(r.title + r.dist);
-    for (let i = 0; i < 160; i++) { x.fillStyle = `rgba(236,233,245,${0.2 + rng() * 0.7})`; x.beginPath(); x.arc(rng() * W, rng() * H, rng() * 2.4 + 0.4, 0, 6.283); x.fill(); }
+    for (let i = 0; i < 120; i++) { x.fillStyle = `rgba(251,248,255,${0.15 + rng() * 0.6})`; x.beginPath(); x.arc(rng() * W, rng() * H, rng() * 2.2 + 0.4, 0, 6.283); x.fill(); }
+    // the ringed planet from the hub, top right
+    x.fillStyle = COLORS[3]; x.beginPath(); x.arc(W - 200, 210, 110, 0, 6.283); x.fill();
+    x.fillStyle = 'rgba(0,0,0,.2)'; x.beginPath(); x.arc(W - 186, 224, 110, 0, 6.283); x.arc(W - 200, 210, 110, 0, 6.283, true); x.fill('evenodd');
+    x.save(); x.translate(W - 200, 220); x.rotate(-0.25); x.strokeStyle = COLORS[1]; x.lineWidth = 16;
+    x.beginPath(); x.ellipse(0, 0, 175, 40, 0, 0.15, Math.PI - 0.15); x.stroke(); x.restore();
 
-    const D = '"Big Shoulders Display", "Arial Narrow", Impact, sans-serif', B = '"Atkinson Hyperlegible", system-ui, sans-serif';
+    const D = '"Unbounded", "Arial Black", sans-serif', B = '"Gabarito", system-ui, sans-serif';
     x.textBaseline = 'alphabetic';
-    x.fillStyle = '#ece9f5'; x.font = `900 210px ${D}`; x.fillText('FAR', 80, 280);
-    const g = x.createLinearGradient(80, 0, 520, 0);
-    ['#a9c8ff', '#7fe3d1', '#ffd166', '#ff8a4c', '#ff3d7f'].forEach((c, i) => g.addColorStop(i / 4, c));
-    x.fillStyle = g; x.fillText('OUT', 80, 450);
-
-    x.fillStyle = '#9396b8'; x.font = `700 44px ${B}`; x.fillText(r.title, 84, 560);
-    x.fillStyle = '#ece9f5'; x.font = `900 260px ${D}`; x.fillText(r.dist.toLocaleString(), 72, 810);
-    const numW = x.measureText(r.dist.toLocaleString()).width;
-    x.fillStyle = '#9396b8'; x.font = `700 56px ${B}`; x.fillText('light-years', 90 + numW, 810);
+    x.fillStyle = FG; x.font = `900 92px ${D}`; x.fillText('Far Out', 80, 200);
+    x.fillStyle = MUTED; x.font = `700 46px ${B}`; x.fillText(r.title, 84, 470);
+    const num = r.dist.toLocaleString();
+    fit(x, num, 900, D, 230, 760);
+    x.fillStyle = FG; x.fillText(num, 76, 700);
+    const numW = x.measureText(num).width;
+    x.fillStyle = MUTED; x.font = `700 52px ${B}`; x.fillText(r.unit || 'ly', 100 + numW, 700);
 
     const cells = r.grid.slice(0, 24), size = 64, gap = 14;
     cells.forEach((c, i) => {
       x.fillStyle = COLORS[c] || COLORS[0];
-      const cx = 84 + (i % 12) * (size + gap), cy = 880 + Math.floor(i / 12) * (size + gap);
+      const cx = 84 + (i % 12) * (size + gap), cy = 790 + Math.floor(i / 12) * (size + gap);
       x.beginPath(); x.roundRect ? x.roundRect(cx, cy, size, size, 12) : x.rect(cx, cy, size, size); x.fill();
     });
-    let y = 880 + Math.ceil(Math.max(1, cells.length) / 12) * (size + gap) + 80;
+    let y = 790 + Math.ceil(Math.max(1, cells.length) / 12) * (size + gap) + 80;
     if (r.rarest) {
-      x.fillStyle = '#9396b8'; x.font = `700 40px ${B}`; x.fillText('Rarest find', 84, y);
-      x.fillStyle = COLORS[r.rarest.c]; x.font = `900 92px ${D}`; x.fillText(r.rarest.name.slice(0, 22), 80, y + 96);
+      x.fillStyle = MUTED; x.font = `700 42px ${B}`; x.fillText('Rarest find', 84, y);
+      x.fillStyle = COLORS[r.rarest.c]; fit(x, r.rarest.name, 800, B, 104, W - 170); x.fillText(r.rarest.name, 80, y + 100);
       y += 150;
     }
-    if (r.extra) { x.fillStyle = '#ffb547'; x.font = `700 44px ${B}`; x.fillText(r.extra, 84, Math.min(y + 20, H - 140)); }
-    x.fillStyle = '#9396b8'; x.font = `700 36px ${B}`;
+    if (r.extra) { x.fillStyle = COLORS[1]; x.font = `700 44px ${B}`; x.fillText(r.extra, 84, Math.min(y + 20, H - 140)); }
+    x.fillStyle = MUTED; x.font = `700 36px ${B}`;
     x.fillText(r.url || 'The game of rare answers', 84, H - 70);
     return new Promise((res) => cv.toBlob(res, 'image/png'));
   }

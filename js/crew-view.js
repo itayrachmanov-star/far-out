@@ -247,8 +247,9 @@
   function final() {
     const st = S(), g = st.g, scm = Cr().scores(g), sc = Object.fromEntries(scm);
     const ranked = [...scm.keys()].sort((a, b) => scm.get(b) - scm.get(a));
+    if (st.credited !== g.gid) { st.credited = g.gid; FO.Progress.event('crew', { xp: sc[Cr().meId()] || 0 }); }
     const spot = (id, cls, place) => h('div', { class: cls, style: id ? null : { visibility: 'hidden' } }, id ? UI.planet(Cr().colorOf(id)) : null,
-      h('span', { class: 'nm' }, id ? Cr().nameOf(id) : ''), h('span', { class: 'mono' }, id ? (sc[id] || 0).toLocaleString() + ' ly' : ''),
+      h('span', { class: 'nm' }, id ? Cr().nameOf(id) : ''), h('span', { class: 'mono' }, id ? (sc[id] || 0).toLocaleString() + ' pts' : ''),
       h('div', { class: 'step', style: { height: place === 1 ? '120px' : place === 2 ? '84px' : '58px' } }, id ? String(place) : ''));
     const actions = st.isHost
       ? [h('button', { class: 'btn primary', type: 'button', onclick: () => Cr().startGame() }, 'Play again'),

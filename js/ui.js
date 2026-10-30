@@ -125,6 +125,71 @@
       UI.h('span', null, '?'));
   };
 
+  /** Answer box: {form, input}. onSubmit(text) runs on Enter or the button. */
+  UI.answerBox = function (id, button, onSubmit, placeholder = 'Type your rarest answer') {
+    const input = UI.h('input', { id, maxlength: 48, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false', enterkeyhint: 'go', placeholder });
+    const form = UI.h('form', { class: 'answer', autocomplete: 'off', onsubmit: (e) => { e.preventDefault(); onSubmit(input.value); } },
+      UI.h('label', { for: id, class: 'sr' }, 'Your answer'), input, UI.h('button', { class: 'btn primary', type: 'submit' }, button));
+    input.addEventListener('input', () => FO.Fx.sfx.key());
+    return { form, input };
+  };
+
+  /** Countdown bar: el, plus set(secondsLeft, total). */
+  UI.timer = function () {
+    const bar = UI.h('i'), num = UI.h('b', null, '');
+    const el = UI.h('div', { class: 'timer', role: 'timer' }, UI.h('div', { class: 'timer-bar' }, bar), num);
+    return { el, set(left, total) {
+      const s = Math.max(0, Math.ceil(left));
+      bar.style.width = Math.max(0, (left / total) * 100) + '%';
+      if (num.textContent !== String(s)) num.textContent = s;
+      el.classList.toggle('low', left <= Math.min(10, total * 0.25));
+    } };
+  };
+
+  /** 3-2-1 over the given element, then go(). Returns a cancel function. */
+  UI.countdown = function (host, go) {
+    const big = UI.h('div', { class: 'countdown', 'aria-live': 'assertive' });
+    host.append(big);
+    let n = 3, t = 0;
+    const step = () => {
+      if (n === 0) { big.remove(); go(); return; }
+      big.textContent = n;
+      FO.Fx.pop(big, 'count-pop');
+      FO.Fx.sfx.tick();
+      n--;
+      t = setTimeout(step, FO.Fx.reduce ? 300 : 650);
+    };
+    step();
+    return () => { clearTimeout(t); big.remove(); };
+  };
+
+  /** Bottom sheet with any content. Returns close(). */
+  UI.sheet = function (...content) {
+    const prev = document.activeElement;
+    const card = UI.h('div', { class: 'sheet-card', role: 'dialog', 'aria-modal': 'true' }, content);
+    const wrap = UI.h('div', { class: 'sheet', onclick: (e) => { if (e.target === wrap) close(); } }, card);
+    let closed = false;
+    const close = () => { if (closed) return; closed = true; wrap.classList.add('out'); setTimeout(() => wrap.remove(), FO.Fx.reduce ? 0 : 200); document.removeEventListener('keydown', esc); if (prev && prev.focus) prev.focus({ preventScroll: true }); };
+    const esc = (e) => { if (e.key === 'Escape') close(); };
+    document.addEventListener('keydown', esc);
+    document.body.append(wrap);
+    setTimeout(() => { const f = card.querySelector('[data-autofocus]') || card.querySelector('button'); if (f) f.focus({ preventScroll: true }); }, 30);
+    UI.onLeave(close);
+    return close;
+  };
+
+  /** Segmented choice: opts [[value,label]], onPick(value). */
+  UI.seg = function (opts, cur, onPick, label) {
+    return UI.h('div', { class: 'seg', role: 'group', 'aria-label': label || null },
+      opts.map(([v, l]) => UI.h('button', { type: 'button', 'aria-pressed': String(v === cur), onclick: (e) => {
+        e.currentTarget.parentElement.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === e.currentTarget)));
+        onPick(v);
+      } }, l)));
+  };
+
+  /** Valid themes only (old saves may hold a retired topic id). */
+  UI.theme = () => { const t = UI.store.get('theme', 'all'); return t === 'all' || FO.THEMES.some((x) => x.id === t) ? t : 'all'; };
+
   /** "Farther out" chips: real answers rarer than the one given. */
   UI.farther = function (p, given, max = 4, exclude) {
     const rarer = FO.spectrum(p, exclude || (given ? new Set([given.item]) : null), 2)

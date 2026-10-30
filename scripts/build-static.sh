@@ -9,7 +9,11 @@ sh scripts/sync-data.sh >/dev/null
 rm -rf dist && mkdir -p dist/data
 cp -R css js assets manifest.webmanifest dist/
 sed "s/__BUILD__/$(date +%Y%m%d%H%M%S)/" sw.js > dist/sw.js
-cat data/*.js > dist/data/bank.js
+# One broken data file would break the whole bundle, so each file is checked and a bad one is left out (loudly).
+: > dist/data/bank.js
+for f in data/*.js; do
+  if node --check "$f" 2>/dev/null; then cat "$f" >> dist/data/bank.js; else echo "WARNING: $f has a syntax error and was left out" >&2; fi
+done
 python3 - <<'PY'
 import re
 src = open('index.html').read()
@@ -17,7 +21,7 @@ src = re.sub(r'<!-- DATA:start -->.*?<!-- DATA:end -->', '<script src="data/bank
 open('dist/artifact.html', 'w').write(src.replace('<script src="js/text.js">', '<script>window.FAROUT_ARTIFACT = true;</script>\n<script src="js/text.js">', 1))
 cut = src.index('css/screens.css">') + len('css/screens.css">')
 head, body = src[:cut], src[cut:]
-app = ('<link rel="manifest" href="manifest.webmanifest">\n<meta name="theme-color" content="#05060d">\n'
+app = ('<link rel="manifest" href="manifest.webmanifest">\n<meta name="theme-color" content="#1b1c4e">\n'
        '<link rel="icon" href="assets/icon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">\n'
        '<meta name="apple-mobile-web-app-capable" content="yes">\n<meta name="mobile-web-app-capable" content="yes">\n'
        '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n<meta name="apple-mobile-web-app-title" content="Far Out">\n'

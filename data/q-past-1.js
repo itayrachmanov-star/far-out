@@ -1,0 +1,342 @@
+FarOut.addQuestions([
+  { id: "q-past-romans-gave", theme: "History", ask: "Name something the Romans gave to the world", what: "things the Romans gave to the world", items: `
+roads|straight roads|paved roads:5; aqueducts|aqueduct:5; roman numerals|numerals:5; concrete|cement:4; central heating|hypocaust|underfloor heating:4; public baths|baths|bath houses|thermae:4; sewers|sewage system|drains|plumbing:4; calendar|julian calendar|leap year:4;
+colosseum|amphitheatre|amphitheater:3; roman law|law|legal system:4; latin|the latin language:4; republic|republican government:3; arches|arch:3; domes|dome:3; newspapers|newspaper|acta diurna:2; postal service|post|cursus publicus:2;
+apartment blocks|apartments|insulae|flats:2; fast food|takeaway|thermopolium:2; bound books|codex:2; surgical instruments|surgery|scalpel|forceps:2; caesarean section|caesarean:2; mosaics|mosaic:3; glassblowing|glass:2; lead pipes|pipes|pipelines:2;
+public toilets|latrines|toilets:3; gladiator games|gladiators|gladiatorial games:3; togas|toga:2; senate|the senate:3; census:2; trial by jury|jury:2; legions|legion|professional army|army:3; forts|fortifications:2;
+bridges:3; harbours|ports|harbors:2; water mills|watermill:2; tax|taxes|taxation:2; milestones|mile:2; alphabet|latin alphabet:3; cranes|crane|lifting machinery:1; chariot racing|chariot races|circus maximus:2;
+banking|banks:1; advertising|billboards:1; graffiti:1; cosmetics|makeup:1; wine making|viticulture:1; hospitals|military hospitals:1; rubbish collection|street cleaning|bin men:1; sundial|sundials:1;
+salary:1; months of the year|names of months:2; emperors|emperor:2; engineering|civil engineering:2; fire brigade|fire service|vigiles|firefighters:1; police|city watch:1; lawyers|advocates:1; shops|retail|shopping malls|trajan's market:1;
+castles|castra|fortified camps:1;
+` },
+  { id: "q-past-egypt-things", theme: "History", ask: "Name something you associate with ancient Egypt", what: "things associated with ancient Egypt", items: `
+pyramids|pyramid|great pyramid|pyramid of giza:5; pharaoh|pharaohs:5; mummy|mummies|mummification:5; sphinx|great sphinx:5; hieroglyphs|hieroglyphics|hieroglyph:5; nile|river nile:5; tutankhamun|king tut|tut:4; cleopatra:4;
+papyrus:4; sarcophagus|coffin:4; tomb|tombs:4; cats|cat:3; valley of the kings:3; sand|desert:3; camels|camel:3; gold:3;
+scarab|scarab beetle:3; ankh:3; eye of horus|eye of ra:3; ra|sun god:3; anubis:3; canopic jars|canopic jar:3; rosetta stone:3; afterlife:3;
+curse of the pharaohs|curse:3; obelisk|obelisks:3; giza:3; nefertiti:3; ramesses|ramses|ramesses ii|ramses ii:3; death mask|golden mask|mask of tutankhamun:3; osiris:2; isis:2;
+horus:2; thoth:2; bast|bastet:2; embalming:2; cartouche:2; temples|temple of karnak|karnak:2; luxor:2; abu simbel:2;
+cairo:2; alexandria:2; hatshepsut:2; slaves|slavery:2; kohl|eyeliner|eye makeup:2; book of the dead:2; lotus|lotus flower:2; crocodiles|crocodile:2;
+scribes|scribe:2; wigs|wig:2; crook and flail|flail:1; nemes|headdress:1; shaduf:1; felucca|reed boats|barges:1; amulet|pectoral:1; senet:1;
+linen:1; weighing of the heart|feather of maat|maat:1; hippopotamus|hippo:1; ibis:1; step pyramid|saqqara|djoser:1; valley of the queens:1; sandals:1;
+` },
+  { id: "q-past-rome-things", theme: "History", ask: "Name something you associate with ancient Rome", what: "things associated with ancient Rome", items: `
+gladiators|gladiator:5; colosseum|coliseum:5; togas|toga:5; julius caesar|caesar:5; emperors|emperor:4; legions|legionaries|roman soldiers|soldiers|legion:4; chariots|chariot racing|chariot:4; roads:4;
+aqueducts:4; latin:4; senate|senator|senators:4; centurion|centurions:4; laurel wreath|laurel crown|laurel:4; romulus and remus|romulus|remus:4; roman baths|baths:3; forum|roman forum:3;
+pantheon:3; pompeii:3; vesuvius|mount vesuvius:3; hadrian's wall|hadrian:3; spartacus:3; nero:3; augustus:3; caligula:3;
+brutus:3; roman numerals:3; villas|villa:3; slaves|slavery:3; circus maximus:3; swords|gladius|sword:3; helmet|helmets:3; ides of march|ides:3;
+cleopatra:2; mark antony|antony:2; et tu brute|et tu brutus:2; hail caesar:2; mosaics:2; she-wolf|wolf|capitoline wolf:2; shields|shield:2; sandals|caligae:2;
+eagle|aquila|legionary eagle:2; spqr:2; republic:2; triumph|triumphal arch|triumphal arches:2; seven hills|seven hills of rome:2; tiber|river tiber:2; vestal virgins|vestals:2; thumbs up|thumbs down:2;
+praetorian guard|praetorians:2; crossing the rubicon|rubicon:2; hannibal:2; fall of rome|decline and fall:2; jupiter:2; mars:2; venus:2; arch of constantine|arch of titus:1;
+palatine hill|palatine:1; bread and circuses:1; vomitorium:1; testudo|tortoise formation:1; carthage|punic wars:1; pax romana:1; appian way|via appia:1; cicero:1;
+marcus aurelius:1;
+` },
+  { id: "q-past-greeks-gave", theme: "History", ask: "Name something the ancient Greeks gave us", what: "things the ancient Greeks gave us", items: `
+democracy:5; olympics|olympic games|the olympic games:5; philosophy:5; theatre|theater|drama:4; marathon:4; architecture|columns|pillars|classical architecture:4; myths|mythology|greek myths:4; alphabet|greek alphabet:3;
+mathematics|maths|math:3; geometry:3; medicine|hippocratic oath|hippocrates:3; sculpture|statues:3; science:3; pythagoras theorem|pythagorean theorem|pythagoras' theorem:3; politics:3; gymnasium|gyms:3;
+stadium:3; trojan horse:3; parthenon|acropolis:3; tragedy:2; comedy:2; history|historians|writing history:2; epic poetry|epic poems|iliad and odyssey|homer's epics:2; pottery|vases|greek vases:2;
+astronomy:2; atoms|atomic theory|atom:2; trial by jury|juries|jury:2; english words|words|vocabulary:2; logic:2; lighthouse:2; maps|geography|cartography:2; odyssey:2;
+fables|aesop's fables|aesops fables:2; coins|coinage:2; rhetoric:2; ethics:2; anatomy:1; wine|winemaking:1; antikythera mechanism|analog computer:1; steam engine|aeolipile:1;
+vending machine|coin-operated machine:1; alarm clock|water clock|clepsydra:1; relay race|relay races:1; pentathlon|decathlon:1; javelin throw|javelin:1; discus:1; symposium|drinking parties:1; metaphysics:1;
+hospitals|asclepeion:1; lever|levers:1; archimedes screw|screw pump:1; sundial:1;
+` },
+  { id: "q-past-viking-things", theme: "History", ask: "Name something you associate with the Vikings", what: "things associated with the Vikings", items: `
+longships|longship|ships|viking ships|boats|longboats:5; horned helmets|horned helmet|helmets|horns:5; axes|axe:4; swords|sword:4; raids|raiding|raid|pillaging|plunder:4; odin:4; thor:5; valhalla:4;
+shields|shield:4; scandinavia:4; beards|beard:3; berserkers|berserker:3; runes|runestones|runic alphabet|rune stones|runestone:3; norse mythology|norse myths|norse gods:3; norway:3; denmark:3;
+sweden:3; iceland:3; leif erikson|leif eriksson|leif ericson:3; ragnar lothbrok|ragnar:3; mead:3; sagas|norse sagas|saga:3; loki:3; ragnarok:3;
+mjolnir|thor's hammer|hammer:3; valkyries|valkyrie:3; lindisfarne|raid on lindisfarne:2; danelaw:2; york|jorvik:2; erik the red|eric the red:2; vinland|vikings in america|america:2; greenland:2;
+lagertha:2; ivar the boneless:2; canute|cnut:2; fur|furs|fur cloaks:2; braids|plaits:2; chainmail|mail:2; longhouse|longhouses:2; freya|freyja:2;
+yggdrasil|world tree:2; fjords|fjord:2; trade|trading:2; settlers|settlement|settlements:2; dragon heads|dragon head|figurehead:2; hagar the horrible:2; vikings tv series|vikings:2; funeral pyre|viking funerals:2;
+sea|oceans|ocean:2; pagans|paganism|pagan:2; exploration|explorers:2; harald hardrada:1; thing|althing|assembly:1; skald|skalds|poetry:1; freyr:1; sleipnir:1;
+thralls|thrall|slaves:1; jarl|jarls:1; how to train your dragon:1; ulfberht swords|ulfberht:1; jorvik viking centre:1; up helly aa:1; oseberg ship|oseberg|gokstad:1; rollo:1;
+blood eagle:1; hnefatafl|tafl|viking chess:1;
+` },
+  { id: "q-past-castle-things", theme: "History", ask: "Name something you'd find in or around a medieval castle", what: "things found in or around a medieval castle", items: `
+moat:5; drawbridge:5; towers|tower:5; knights|knight:5; dungeon|dungeons:5; king|the king:4; queen:4; walls|castle walls:4;
+portcullis:4; keep:4; great hall:4; throne|throne room:4; guards|guard|soldiers:4; armour|suits of armour|suit of armour|armor:4; princess:4; battlements|ramparts|crenellations:3;
+banners|flags|banner:3; cannons|cannon:3; archers|archer:3; arrow slits|arrow loops|loopholes:3; turrets|turret:3; gatehouse|gate:3; courtyard|bailey|inner bailey:3; kitchen|kitchens:3;
+servants|servant:3; jester|fool:3; swords|sword:3; torches|torch:3; tapestries|tapestry:3; chapel:3; stables|stable|horses|horse:3; blacksmith:3;
+prince:3; spiral staircase|spiral stairs|winding staircase:3; catapult|trebuchet|siege engines:3; boiling oil|hot oil:3; coat of arms|crest|heraldry:3; banquets|feast|feasts:3; shields|shield:2; lords|lord|nobles|nobleman:2;
+ladies|lady:2; squire|squires|pages|page:2; cook|cooks:2; secret passage|secret passages|hidden passage:2; murder holes|murder hole:2; garderobe|toilet|latrine:2; well:2; barracks:2;
+armoury|armory:2; treasury|treasure|treasure room:2; bedchamber|bedroom:2; falconry|falcons|falcon|hawks:2; dragon:2; ghost|ghosts:2; battering ram:2; motte|mound:2;
+curtain wall:2; sentry|watchman|lookout:2; minstrel|minstrels:2; fireplace|hearth:2; candles|candlesticks:2; chains|shackles:2; rats|rat:2; wine cellar|cellar:2;
+oubliette:1; library:1; solar:1; buttery|pantry:1; larder:1; hounds|hunting dogs:1; bats|bat:1; siege ladders|ladder:1;
+flagpole:1; herald:1; rushes|straw:1; bell|bell tower:1; round table:1;
+` },
+  { id: "q-past-knight-gear", theme: "History", ask: "Name something a knight would wear or carry", what: "things a knight wears or carries", items: `
+sword:5; shield:5; helmet|helm:5; armour|armor|suit of armour|suit of armor|plate armour:5; lance:4; horse|warhorse|steed|destrier:4; chainmail|chain mail|mail:4; breastplate|cuirass:4;
+gauntlets|gauntlet:3; visor:3; spurs|spur:3; banner|flag|standard:3; coat of arms|crest:3; surcoat|tabard:3; mace:3; dagger:3;
+greaves:3; cape|cloak:3; axe|battle axe|battleaxe:3; scabbard|sheath:3; saddle:3; boots|sabatons|sabaton:2; pauldron|pauldrons|shoulder plates|shoulder armour:2; gorget:2;
+plume|helmet plume|feathers:2; vambrace|vambraces:2; coif:2; gambeson|padded jacket|arming doublet:2; longsword|long sword|arming sword:2; flail|morning star:2; war hammer|warhammer:2; belt|sword belt:2;
+stirrups|stirrup:2; reins|bridle:2; favour|token|lady's favour|lady's favor|handkerchief:2; spear:2; squire:2; crossbow:1; bow|longbow:1; cuisses|cuisse:1;
+rerebrace:1; couter|elbow guard:1; poleyn|knee guard:1; chausses:1; barding|horse armour|caparison:1; pennon|pennant:1; sash:1; signet ring|ring:1;
+purse|money:1; rosary|cross|crucifix:1; flask|water flask|canteen:1; halberd:1; tent|pavilion:1; great helm|barrel helm|tilting helm:1; bascinet:1; sallet:1;
+armet:1; kite shield|heater shield:1; buckler:1; falchion:1; poleaxe|pollaxe:1; rondel dagger|rondel:1; misericorde:1;
+` },
+  { id: "q-past-old-weapons", theme: "History", ask: "Name a weapon used before guns were invented", what: "weapons used before guns", items: `
+sword:5; spear:5; bow and arrow|bow|arrow|longbow:5; axe:4; catapult:4; crossbow:4; dagger|knife:4; mace:3;
+club|cudgel:3; sling|slingshot:3; trebuchet:3; battering ram:3; javelin:3; lance:3; trident:3; scimitar:3;
+broadsword:3; longsword|long sword:3; gladius|short sword:3; katana:3; shuriken|throwing stars|ninja stars:3; greek fire:3; ballista:3; pike:2;
+halberd:2; flail:2; morning star:2; war hammer|warhammer:2; stone|rock|stones:2; boomerang:2; whip:2; net:2;
+cutlass:2; rapier:2; sabre|saber:2; claymore:2; nunchaku|nunchucks:2; staff|quarterstaff|bo staff:2; blowpipe|blowgun|blow dart:2; tomahawk:2;
+fire arrows|flaming arrows|fire arrow:2; siege tower:2; mangonel:2; spatha:1; naginata:1; yari:1; kusarigama:1; kunai:1;
+chakram:1; atlatl|spear thrower:1; war club|knobkerrie|knobkerry:1; caltrops|caltrop:1; onager:1; poleaxe|pollaxe:1; bardiche:1; glaive:1;
+partisan:1; billhook|bill:1; scythe:1; sickle:1; kris|keris:1; kukri|khukuri:1; khopesh:1; macuahuitl|obsidian sword:1;
+harpoon:1; hand axe|handaxe:1; flint knife|flint axe|flint spear:1; stiletto:1; bolas:1; poison darts|poison dart|poison arrows:1; shortbow:1; sarissa:1;
+falchion:1; estoc:1; war scythe:1;
+` },
+  { id: "q-past-medieval-jobs", theme: "History", ask: "Name a job from medieval times", what: "jobs from medieval times", items: `
+knight:5; blacksmith|smith:5; peasant|farmer:5; archer:4; jester|fool|court jester:4; monk:4; baker:4; serf:4;
+squire:3; miller:3; butcher:3; carpenter:3; mason|stonemason|stone mason:3; priest:3; minstrel:3; scribe:3;
+fletcher|arrow maker:3; cobbler|shoemaker:3; weaver:3; tailor:3; potter:3; thatcher:3; shepherd:3; brewer|ale maker|alewife:3;
+merchant|trader:3; page:3; sheriff:3; executioner:3; town crier|crier:3; armourer|armorer:3; barber|barber surgeon:3; apothecary:3;
+alchemist:3; friar:3; cook:3; mercenary|soldier|man-at-arms:3; nun:2; troubadour:2; falconer:2; cooper|barrel maker:2;
+bowyer|bow maker:2; tanner:2; innkeeper|tavern keeper:2; steward:2; bailiff:2; constable:2; gaoler|jailer:2; herald:2;
+chandler|candle maker:2; wheelwright:2; farrier:2; saddler:2; goldsmith:2; physician|doctor:2; midwife:2; abbot|abbess:2;
+bishop:2; clerk:2; lord|baron:2; groom|stable boy|stable hand:2; ploughman|plowman:2; swineherd|pig keeper:2; miner:2; woodcutter|woodsman|forester:2;
+gravedigger|sexton|grave digger:2; pilgrim:2; crusader:2; messenger|courier:2; tinker:2; fishmonger|fisherman:2; reeve:1; cartwright:1;
+glover:1; draper:1; fuller:1; dyer:1; skinner:1; silversmith:1; swordsmith|bladesmith:1; spinner:1;
+astrologer:1; pardoner:1; summoner:1; lawyer:1; chancellor:1; treasurer:1; sergeant:1; earl:1;
+lady:1; ostler:1; scullion|kitchen boy:1; goatherd:1; thresher:1; reaper:1; charcoal burner|collier:1; ferryman:1;
+bell ringer:1; peddler|pedlar:1;
+` },
+  { id: "q-past-vanished-jobs", theme: "History", ask: "Name a job that has almost disappeared", what: "jobs that have almost disappeared", items: `
+lamplighter:5; chimney sweep:5; milkman:5; town crier:4; switchboard operator|telephone operator|operator:4; typist:3; blacksmith:3; knocker-upper|knocker upper|knocker up:3;
+telegraph operator|telegraphist:3; rag and bone man|rag-and-bone man|rag & bone man:3; coal man|coalman|coal merchant:3; elevator operator|lift operator|lift attendant:3; bus conductor|conductor|clippie:3; paperboy|newspaper boy|paper boy:3; coal miner|miner:3; maid|housemaid|scullery maid|parlour maid:3;
+ice cutter|ice harvester|iceman|ice man:2; human computer|computer:2; telegram boy|telegram messenger:2; cobbler:2; thatcher:2; typesetter|compositor|type setter:2; film projectionist|projectionist:2; mudlark:2;
+crossing sweeper|road sweeper:2; water carrier|water bearer|water seller:2; coachman|stagecoach driver:2; farrier:2; footman:2; butler:2; petrol pump attendant|petrol station attendant|pump attendant|gas station attendant:2; train fireman|stoker|fireman:2;
+usherette|cinema usherette:2; door-to-door salesman|door to door salesman:2; travelling salesman|traveling salesman:2; shoe shiner|shoeshine boy|bootblack|boot black:2; docker|dockers|stevedore|dock worker:2; whaler|whale hunter:2; pin boy|pinsetter|pinspotter|bowling pinsetter:1; cooper:1;
+wheelwright:1; darkroom technician|film developer:1; log driver|river driver:1; leech collector|leech gatherer:1; cigar factory reader|lector:1; resurrectionist|body snatcher:1; link boy|link-boy:1; sin eater:1;
+tosher|toshers:1; gong farmer:1; lamp trimmer:1; ticket collector|ticket inspector:1; tea lady|tea trolley lady:1; video shop clerk|video store clerk:1; lock keeper:1; level crossing keeper|crossing keeper:1;
+shipwright:1; sailmaker:1; telephone linesman:1; rat catcher|ratcatcher:2; chimney boy|climbing boy:1; pit pony handler:1;
+` },
+  { id: "q-past-medieval-food", theme: "History", ask: "Name something people ate or drank in medieval times", what: "foods and drinks of medieval times", items: `
+bread:5; ale|beer:5; mead:4; pottage|stew:4; cheese:4; fish:4; wine:4; porridge|gruel:3;
+meat|roast meat|roast:3; venison|deer:3; boar|wild boar|roast boar:3; pork|bacon|ham:3; mutton|lamb|sheep:3; eggs|egg:3; cabbage:3; turnips|turnip:3;
+apples|apple:3; honey:3; spices|spice:3; pies|pie|meat pie:3; chicken|capon:3; peacock:3; beef:2; herring:2;
+eel|eels:2; salted fish|salt cod|salt fish:2; swan:2; pigeon|dove|doves:2; pheasant:2; rabbit|coney:2; oats:2; barley:2;
+rye bread|rye:2; pease pudding|peas|pease|peas pottage:2; beans:2; leeks|leek:2; onions|onion:2; carrots|carrot:2; parsnips|parsnip:2; pears|pear:2;
+berries|wild berries:2; nuts|hazelnuts|walnuts:2; pepper:2; salt:2; cider:2; milk:2; butter:2; trencher|bread trencher|bread plate:2;
+sausages|sausage:2; gingerbread:2; water:2; broth:2; goose|roast goose:2; garlic:1; plums:1; cherries:1;
+saffron:1; cinnamon:1; ginger:1; perry:1; frumenty:1; custard|custard tart|tarts:1; pasties|pasty:1; blancmange:1;
+marchpane|marzipan:1; wafers|wafer:1; figs|fig:1; dates|date:1; raisins|currants|dried fruit:1; almond milk:1; verjuice:1; hippocras:1;
+whale|porpoise:1; lampreys|lamprey:1; stockfish:1; oysters:1; mussels:1; cream:1; curds|curds and whey:1; mulled wine:1;
+` },
+  { id: "q-past-light-before-electric", theme: "History", ask: "Name something people used for light before electricity", what: "sources of light before electricity", items: `
+candle|candles:5; oil lamp|oil lamps|lamp:5; torch|torches|flaming torch:5; lantern|lanterns:5; fire|campfire|fireplace|hearth|open fire:5; gas lamp|gas lamps|gaslight|gas light|gas lights:4; moonlight|the moon|moon:3; sunlight|sun|daylight|the sun:3;
+kerosene lamp|paraffin lamp|kerosene|paraffin:3; rushlight|rush light|rushlights:2; tallow candle|tallow:2; candelabra|candlestick|chandelier:2; whale oil lamp|whale oil:2; hurricane lamp|storm lantern:2; miner's lamp|davy lamp|safety lamp|miners lamp:2; limelight:2;
+bonfire|bonfires:2; starlight|stars:1; beeswax candle|beeswax:1; argand lamp:1; carbide lamp|acetylene lamp:1; pine knots|pine torch|pine splinter|splinters:1; beacon|beacons:1; wick|oil wick:1;
+fat lamp|animal fat|tallow lamp:1; cresset|cresset lamp:1; sconce|wall sconce:1; night light|nightlight:1; paper lantern|chinese lantern:1; flare|magnesium flare:1; glow worms|fireflies:1; olive oil lamp|clay lamp|terracotta lamp:1;
+brazier:1; link|link torch:1; spirit lamp:1; fireplace logs|logs:1;
+` },
+  { id: "q-past-messages-before-phone", theme: "History", ask: "Name a way people sent messages before the telephone", what: "ways of sending messages before the telephone", items: `
+letter|letters|post|mail|postal service:5; carrier pigeon|homing pigeon|pigeon post|messenger pigeon:5; telegraph|telegram|telegrams:5; messenger|courier|runner|herald:4; smoke signals|smoke signal:4; pony express:4; drums|drumming|talking drums|drum:3; beacons|beacon fires|signal fires|bonfire|signal fire:3;
+semaphore|flag signals|flags:3; town crier|crier:3; morse code|morse:3; horse rider|rider on horseback|horseback:3; word of mouth:2; heliograph|mirrors|mirror signals:2; message in a bottle|bottle:2; church bells|bells|bell:2;
+notice board|noticeboards|poster|posters:2; newspaper|newspapers|printed news:2; clay tablets|tablets|clay tablet:2; scrolls|scroll:2; optical telegraph|chappe telegraph|signal tower:2; mail coach|stagecoach:2; packet ship|packet boat|ships:2; hand signals|sign language|gestures:2;
+postcard|postcards:2; lantern signals|lamp signals|one if by land:2; whistle language|whistled language|silbo gomero:1; pneumatic tube|pneumatic post:1; cairns|trail markers|blaze marks:1; wampum belts|wampum:1; quipu|khipu:1; cannon fire|gunshots|cannon shots:1;
+messenger raven|ravens|messenger birds:1; graffiti|writing on walls:1; ambassadors|envoys:1;
+` },
+  { id: "q-past-travel-before-cars", theme: "History", ask: "Name a way people travelled before cars were invented", what: "ways of travelling before cars", items: `
+horse|horseback|riding a horse|riding:5; walking|on foot|walk|foot:5; horse and carriage|carriage|horse-drawn carriage|horse drawn carriage|coach:5; stagecoach|stage coach|mail coach:4; ship|boat|sailing ship|sailing boat|sailing:4; train|railway|steam train|steam locomotive:4; cart|horse and cart|ox cart|oxcart|wagon:4; bicycle|bike|penny farthing|velocipede:4;
+canal boat|barge|narrowboat:3; camel|camels|camel caravan:3; donkey|mule|donkeys:3; sedan chair|sedan chairs|litter|palanquin:3; rowing boat|rowboat|row boat|rowing:3; chariot:3; hansom cab|hackney carriage|hackney cab|cab:3; steamship|steamer|steam ship|paddle steamer:3;
+canoe|kayak:3; sleigh|sled|sledge|dog sled:3; covered wagon|prairie schooner|wagon train:3; pony and trap|trap|dog cart|gig|buggy|horse and buggy:3; elephant:2; hot air balloon|balloon:2; omnibus|horse-drawn omnibus|horse bus:2; tram|horse tram|horse-drawn tram:2;
+ferry:2; raft:2; skis|skiing|skates|ice skates:2; rickshaw:2; pack animals|packhorse|pack horse|pack mule:2; ox|oxen|bullock cart:2; airship|zeppelin:2; stilts:1;
+gondola:1; phaeton:1; curricle:1; landau:1; brougham:1; cabriolet:1; llama:1; yak:1;
+reindeer:1; dogs|dog team:1; swimming|swim:1; dandy horse|draisine|running machine:1; steam carriage|steam wagon:1;
+` },
+  { id: "q-past-once-money", theme: "History", ask: "Name something that has been used as money", what: "things that have been used as money", items: `
+gold:5; silver:5; coins|coin:5; cash|banknotes|notes|paper money|bank notes|banknote:5; shells|cowrie shells|cowries|cowrie:4; salt:4; cattle|cows|cow|livestock:4; cigarettes|cigarette:3;
+beads:3; tobacco:3; copper:3; grain|wheat|barley|rice:3; furs|fur|pelts|beaver pelts|animal skins:3; cocoa beans|cacao beans|cocoa|cacao:3; cheque|checks|cheques|check:3; credit card|card|debit card:3;
+bitcoin|cryptocurrency|crypto:3; feathers:2; bronze:2; iron:2; stones|rai stones|yap stones|stone:2; sheep|goats:2; tea bricks|brick tea|tea:2; pepper|peppercorns:2;
+whale teeth|whales' teeth|teeth|tooth:2; wampum:2; ivory:2; spices:2; gift cards|vouchers|gift voucher|tokens:2; stamps|postage stamps:2; whiskey|rum|alcohol:2; sugar:2;
+diamonds:2; silk:2; cloth|textiles|cotton|linen:2; knives|knife money:1; spades|spade money:1; ingots|bits of metal:1; amber:1; jade:1;
+porcelain:1; nails:1; arrowheads:1; tally sticks|tally stick:1; clay tokens:1; leather:1; shark teeth:1; dog teeth:1;
+bars of soap|soap:1; pearls:1; ostrich eggshell beads|ostrich shells:1; bamboo:1;
+` },
+  { id: "q-past-old-british-money", theme: "History", ask: "Name an old British coin or banknote", what: "old British coins and banknotes", items: `
+penny|pence|old penny:5; shilling|bob:5; guinea:5; farthing:5; halfpenny|ha'penny|half penny|halfpence:5; sixpence|tanner:4; florin:3; crown:4;
+half crown|half-crown:4; threepenny bit|thrupenny bit|threepence|thruppence:3; groat:3; sovereign:4; tuppence|twopence:4; pound note|one pound note:4; ten shilling note|ten bob note|ten bob:3; noble:1;
+angel:1; half sovereign:1; double florin:1; half farthing:1; quarter farthing:1; third farthing:1; half groat:1; testoon:1;
+half guinea:1; double crown:1; unite:1; laurel:1; rose noble:1; ryal:1; bawbee:1; merk:1;
+plack:1; bodle|turner:1; white fiver|white five pound note:1; treasury note|bradbury|bradbury note:1; gold crown:1; three halfpence|three half pence|three halfpenny:1; fourpenny bit|joey:1; spade guinea:1;
+maundy money:1; thistle merk:1;
+` },
+  { id: "q-past-old-units", theme: "History", ask: "Name an old unit of measurement", what: "old units of measurement", items: `
+cubit:5; foot|feet:5; inch:5; mile:5; yard:5; furlong:4; league:4; fathom:4;
+stone:4; hand:4; pound:3; ounce:3; acre:3; gallon:3; pint:3; chain:3;
+ton:3; rod:2; pole:2; perch:2; ell:2; span:2; palm:2; digit:2;
+barleycorn:2; link:2; rood:2; hogshead:2; firkin:2; bushel:2; peck:2; gill:2;
+dram:2; grain:2; carat:2; hundredweight|cwt:2; score:2; fortnight:2; pace:2; knot:2;
+nautical mile:2; kilderkin:1; butt:1; tun:1; scruple:1; quarter:1; gross:1; stadion|stadium|stadia:1;
+talent:1; mina:1; shekel:1; obol:1; parasang:1; li:1; shaku:1; ri:1;
+cord:1; cable|cable length:1; minim:1; drachm|drachma:1; noggin:1; jigger:1; pottle:1; puncheon:1;
+hide:1; virgate|yardland:1; oxgang|bovate:1; carucate:1; hundred:1;
+` },
+  { id: "q-past-dead-currencies", theme: "History", ask: "Name a currency that no longer exists", what: "former currencies", items: `
+deutsche mark|deutschmark|mark|german mark:5; franc|french franc:5; lira|italian lira:5; peseta|spanish peseta:4; drachma:4; escudo:3; guilder|dutch guilder|gulden:3; punt|irish pound:3;
+schilling|austrian schilling:3; reichsmark:3; ducat:3; florin:3; guinea:3; doubloon:3; pieces of eight|piece of eight|spanish dollar:3; denarius:3;
+markka|finnish markka:2; belgian franc:2; zaire:2; rhodesian dollar:2; soviet ruble|soviet rouble:2; east german mark|ostmark:2; thaler|taler:2; sestertius|sesterces|sestertii:2;
+aureus:2; talent:2; livre|french livre:2; ecu:2; pfennig:2; confederate dollar|confederate money:2; cruzeiro:2; sucre:2;
+zimbabwe dollar:2; kroon|estonian kroon:1; lats:1; litas:1; tolar:1; kuna:1; cypriot pound|cyprus pound:1; maltese lira:1;
+slovak koruna:1; luxembourg franc:1; yugoslav dinar:1; rentenmark:1; papiermark:1; solidus|bezant:1; obol:1; mina:1;
+stater:1; daric:1; louis d'or|louis d or:1; groschen:1; kreuzer:1; sou:1; assignat|assignats:1; continental|continental dollar|continental currency:1;
+austral|argentine austral:1; inti:1; cruzado:1; colon:1; tael:1; scudo:1;
+` },
+  { id: "q-past-by-accident", theme: "History", ask: "Name something that was invented by accident", what: "things invented by accident", items: `
+penicillin:5; microwave oven|microwave:5; post-it notes|post-its|post it notes|post its|sticky notes:4; potato chips|crisps|potato crisps:4; chocolate chip cookies|chocolate chip cookie|toll house cookie:3; x-rays|x-ray|x rays:3; velcro:3; teflon|non-stick pan|nonstick|non stick:3;
+super glue|superglue|krazy glue:3; slinky:3; viagra:3; coca-cola|coca cola|coke:3; corn flakes|cornflakes:3; gunpowder:3; ice cream cone|ice cream cones|cone:2; play-doh|play doh|playdough:2;
+saccharin|artificial sweetener|sweetener:2; dynamite:2; vulcanised rubber|vulcanized rubber|vulcanisation|rubber:2; stainless steel:2; pacemaker:2; popsicle|ice lolly|ice pop|lolly:2; champagne|sparkling wine:2; tea bags|teabag|tea bag:2;
+cheese:2; mauve|mauveine|synthetic dye|purple dye:2; fireworks:2; radioactivity:2; bubble wrap:2; silly putty:2; matches|friction match|safety matches:2; safety glass|laminated glass:1;
+brandy:1; tofu:1; yogurt|yoghurt:1; tarte tatin:1; brownie|brownies:1; buffalo wings|chicken wings|wings:1; worcestershire sauce:1; plastic|bakelite:1;
+celluloid:1; cosmic microwave background:1; smoke detector:1; scotchgard:1; anaesthesia|anesthetic|nitrous oxide:1; fudge:1; cellophane:1; kevlar:1;
+saran wrap:1; photography|daguerreotype:1; vaseline|petroleum jelly:1; pop rocks:1; nachos:1; caesar salad:1;
+` },
+  { id: "q-past-invented-1800s", theme: "History", ask: "Name something invented in the 1800s", what: "inventions of the 1800s", items: `
+telephone|phone:5; light bulb|lightbulb|electric light:5; bicycle|bike:4; photograph|photography|camera:4; steam train|railway|locomotive|steam locomotive|railways:4; typewriter:4; telegraph:4; gramophone|phonograph|record player:4;
+car|automobile|motor car|petrol car:4; sewing machine:3; dynamite:3; refrigerator|fridge:3; stethoscope:3; anaesthetic|anesthesia|anaesthesia:3; elevator|lift:3; safety pin:3;
+zip|zipper:3; tin can|canned food|can|tinned food:3; matches|match|safety match:3; electric battery|battery:3; revolver|colt revolver|machine gun|gatling gun:3; motorcycle|motorbike:3; internal combustion engine|combustion engine:3; braille:3;
+morse code:3; postage stamp|stamp|penny black:3; blue jeans|jeans|denim jeans:3; lawn mower|lawnmower:3; cinema|motion picture|film camera|movie camera|cinematograph:3; x-ray|x-rays:3; radio|wireless|wireless telegraph:3; electric motor:3;
+reaper|mechanical reaper:2; diesel engine:2; pneumatic tyre|pneumatic tire|tyre|tire:2; barbed wire:2; chewing gum:2; paper clip|paperclip:2; toilet paper|loo roll:2; vacuum cleaner|hoover:2;
+washing machine:2; dynamo|generator:2; bunsen burner:2; pasteurisation|pasteurization:2; vaccine|rabies vaccine:2; hypodermic needle|syringe:2; traffic light:2; cash register:2;
+calculator|adding machine|difference engine|analytical engine:2; ferris wheel:2; submarine:2; fountain pen|ballpoint pen|ball point pen:2; postcard:1; coca-cola:1; cornflakes:1; flush toilet|modern toilet|water closet:1;
+transformer:1; thermos|vacuum flask:1; escalator:1; roller coaster|rollercoaster:1; basketball:1; volleyball:1; tin opener|can opener:1; dishwasher:1;
+` },
+  { id: "q-past-invented-1900s", theme: "History", ask: "Name something invented in the 1900s", what: "inventions of the 1900s", items: `
+television|tv:5; aeroplane|airplane|plane|aircraft:5; computer:5; internet:4; microwave oven|microwave:4; penicillin:4; laser:4; mobile phone|cell phone|cellphone:3;
+jet engine|jet:3; radar:3; rocket|space rocket:3; satellite:3; nuclear bomb|atomic bomb|nuclear weapon:3; nuclear power|nuclear reactor:3; transistor:3; microchip|computer chip|integrated circuit|silicon chip:3;
+compact disc|cd:3; ballpoint pen|biro|ball point pen:3; helicopter:3; tank:3; antibiotics:3; insulin:3; lego|lego bricks:3; rubik's cube|rubiks cube:3;
+video game|pong|arcade game|video games:3; personal computer|pc|laptop:3; gps|satnav|sat nav|global positioning system:3; world wide web|www|web:3; email|e-mail:3; atm|cash machine|cashpoint|cash point:3; air conditioning|air conditioner:3; wi-fi|wifi:3;
+dvd:2; video recorder|vcr|videocassette recorder|video cassette recorder:2; walkman|personal stereo|cassette player:2; cassette tape|cassette:2; electric guitar:2; sliced bread|bread slicer:2; hovercraft:2; heart transplant|organ transplant:2;
+test tube baby|ivf:2; mri|mri scanner|mri scan|magnetic resonance imaging:2; ct scanner|cat scan|ct scan:2; ultrasound:2; pacemaker:2; contact lenses|contact lens:2; disposable nappy|disposable diaper|nappies|diaper:2; frisbee:2;
+hula hoop:2; barbie|barbie doll:2; computer mouse|mouse:2; sms|text message|text messaging|texting:2; digital camera:2; polaroid|instant camera:2; photocopier|xerox|photocopy machine:2; barcode|bar code:2;
+credit card:2; nylon|nylons|tights:2; velcro:2; post-it notes:2; teddy bear:2; hairdryer:1; vinyl lp|lp:1; zip|zipper:1;
+frozen food|frozen foods:1; supermarket:1; dna fingerprinting|dna profiling:1; teabag:1; game console|games console:1; stainless steel:1; super glue:1; non-stick pan|teflon:1;
+polythene|polyethylene:1; kevlar|bulletproof vest:1; tupperware:1; aerosol|spray can|aerosol can:1; crossword:1; monopoly:1; scrabble:1; lcd|liquid crystal display:1;
+led|light emitting diode:1; fibre optics|fiber optics|optical fibre:1; bluetooth:1; touchscreen:1; cloning|dolly the sheep:1; space shuttle:1;
+` },
+  { id: "q-past-invented-ancient", theme: "History", ask: "Name something invented in ancient times", what: "ancient inventions", items: `
+wheel|the wheel:5; paper:4; writing|cuneiform|written language:4; plough|plow:4; boat|boats|ships:4; coins|coinage|money:4; alphabet:3; sail|sails|sailing:3;
+bow and arrow|bow|bows:3; pottery:3; bricks|brick|mud bricks:3; glass:3; calendar:3; sundial:3; abacus:3; compass:3;
+gunpowder:3; concrete:3; aqueduct|aqueducts:3; roads:3; pulley|pulleys:3; lever|levers:3; catapult:3; war chariot|chariot:3;
+watermill|water mill|water wheel:3; soap:3; mathematics|maths:3; irrigation|irrigation canals|irrigation systems:3; beer|brewing:3; wine|winemaking:3; papyrus:3; fire making|fire lighting|firemaking:2;
+water clock|clepsydra:2; printing|woodblock printing|block printing:2; silk|silk weaving:2; steel|iron smelting|ironworking:2; bronze|bronze working:2; sewers|sewage:2; arches|arch:2; screw|archimedes screw|screw pump:2;
+crane:2; saddle:2; stirrup:2; horseshoes|horseshoe:2; windmill:2; lock and key|locks|lock:2; keys|key:2; scissors:2;
+needles|needle|sewing needle:2; perfume:2; makeup|cosmetics|kohl:2; mirror|mirrors:2; lighthouse:2; map|maps:2; geometry:2; zero|the number zero:2;
+decimal system|number system|numerals:2; dam|dams:2; canal|canals:2; bread:2; ink:2; scroll|scrolls:2; library:2; democracy:2;
+law|laws|legal code|code of laws:2; theatre|theater:2; dice:2; crossbow:2; wheelbarrow:2; seismograph|seismoscope:2; antikythera mechanism|analog computer:2; kites|kite:2;
+central heating|hypocaust:2; dome:1; ballista:1; bellows:1; kiln:1; razor:1; comb:1; buttons|button:1;
+toothpaste|tooth powder:1; wig|wigs:1; cartography:1; granary:1; cheese:1; leavened bread|yeast:1; mummification|embalming:1; pen|reed pen|quill:1;
+clay tablets|tablet:1; book|codex:1; olympics|olympic games:1; senet:1; go|weiqi:1; backgammon:1; chess:1; tanning|leather:1;
+odometer:1; automatic doors|automatic door:1; steam engine|aeolipile:1; ice cream:1; noodles:1; toilet|flush toilet:1; spectacles|glasses|eyeglasses:1;
+` },
+  { id: "q-past-invented-china", theme: "History", ask: "Name something invented in China", what: "Chinese inventions", items: `
+paper:5; gunpowder:5; compass:5; printing|printing press|woodblock printing|block printing|movable type:5; silk:4; fireworks|firework:4; porcelain|china|fine china:4; kite|kites:3;
+paper money|banknotes|banknote:3; seismograph|seismometer|earthquake detector:3; abacus:3; chopsticks|chopstick:3; umbrella|umbrellas:2; wheelbarrow:2; noodles|noodle:2; toilet paper:2;
+mechanical clock|water clock|clock:2; crossbow:2; cast iron|iron casting:2; rocket|rockets:2; mahjong:2; go|weiqi:2; playing cards|cards:2; dominoes|domino:2;
+acupuncture:2; cannon|cannons|gunpowder weapons:2; toothbrush|bristle toothbrush:2; tofu:2; tea:2; lantern|paper lantern|sky lantern|kongming lantern:2; matches|match:1; steel:1;
+canal locks|pound lock:1; stirrup:1; suspension bridge:1; arch bridge|segmental arch bridge:1; fishing reel:1; bamboo copter|helicopter rotor:1; parachute:1; rudder|stern-post rudder:1;
+watertight bulkheads|bulkhead:1; chinese chess|xiangqi:1; ink:1; traditional chinese medicine|chinese medicine:1; flamethrower:1; landmine|land mine:1; grenade|grenades:1; repeating crossbow:1;
+south-pointing chariot|south pointing chariot:1; odometer:1; belt drive|drive belt:1; chain drive:1; spinning wheel:1; water wheel:1; blast furnace:1; natural gas drilling|deep drilling:1;
+lacquer|lacquerware:1; soy sauce:1; ice cream:1; diabolo:1; yo-yo:1; decimal system|decimals:1; negative numbers:1; magic square:1;
+` },
+  { id: "q-past-invented-britain", theme: "History", ask: "Name something invented in Britain", what: "British inventions", items: `
+steam engine:5; penicillin:5; television|tv:4; jet engine:4; world wide web|www|the web:4; railway|steam locomotive|locomotive|steam train:4; lawn mower|lawnmower:3; hovercraft:3;
+radar:3; tank:3; flush toilet|toilet:3; light bulb|lightbulb:3; penny black|postage stamp|adhesive postage stamp:3; football|association football|soccer:3; rugby:3; cricket:3;
+tennis|lawn tennis:3; golf:3; chocolate bar|chocolate:3; sandwich:3; jigsaw|jigsaw puzzle:3; christmas card:3; bouncing bomb|dambuster bomb:2; cat's eyes|cats eyes:2;
+electric motor:2; dynamo|electric generator:2; telegraph|electric telegraph:2; spinning jenny:2; flying shuttle:2; spinning mule:2; power loom:2; water frame:2;
+seed drill:2; davy lamp|safety lamp:2; bessemer process|steel converter:2; portland cement|cement:2; tarmac|macadam|tarmacadam:2; pneumatic tyre|pneumatic tire|tyre|tire:2; safety bicycle|bicycle|bike:2; ejector seat:2;
+cluedo:2; dolly the sheep|cloning:2; ibuprofen:2; ct scanner|cat scan:2; ivf|test tube baby:2; syringe|hypodermic syringe|hypodermic needle:2; chloroform:2; thermos|vacuum flask:2;
+mackintosh|raincoat:2; wellington boots|wellies|wellington boot:2; badminton:2; snooker:2; table tennis|ping pong:2; hydraulic crane:1; hydraulic press:1; speaking clock:1;
+mallard:1; stephenson's rocket|rocket:1; croquet:1; darts:1; fingerprinting:1; tin can:1; lifeboat:1; cardigan:1;
+marmalade:1; crumpet:1; fish and chips:1; cheddar cheese:1; mri scanner|mri:1; stainless steel:1; carbon fibre|carbon fiber:1; sewing machine:1;
+` },
+  { id: "q-past-invented-america", theme: "History", ask: "Name something invented in America", what: "American inventions", items: `
+airplane|aeroplane|plane:5; telephone:4; light bulb|lightbulb|electric light bulb:4; basketball:4; blue jeans|jeans|denim jeans:4; internet|arpanet:4; peanut butter:4; coca-cola|coke:4;
+baseball:3; volleyball:3; cotton gin:3; telegraph:3; morse code:3; revolver:3; skyscraper:3; microwave oven|microwave:3;
+personal computer|pc:3; frisbee:3; hula hoop:3; skateboard:3; hamburger:3; hot dog:3; chocolate chip cookie:3; monopoly:3;
+scrabble:3; slinky:3; barbie:3; teddy bear:3; post-it notes|post it notes|sticky notes:3; duct tape|duck tape:3; lightning rod:3; bifocals|bifocal glasses:3;
+air conditioning|air conditioner:3; ferris wheel:3; phonograph|record player:3; potato chips|chips|crisps:3; corn flakes|cornflakes:3; assembly line|production line|conveyor belt:2; model t|model t ford|ford model t:2; american football|gridiron:2;
+sewing machine:2; machine gun:2; gatling gun:2; elevator|lift:2; zipper|zip:2; transistor:2; laser:2; integrated circuit|microchip:2;
+computer mouse|mouse:2; email:2; gps:2; roller skates:2; rollerblades|inline skates:2; snowboard:2; barbed wire:2; chewing gum:2;
+cheeseburger:2; ice cream sundae|sundae:2; ice cream cone:2; oreo:2; silly putty:2; super glue:2; teflon|non-stick:2; nylon:2;
+kevlar:2; spandex|lycra:2; bubble wrap:2; tupperware:2; franklin stove:2; safety razor:2; toaster:2; traffic light|traffic signal:2;
+cash register:2; polio vaccine:2; roller coaster|rollercoaster:2; jukebox:2; cinema|kinetoscope|movie camera:2; polaroid|instant camera:2; cellphone|mobile phone:2; smartphone|iphone:2;
+steamboat|steam boat:2; atomic bomb:2; credit card:2; typewriter:2; pepsi:2; space shuttle:1; jet ski:1; popcorn machine:1;
+root beer:1; brownie:1; twinkie:1; jello|jell-o:1; pop tarts:1; tv dinner:1; frozen food|birds eye:1; styrofoam:1;
+ziploc bags|zip lock bags|ziploc:1; swivel chair:1; rocking chair:1; paper bag|paper bags:1; dishwasher:1; washing machine:1; vacuum cleaner:1; pacemaker:1;
+kodak camera:1; submarine:1; nuclear reactor:1; hydrogen bomb:1; bar code|barcode:1; atm:1; stock ticker|ticker tape:1;
+` },
+  { id: "q-past-from-americas", theme: "History", ask: "Name something Europeans first got from the Americas", what: "things that came to Europe from the Americas", items: `
+potato|potatoes:5; tomato|tomatoes:5; maize|corn|sweetcorn:4; chocolate|cocoa|cacao:5; tobacco:5; turkey:4; chilli|chili|chilli pepper|chili pepper|chillies:4; pineapple:4;
+sweet potato|sweet potatoes:3; peanuts|peanut|groundnut|groundnuts:3; vanilla:3; pumpkin|pumpkins:3; beans|kidney beans|runner beans|green beans|french beans|common beans:3; avocado|avocados:3; peppers|bell pepper|capsicum:3; popcorn:3;
+gold|gold and silver|silver:3; cassava|manioc|tapioca|yuca:2; quinoa:2; sunflower|sunflowers|sunflower seeds:2; rubber|latex:2; guinea pig|guinea pigs|cavy:2; alpaca|llama:2; hammock:2;
+cashew nuts|cashews:2; pecan|pecans:2; brazil nuts|brazil nut:2; cranberries|cranberry:2; papaya|pawpaw:2; guava:2; squash|butternut squash:2; quinine|cinchona:2;
+cigars|cigar:2; kayak:1; blueberries|blueberry:1; strawberries|virginia strawberry:1; passion fruit|passionfruit:1; allspice|pimento:1; tomatillo:1; chia:1;
+amaranth:1; agave:1; sisal:1; mahogany:1; logwood:1; cochineal|cochineal dye:1; poinsettia:1; dahlia|dahlias:1;
+marigold|marigolds|french marigold:1; petunia:1; fuchsia:1; jerusalem artichoke|sunchoke:1; chewing gum|chicle:1; wild rice:1; maple syrup:1; snuff:1;
+lima beans|lima bean:1; emeralds|emerald:1; cotton:1;
+` },
+  { id: "q-past-victorian-things", theme: "History", ask: "Name something you associate with Victorian Britain", what: "things associated with Victorian Britain", items: `
+queen victoria|victoria:5; steam trains|steam train|railways|railway|steam locomotives:5; charles dickens|dickens:5; top hat|top hats:4; chimney sweeps|chimney sweep:4; workhouse|workhouses:4; industrial revolution|industry|factories|factory|mills:4; british empire|empire:4;
+corsets|corset:3; crinoline|crinolines|hooped skirt:3; gas lamps|gas lamp|gaslight|gas lights:3; hansom cab|hansom cabs|horse-drawn carriage:3; penny farthing|penny-farthing:3; prince albert|albert:3; great exhibition|crystal palace|the great exhibition:3; sherlock holmes:3;
+whiskers|mutton chops|sideburns|moustache|beard:3; bonnet|bonnets:3; penny post|penny black:3; child labour|child workers|children working:3; coal|coal mines|coal mining|mines:3; smog|fog|pea-souper|pea souper:3; seaside|seaside holidays|piers|pier:3; music hall|music halls:3;
+slums|slum:3; brunel|isambard kingdom brunel:4; darwin|charles darwin|origin of species|on the origin of species:3; florence nightingale:3; big ben|clock tower|houses of parliament:3; bustle|bustles:2; pocket watch:2; cobbled streets|cobbles:2;
+parasol:2; mourning|black mourning dress|mourning clothes:2; brass bands|brass band:2; gin|gin palaces|gin palace:2; poor law|poor houses|poorhouse:2; tenements|tenement:2; cholera:2; sewers|bazalgette:2;
+crimean war:2; jubilee|diamond jubilee|golden jubilee:2; penny dreadful|penny dreadfuls|serial novels:2; bobbies|police|peelers|policemen|bobby:2; tower bridge:2; london underground|the tube|underground:2; pillar box|post box|letter box|postbox:2; telegraph:2;
+photography|daguerreotype|photographs:2; bicycle:2; tea|afternoon tea|tea rooms:2; piano|pianos:2; waistcoat|waistcoats:2; cane|walking stick|walking cane:2; oliver twist|oliver:2; scrooge|ebenezer scrooge|a christmas carol:2;
+christmas cards|christmas card|christmas trees|christmas tree:2; ragged schools|ragged school:1; boer war:1; opium wars:1; gentlemen|gentleman:1; etiquette|manners|good manners:1; cravat|cravats:1; pince-nez:1;
+monocle:1; tobacco|pipe|pipe smoking:1; gasworks|gas works:1; canals|canal:1;
+` },
+  { id: "q-past-wild-west-things", theme: "History", ask: "Name something you'd see in the Wild West", what: "things seen in the Wild West", items: `
+cowboys|cowboy:5; horses|horse:5; saloon|saloons:5; sheriff:5; guns|gun|revolver|six-shooter|six shooter|pistol|pistols:5; cowboy hat|cowboy hats|stetson|ten-gallon hat|hat:4; boots|cowboy boots:4; tumbleweed|tumbleweeds:4;
+wanted posters|wanted poster:4; outlaws|outlaw|bandits|bandit|robbers:4; stagecoach|stagecoaches|stage coach:4; covered wagon|covered wagons|wagon train|wagons|wagon:4; cattle|cows|longhorns|longhorn|cattle drive:4; spurs|spur:3; native americans|indians|american indians|indigenous people:3; teepee|tipi|tepee|teepees:3;
+lasso|lariat|rope:3; bandana|bandanna|neckerchief:3; railroad|railway|train|steam train:3; gold rush|gold|gold miners|prospectors|prospector|gold prospectors:3; deserts|desert:3; cactus|cacti:3; saloon doors|swinging doors|batwing doors:3; poker|card games|cards|playing cards:3;
+whiskey|whisky:3; showdown|duel|gunfight|shootout|standoff:3; holster|holsters|gun belt:3; rifle|winchester|winchester rifle:3; badge|sheriff's badge|star|sheriffs badge:3; jail|jailhouse|jail cell|prison:3; ghost town|ghost towns|town:3; buffalo|bison:3;
+campfire|camp fire:3; saddle:3; ranch|ranches:3; piano|saloon piano|honky tonk piano:2; gallows|hanging tree|noose:2; hitching post|hitching rail:2; general store:2; blacksmith:2;
+undertaker|coffin maker:2; bank|bank robbery|bank robbers:2; vultures|vulture|buzzards:2; coyotes|coyote:2; rattlesnake|rattlesnakes:2; bow and arrow:2; wagon wheel:2; canyon|canyons|mesa|buttes|butte:2;
+harmonica:2; chuck wagon:2; beans|baked beans:2; coffee:2; branding iron|branding:2; farmers|homesteaders|homestead:2; telegraph:2; pony express:2;
+water trough|trough:1; church|chapel:1; barber:1; tomahawk:1; dust|dust devil:1; banjo:1; fiddle|violin:1; bedroll:1;
+barbed wire|fences:1; windmill:1; dynamite:1; pickaxe:1;
+` },
+  { id: "q-past-pirate-things", theme: "History", ask: "Name something you associate with pirates", what: "things associated with pirates", items: `
+parrot:5; treasure|treasure chest|buried treasure|gold:5; eye patch|eyepatch:5; ship|pirate ship|sailing ship|galleon:5; skull and crossbones|jolly roger|pirate flag|black flag|flag:5; treasure map|map|x marks the spot:5; wooden leg|peg leg:4; hook|hook hand|hook for a hand:4;
+sword|cutlass|swords:4; rum|grog:4; plank|walk the plank|walking the plank:4; blackbeard|edward teach:4; jack sparrow|captain jack sparrow:4; long john silver:4; pieces of eight:4; pirates of the caribbean:4;
+pirate hat|tricorn|tricorn hat|hat|bicorne:3; sea|the sea|ocean:3; cannon|cannons|cannonballs:3; island|desert island|treasure island:3; ahoy|ahoy matey|matey:3; arr|arrr|arrrr|aargh|argh:3; shiver me timbers:3; yo ho ho|yo ho ho and a bottle of rum:3;
+captain hook:3; buccaneer|buccaneers:3; doubloons|doubloon:3; gold coins|coins:3; bottle of rum:3; sails|sail:3; telescope|spyglass:3; bandana|bandanna|headscarf:3;
+earring|gold earring|hoop earrings:3; mutiny|mutineers:3; plunder|pillage|looting|loot|booty:3; flintlock|flintlock pistol|musket|muskets|pistol:3; caribbean:3; sea shanty|sea shanties|shanty:2; anchor:2; avast|avast ye:2;
+captain kidd|william kidd:2; anne bonny:2; henry morgan|captain morgan:2; privateer|privateers:2; jewels|gems|jewellery|jewelry:2; crow's nest:2; mast|masts:2; compass:2;
+beard|scruffy beard|big beard:2; cat o' nine tails|cat o nine tails|whip|lash:2; keelhauling|keelhaul:2; marooned|marooning:2; black pearl|the black pearl:2; flying dutchman:2; davy jones|davy jones' locker:2; tortuga:2;
+port royal:2; peter pan:2; dagger|knife:2; grappling hook:2; calico jack:1; mary read:1; bartholomew roberts|black bart|black bart roberts:1; sir francis drake|drake:1;
+barbary pirates|corsairs|corsair:1; monkey:1; hidden cove|cove|secret cove:1; tavern|inn:1; tattoo|tattoos:1; pirate radio:1; pirates of penzance:1; one piece:1;
+queen anne's revenge:1; whydah:1; kraken:1; mermaid|mermaids:1; sharks:1; nassau:1; madagascar:1; rope|ropes|rigging:1;
+barrel|barrels:1; gunpowder|powder keg:1; boarding axe|axe:1; hammock:1;
+` },
+  { id: "q-past-industrial-rev-things", theme: "History", ask: "Name something you associate with the Industrial Revolution", what: "things associated with the Industrial Revolution", items: `
+steam engine|steam engines|steam power:5; factories|factory:5; coal:5; trains|steam trains|railways|railway|locomotives:5; smoke|pollution|soot|smog:4; machines|machinery:4; cotton|cotton mills|mills|textile mills|textiles|cotton industry:4; child labour|child labor|children:4;
+iron:4; chimneys|chimney|smokestacks|smokestack:4; canals|canal:3; steel:3; spinning jenny|jenny:3; james watt|watt:3; power loom|loom|looms:3; urbanisation|urbanization|cities growing|growth of cities|towns growing:3;
+slums|overcrowding:3; workers|working class|factory workers:3; luddites|luddite:3; mines|coal mines|mining|miners:3; steamships|steamship|steamboat|steamboats:3; manchester:3; britain|great britain|england:3; invention|inventions|inventors:3;
+rocket|stephenson's rocket:3; george stephenson|stephenson:2; isambard kingdom brunel|brunel:2; richard arkwright|arkwright:2; flying shuttle:2; cotton gin|eli whitney:2; long hours|long working hours|hard work:2; low wages|poverty:2;
+trade unions|unions|union:2; strikes|strike:2; engineers|engineering:2; bridges|iron bridge|ironbridge:2; furnace|blast furnace|furnaces:2; bessemer|bessemer process:2; birmingham:2; sheffield:2;
+capitalism:2; factory owners|mill owners|industrialists|industrialist:2; dark satanic mills:2; new technology|technology:2; mass production:2; water frame:1; spinning mule|mule:1; coke:1;
+telegraph:1; gas lighting|gas lamps:1; paddle steamer:1; leeds:1; glasgow:1; liverpool:1; wages:1; coalbrookdale:1;
+boulton and watt|soho foundry:1; newcomen engine|newcomen|atmospheric engine:1; pumps|water pump:1; poor housing|bad housing|back-to-back houses|terraced houses:1; cholera:1; assembly line:1; interchangeable parts:1;
+` },
+  { id: "q-past-fun-before-tv", theme: "History", ask: "Name something people did for fun before television", what: "ways people had fun before television", items: `
+read|reading|books:5; card games|cards|playing cards:5; board games|games:4; play music|music|playing instruments|musical instruments:4; sing|singing|singalong|sing-along:4; dance|dancing:4; theatre|plays|theater:4; radio|listen to the radio|listening to the radio:4;
+storytelling|telling stories|stories|story telling:3; go for walks|walking|walks|go for a walk:3; sports|play sports|football|cricket:3; fishing:3; hunting:3; gossip|gossiping|chatting|talking|conversation:3; draughts|checkers:3; chess:3;
+cinema|films|going to the cinema|movies:3; circus|circuses:3; fairs|funfair|fairground|fair:3; charades:3; pub|going to the pub|tavern|drinking:3; jigsaws|jigsaw puzzles|jigsaw|puzzles:3; marbles:3; tag|hide and seek|hide-and-seek:3;
+gramophone|record player|records|listening to records:3; music hall|music halls|variety shows|vaudeville:3; picnics|picnic:2; letter writing|writing letters:2; dominoes:2; dice|dice games:2; gambling|betting:2; horse racing|horse races|races:2;
+shadow puppets|shadow play|puppet shows|puppets:2; parlour games|parlor games:2; skating|ice skating:2; swimming:2; cycling:2; gardening:2; knitting|sewing|embroidery|needlework|crafts:2; painting|drawing|art:2;
+crosswords|crossword:2; kite flying|kites|flying kites:2; skipping|skipping rope|jump rope:2; hopscotch:2; concerts|concert|bands|brass band|brass bands:2; bowls|bowling|skittles:2; festivals|fetes|village fete|fete:2; magic lantern|magic lantern shows|lantern shows:1;
+photography:1; conkers:1; hoop rolling|hoop|trundling hoops:1; lectures|public lectures:1; seances|seance:1; archery:1; jousting|tournaments:1; church|church socials|socials:1;
+pageants|parades|parade:1;
+` },
+  { id: "q-past-tomb-things", theme: "History", ask: "Name something found in an ancient Egyptian tomb", what: "things found in ancient Egyptian tombs", items: `
+mummy|mummies:5; sarcophagus|coffin:5; treasure|gold|jewels|jewellery|jewelry:5; hieroglyphs|hieroglyphics|wall paintings|paintings|murals|wall art:4; canopic jars|canopic jar:4; death mask|golden mask|funeral mask|burial mask|mask:3; scarab|scarabs|scarab beetles|scarab beetle:3; amulets|amulet|charms:3;
+statues|statue|figurines:3; shabti|ushabti|shabtis|servant figures:3; food|food offerings|offerings|bread|fruit:3; book of the dead|papyrus|scrolls|papyri:3; curse|curses|curse of the pharaohs:3; furniture|chairs|beds|thrones|throne|couch:2; wine jars|wine|jars|pots|pottery|vases|vase:2; boats|model boats|boat|barque|solar boat:2;
+chariots|chariot:2; weapons|swords|daggers|dagger:2; board games|senet|games:2; clothes|clothing|linen|robes:2; cosmetics|makeup|kohl|perfume|oils|ointments:2; traps|booby traps|booby trap:2; hidden passages|secret passages|secret chambers|hidden chambers:2; pillars|columns:2;
+spells|inscriptions|texts:2; cats|pet cats|cat mummies|animal mummies|mummified animals:2; skeletons|bones|skulls:2; bandages|linen wrappings|wrappings:2; flowers|garlands|wreaths|lotus flowers|lotus:2; crowns|crown|headdress|nemes:2; collars|broad collar|usekh|necklaces|necklace|beads:2; ankh:2;
+stairs|steps|staircase|corridor|passage|corridors:2; sandals:1; wigs|wig:1; false doors|false door:1; dogs:1; falcon|falcons:1; snakes|snake:1; natron|salt:1;
+resin|incense|incense burners:1; lamps|oil lamps:1; rings|scarab rings|bracelets|bracelet:1; heart scarab:1; djed pillar|djed:1; sceptre|crook and flail|flail|crook:1; bows and arrows|bow|arrows:1; canopic chest|canopic shrine:1;
+offering table|altar|offering tables:1; golden shrine|shrine|shrines:1; sealed doors|sealed door|door seals|seals:1; grain|wheat|barley|corn:1; honey:1; dates:1; dust|sand:1;
+` },
+]);

@@ -3,86 +3,60 @@
 <meta name="description" content="Far Out: the game of rare answers. Everyone says apple. Say rambutan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Unbounded:wght@500;700;800;900&display=swap">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/screens.css">
 
 <canvas id="sky" aria-hidden="true"></canvas>
 
 <main id="app">
-  <!-- HOME -->
+  <!-- HOME: the game hub -->
   <section id="s-home" class="screen home">
-    <header class="brand">
-      <h1 class="logo" aria-label="Far Out"><span>FAR</span><span>OUT</span></h1>
-      <p class="tag">The game of rare answers. Everyone says apple, you say rambutan. The rarer your answer, the farther you fly.</p>
+    <header class="topbar">
+      <h1 class="logo" aria-label="Far Out"><span class="logo-mark" aria-hidden="true"></span><span>Far Out</span></h1>
+      <button class="pill-btn streak-pill" id="streak-pill" type="button" data-go="daily" aria-label="Daily streak"><i class="flame" aria-hidden="true"></i><b id="streak-n">0</b></button>
+      <button class="pill-btn level-pill" id="level-pill" type="button" data-go="chart" aria-label="Your level and logbook"><span class="ring" id="lvl-ring"><b id="lvl-n">1</b></span><span id="lvl-rank">Cadet</span></button>
     </header>
+    <p class="greet" id="greet">Name the thing nobody else would. The rarer the answer, the farther you fly.</p>
 
-    <ol class="scale" aria-label="Rarity scale, common to rare">
-      <li class="t5"><b>Low Orbit</b><span>10</span></li>
-      <li class="t4"><b>Moonshot</b><span>25</span></li>
-      <li class="t3"><b>Red Planet</b><span>45</span></li>
-      <li class="t2"><b>Deep Space</b><span>70</span></li>
-      <li class="t1"><b>Far Out</b><span>100</span></li>
-    </ol>
+    <button class="daily-card" type="button" data-go="daily">
+      <span class="dc-art" aria-hidden="true"><i></i></span>
+      <span class="dc-k" id="daily-date">Daily Orbit</span>
+      <b class="dc-h" id="daily-h">Today's six questions</b>
+      <span class="dc-s" id="best-daily">Same six for everyone. No clock.</span>
+      <span class="dc-dots" id="daily-progress" aria-hidden="true"></span>
+      <span class="btn primary dc-go" id="daily-go">Play today's six</span>
+    </button>
 
-    <nav class="modes-wrap" aria-label="Game modes">
-      <h2 class="modes-h">Play alone</h2>
-      <div class="home-theme">
-        <p id="theme-label">Topic for Voyage and Explore</p>
-        <div id="home-themes"></div>
-      </div>
-      <div class="modes solo">
-        <button class="mode" data-go="voyage" type="button">
-          <b>Voyage</b>
-          <span class="mode-d">Race the clock. Rare answers refuel your ship, and the questions never run out.</span>
-          <span class="mode-s" id="best-voyage">No voyage yet</span>
-        </button>
-        <button class="mode" data-go="daily" type="button">
-          <b>Daily Orbit</b>
-          <span class="mode-d">Six questions, two answers each, no clock. Everyone gets the same six today.</span>
-          <span class="mode-s" id="best-daily">Ready</span>
-        </button>
-        <button class="mode" data-go="explore" type="button">
-          <b>Explore</b>
-          <span class="mode-d">No clock and no end. Play at your own pace and learn the rare answers.</span>
-          <span class="mode-s">Relaxed, endless</span>
-        </button>
-      </div>
-      <h2 class="modes-h">Play together</h2>
-      <div class="modes together">
-        <button class="mode" data-go="party" type="button">
-          <b>Party</b>
-          <span class="mode-d">2 to 8 players pass one phone around. No internet needed.</span>
-          <span class="mode-s">Same room, one device</span>
-        </button>
-        <button class="mode crew" data-go="crew" type="button">
-          <b>Crew</b>
-          <span class="mode-d">Play online with 2 to 10 friends, each on their own phone.</span>
-          <span class="mode-s">Create or join a room</span>
-        </button>
-      </div>
-    </nav>
-
+    <section class="modes-sec" aria-labelledby="solo-h">
+      <h2 class="sec-h" id="solo-h">Play alone</h2>
+      <div class="tiles" id="tiles-solo"></div>
+    </section>
+    <section class="modes-sec" aria-labelledby="group-h">
+      <h2 class="sec-h" id="group-h">Play with friends</h2>
+      <div class="tiles two" id="tiles-group"></div>
+    </section>
 
     <footer class="home-foot">
-      <button class="link" data-go="chart" type="button" id="chart-link">Your star chart</button>
       <button class="link" data-go="howto" type="button">How to play</button>
+      <button class="link" data-go="chart" type="button" id="chart-link">Logbook</button>
       <button class="link" id="mute" type="button">Sound: on</button>
-      <span class="mono" id="bank-stat"></span>
+      <button class="link" id="buzz" type="button">Vibration: on</button>
+      <span class="bank" id="bank-stat"></span>
     </footer>
   </section>
 
-  <!-- SOLO PLAY (Voyage + Daily) -->
+  <!-- SOLO PLAY (Voyage, Daily Orbit, Explore) -->
   <section id="s-play" class="screen play" hidden>
     <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <span class="hud-mode" id="play-mode">Voyage</span>
-      <div class="hud-dist"><span id="distance">0</span><small>ly</small></div>
       <div class="hud-streak" id="streak" title="Streak multiplier">×1</div>
+      <div class="hud-dist"><span id="distance">0</span><small>ly</small></div>
     </div>
     <div class="fuel" id="fuel-wrap">
       <div class="fuel-bar"><i id="fuel"></i></div>
-      <span class="mono" id="fuel-label">Fuel 45s</span>
+      <span class="fuel-label" id="fuel-label">45s</span>
     </div>
     <div class="dots" id="daily-dots" hidden></div>
 
@@ -91,7 +65,7 @@
         <p class="p-cat" id="p-cat">Fruits</p>
         <h2 class="p-ask" id="p-ask">Name a fruit</h2>
         <p class="p-rule" id="p-rule"></p>
-        <p class="p-meta mono" id="p-meta"></p>
+        <p class="p-meta" id="p-meta"></p>
       </article>
 
       <form class="answer" id="answer-form" autocomplete="off">
@@ -100,8 +74,9 @@
         <button class="btn primary" type="submit">Launch</button>
       </form>
       <div class="row-actions">
-        <button class="link" id="skip" type="button">Skip prompt</button>
-        <span class="slots mono" id="slots"></span>
+        <button class="link" id="skip" type="button">Skip question</button>
+        <button class="link" id="hint" type="button" hidden>Hint</button>
+        <span class="slots" id="slots"></span>
       </div>
 
       <div class="result" id="result" aria-live="polite"></div>
@@ -110,27 +85,39 @@
 
   <!-- SOLO GAME OVER -->
   <section id="s-over" class="screen over" hidden>
-    <p class="eyebrow" id="over-k">Out of fuel</p>
-    <h2 class="over-h"><span id="over-dist">0</span><small>ly</small></h2>
-    <p class="over-best" id="over-best"></p>
-    <div class="hist" id="over-hist" aria-label="Answers by rarity"></div>
-    <dl class="stats" id="over-stats"></dl>
-    <div class="over-actions">
-      <button class="btn primary" id="again" type="button">Fly again</button>
-      <button class="btn" id="share" type="button">Share result</button>
-      <button class="btn" id="share-img" type="button" hidden>Share image</button>
-      <button class="btn ghost" data-home type="button">Menu</button>
+    <div class="panel result-panel">
+      <p class="eyebrow" id="over-k">Out of fuel</p>
+      <h2 class="over-h"><span id="over-dist">0</span><small>ly</small></h2>
+      <p class="over-best" id="over-best"></p>
+      <div class="hist" id="over-hist" aria-label="Answers by rarity"></div>
+      <dl class="stats" id="over-stats"></dl>
+      <div class="over-actions">
+        <button class="btn primary" id="again" type="button">Fly again</button>
+        <button class="btn" id="share" type="button">Share result</button>
+        <button class="btn" id="share-img" type="button" hidden>Share image</button>
+        <button class="btn ghost" data-home type="button">Menu</button>
+      </div>
+      <textarea id="share-text" class="share-text" readonly hidden aria-label="Result text to copy"></textarea>
     </div>
-    <textarea id="share-text" class="share-text" readonly hidden aria-label="Result text to copy"></textarea>
+  </section>
+
+  <!-- ARCADE (Meteor Shower, Spectrum, Duel, Twin Stars) -->
+  <section id="s-arcade" class="screen arcade" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="hud-mode" id="arc-mode">Meteor Shower</span>
+      <div class="hud-dist"><span id="arc-score" data-v="0">0</span><small id="arc-unit">pts</small></div>
+    </div>
+    <div id="arcade-body" class="arcade-body"></div>
   </section>
 
   <!-- CREW (online) -->
   <section id="s-crew" class="screen crew" hidden>
     <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Leave and go to menu">&larr;</button>
+      <button class="icon-btn" data-home type="button" aria-label="Leave and go to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <span class="hud-mode">Crew</span>
-      <span class="hud-room mono" id="crew-room"></span>
-      <span class="hud-net mono" id="crew-net"></span>
+      <span class="hud-room" id="crew-room"></span>
+      <span class="hud-net" id="crew-net"></span>
     </div>
     <div id="crew-body" class="crew-body"></div>
   </section>
@@ -138,31 +125,30 @@
   <!-- PARTY (one device) -->
   <section id="s-party" class="screen party" hidden>
     <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Leave the party and go to menu">&larr;</button>
+      <button class="icon-btn" data-home type="button" aria-label="Leave the party and go to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <span class="hud-mode">Party</span>
     </div>
     <div id="party-body" class="crew-body"></div>
   </section>
 
-  <!-- STAR CHART -->
+  <!-- LOGBOOK: level, badges, star chart -->
   <section id="s-chart" class="screen chart" hidden>
     <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
-      <span class="hud-mode">Star chart</span>
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="hud-mode">Logbook</span>
     </div>
-    <p class="chart-intro">Every Deep Space and Far Out answer you find is charted here, in this browser.</p>
     <div id="chart-body" class="chart-body"></div>
   </section>
 
   <!-- HOW TO PLAY -->
   <section id="s-howto" class="screen howto" hidden>
     <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Back to menu">&larr;</button>
+      <button class="icon-btn" data-home type="button" aria-label="Back to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <span class="hud-mode">How to play</span>
     </div>
     <div class="howto-body">
       <h2>Say what nobody else says.</h2>
-      <p>Each prompt asks you to name something: <em>a bird</em>, <em>a country with exactly 5 letters</em>, <em>a cheese starting with G</em>. Any real answer counts. The less obvious it is, the more it scores.</p>
+      <p>Every question asks you to name something: <em>a red fruit</em>, <em>something you'd find in a garage</em>, <em>a Pixar film</em>. Any real answer counts. The less obvious it is, the more it scores.</p>
       <ol class="scale wide">
         <li class="t5"><b>Low Orbit</b><span>10</span><i>What everyone says first</i></li>
         <li class="t4"><b>Moonshot</b><span>25</span><i>Common</i></li>
@@ -170,22 +156,35 @@
         <li class="t2"><b>Deep Space</b><span>70</span><i>Takes some knowledge</i></li>
         <li class="t1"><b>Far Out</b><span>100</span><i>Expert-level, still real</i></li>
       </ol>
-      <h3>Voyage</h3>
-      <p>Fuel burns every second. Valid answers refuel you, and rarer answers refuel more. Wrong answers cost 5 seconds. Valid answers in a row raise your multiplier up to ×2.</p>
       <h3>Daily Orbit</h3>
-      <p>Six prompts, two answers each, no clock. Everyone gets the same prompts today, so compare scores with friends.</p>
+      <p>Six questions, two answers each, no clock. Everyone gets the same six today, so compare with friends. Finish every day to grow your streak.</p>
+      <h3>Voyage</h3>
+      <p>Fuel burns every second. Valid answers refuel you, and rarer answers refuel more. A wrong answer costs 3 seconds. Valid answers in a row raise your multiplier up to ×2.</p>
+      <h3>Meteor Shower</h3>
+      <p>One question, 60 seconds, as many answers as you can. Three answers in a row at Red Planet or rarer start Hyperdrive: double points for 10 seconds.</p>
+      <h3>Spectrum</h3>
+      <p>Find one answer for each of the five rarities on the same question, from Low Orbit to Far Out, within 90 seconds. Two hints per game.</p>
+      <h3>Twin Stars</h3>
+      <p>No typing. You see two answers to a question: tap the rarer one. Three lives, and the pairs get closer as you go.</p>
+      <h3>Duel</h3>
+      <p>Vega, the game's rival pilot, answers first. Name something rarer to win the round. First to three wins. Pick Easy, Normal or Hard.</p>
+      <h3>Explore</h3>
+      <p>No clock and no end. Answer, ask for a hint, skip, and learn the rare answers.</p>
       <h3>Party</h3>
-      <p>Two to eight players share one phone. Each player answers in secret, then everyone sees the reveal together. Scoring works like Crew. No internet needed.</p>
+      <p>Two to eight players share one phone. Each player answers in secret, then everyone sees the reveal together. An answer only you gave earns a bonus; the same answer as someone else splits the points. No internet needed.</p>
       <h3>Crew</h3>
-      <p>One player creates a room and shares the code or link. Everyone answers the same prompt at once. An answer only you gave earns a <b>Lone Signal</b> (+50%). If two players give the same answer, they <b>collide</b> and split the points. Answers missing from the word bank go to a quick crew vote.</p>
+      <p>Play online, each on your own phone. One player creates a room and shares the code or link. Everyone answers the same question at once. Answers missing from the word bank go to a quick crew vote.</p>
       <h3>Typos</h3>
       <p>Spell it how it sounds. "Brocoli" counts as Broccoli and "Phillipines" as the Philippines, and the game shows what it fixed. If a typo is close to two answers, it asks which one you meant, with no penalty. Plurals, capital letters and accents never matter.</p>
+      <h3>Levels and badges</h3>
+      <p>Every valid answer earns XP equal to its points, in every mode. Level up from Cadet to Far Out Legend, and collect badges in your logbook. It all stays in this browser.</p>
     </div>
   </section>
 </main>
 
 <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-h" hidden>
   <div class="intro-card">
+    <span class="dc-art" aria-hidden="true"><i></i></span>
     <h2 id="intro-h">How Far Out works</h2>
     <ol class="intro-steps">
       <li><b>You get a question,</b> like “Name a red fruit”.</li>
@@ -193,7 +192,7 @@
       <li><b>Rarer answers fly farther.</b> Strawberry is Low Orbit, 10 points. Lingonberry is Far Out, 100.</li>
     </ol>
     <div class="over-actions">
-      <button class="btn primary" type="button" id="intro-go">Start a voyage</button>
+      <button class="btn primary" type="button" id="intro-go">Play today's six</button>
       <button class="btn ghost" type="button" id="intro-close">Look around first</button>
     </div>
   </div>
@@ -226,6 +225,13 @@
 <script src="data/nature-7.js"></script>
 <script src="data/nature-8.js"></script>
 <script src="data/nature-9.js"></script>
+<script src="data/q-arts-1.js"></script>
+<script src="data/q-arts-2.js"></script>
+<script src="data/q-body-1.js"></script>
+<script src="data/q-easy-1.js"></script>
+<script src="data/q-easy-2.js"></script>
+<script src="data/q-eat-1.js"></script>
+<script src="data/q-eat-2.js"></script>
 <script src="data/q-food-1.js"></script>
 <script src="data/q-food-2.js"></script>
 <script src="data/q-food-3.js"></script>
@@ -233,6 +239,10 @@
 <script src="data/q-food-5.js"></script>
 <script src="data/q-food-6.js"></script>
 <script src="data/q-food-7.js"></script>
+<script src="data/q-globe-1.js"></script>
+<script src="data/q-globe-2.js"></script>
+<script src="data/q-globe-3.js"></script>
+<script src="data/q-home-1.js"></script>
 <script src="data/q-life-1.js"></script>
 <script src="data/q-life-2.js"></script>
 <script src="data/q-life-3.js"></script>
@@ -291,6 +301,9 @@
 <script src="data/q-nature-7.js"></script>
 <script src="data/q-nature-8.js"></script>
 <script src="data/q-nature-9.js"></script>
+<script src="data/q-past-1.js"></script>
+<script src="data/q-past-2.js"></script>
+<script src="data/q-play-1.js"></script>
 <script src="data/q-pop-1.js"></script>
 <script src="data/q-pop-2.js"></script>
 <script src="data/q-pop-3.js"></script>
@@ -300,6 +313,19 @@
 <script src="data/q-pop-7.js"></script>
 <script src="data/q-pop-8.js"></script>
 <script src="data/q-pop-9.js"></script>
+<script src="data/q-sci-1.js"></script>
+<script src="data/q-sci-2.js"></script>
+<script src="data/q-screen-1.js"></script>
+<script src="data/q-screen-2.js"></script>
+<script src="data/q-social-1.js"></script>
+<script src="data/q-social-2.js"></script>
+<script src="data/q-wild-1.js"></script>
+<script src="data/q-wild-2.js"></script>
+<script src="data/q-wild-3.js"></script>
+<script src="data/q-wild-4.js"></script>
+<script src="data/q-wild-5.js"></script>
+<script src="data/q-wild-6.js"></script>
+<script src="data/q-wild-7.js"></script>
 <script src="data/q-world-1.js"></script>
 <script src="data/q-world-2.js"></script>
 <script src="data/q-world-3.js"></script>
@@ -308,6 +334,7 @@
 <!-- DATA:end -->
 <script src="js/fx.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/progress.js"></script>
 <script src="js/collection.js"></script>
 <script src="js/sharecard.js"></script>
 <script src="js/solo.js"></script>
@@ -315,4 +342,6 @@
 <script src="js/crew.js"></script>
 <script src="js/crew-view.js"></script>
 <script src="js/party.js"></script>
+<script src="js/arcade.js"></script>
+<script src="js/twin.js"></script>
 <script src="js/main.js"></script>

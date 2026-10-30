@@ -27,10 +27,10 @@
     s.pz = s.z;
     s.hue = Math.random();
   }
-  for (let i = 0; i < 420; i++) { const s = {}; spawn(s, false); stars.push(s); }
+  for (let i = 0; i < 300; i++) { const s = {}; spawn(s, false); stars.push(s); }
 
   const hex = (h) => { const n = parseInt(h.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
-  const TIER_RGB = { 5: '#a9c8ff', 4: '#7fe3d1', 3: '#ffd166', 2: '#ff8a4c', 1: '#ff3d7f' };
+  const TIER_RGB = { 5: '#a9b5dc', 4: '#52e0b4', 3: '#ff7a5c', 2: '#a98dff', 1: '#ffcb45' }; // css --t1..--t5
   Fx.tierRGB = (c) => hex(TIER_RGB[c] || '#ffffff');
   Fx.tierHex = (c) => TIER_RGB[c] || '#ffffff';
 
@@ -40,7 +40,7 @@
     boost *= Math.pow(0.12, dt);
     tintT = Math.max(0, tintT - dt * 0.6);
     const v = (speed + boost) * (reduce ? 0.15 : 1);
-    ctx.fillStyle = 'rgba(5,6,13,' + (boost > 0.6 ? 0.35 : 0.9) + ')';
+    ctx.fillStyle = 'rgba(27,28,78,' + (boost > 0.6 ? 0.35 : 0.9) + ')'; // the page's --sky
     ctx.fillRect(0, 0, W, H);
     const cx = W / 2, cy = H * 0.42, sc = Math.max(W, H) * 0.5;
     for (const s of stars) {
@@ -135,6 +135,15 @@
     };
     requestAnimationFrame(step);
   };
+
+  // ---------- vibration (Android; other phones ignore it) ----------
+  let buzzOn = true;
+  try { buzzOn = localStorage.getItem('fo.buzz') !== '0'; } catch (e) { /* storage blocked */ }
+  Fx.canBuzz = typeof navigator.vibrate === 'function';
+  Fx.buzzOn = () => buzzOn;
+  Fx.setBuzz = (b) => { buzzOn = b; try { localStorage.setItem('fo.buzz', b ? '1' : '0'); } catch (e) { /* ignore */ } };
+  const BUZZ = { ok: 18, bad: [30, 50, 30], big: [20, 40, 60] };
+  Fx.buzz = (kind) => { if (buzzOn && Fx.canBuzz) try { navigator.vibrate(BUZZ[kind] || 15); } catch (e) { /* not allowed here */ } };
 
   // ---------- sound (synthesised, no files) ----------
   let ac = null, muted = false;

@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   const FO = window.FarOut, UI = FO.UI, Fx = FO.Fx, h = UI.h, $ = UI.$;
-  const COLORS = ['#ff8a4c', '#7fe3d1', '#a9c8ff', '#ffd166', '#ff3d7f', '#b98cff', '#8cff9a', '#ff6bd6'];
+  const COLORS = ['#ff7a5c', '#52e0b4', '#a9b5dc', '#ffcb45', '#ff8fb8', '#a98dff', '#8cff9a', '#5cc8ff'];
   const MAX = 8;
   let P = null, timers = [];
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
@@ -19,7 +19,7 @@
   // ---------- setup ----------
   function setup() {
     const saved = UI.store.get('party.names', []);
-    const st = { names: Array.isArray(saved) ? saved.filter((n) => typeof n === 'string').slice(0, MAX) : [], R: 5, th: UI.store.get('theme', 'all') };
+    const st = { names: Array.isArray(saved) ? saved.filter((n) => typeof n === 'string').slice(0, MAX) : [], R: 5, th: UI.theme() };
     const list = h('ul', { class: 'players' });
     const err = h('p', { class: 'note', role: 'alert' });
     const input = h('input', { id: 'party-name', maxlength: 16, placeholder: 'Player name', autocomplete: 'off', enterkeyhint: 'done' });
@@ -135,7 +135,7 @@
       return h('li', null, h('span', { class: 'rk' }, String(k + 1)), UI.planet(pl.col, true), h('span', { class: 'nm' }, pl.n), sc);
     }));
     const last = P.r >= P.R;
-    mount(h('article', { class: 'prompt' }, h('p', { class: 'p-cat' }, `Round ${P.r} of ${P.R}`), h('h2', { class: 'p-ask', style: { fontSize: 'clamp(30px, 6vw, 44px)' } }, p.ask), h('p', { class: 'p-rule' }, p.rule)),
+    mount(h('article', { class: 'prompt' }, h('p', { class: 'p-cat' }, `Round ${P.r} of ${P.R}`), h('h2', { class: 'p-ask' }, p.ask), h('p', { class: 'p-rule' }, p.rule)),
       cards,
       h('div', { class: 'panel' }, UI.farther(p, null, 5, new Set(P.answers.filter((a) => a.j).map((a) => a.j.item))), h('p', { class: 'eyebrow' }, 'Standings'), board,
         h('button', { class: 'btn primary', type: 'button', onclick: last ? final : nextRound }, last ? 'See the winner' : 'Next round')));
@@ -154,6 +154,7 @@
     Fx.sfx.win();
     Fx.confetti();
     if (FO.Collection) FO.Collection.gamePlayed();
+    FO.Progress.event('party');
   }
 
   FO.Party = { show() { UI.show('s-party'); setup(); UI.onLeave(() => { timers.forEach(clearTimeout); timers = []; }); } };
