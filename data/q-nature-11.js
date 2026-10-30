@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-animal-sound", theme: "Animals", ask: "Name a sound an animal makes", what: "a sound an animal makes", items: `
+  { id: "q-nature-animal-sound", theme: "Animals", ask: "Name a sound an animal makes", what: "a sound an animal makes", items: `
 moo:5; oink:5; quack:5; meow|miaow|mew:5; bark:5; woof:5; roar:5; baa:5; neigh:5; hiss:5; buzz:4; tweet:4; chirp:4; howl:4;
 growl:4; purr:4; squeak:4; cluck:4; hoot:4; croak:4; ribbit:4; cock-a-doodle-doo|cockadoodledoo|cock a doodle doo:4; bleat:4; honk:4; caw:4; coo:4; whinny:4; hee-haw|heehaw|hee haw:4; cheep:3; gobble:3;
 trumpet:3; squawk:3; screech:3; chatter:3; snort:3; grunt:3; bray:3; low:3; snarl:3; yelp:3; whimper:3; whine:3; bellow:3; trill:3; warble:3; peep:3; click:3; squeal:3; cackle:3; crow:3; sing:3; scream:3; shriek:3; hum:3; rattle:3;
@@ -7,7 +7,7 @@ bugle:2; whicker:2; nicker:2; snicker:2; bay:2; yap:2; yip:2; caterwaul:2; chitt
 whistle:2; wail:2; moan:2; groan:2; murmur:2; coo-coo:2; gibber:2; jabber:2; honk-honk:2; neighing:1; mooing:1; baaing:1; oinking:1; clack:2; chuff:2; chuckle:2; cluck-cluck:2;
 clatter:1; grumble:1; huff:1; mutter:1; pant:1; bzz|bzzz:2; woof-woof:2; yowl:2; mewl:1; trumpeting:1; bellowing:1; rumble:2;
 ` },
-  { id: "q-bird-of-prey", theme: "Animals", ask: "Name a bird of prey", what: "a bird of prey", items: `
+  { id: "q-nature-bird-of-prey", theme: "Animals", ask: "Name a bird of prey", what: "a bird of prey", items: `
 eagle:5; hawk:5; falcon:5; owl:5; vulture:5; bald eagle:4; golden eagle:4; peregrine falcon|peregrine:4; kestrel:4; osprey:4; buzzard:4; condor:4; kite:4; harrier:3; red-tailed hawk|red tailed hawk:3;
 sparrowhawk|sparrow hawk:3; goshawk:3; merlin:3; hobby:2; gyrfalcon:3; harpy eagle:3; secretary bird:3; lammergeier|bearded vulture:2; caracara:2; barn owl:3; snowy owl:3; great horned owl:3; white-tailed eagle|white tailed eagle:2;
 sea eagle:3; fish eagle|african fish eagle:2; steppe eagle:2; imperial eagle:2; booted eagle:2; bonellis eagle|bonelli's eagle:1; honey buzzard:2; rough-legged buzzard|rough legged buzzard:2; hen harrier:3; marsh harrier:2; montagus harrier|montagu's harrier:1;

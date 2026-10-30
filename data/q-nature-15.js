@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-butterfly-moth", theme: "Animals", ask: "Name a type of butterfly or moth", what: "a type of butterfly or moth", items: `
+  { id: "q-nature-butterfly-moth", theme: "Animals", ask: "Name a type of butterfly or moth", what: "a type of butterfly or moth", items: `
 monarch|monarch butterfly:5; swallowtail|swallowtail butterfly:4; luna moth:3; painted lady:4; red admiral:4; cabbage white|cabbage white butterfly:4; peacock butterfly|peacock:3; brimstone:3; comma:2; small tortoiseshell|tortoiseshell:3; orange tip:2; common blue:3;
 blue morpho|morpho:4; atlas moth:3; hawk moth|hummingbird hawk-moth|hummingbird hawk moth:3; death's-head hawkmoth|deaths head hawkmoth|death's head moth|deaths head moth:3; emperor moth:2; tiger moth:3; gypsy moth|spongy moth:3; clothes moth:3; cinnabar moth:2;
 silk moth|silkworm moth:3; peppered moth:3; sphinx moth:2; cecropia moth:2; polyphemus moth:2; io moth:2; owl butterfly:3; glasswing|glasswing butterfly:3; birdwing|queen alexandras birdwing|queen alexandra's birdwing:3; viceroy:2; buckeye:2; mourning cloak:2;
@@ -7,14 +7,14 @@ silk moth|silkworm moth:3; peppered moth:3; sphinx moth:2; cecropia moth:2; poly
 large blue:2; adonis blue:1; chalkhill blue:1; holly blue:2; small copper:1; large copper:1; apollo:2; sulphur|sulfur:2; mormon:1; cloudless sulphur:1; zebra longwing:2; julia butterfly:1; heliconius:1; postman:1; painted beauty:1; red-spotted purple:1;
 question mark:1; american lady:1; checkerspot:1; satyr:1; blue:2; leopard moth:1; ghost moth:1; garden tiger:2; burnet moth|six-spot burnet:2; hornet moth:1; puss moth:1; lobster moth:1; elephant hawk-moth|elephant hawk moth:2; privet hawk-moth:1; lappet moth:1; giant silkworm moth:1;
 ` },
-  { id: "q-spider-arachnid", theme: "Animals", ask: "Name a type of spider or other arachnid", what: "a type of spider or other arachnid", items: `
+  { id: "q-nature-spider-arachnid", theme: "Animals", ask: "Name a type of spider or other arachnid", what: "a type of spider or other arachnid", items: `
 tarantula:5; black widow:5; scorpion:5; tick:4; mite:4; wolf spider:4; jumping spider:4; garden spider|orb weaver|orb-weaver:4; brown recluse|recluse:4; huntsman spider|huntsman:3; funnel-web spider|funnel web spider:3; redback spider|redback:3; daddy longlegs|daddy long legs|harvestman:3;
 house spider:3; crab spider:3; trapdoor spider:3; camel spider|sun spider|solifuge:3; whip scorpion|vinegaroon:2; whip spider|tailless whip scorpion:2; pseudoscorpion:2; false widow:2; hobo spider:2; cellar spider:2; wasp spider:2; fishing spider:2; nursery web spider:2; lynx spider:2;
 bird-eating spider|bird eating spider|goliath birdeater:3; goliath tarantula:2; peacock spider:2; water spider|diving bell spider:2; golden orb weaver|golden silk orb-weaver:2; black house spider:1; white-tailed spider|white tailed spider:2; sydney funnel-web:2; brazilian wandering spider|banana spider:2;
 bolas spider:1; spitting spider:1; ladybird spider:1; zebra spider:1; woodlouse spider:1; mouse spider:1; kite spider:1; sac spider|yellow sac spider:1; money spider|sheet weaver:2; raft spider:1; ogre-faced spider|ogre faced spider|net-casting spider:1; ant-mimicking spider|ant mimic spider:1; bark scorpion:1; emperor scorpion:2;
 deathstalker:1; fat-tailed scorpion:1; harvest mite|chigger:1; dust mite:3; spider mite:2; varroa mite:1; deer tick:2; dog tick:1; lone star tick:1; sea spider:1; horseshoe crab:1;
 ` },
-  { id: "q-extinct-animal", theme: "Animals", ask: "Name an extinct animal", what: "an extinct animal", items: `
+  { id: "q-nature-extinct-animal", theme: "Animals", ask: "Name an extinct animal", what: "an extinct animal", items: `
 dodo:5; woolly mammoth|mammoth:5; tyrannosaurus rex|t. rex|t rex|trex:5; saber-toothed tiger|sabertooth|saber-toothed cat|sabre-toothed tiger|smilodon|saber tooth tiger:5; dinosaur:4; triceratops:4; velociraptor:3; stegosaurus:3; pterodactyl|pterosaur:3; megalodon:3; thylacine|tasmanian tiger:4; passenger pigeon:3;
 great auk:3; quagga:2; moa:3; steller's sea cow|stellers sea cow|sea cow:2; aurochs:2; irish elk|giant deer:2; giant ground sloth|ground sloth|megatherium:2; trilobite:3; woolly rhino|woolly rhinoceros:2; cave bear:2; dire wolf:3; elephant bird:2; haast's eagle|haasts eagle:1; golden toad:2;
 baiji|yangtze river dolphin:2; pyrenean ibex:1; western black rhino:2; caribbean monk seal:1; heath hen:1; carolina parakeet:2; ivory-billed woodpecker|ivory billed woodpecker:1; short-faced bear|giant short-faced bear:1; glyptodon:2; giant beaver:1; labrador duck:1; bluebuck:1; falkland islands wolf|warrah:1; xerces blue:1;

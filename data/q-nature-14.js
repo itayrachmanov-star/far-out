@@ -1,19 +1,19 @@
 FarOut.addQuestions([
-  { id: "q-whale-dolphin", theme: "Animals", ask: "Name a type of whale or dolphin", what: "a type of whale or dolphin", items: `
+  { id: "q-nature-whale-dolphin", theme: "Animals", ask: "Name a type of whale or dolphin", what: "a type of whale or dolphin", items: `
 blue whale:5; humpback whale|humpback:5; orca|killer whale:5; sperm whale:5; bottlenose dolphin|bottlenose:5; beluga|beluga whale:4; narwhal:4; minke whale|minke:4; fin whale:3; gray whale|grey whale:4; pilot whale:3; right whale:3; bowhead whale|bowhead:3; sei whale:2;
 common dolphin:3; spinner dolphin:3; dusky dolphin:2; harbour porpoise|harbor porpoise|porpoise:3; vaquita:3; river dolphin|amazon river dolphin|pink river dolphin|boto:3; irrawaddy dolphin:2; hectors dolphin|hector's dolphin:2; commersons dolphin|commerson's dolphin:1; rissos dolphin|risso's dolphin:2;
 spotted dolphin|atlantic spotted dolphin|pantropical spotted dolphin:2; striped dolphin:2; white-beaked dolphin|white beaked dolphin:1; atlantic white-sided dolphin:1; false killer whale:2; melon-headed whale|melon headed whale:1; pygmy killer whale:1; beaked whale|cuviers beaked whale|cuvier's beaked whale:2;
 pygmy sperm whale:1; dwarf sperm whale:1; brydes whale|bryde's whale:2; omuras whale|omura's whale:1; north atlantic right whale:2; southern right whale:2; bottlenose whale:1; baiji|yangtze river dolphin:2; ganges river dolphin|susu:1; tucuxi:1; franciscana:1; finless porpoise:1;
 dalls porpoise|dall's porpoise:1; hourglass dolphin:1; heaviside's dolphin|heavisides dolphin:1; tasmacetus:1; sowerby's beaked whale:1; blainvilles beaked whale:1;
 ` },
-  { id: "q-primate", theme: "Animals", ask: "Name a monkey, ape or other primate", what: "a monkey, ape or other primate", items: `
+  { id: "q-nature-primate", theme: "Animals", ask: "Name a monkey, ape or other primate", what: "a monkey, ape or other primate", items: `
 gorilla:5; chimpanzee|chimp:5; orangutan|orang-utan:5; baboon:5; gibbon:4; lemur:4; macaque:3; capuchin|capuchin monkey:4; mandrill:4; bonobo:4; spider monkey:4; howler monkey:3; proboscis monkey:3; squirrel monkey:3; marmoset:3; tamarin:3;
 rhesus monkey|rhesus macaque|rhesus:3; vervet monkey|vervet:2; colobus monkey|colobus:2; langur:2; snow monkey|japanese macaque:3; barbary macaque|barbary ape:2; mountain gorilla:3; silverback:3; tarsier:3; loris|slow loris:3; bushbaby|galago|bush baby:3; aye-aye|aye aye:3; sifaka:2; indri:2;
 ring-tailed lemur|ring tailed lemur:3; mouse lemur:2; siamang:2; howler:2; titi monkey|titi:2; saki monkey|saki:1; uakari:2; woolly monkey:2; woolly spider monkey|muriqui:1; golden lion tamarin:2; emperor tamarin:2; pygmy marmoset:2; common marmoset:1; night monkey|owl monkey:2; patas monkey:2;
 drill:2; gelada:2; mangabey:1; guenon:1; talapoin:1; diana monkey:1; red colobus:1; snub-nosed monkey|snub nosed monkey:2; douc langur|douc:1; hanuman langur:1; potto:1; angwantibo:1; slender loris:1; pygmy tarsier:1; philippine tarsier:2; hoolock gibbon:1; lar gibbon:2;
 human:2; ape:3; monkey:5;
 ` },
-  { id: "q-snake", theme: "Animals", ask: "Name a type of snake", what: "a type of snake", items: `
+  { id: "q-nature-snake", theme: "Animals", ask: "Name a type of snake", what: "a type of snake", items: `
 cobra|king cobra:5; python:5; rattlesnake:5; boa constrictor|boa:5; anaconda:5; viper:4; mamba|black mamba:4; garter snake:4; copperhead:3; cottonmouth|water moccasin:3; coral snake:3; king snake|kingsnake:3; corn snake:3; milk snake:2; ball python|royal python:3;
 sea snake:3; adder:3; taipan:3; rat snake:2; bull snake|bullsnake:2; gopher snake:2; hognose snake|hognose:2; green tree python:2; reticulated python:3; burmese python:3; rock python|african rock python:2; carpet python:2; tree boa:2; emerald tree boa:2; rainbow boa:2; rubber boa:1;
 sidewinder:3; diamondback|western diamondback|diamondback rattlesnake:3; timber rattlesnake:2; massasauga:1; pygmy rattlesnake:1; eastern brown snake|brown snake:2; tiger snake:2; death adder:2; inland taipan:2; coastal taipan:1; black snake|red-bellied black snake:2; boomslang:3; puff adder:3; gaboon viper:3; bushmaster:2;
@@ -21,7 +21,7 @@ fer-de-lance|fer de lance:2; lancehead:1; eyelash viper:2; horned viper:2; saw-s
 monocled cobra:1; forest cobra:1; cape cobra:2; rinkhals:1; green mamba:3; blind snake|worm snake:1; ribbon snake:1; racer|black racer:2; whip snake:1; grass snake:3; smooth snake:2; asp:2; vine snake:1; flying snake:2; paradise tree snake:1; sunbeam snake:1; ringneck snake:1; scarlet snake:1;
 indigo snake|eastern indigo snake:2; coachwhip:1; glossy snake:1; night snake:1; lyre snake:1; keelback:1; tentacled snake:1; elephant trunk snake:1; file snake:1; wart snake:1; yellow anaconda:1; sand boa:1; kenyan sand boa:1; dumeril's boa|dumerils boa:1; olive python:1; woma python:1; blood python:1; angolan python:1; amethystine python:1; scrub python:1;
 ` },
-  { id: "q-insect", theme: "Animals", ask: "Name an insect", what: "an insect", items: `
+  { id: "q-nature-insect", theme: "Animals", ask: "Name an insect", what: "an insect", items: `
 ant:5; bee:5; butterfly:5; fly:5; mosquito:5; ladybug|ladybird:5; beetle:5; wasp:5; dragonfly:4; grasshopper:4; cricket:4; cockroach|roach:4; moth:4; caterpillar:3; flea:4; termite:4; praying mantis|mantis:4; firefly|lightning bug:4; cicada:3; locust:3; bumblebee|bumble bee:3; hornet:3; honeybee|honey bee:3;
 stick insect|walking stick:3; aphid:3; louse|lice|head louse:3; earwig:3; housefly|house fly:3; fruit fly:3; gnat:3; midge:3; horsefly|horse fly:3; bedbug|bed bug:3; weevil:3; stag beetle:3; dung beetle:3; scarab:2; lacewing:2; mayfly:2; damselfly:2; silverfish:2; thrips:1; leafhopper:2;
 katydid:2; cockchafer|may bug|june bug|june beetle:2; ground beetle:1; click beetle:1; rhinoceros beetle:2; hercules beetle:2; goliath beetle:2; atlas beetle:1; longhorn beetle:2; tiger beetle:2; leaf beetle:1; bombardier beetle:2; blister beetle:1; colorado potato beetle:1; japanese beetle:2; boll weevil:2; stink bug|shield bug:3; assassin bug:2;

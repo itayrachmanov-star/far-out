@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-spotted", theme: "Animals", ask: "Name an animal with spots", what: "an animal with spots", items: `
+  { id: "q-nature-spotted", theme: "Animals", ask: "Name an animal with spots", what: "an animal with spots", items: `
 leopard:5; cheetah:5; jaguar:5; dalmatian:5; ladybug|ladybird|ladybird beetle:5; giraffe:5; hyena|spotted hyena:4; fawn|deer fawn:4; snow leopard:4; ocelot:4; whale shark:4; appaloosa:4; spotted owl:2;
 serval:3; margay:3; clouded leopard:3; genet:3; bobcat:3; lynx:3; chital|axis deer|spotted deer:3; sika deer:3; fallow deer:3; frog|leopard frog:3; salamander|spotted salamander:3; leopard seal:3; leopard gecko:3; leopard shark:3;
 trout|brook trout|rainbow trout:3; koi:3; cow|holstein|holstein cow:3; pig|spotted pig:3; guinea pig:3; pinto horse|pinto:3; leopard horse:3; guinea fowl:3; peacock:3; eagle ray|spotted eagle ray:3; stingray:3; boxfish:3; pufferfish:3;

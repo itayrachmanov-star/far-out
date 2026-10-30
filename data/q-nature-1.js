@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-africa-animal", theme: "Animals", ask: "Name an animal that lives in Africa", what: "an animal that lives in Africa", items: `
+  { id: "q-nature-africa-animal", theme: "Animals", ask: "Name an animal that lives in Africa", what: "an animal that lives in Africa", items: `
 lion:5; elephant|african elephant:5; giraffe:5; zebra:5; hippo|hippopotamus:5; rhino|rhinoceros|white rhino|black rhino:5; cheetah:5;
 gorilla|mountain gorilla:4; leopard:4; chimpanzee|chimp:4; crocodile|nile crocodile:4; hyena|spotted hyena:4; meerkat:4; wildebeest|gnu:4;
 ostrich:4; warthog:4; baboon:4; gazelle:4; antelope:4; buffalo|cape buffalo|african buffalo:4; monkey:4;
@@ -16,7 +16,7 @@ giant forest hog:1; pygmy hippo|pygmy hippopotamus:1; drill:1; gelada:1; patas m
 black wildebeest:1; mountain zebra:1; quagga:1; goliath frog:1; goliath tigerfish|tigerfish:1; lungfish|african lungfish:1; martial eagle:1; bateleur:1; fish eagle|african fish eagle:1;
 ground hornbill:1; saddle-billed stork:1; sacred ibis:1; hamerkop:1; secretarybird:1; whale-headed stork:1; slender mongoose:1; banded mongoose:1; dwarf mongoose:1; sand cat:1;
 ` },
-  { id: "q-australia-animal", theme: "Animals", ask: "Name an animal that lives in Australia", what: "an animal that lives in Australia", items: `
+  { id: "q-nature-australia-animal", theme: "Animals", ask: "Name an animal that lives in Australia", what: "an animal that lives in Australia", items: `
 kangaroo:5; koala|koala bear:5; platypus:5; emu:5; wombat:5; crocodile|saltwater crocodile|saltie:4; tasmanian devil:4; wallaby:4; dingo:4;
 echidna|spiny anteater:4; kookaburra:4; cassowary:3; frilled lizard|frill-necked lizard|frilled-neck lizard:3; funnel-web spider|funnel web spider|sydney funnel-web:3;
 redback spider|red-back spider|redback:3; taipan|inland taipan:3; brown snake|eastern brown snake:3; tiger snake:3; death adder:3; quokka:3; cockatoo:3;

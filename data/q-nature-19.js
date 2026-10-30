@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-bird", theme: "Animals", ask: "Name a type of bird", what: "a type of bird", items: `
+  { id: "q-nature-bird", theme: "Animals", ask: "Name a type of bird", what: "a type of bird", items: `
 eagle:5; owl:5; parrot:5; penguin:5; robin:5; sparrow:5; duck:5; swan:5; pigeon:5; crow:5; seagull|gull:4; hawk:4; falcon:4; flamingo:4; peacock:4; ostrich:4; hummingbird:4; woodpecker:4; toucan:4; pelican:4; goose:4; chicken:4; turkey:4; blue jay|jay:4; cardinal:4; raven:4; dove:4; canary:4; budgie|budgerigar:3; cockatoo:3; macaw:3; kiwi:4; emu:4; vulture:4; stork:3; heron:3; crane:3;
 finch:3; starling:3; swallow:3; swift:3; magpie:3; blackbird:3; thrush:3; wren:3; nightingale:3; lark|skylark:3; kingfisher:3; puffin:3; albatross:3; cormorant:3; osprey:3; kestrel:3; condor:3; cuckoo:3; quail:3; pheasant:3; partridge:3; grouse:3; bluebird:3; oriole:3; mockingbird:3; chickadee|tit:3; nuthatch:2; goldfinch:3; bullfinch:3; chaffinch:3; sparrowhawk:2;
 rooster|cockerel:3; hen:3; dodo:3; kookaburra:3; cassowary:3; rhea:2; lyrebird:2; bird of paradise:3; hornbill:3; cockatiel:3; lovebird:3; parakeet:3; lorikeet:2; kea:2; kakapo:2; spoonbill:2; ibis:3; egret:3; bittern:2; coot:2; moorhen:2; grebe:2; loon:3; tern:3; petrel:2; shearwater:2; gannet:3; booby:3; frigatebird:2; skua:2; auk:2; guillemot:2; razorbill:2;

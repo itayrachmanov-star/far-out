@@ -24,13 +24,13 @@ timor-leste|east timor:1; tajikistan:1; kyrgyzstan:1; turkmenistan:1; armenia:1;
 france:5; germany:5; italy:5; spain:5; united kingdom|uk|britain|great britain:5; greece:4; ireland:4; netherlands|holland:4; portugal:4; sweden:4;
 switzerland:4; norway:4; poland:4; england:4; scotland:4; denmark:4; austria:3; belgium:3; finland:3; russia:3;
 ukraine:3; turkey|turkiye:3; hungary:3; czech republic|czechia:3; croatia:3; iceland:3; romania:3; wales:3; bulgaria:3; serbia:2;
-slovakia:2; slovenia:2; lithuania:2; latvia:2; estonia:2; luxembourg:2; malta:2; albania:2; cyprus:2; belarus:2;
-monaco:2; northern ireland:2; liechtenstein:1; andorra:1; san marino:1; vatican city|vatican|holy see:1; moldova:1; montenegro:1; north macedonia|macedonia:1; bosnia and herzegovina|bosnia:1;
+slovakia:2; slovenia:2; lithuania:2; latvia:2; estonia:2; luxembourg:2; albania:2; cyprus:2; belarus:2; monaco:2;
+northern ireland:2; malta:2; liechtenstein:1; andorra:1; san marino:1; vatican city|vatican|holy see:1; moldova:1; montenegro:1; north macedonia|macedonia:1; bosnia and herzegovina|bosnia:1;
 kosovo:1; georgia:1;
 ` },
   { id: "q-island-country", theme: "Geography", ask: "Name an island country", what: "an island country", items: `
 japan:5; iceland:5; cuba:5; new zealand:5; jamaica:5; madagascar:4; ireland:4; philippines:4; indonesia:4; sri lanka:4;
-united kingdom|uk|britain|great britain:4; australia:4; fiji:4; malta:4; cyprus:4; bahamas:4; haiti:3; dominican republic:3; taiwan:3; singapore:3;
+united kingdom|uk|britain|great britain:4; australia:4; fiji:4; cyprus:4; bahamas:4; malta:4; haiti:3; dominican republic:3; taiwan:3; singapore:3;
 barbados:3; trinidad and tobago:3; mauritius:3; maldives:3; samoa:3; tonga:3; papua new guinea:3; seychelles:3; bahrain:3; vanuatu:2;
 solomon islands:2; palau:2; nauru:2; kiribati:2; marshall islands:2; micronesia|federated states of micronesia:2; tuvalu:2; comoros:2; saint lucia|st lucia:2; grenada:2;
 antigua and barbuda:2; dominica:2; cabo verde|cape verde:1; sao tome and principe|sao tome:1; saint kitts and nevis|st kitts and nevis:1; saint vincent and the grenadines|st vincent:1; east timor|timor-leste:1;
@@ -50,14 +50,14 @@ australia:3; new zealand:3; iceland:3; thailand:3; malaysia:3; philippines:3; no
 tunisia:3; albania:3; bulgaria:3; romania:3; hungary:3; czech republic|czechia:3; slovakia:3; serbia:3; croatia:3; lithuania:3;
 latvia:3; belarus:3; ghana:3; kenya:3; zimbabwe:3; south africa:3; colombia:3; venezuela:3; panama:3; costa rica:3;
 nepal:3; lebanon:3; jordan:3; syria:3; iraq:3; iran:3; yemen:3; oman:3; united arab emirates|uae:3; bangladesh:3;
-cambodia:3; laos:3; myanmar|burma:3; mongolia:3; wales:2; malta:2; monaco:2; liechtenstein:2; luxembourg:2; andorra:2;
-montenegro:2; north macedonia|macedonia:2; slovenia:2; moldova:2; georgia:2; armenia:2; azerbaijan:2; kyrgyzstan:2; tajikistan:2; turkmenistan:2;
-uzbekistan:2; brunei:2; timor-leste|east timor:2; papua new guinea:2; fiji:2; samoa:2; tonga:2; vanuatu:2; kiribati:2; tuvalu:2;
-algeria:2; libya:2; sudan:2; south sudan:2; ethiopia:2; eritrea:2; djibouti:2; uganda:2; burundi:2; drc|dr congo|democratic republic of the congo:2;
-congo|republic of the congo:2; angola:2; mozambique:2; zambia:2; malawi:2; namibia:2; eswatini|swaziland:2; madagascar:2; mauritius:2; seychelles:2;
-comoros:2; cabo verde|cape verde:2; sao tome and principe|sao tome:2; equatorial guinea:2; cameroon:2; central african republic:2; chad:2; mali:2; senegal:2; gambia:2;
-guinea:2; guinea-bissau:2; liberia:2; burkina faso:2; togo:2; benin:2; mauritania:2; haiti:2; dominican republic:2; belize:2;
-ecuador:2; bolivia:2; paraguay:2; guyana:2; suriname:2; trinidad and tobago:2; grenada:2; antigua and barbuda:2; saint kitts and nevis|st kitts and nevis:2; dominica:2;
+cambodia:3; laos:3; myanmar|burma:3; mongolia:3; wales:2; monaco:2; liechtenstein:2; luxembourg:2; andorra:2; montenegro:2;
+north macedonia|macedonia:2; slovenia:2; moldova:2; georgia:2; armenia:2; azerbaijan:2; kyrgyzstan:2; tajikistan:2; turkmenistan:2; uzbekistan:2;
+brunei:2; timor-leste|east timor:2; papua new guinea:2; fiji:2; samoa:2; tonga:2; vanuatu:2; kiribati:2; tuvalu:2; algeria:2;
+libya:2; sudan:2; south sudan:2; ethiopia:2; eritrea:2; djibouti:2; uganda:2; burundi:2; drc|dr congo|democratic republic of the congo:2; congo|republic of the congo:2;
+angola:2; mozambique:2; zambia:2; malawi:2; namibia:2; eswatini|swaziland:2; madagascar:2; mauritius:2; seychelles:2; comoros:2;
+cabo verde|cape verde:2; sao tome and principe|sao tome:2; equatorial guinea:2; cameroon:2; central african republic:2; chad:2; mali:2; senegal:2; gambia:2; guinea:2;
+guinea-bissau:2; liberia:2; burkina faso:2; togo:2; benin:2; mauritania:2; haiti:2; dominican republic:2; belize:2; ecuador:2;
+bolivia:2; paraguay:2; guyana:2; suriname:2; trinidad and tobago:2; grenada:2; antigua and barbuda:2; saint kitts and nevis|st kitts and nevis:2; dominica:2; malta:2;
 ` },
   { id: "q-sea-ocean", theme: "Geography", ask: "Name a sea or ocean", what: "a sea or ocean", items: `
 atlantic ocean|atlantic:5; pacific ocean|pacific:5; indian ocean:5; arctic ocean|arctic:5; mediterranean sea|mediterranean:5; caribbean sea|caribbean:4; red sea:4; dead sea:4; black sea:4; north sea:4;
@@ -190,24 +190,23 @@ lake bratan:1; lake kerinci:1; lake tondano:1; lake poso:1;
   { id: "q-island", theme: "Geography", ask: "Name an island", what: "an island", items: `
 hawaii:5; ireland:5; iceland:5; greenland:5; cuba:5; jamaica:5; madagascar:5; great britain|britain:4; manhattan:4; sicily:4;
 crete:4; ibiza:4; bali:4; tahiti:4; new zealand:4; maui:4; majorca|mallorca:4; tenerife:4; sardinia:4; corsica:4;
-malta:4; cyprus:4; borneo:4; java:4; sumatra:4; honshu:4; oahu:3; kauai:3; the big island:3; long island:3;
-staten island:3; rhode island:3; ellis island:3; alcatraz:3; robben island:3; easter island:3; galapagos:3; fiji:3; bora bora:3; zanzibar:3;
-mauritius:3; seychelles:3; sri lanka:3; tasmania:3; new guinea:3; papua new guinea:3; hokkaido:3; kyushu:3; shikoku:3; okinawa:3;
-taiwan:3; hainan:3; hong kong island:3; singapore:3; phuket:3; koh samui:3; langkawi:3; penang:3; lombok:3; sulawesi:3;
-celebes:3; luzon:3; mindanao:3; cebu:3; boracay:3; palawan:3; guam:3; samoa:3; tonga:3; new caledonia:3;
-vanuatu:3; isle of wight:3; isle of man:3; jersey:3; guernsey:3; anglesey:3; skye:3; isle of skye:3; lewis:3; orkney:3;
-shetland:3; hebrides:3; iona:3; lindisfarne:3; holy island:3; mull:3; islay:3; arran:3; barra:3; tiree:3;
-canna:3; rum:3; eigg:3; muck:3; staffa:3; fair isle:3; corfu:2; rhodes:2; mykonos:2; kos:2;
-zakynthos|zante:2; naxos:2; paros:2; lesbos:2; capri:2; elba:2; ischia:2; sark:2; alderney:2; herm:2;
-lundy:2; scilly:2; tresco:2; bornholm:2; gotland:2; oland:2; funen:2; zealand:2; aland:2; saaremaa:2;
-faroe islands:2; svalbard:2; spitsbergen:2; jan mayen:2; lofoten:2; senja:2; madeira:2; azores:2; canary islands:2; gran canaria:2;
-lanzarote:2; fuerteventura:2; la palma:2; la gomera:2; menorca|minorca:2; formentera:2; gozo:2; lampedusa:2; pantelleria:2; stromboli:2;
-vulcano:2; lipari:2; ustica:2; rottnest island:1; kangaroo island:1; fraser island:1; magnetic island:1; lord howe island:1; norfolk island:1; christmas island:1;
-macquarie island:1; tristan da cunha:1; saint helena:1; ascension island:1; falkland islands:1; south georgia:1; pitcairn:1; chiloe:1; tierra del fuego:1; juan fernandez:1;
-isabela:1;
+cyprus:4; borneo:4; java:4; sumatra:4; honshu:4; oahu:3; kauai:3; the big island:3; long island:3; staten island:3;
+rhode island:3; ellis island:3; alcatraz:3; robben island:3; easter island:3; galapagos:3; fiji:3; bora bora:3; zanzibar:3; mauritius:3;
+seychelles:3; sri lanka:3; tasmania:3; new guinea:3; papua new guinea:3; hokkaido:3; kyushu:3; shikoku:3; okinawa:3; taiwan:3;
+hainan:3; hong kong island:3; singapore:3; phuket:3; koh samui:3; langkawi:3; penang:3; lombok:3; sulawesi:3; celebes:3;
+luzon:3; mindanao:3; cebu:3; boracay:3; palawan:3; guam:3; samoa:3; tonga:3; new caledonia:3; vanuatu:3;
+isle of wight:3; isle of man:3; jersey:3; guernsey:3; anglesey:3; skye:3; isle of skye:3; lewis:3; orkney:3; shetland:3;
+hebrides:3; iona:3; lindisfarne:3; holy island:3; mull:3; islay:3; arran:3; barra:3; tiree:3; canna:3;
+rum:3; eigg:3; muck:3; staffa:3; fair isle:3; corfu:2; mykonos:2; kos:2; zakynthos|zante:2; naxos:2;
+paros:2; lesbos:2; capri:2; elba:2; ischia:2; sark:2; alderney:2; herm:2; lundy:2; scilly:2;
+tresco:2; bornholm:2; gotland:2; oland:2; funen:2; zealand:2; aland:2; saaremaa:2; faroe islands:2; svalbard:2;
+spitsbergen:2; jan mayen:2; lofoten:2; senja:2; madeira:2; azores:2; canary islands:2; gran canaria:2; lanzarote:2; fuerteventura:2;
+la palma:2; la gomera:2; menorca|minorca:2; formentera:2; gozo:2; lampedusa:2; pantelleria:2; stromboli:2; vulcano:2; lipari:2;
+ustica:2; rhodes:2; rottnest island:1; kangaroo island:1; fraser island:1; magnetic island:1; lord howe island:1; norfolk island:1; christmas island:1; macquarie island:1;
+tristan da cunha:1; saint helena:1; ascension island:1; falkland islands:1; south georgia:1; pitcairn:1; chiloe:1; tierra del fuego:1; juan fernandez:1; isabela:1;
 ` },
   { id: "q-greek-island", theme: "Travel", ask: "Name a Greek island", what: "a Greek island", items: `
-crete:5; santorini|thira:5; mykonos:5; rhodes:5; corfu|kerkyra:5; zakynthos|zante:4; kos:4; naxos:4; paros:4; kefalonia|cephalonia:4;
+crete:5; santorini|thira:5; mykonos:5; corfu|kerkyra:5; rhodes:5; zakynthos|zante:4; kos:4; naxos:4; paros:4; kefalonia|cephalonia:4;
 lesbos|lesvos:4; samos:4; skiathos:4; hydra|ydra:4; aegina:4; ios:4; milos:4; thassos|thasos:4; lefkada|lefkas:4; chios:3;
 ithaca:3; patmos:3; skopelos:3; poros:3; spetses:3; lemnos|limnos:3; euboea|evia:3; kythira:3; kalymnos:3; leros:3;
 symi:3; tilos:3; nisyros:3; karpathos:3; amorgos:3; folegandros:3; sifnos:3; serifos:3; kythnos:3; kea:3;
@@ -230,10 +229,10 @@ salt cay:1; saona island:1; navassa island:1; los roques:1; la tortuga:1; sombre
 ` },
   { id: "q-holiday-island", theme: "Travel", ask: "Name a holiday destination island", what: "a holiday destination island", items: `
 ibiza:5; majorca|mallorca:5; tenerife:5; crete:5; bali:5; hawaii:5; maldives:5; jamaica:5; mykonos:4; corfu:4;
-rhodes:4; malta:4; cyprus:4; sicily:4; sardinia:4; corsica:4; maui:4; tahiti:4; bora bora:4; fiji:4;
-barbados:4; seychelles:4; zanzibar:4; phuket:4; canary islands:4; madeira:4; lanzarote:4; gran canaria:4; fuerteventura:4; menorca|minorca:4;
-kos:4; zante|zakynthos:4; capri:4; bahamas:4; aruba:4; st lucia:4; antigua:4; cuba:4; puerto rico:4; koh samui|ko samui:4;
-santorini:4; oahu:3; kauai:3; big island:3; langkawi:3; penang:3; lombok:3; boracay:3; palawan:3; cebu:3;
+cyprus:4; sicily:4; sardinia:4; corsica:4; maui:4; tahiti:4; bora bora:4; fiji:4; barbados:4; seychelles:4;
+zanzibar:4; phuket:4; canary islands:4; madeira:4; lanzarote:4; gran canaria:4; fuerteventura:4; menorca|minorca:4; kos:4; zante|zakynthos:4;
+capri:4; bahamas:4; aruba:4; st lucia:4; antigua:4; cuba:4; puerto rico:4; koh samui|ko samui:4; santorini:4; malta:4;
+rhodes:4; oahu:3; kauai:3; big island:3; langkawi:3; penang:3; lombok:3; boracay:3; palawan:3; cebu:3;
 koh phi phi|ko phi phi:3; koh phangan|ko phangan:3; koh tao|ko tao:3; koh lanta|ko lanta:3; phu quoc:3; sri lanka:3; reunion:3; bermuda:3; cayman islands:3; turks and caicos:3;
 bonaire:3; curacao:3; st barts:3; st martin:3; anguilla:3; tobago:3; grenada:3; dominica:3; martinique:3; guadeloupe:3;
 isle of wight:3; jersey:3; guernsey:3; isle of man:3; skye:3; anglesey:3; tasmania:3; kangaroo island:3; fraser island:3; whitsunday islands:3;

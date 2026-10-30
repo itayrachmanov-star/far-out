@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-north-america-animal", theme: "Animals", ask: "Name an animal that lives in North America", what: "an animal that lives in North America", items: `
+  { id: "q-nature-north-america-animal", theme: "Animals", ask: "Name an animal that lives in North America", what: "an animal that lives in North America", items: `
 bear|black bear|american black bear:5; grizzly bear|grizzly|brown bear:5; bald eagle:5; moose:5; deer|white-tailed deer|whitetail|white tailed deer:5; raccoon:5; squirrel:5; coyote:5;
 wolf|gray wolf|grey wolf|timber wolf:4; beaver:4; bison|buffalo|american bison:4; skunk:4; elk|wapiti:4; mountain lion|cougar|puma:4; rattlesnake:4; alligator|american alligator:4; porcupine:4;
 fox|red fox|gray fox|grey fox:4; rabbit|cottontail:4; chipmunk:4; opossum|possum|virginia opossum:4; bobcat:4; lynx|canada lynx:4; wild turkey|turkey:4; caribou|reindeer:4; polar bear:4; otter|river otter:4;

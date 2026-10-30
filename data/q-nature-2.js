@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-asia-animal", theme: "Animals", ask: "Name an animal that lives in Asia", what: "an animal that lives in Asia", items: `
+  { id: "q-nature-asia-animal", theme: "Animals", ask: "Name an animal that lives in Asia", what: "an animal that lives in Asia", items: `
 tiger|bengal tiger|siberian tiger:5; giant panda|panda:5; elephant|asian elephant|indian elephant:5; orangutan|orang-utan:5; monkey:4; snow leopard:4; red panda:4;
 komodo dragon:4; camel|bactrian camel:4; rhino|indian rhino|javan rhino|sumatran rhino:4; gibbon:4; cobra|king cobra|indian cobra:4; peacock|peafowl|indian peafowl:4; water buffalo:4;
 leopard:3; macaque|rhesus macaque|japanese macaque|snow monkey:3; tapir|malayan tapir:3; sloth bear:3; sun bear:3; gaur:3; yak:3; bengal cat:3; clouded leopard:3; binturong|bearcat:3;
@@ -12,7 +12,7 @@ serow:1; goral:1; tahr|himalayan tahr:1; chiru|tibetan antelope:1; mouse deer|ch
 dwarf slow loris:1; pygmy tarsier:1; siamang:1; hoolock gibbon:1; lar gibbon:1; bornean orangutan:1; sumatran orangutan:1; asian black bear|moon bear|asiatic black bear:1; sika deer|sika:1; pere davids deer|pere david's deer:1;
 japanese crane|red-crowned crane|red crowned crane:1; mandarin duck:1; great indian bustard:1; asian paradise flycatcher:1; golden pheasant|lady amherst pheasant|pheasant:1; bar-headed goose|bar headed goose:1; rhinoceros hornbill:1;
 ` },
-  { id: "q-south-america-animal", theme: "Animals", ask: "Name an animal that lives in South America", what: "an animal that lives in South America", items: `
+  { id: "q-nature-south-america-animal", theme: "Animals", ask: "Name an animal that lives in South America", what: "an animal that lives in South America", items: `
 llama:5; jaguar:5; sloth:5; toucan:5; anaconda:5; piranha:5; alpaca:5; capybara:5;
 macaw:4; monkey:4; tapir:4; anteater|giant anteater:4; armadillo:4; poison dart frog|poison arrow frog|dart frog:4; condor|andean condor:4; parrot:4; spider monkey:4; howler monkey:4; vicuna:4; chinchilla:4; spectacled bear|andean bear:4;
 tarantula:3; boa constrictor|boa:3; caiman:3; pink river dolphin|amazon river dolphin|river dolphin|boto:3; marmoset:3; tamarin|golden lion tamarin:3; capuchin|capuchin monkey:3; guanaco:3; rhea:3; puma|cougar|mountain lion:3; ocelot:3;

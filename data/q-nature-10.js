@@ -1,12 +1,12 @@
 FarOut.addQuestions([
-  { id: "q-baby-animal", theme: "Animals", ask: "Name what a baby animal is called", what: "a name for a baby animal", items: `
+  { id: "q-nature-baby-animal", theme: "Animals", ask: "Name what a baby animal is called", what: "a name for a baby animal", items: `
 puppy|pup:5; kitten:5; cub:5; calf:5; lamb:5; chick:5; duckling:5; piglet:5; joey:5;
 foal:4; fawn:4; tadpole:4; kid:4; gosling:4; cygnet:4; bunny:4;
 colt:3; filly:3; caterpillar:3; larva:3; hatchling:3; fry:3; eaglet:3; owlet:3; kit:3; leveret:3; squab:3; nymph:3; maggot:3; grub:3; fledgling:3; nestling:3; polliwog|pollywog:3;
 elver:2; smolt:2; fingerling:2; parr:2; spat:2; whelp:2; yearling:2; poult:2; keet:2; cria:2; hoglet:2; shoat:2; squeaker:2; pullet:2; cockerel:2; infant:2; spiderling:2; puggle:2; pinkie|pinky:2; lambkin:2; peachick:2; eyas:2; pupa:2;
 alevin:1; cheeper:1; weaner:1; suckling:1; hogget:1; stirk:1; dogie|dogey:1; kitling:1; fledgeling:1; glass eel:1; zoea:1; nauplius:1; veliger:1; instar:1; flapper:1; farrow:1;
 ` },
-  { id: "q-collective-noun", theme: "Animals", ask: "Name a group name for animals, like a pride of lions", what: "a group name for animals", items: `
+  { id: "q-nature-collective-noun", theme: "Animals", ask: "Name a group name for animals, like a pride of lions", what: "a group name for animals", items: `
 herd:5; flock:5; pack:5; school:5; pride:5; pod:5; swarm:5;
 colony:4; litter:4; gaggle:4; murder:4; troop:4; hive:4; brood:4; flight:3; shoal:4; parliament:4; murmuration:3; covey:3; clutch:3; bloat:3; mob:3; band:3; army:3; nest:3; drove:3; gang:3; sleuth:3; sloth:3;
 tower:3; crash:3; ambush:3; shiver:3; dazzle:3; skulk:2; leap:2; streak:2; cackle:2; clan:2; unkindness:3; conspiracy:2; exaltation:3; charm:2; parade:2; memory:2; romp:2; raft:2; bask:2; float:2; congress:2; cete:2; kindle:2;

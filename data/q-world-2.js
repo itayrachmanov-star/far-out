@@ -173,8 +173,8 @@ kohima:1; itanagar:1; agartala:1; gangtok:1; siliguri:1; kalimpong:1; jorhat:1; 
 port blair:1; kavaratti:1; daman:1; diu:1; silvassa:1; dadra:1; karaikal:1; mahe:1; yanam:1;
 ` },
   { id: "q-european-capital", theme: "Cities", ask: "Name a European capital", what: "a European capital", items: `
-paris:5; london:5; rome:5; berlin:5; madrid:5; lisbon:4; vienna:4; amsterdam:4; brussels:4; dublin:4;
-athens:4; prague:4; budapest:4; warsaw:4; stockholm:4; oslo:4; copenhagen:4; moscow:4; helsinki:3; reykjavik:3;
+paris:5; london:5; rome:5; berlin:5; madrid:5; lisbon:4; amsterdam:4; brussels:4; dublin:4; athens:4;
+prague:4; budapest:4; warsaw:4; stockholm:4; oslo:4; copenhagen:4; moscow:4; vienna:4; helsinki:3; reykjavik:3;
 bern|berne:3; bucharest:3; sofia:3; belgrade:3; zagreb:3; kyiv|kiev:3; edinburgh:3; cardiff:3; ankara:3; ljubljana:2;
 bratislava:2; tallinn:2; riga:2; vilnius:2; minsk:2; valletta:2; nicosia:2; luxembourg:2; monaco:2; sarajevo:2;
 skopje:2; tirana:2; belfast:2; chisinau:2; podgorica:1; pristina:1; andorra la vella:1; vaduz:1; san marino:1; vatican city:1;
@@ -182,11 +182,11 @@ tbilisi:1; yerevan:1; baku:1;
 ` },
   { id: "q-world-capital", theme: "Cities", ask: "Name a capital city", what: "a capital city", items: `
 london:5; paris:5; rome:5; tokyo:5; berlin:5; madrid:5; moscow:5; beijing|peking:5; washington dc|washington:5; cairo:5;
-canberra:5; ottawa:5; new delhi|delhi:5; athens:5; dublin:5; lisbon:5; vienna:4; amsterdam:4; brussels:4; stockholm:4;
-oslo:4; copenhagen:4; bangkok:4; seoul:4; buenos aires:4; mexico city:4; lima:4; havana:4; nairobi:4; jerusalem:4;
-baghdad:4; tehran:4; kabul:4; budapest:4; prague:4; warsaw:4; helsinki:4; wellington:4; pretoria:4; brasilia:4;
-santiago:4; bogota:4; hanoi:4; manila:4; jakarta:4; kuala lumpur:4; riyadh:4; ankara:4; kyiv|kiev:4; bern|berne:4;
-reykjavik:4; singapore:4; addis ababa:3; accra:3; abuja:3; dakar:3; tunis:3; rabat:3; algiers:3; tripoli:3;
+canberra:5; ottawa:5; new delhi|delhi:5; athens:5; dublin:5; lisbon:5; amsterdam:4; brussels:4; stockholm:4; oslo:4;
+copenhagen:4; bangkok:4; seoul:4; buenos aires:4; mexico city:4; lima:4; havana:4; nairobi:4; jerusalem:4; baghdad:4;
+tehran:4; kabul:4; budapest:4; prague:4; warsaw:4; helsinki:4; wellington:4; pretoria:4; brasilia:4; santiago:4;
+bogota:4; hanoi:4; manila:4; jakarta:4; kuala lumpur:4; riyadh:4; ankara:4; kyiv|kiev:4; bern|berne:4; reykjavik:4;
+singapore:4; vienna:4; addis ababa:3; accra:3; abuja:3; dakar:3; tunis:3; rabat:3; algiers:3; tripoli:3;
 khartoum:3; kampala:3; kinshasa:3; port-au-prince:3; kingston:3; nassau:3; caracas:3; quito:3; la paz:3; montevideo:3;
 kathmandu:3; islamabad:3; dhaka:3; colombo:3; ulaanbaatar:3; pyongyang:3; taipei:3; beirut:3; damascus:3; amman:3;
 doha:3; abu dhabi:3; muscat:3; kuwait city:3; tashkent:3; bucharest:3; sofia:3; belgrade:3; zagreb:3; minsk:3;
@@ -288,5 +288,60 @@ popayan:2; pasto:2; cucuta:2; ibague:2; villavicencio:2; leticia:2; cuenca:2; lo
 manta:2; esmeraldas:2; otavalo:2; banos:2; ciudad bolivar:2; puerto la cruz:2; barquisimeto:2; maturin:2; maracay:2; coro:2;
 san cristobal:2; concepcion:1; temuco:1; valdivia:1; osorno:1; puerto varas:1; coyhaique:1; puerto natales:1; arica:1; calama:1;
 san pedro de atacama:1; copiapo:1; vina del mar:1; rancagua:1; talca:1; chillan:1;
+` },
+  { id: "q-olympic-city", theme: "Travel", ask: "Name a city that has hosted the Olympics", what: "a city that has hosted the Olympics", items: `
+london:5; paris:5; tokyo:5; los angeles:5; beijing:5; rio de janeiro|rio:5; athens:5; sydney:5; barcelona:4; atlanta:4;
+seoul:4; moscow:4; berlin:4; rome:4; munich:4; montreal:4; mexico city:4; salt lake city:4; sochi:4; vancouver:4;
+lillehammer:4; calgary:4; innsbruck:4; amsterdam:3; helsinki:3; melbourne:3; stockholm:3; antwerp:3; st louis:3; lake placid:3;
+nagano:3; sapporo:3; turin:3; sarajevo:3; oslo:3; st moritz:3; chamonix:3; garmisch-partenkirchen:3; cortina d'ampezzo|cortina:3; squaw valley|palisades tahoe:3;
+grenoble:3; albertville:3; pyeongchang:3; milan:3; brisbane:3;
+` },
+  { id: "q-us-national-park", theme: "Travel", ask: "Name a US national park", what: "a US national park", items: `
+yellowstone:5; grand canyon:5; yosemite:5; zion:5; glacier:4; rocky mountain:4; great smoky mountains|smoky mountains:4; acadia:4; arches:4; bryce canyon:4;
+grand teton:4; joshua tree:4; death valley:4; everglades:4; denali:4; olympic:4; sequoia:3; kings canyon:3; redwood:3; mount rainier|rainier:3;
+badlands:3; big bend:3; canyonlands:3; capitol reef:3; carlsbad caverns:3; crater lake:3; haleakala:3; hawaii volcanoes:3; mesa verde:3; petrified forest:3;
+saguaro:3; shenandoah:3; mammoth cave:3; white sands:3; great sand dunes:3; lassen volcanic|lassen:3; north cascades:3; channel islands:3; glacier bay:3; kenai fjords:3;
+theodore roosevelt:2; wind cave:2; great basin:2; pinnacles:2; guadalupe mountains:2; biscayne:2; dry tortugas:2; congaree:2; cuyahoga valley:2; indiana dunes:2;
+isle royale:2; voyageurs:2; black canyon of the gunnison:2; hot springs:2; new river gorge:2; katmai:2; wrangell-st elias:2; lake clark:2; gates of the arctic:2; kobuk valley:2;
+american samoa:2; virgin islands:2; gateway arch:1;
+` },
+  { id: "q-english-county", theme: "Geography", ask: "Name a county in England", what: "a county in England", items: `
+kent:5; essex:5; surrey:5; devon:5; cornwall:5; yorkshire:5; sussex:4; dorset:4; somerset:4; norfolk:4;
+suffolk:4; hampshire:4; lancashire:4; cheshire:4; cumbria:4; derbyshire:4; oxfordshire:4; berkshire:4; wiltshire:3; buckinghamshire:3;
+hertfordshire:3; bedfordshire:3; cambridgeshire:3; lincolnshire:3; nottinghamshire:3; leicestershire:3; northamptonshire:3; warwickshire:3; worcestershire:3; herefordshire:3;
+shropshire:3; staffordshire:3; northumberland:3; durham:3; north yorkshire:3; west yorkshire:3; south yorkshire:3; merseyside:3; greater manchester:3; tyne and wear:3;
+west midlands:3; gloucestershire:3; east sussex:3; west sussex:3; middlesex:3; isle of wight:3; greater london:3; rutland:2; cumberland:2; westmorland:2;
+east riding of yorkshire|east riding:2; huntingdonshire:2; avon:2; cleveland:2; humberside:2; hereford and worcester:2; county durham:2; east yorkshire:2;
+` },
+  { id: "q-airline", theme: "Travel", ask: "Name an airline", what: "an airline", items: `
+british airways:5; delta:5; united airlines|united:5; american airlines:5; lufthansa:5; emirates:5; qantas:5; ryanair:5; easyjet:5; air france:5;
+virgin atlantic:4; southwest airlines|southwest:4; jetblue:4; klm:4; qatar airways:4; singapore airlines:4; cathay pacific:4; turkish airlines:4; air canada:4; etihad:4;
+aer lingus:4; alaska airlines:4; spirit airlines|spirit:4; frontier airlines|frontier:4; wizz air:4; virgin australia:4; air india:4; japan airlines|jal:4; all nippon airways|ana:4; korean air:4;
+iberia:4; swiss:4; alitalia:4; aeroflot:4; el al:4; pan am:4; tap air portugal|tap:3; ita airways:3; austrian airlines:3; sas|scandinavian airlines:3;
+finnair:3; norwegian:3; icelandair:3; lot polish airlines|lot:3; brussels airlines:3; vueling:3; norwegian air shuttle:3; flybe:3; monarch:3; thomas cook airlines:3;
+tui airways|tui:3; jet2:3; loganair:3; eurowings:3; condor:3; air berlin:3; germanwings:3; air europa:3; transavia:3; volotea:3;
+aegean airlines|aegean:3; olympic airways|olympic airlines:3; malaysia airlines:3; thai airways:3; garuda indonesia:3; philippine airlines:3; vietnam airlines:3; china airlines:3; eva air:3; air china:3;
+china southern:3; china eastern:3; hainan airlines:3; pakistan international airlines|pia:3; srilankan airlines:3; biman bangladesh:3; saudia:3; gulf air:3; oman air:3; kuwait airways:3;
+royal jordanian:3; middle east airlines:3; egyptair:3; royal air maroc:3; ethiopian airlines:3; kenya airways:3; south african airways:3; air new zealand:3; jetstar:3; virgin blue:3;
+tigerair:3; scoot:3; airasia:3; cebu pacific:3; hawaiian airlines:3; allegiant:3; sun country:3; westjet:3; air transat:3; aeromexico:3;
+avianca:3; latam:3; copa airlines:3; aerolineas argentinas:3; gol:3; azul:3; pan american:3; twa:3; eastern airlines:3; continental:3;
+northwest:3; us airways:3; braniff:3; air jamaica:3; caribbean airlines:3; bahamasair:3; cubana:3; interjet:3; volaris:3; viva aerobus:3;
+flybondi:3; sky airline:3; jetsmart:3; lan chile:3; bmi:2; british midland:2; dan-air:2; caledonian:2; british caledonian:2; britannia airways:2;
+cityjet:2; flyglobespan:2; bmibaby:2; eastern airways:2; aurigny:2; blue islands:2; buzz:2; go:2; debonair:2; brymon:2;
+jersey european:2; sabena:1; swissair:1; malev:1; tarom:1; czech airlines|csa:1; jat:1; adria airways:1; croatia airlines:1; air serbia:1;
+bulgaria air:1; onur air:1; pegasus airlines|pegasus:1; sun express:1; atlasglobal:1; corendon:1;
+` },
+  { id: "q-currency", theme: "Travel", ask: "Name a currency", what: "a currency", items: `
+dollar|us dollar:5; euro:5; pound|pound sterling:5; yen:5; peso:5; rupee:5; yuan|renminbi:4; franc|swiss franc:4; rand:4; won:4;
+ruble|rouble:4; krona|krone:4; real:4; lira:4; dinar:4; dirham:4; riyal:4; baht:4; shekel:4; ringgit:3;
+rupiah:3; dong:3; zloty:3; forint:3; koruna:3; lev:3; leu:3; hryvnia:3; tenge:3; naira:3;
+cedi:3; shilling:3; birr:3; kwacha:3; bitcoin:3; drachma:3; deutschmark|mark:3; guilder:3; escudo:3; peseta:3;
+schilling:3; markka:3; florin:3; ducat:3; doubloon:3; taka:3; kyat:3; kip:3; riel:3; punt:3;
+tugrik:2; som:2; lari:2; dram:2; manat:2; afghani:2; pula:2; metical:2; kwanza:2; dalasi:2;
+leone:2; ouguiya:2; ariary:2; balboa:2; colon:2; cordoba:2; lempira:2; quetzal:2; gourde:2; bolivar:2;
+sol:2; guarani:2; boliviano:2; sucre:2; lats:2; litas:2; tolar:2; kuna:2; groat:2; farthing:2;
+guinea:2; sovereign:2; crown:2; denarius:2; sestertius:2; talent:2; pfennig:2; centime:2; paanga:2; vatu:2;
+tala:2; kina:2; rufiyaa:2; ngultrum:2; pataca:2; lilangeni:2; loti:2; nakfa:2; cfa franc:2; cruzeiro:2;
+austral:2; inti:2; dobra:1; rial:1; lek:1; denar:1; convertible mark:1;
 ` },
 ]);

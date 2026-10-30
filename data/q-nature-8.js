@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-zoo-animal", theme: "Animals", ask: "Name an animal you might see at a zoo", what: "an animal you might see at a zoo", items: `
+  { id: "q-nature-zoo-animal", theme: "Animals", ask: "Name an animal you might see at a zoo", what: "an animal you might see at a zoo", items: `
 lion:5; elephant:5; giraffe:5; monkey:5; tiger:5; zebra:5; penguin:5; gorilla:5; bear:4; hippo|hippopotamus:4; rhino|rhinoceros:4; kangaroo:4; panda|giant panda:4; crocodile:4; snake:4; flamingo:4; polar bear:4;
 chimpanzee|chimp:4; orangutan:4; leopard:4; cheetah:4; meerkat:4; camel:4; seal:3; sea lion:3; otter:3; koala:3; sloth:3; lemur:3; red panda:3; wolf:3; tortoise:3; turtle:3; alligator:3; lizard:3; komodo dragon:3;
 parrot:3; owl:3; eagle:3; peacock:3; ostrich:3; emu:3; llama:3; alpaca:3; goat:3; tapir:3; capybara:3; anteater:3; armadillo:3; baboon:3; mandrill:3; gibbon:3; hyena:3; jaguar:3; antelope:3; deer:3; bison:3; wallaby:3;
@@ -10,7 +10,7 @@ shoebill:2; hornbill:2; cassowary:2; kookaburra:2; cockatoo:2; secretary bird:2;
 babirusa:1; gerenuk:1; dik-dik|dik dik:1; sitatunga:1; markhor:1; takin:1; saiga:1; przewalskis horse|przewalski horse:1; pallas cat|manul:1; fishing cat:1; sand cat:1; maned wolf:1; dhole:1; aye-aye|aye aye:1; sifaka:1; indri:1;
 proboscis monkey:1; siamang:1; colobus:1; tamarin:1; marmoset:1; uakari:1; howler monkey:1; spider monkey:1; capuchin:1; slow loris:1; tarsier:1; pangolin:1; echidna:1; quoll:1; numbat:1; quokka:1; bilby:1; sugar glider:1; tree kangaroo:1;
 ` },
-  { id: "q-endangered", theme: "Animals", ask: "Name an endangered animal", what: "an endangered animal", items: `
+  { id: "q-nature-endangered", theme: "Animals", ask: "Name an endangered animal", what: "an endangered animal", items: `
 giant panda|panda:5; tiger:5; rhino|rhinoceros|black rhino|javan rhino:5; elephant|asian elephant|african elephant:5; gorilla|mountain gorilla:5; orangutan:5; polar bear:4; blue whale:4; sea turtle|turtle|leatherback turtle|hawksbill turtle:4; snow leopard:4; cheetah:4; chimpanzee|chimp:4;
 sumatran tiger:3; amur leopard:3; pangolin:3; vaquita:3; saola:3; kakapo:3; california condor|condor:3; black-footed ferret|black footed ferret:3; red panda:3; bonobo:3; lemur:3; tasmanian devil:3; koala:3; whooping crane:3;
 great white shark:3; hammerhead shark|hammerhead:3; whale shark:3; bluefin tuna:3; african wild dog|painted dog|wild dog:3; siberian tiger|amur tiger:3; loggerhead turtle|loggerhead:3; green sea turtle|green turtle:3; manatee:3; florida panther:3;
