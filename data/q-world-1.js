@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-africa-country", theme: "Geography", ask: "Name a country in Africa", what: "a country in Africa", items: `
+  { id: "q-world-africa-country", theme: "Geography", ask: "Name a country in Africa", what: "a country in Africa", items: `
 egypt:5; south africa:5; nigeria:5; kenya:5; morocco:4; ethiopia:4; ghana:4; tanzania:4; algeria:4; uganda:4;
 zimbabwe:4; senegal:4; libya:3; tunisia:3; sudan:3; somalia:3; madagascar:3; angola:3; mozambique:3; zambia:3;
 cameroon:3; cote d'ivoire|ivory coast:3; namibia:3; botswana:3; congo|republic of the congo|congo-brazzaville:3; democratic republic of the congo|dr congo|drc|zaire|congo-kinshasa:2; mali:2; rwanda:2; niger:2; chad:2;
@@ -7,20 +7,20 @@ sierra leone:2; liberia:2; malawi:2; mauritius:2; seychelles:2; south sudan:2; b
 gabon:1; guinea:1; guinea-bissau:1; gambia:1; burundi:1; lesotho:1; eswatini|swaziland:1; djibouti:1; comoros:1; cabo verde|cape verde:1;
 equatorial guinea:1; central african republic:1; sao tome and principe|sao tome:1; mauritania:1;
 ` },
-  { id: "q-americas-country", theme: "Geography", ask: "Name a country in the Americas", what: "a country in the Americas", items: `
+  { id: "q-world-americas-country", theme: "Geography", ask: "Name a country in the Americas", what: "a country in the Americas", items: `
 united states|usa|us|america|united states of america:5; canada:5; mexico:5; brazil:5; argentina:4; cuba:4; colombia:4; peru:4; chile:4; jamaica:4;
 venezuela:3; ecuador:3; bolivia:3; uruguay:3; costa rica:3; panama:3; haiti:3; dominican republic:3; bahamas:3; guatemala:3;
 honduras:2; el salvador:2; nicaragua:2; paraguay:2; barbados:2; trinidad and tobago|trinidad:2; belize:2; guyana:1; suriname:1; grenada:1;
 dominica:1; saint lucia|st lucia:1; saint vincent and the grenadines|st vincent:1; saint kitts and nevis|st kitts and nevis|st kitts:1; antigua and barbuda|antigua:1;
 ` },
-  { id: "q-asia-country", theme: "Geography", ask: "Name a country in Asia", what: "a country in Asia", items: `
+  { id: "q-world-asia-country", theme: "Geography", ask: "Name a country in Asia", what: "a country in Asia", items: `
 china:5; india:5; japan:5; thailand:5; south korea|korea|republic of korea:4; vietnam:4; indonesia:4; pakistan:4; philippines:4; saudi arabia:4;
 iran:4; israel:4; north korea:3; afghanistan:3; iraq:3; nepal:3; malaysia:3; singapore:3; turkey|turkiye:3; bangladesh:3;
 sri lanka:3; mongolia:3; taiwan:3; syria:3; united arab emirates|uae|emirates:2; kazakhstan:2; cambodia:2; myanmar|burma:2; qatar:2; jordan:2;
 laos:2; lebanon:2; kuwait:2; yemen:2; uzbekistan:2; russia:2; oman:2; bhutan:1; brunei:1; maldives:1;
 timor-leste|east timor:1; tajikistan:1; kyrgyzstan:1; turkmenistan:1; armenia:1; azerbaijan:1; georgia:1; bahrain:1; palestine|state of palestine:1; cyprus:1;
 ` },
-  { id: "q-europe-country", theme: "Geography", ask: "Name a European country", what: "a European country", items: `
+  { id: "q-world-europe-country", theme: "Geography", ask: "Name a European country", what: "a European country", items: `
 france:5; germany:5; italy:5; spain:5; united kingdom|uk|britain|great britain:5; greece:4; ireland:4; netherlands|holland:4; portugal:4; sweden:4;
 switzerland:4; norway:4; poland:4; england:4; scotland:4; denmark:4; austria:3; belgium:3; finland:3; russia:3;
 ukraine:3; turkey|turkiye:3; hungary:3; czech republic|czechia:3; croatia:3; iceland:3; romania:3; wales:3; bulgaria:3; serbia:2;
@@ -28,21 +28,21 @@ slovakia:2; slovenia:2; lithuania:2; latvia:2; estonia:2; luxembourg:2; albania:
 northern ireland:2; malta:2; liechtenstein:1; andorra:1; san marino:1; vatican city|vatican|holy see:1; moldova:1; montenegro:1; north macedonia|macedonia:1; bosnia and herzegovina|bosnia:1;
 kosovo:1; georgia:1;
 ` },
-  { id: "q-island-country", theme: "Geography", ask: "Name an island country", what: "an island country", items: `
+  { id: "q-world-island-country", theme: "Geography", ask: "Name an island country", what: "an island country", items: `
 japan:5; iceland:5; cuba:5; new zealand:5; jamaica:5; madagascar:4; ireland:4; philippines:4; indonesia:4; sri lanka:4;
 united kingdom|uk|britain|great britain:4; australia:4; fiji:4; cyprus:4; bahamas:4; malta:4; haiti:3; dominican republic:3; taiwan:3; singapore:3;
 barbados:3; trinidad and tobago:3; mauritius:3; maldives:3; samoa:3; tonga:3; papua new guinea:3; seychelles:3; bahrain:3; vanuatu:2;
 solomon islands:2; palau:2; nauru:2; kiribati:2; marshall islands:2; micronesia|federated states of micronesia:2; tuvalu:2; comoros:2; saint lucia|st lucia:2; grenada:2;
 antigua and barbuda:2; dominica:2; cabo verde|cape verde:1; sao tome and principe|sao tome:1; saint kitts and nevis|st kitts and nevis:1; saint vincent and the grenadines|st vincent:1; east timor|timor-leste:1;
 ` },
-  { id: "q-landlocked-country", theme: "Geography", ask: "Name a landlocked country", what: "a landlocked country", items: `
+  { id: "q-world-landlocked-country", theme: "Geography", ask: "Name a landlocked country", what: "a landlocked country", items: `
 switzerland:5; austria:5; bolivia:5; nepal:5; mongolia:4; afghanistan:4; czech republic|czechia:4; hungary:4; luxembourg:4; paraguay:4;
 ethiopia:4; uganda:4; zimbabwe:4; kazakhstan:4; zambia:4; slovakia:3; serbia:3; belarus:3; botswana:3; mali:3;
 chad:3; niger:3; rwanda:3; malawi:3; laos:3; bhutan:3; liechtenstein:3; andorra:3; vatican city|vatican:3; san marino:3;
 uzbekistan:3; armenia:2; azerbaijan:2; moldova:2; north macedonia|macedonia:2; kosovo:2; lesotho:2; eswatini|swaziland:2; burundi:2; burkina faso:2;
 south sudan:2; kyrgyzstan:2; tajikistan:2; turkmenistan:2; central african republic:1;
 ` },
-  { id: "q-red-flag-country", theme: "Geography", ask: "Name a country with red in its flag", what: "a country with red in its flag", items: `
+  { id: "q-world-red-flag-country", theme: "Geography", ask: "Name a country with red in its flag", what: "a country with red in its flag", items: `
 united states|usa|us|america:5; canada:5; japan:5; china:5; united kingdom|uk|britain|great britain:5; spain:5; switzerland:5; germany:5; russia:5; france:4;
 italy:4; mexico:4; turkey|turkiye:4; egypt:4; vietnam:4; poland:4; indonesia:4; denmark:4; norway:4; austria:4;
 south korea|korea:4; portugal:4; belgium:4; netherlands|holland:4; cuba:4; chile:4; peru:4; england:4; singapore:4; morocco:4;
@@ -59,7 +59,7 @@ cabo verde|cape verde:2; sao tome and principe|sao tome:2; equatorial guinea:2; 
 guinea-bissau:2; liberia:2; burkina faso:2; togo:2; benin:2; mauritania:2; haiti:2; dominican republic:2; belize:2; ecuador:2;
 bolivia:2; paraguay:2; guyana:2; suriname:2; trinidad and tobago:2; grenada:2; antigua and barbuda:2; saint kitts and nevis|st kitts and nevis:2; dominica:2; malta:2;
 ` },
-  { id: "q-sea-ocean", theme: "Geography", ask: "Name a sea or ocean", what: "a sea or ocean", items: `
+  { id: "q-world-sea-ocean", theme: "Geography", ask: "Name a sea or ocean", what: "a sea or ocean", items: `
 atlantic ocean|atlantic:5; pacific ocean|pacific:5; indian ocean:5; arctic ocean|arctic:5; mediterranean sea|mediterranean:5; caribbean sea|caribbean:4; red sea:4; dead sea:4; black sea:4; north sea:4;
 southern ocean|antarctic ocean:4; baltic sea:4; caspian sea:4; south china sea:3; arabian sea:3; sea of japan|japan sea:3; yellow sea:3; bering sea:3; aegean sea:3; adriatic sea:3;
 irish sea:3; coral sea:3; tasman sea:3; sargasso sea:3; east china sea:3; labrador sea:3; norwegian sea:3; ionian sea:3; tyrrhenian sea:2; ligurian sea:2;
@@ -69,7 +69,7 @@ weddell sea:1; ross sea:1; bellingshausen sea:1; amundsen sea:1; scotia sea:1; s
 bali sea:1; halmahera sea:1; seram sea:1; lincoln sea:1; alboran sea:1; balearic sea:1; thracian sea:1; sea of crete|cretan sea:1; cantabrian sea:1; wadden sea:1;
 sea of galilee:1; aral sea:1; salton sea:1; sea of the hebrides|hebrides sea:1; inland sea:1; sulawesi sea:1;
 ` },
-  { id: "q-desert", theme: "Geography", ask: "Name a desert", what: "a desert", items: `
+  { id: "q-world-desert", theme: "Geography", ask: "Name a desert", what: "a desert", items: `
 sahara|sahara desert:5; gobi|gobi desert:5; mojave|mojave desert:5; kalahari|kalahari desert:5; atacama|atacama desert:5; arabian desert|arabian:4; sonoran|sonoran desert:4; namib|namib desert:4; antarctic desert|antarctica:4; thar|thar desert:4;
 negev|negev desert:4; sinai|sinai desert:4; great victoria desert|victoria desert:3; great sandy desert:3; gibson desert:3; simpson desert:3; tanami|tanami desert:3; syrian desert:3; chihuahuan|chihuahuan desert:3; colorado desert:3;
 great basin|great basin desert:3; painted desert:3; death valley:3; taklamakan|taklimakan|taklamakan desert:3; karakum|karakum desert:3; kyzylkum|kyzylkum desert:3; patagonian desert|patagonian:3; sechura|sechura desert:3; nubian desert|nubian:3; libyan desert:3;
@@ -80,7 +80,7 @@ red desert:2; yuma desert:2; tabernas|tabernas desert:2; bardenas reales:2; whit
 erg chebbi:1; tanezrouft:1; great sand sea:1; qattara depression|qattara:1; kharga:1; owyhee desert:1; high desert:1; great salt lake desert:1; anza-borrego:1; monte desert:1;
 puna de atacama:1; kavir:1; lut:1;
 ` },
-  { id: "q-river-europe", theme: "Geography", ask: "Name a river in Europe", what: "a river in Europe", items: `
+  { id: "q-world-river-europe", theme: "Geography", ask: "Name a river in Europe", what: "a river in Europe", items: `
 thames:5; rhine:5; danube:5; seine:5; volga:5; rhone:4; loire:4; elbe:4; tiber:4; po:4;
 tagus:4; ebro:4; shannon:4; severn:4; don:4; dnieper:4; oder:3; vistula:3; douro|duero:3; garonne:3;
 meuse:3; moselle:3; main:3; neckar:3; spey:3; tay:3; clyde:3; trent:3; mersey:3; avon:3;
@@ -99,7 +99,7 @@ una:1; kupa:1; mur:1; enns:1; traun:1; ill:1; lahn:1; nahe:1; saar:1; sieg:1;
 wupper:1; ahr:1; kinzig:1; klaralven:1; dalalven:1; torne:1; kemijoki:1; vuoksi:1; kymi:1; svir:1;
 volkhov:1; msta:1; luga:1; vychegda:1; mezen:1; onega:1; kuban:1;
 ` },
-  { id: "q-river-world", theme: "Geography", ask: "Name a famous river", what: "a famous river", items: `
+  { id: "q-world-river-world", theme: "Geography", ask: "Name a famous river", what: "a famous river", items: `
 nile:5; amazon:5; thames:5; mississippi:5; ganges:5; yangtze|yangzi|chang jiang:4; danube:4; rhine:4; seine:4; congo:4;
 colorado:4; hudson:4; volga:4; euphrates:4; tigris:4; jordan:4; missouri:4; yellow river|huang he:3; mekong:3; niger:3;
 zambezi:3; indus:3; orinoco:3; columbia:3; ohio:3; murray:3; murray-darling|darling:3; st lawrence|saint lawrence:3; mackenzie:3; yukon:3;
@@ -117,7 +117,7 @@ chao phraya:1; perfume river:1; tonle sap:1; kabul:1; helmand:1; zarafshan:1; il
 vilyuy:1; aldan:1; indigirka:1; anadyr:1; tumen:1; yalu:1; nakdong:1; sumida:1; shinano:1; tone:1;
 kiso:1; yodo:1; kitakami:1; tenryu:1; ishikari:1;
 ` },
-  { id: "q-us-river", theme: "Geography", ask: "Name a river in the United States", what: "a river in the United States", items: `
+  { id: "q-world-us-river", theme: "Geography", ask: "Name a river in the United States", what: "a river in the United States", items: `
 mississippi:5; colorado:5; hudson:5; missouri:5; ohio:5; rio grande:4; columbia:4; potomac:4; delaware:4; snake:4;
 tennessee:4; yukon:4; arkansas:4; platte:3; red river:3; sacramento:3; san joaquin:3; susquehanna:3; connecticut:3; savannah:3;
 willamette:3; brazos:3; pecos:3; cumberland:3; allegheny:3; monongahela:3; chattahoochee:3; mohawk:3; charles:3; merrimack:3;
@@ -132,7 +132,7 @@ humboldt:2; virgin:2; san juan:2; dolores:2; gunnison:2; animas:2; yampa:2; wind
 yuba:1; mokelumne:1; stanislaus:1; tuolumne:1; merced:1; kings river:1; kern:1; owens:1; santa ana:1; los angeles river:1;
 salinas:1; pajaro:1; carmel river:1; chowchilla:1; cosumnes:1; bear river:1; smith river:1; navarro:1;
 ` },
-  { id: "q-mountain-range", theme: "Geography", ask: "Name a mountain range", what: "a mountain range", items: `
+  { id: "q-world-mountain-range", theme: "Geography", ask: "Name a mountain range", what: "a mountain range", items: `
 alps:5; rocky mountains|rockies:5; himalayas:5; andes:5; appalachians|appalachian mountains:5; pyrenees:4; urals|ural mountains:4; atlas mountains|atlas:4; carpathians|carpathian mountains:4; sierra nevada:4;
 cascades|cascade range:4; great dividing range:4; scottish highlands:4; apennines:4; caucasus:3; balkans:3; dolomites:3; tatras|tatra mountains:3; southern alps:3; drakensberg:3;
 karakoram:3; hindu kush:3; pamirs|pamir mountains:3; tian shan|tien shan:3; altai:3; kunlun:3; zagros:3; taurus mountains|taurus:3; elburz|alborz:3; sierra madre:3;
@@ -150,7 +150,7 @@ hajar mountains:1; asir mountains:1; sarawat mountains:1; kopet dag:1; paropamis
 pir panjal:1; dhauladhar:1; siwalik hills|siwaliks:1; mahabharat range:1; taihang:1; nanling:1; wuyi:1; dabie:1; tianmu:1; lushan:1;
 air mountains:1;
 ` },
-  { id: "q-famous-mountain", theme: "Geography", ask: "Name a famous mountain", what: "a famous mountain", items: `
+  { id: "q-world-famous-mountain", theme: "Geography", ask: "Name a famous mountain", what: "a famous mountain", items: `
 mount everest|everest:5; kilimanjaro:5; mont blanc:5; matterhorn:5; mount fuji|fuji:5; k2:4; ben nevis:4; denali|mckinley|mount mckinley:4; mount olympus|olympus:4; mount etna|etna:4;
 vesuvius:4; mount st helens|st helens|mount saint helens:4; mount sinai|sinai:4; table mountain:4; uluru|ayers rock:4; snowdon:4; eiger:4; aconcagua:4; mount rushmore:4; kangchenjunga:3;
 lhotse:3; makalu:3; cho oyu:3; annapurna:3; nanga parbat:3; mount kosciuszko|kosciuszko:3; mount cook|aoraki:3; mount ararat|ararat:3; mount whitney|whitney:3; pikes peak:3;
@@ -166,7 +166,7 @@ mount waddington:1; mount sir donald:1; mount sneffels:1; mount kerinci|kerinci:
 tryfan:1; mount moriah:1; monte cinto:1; rysy:1; gerlach:1; hoverla:1; mount humphreys|humphreys peak:1; mount timpanogos|timpanogos:1; mount blanca:1; mount massive:1;
 mount princeton:1;
 ` },
-  { id: "q-lake", theme: "Geography", ask: "Name a lake", what: "a lake", items: `
+  { id: "q-world-lake", theme: "Geography", ask: "Name a lake", what: "a lake", items: `
 lake superior|superior:5; lake victoria:5; loch ness:5; lake michigan:5; lake erie:5; lake geneva:5; lake huron:4; lake ontario:4; lake como:4; lake tahoe:4;
 lake titicaca:4; lake windermere:4; great salt lake:4; lake baikal:4; lake garda:4; lake placid:4; lake louise:4; lake tanganyika:4; lake malawi|lake nyasa:4; lake chad:4;
 lake lucerne:4; lake constance|bodensee:4; lake maggiore:3; lake zurich:3; lake lugano:3; lake balaton:3; lake ladoga:3; loch lomond:3; lough neagh:3; lough erne:3;
@@ -187,7 +187,7 @@ lake assal:1; lake abbe:1; lake langano:1; lake ziway:1; lake awasa:1; lake abay
 lake burullus:1; lake mariout:1; lake qarun:1; lake lanao:1; lake taal:1; lake matano:1; lake towuti:1; lake maninjau:1; lake singkarak:1; lake batur:1;
 lake bratan:1; lake kerinci:1; lake tondano:1; lake poso:1;
 ` },
-  { id: "q-island", theme: "Geography", ask: "Name an island", what: "an island", items: `
+  { id: "q-world-island", theme: "Geography", ask: "Name an island", what: "an island", items: `
 hawaii:5; ireland:5; iceland:5; greenland:5; cuba:5; jamaica:5; madagascar:5; great britain|britain:4; manhattan:4; sicily:4;
 crete:4; ibiza:4; bali:4; tahiti:4; new zealand:4; maui:4; majorca|mallorca:4; tenerife:4; sardinia:4; corsica:4;
 cyprus:4; borneo:4; java:4; sumatra:4; honshu:4; oahu:3; kauai:3; the big island:3; long island:3; staten island:3;
@@ -205,7 +205,7 @@ la palma:2; la gomera:2; menorca|minorca:2; formentera:2; gozo:2; lampedusa:2; p
 ustica:2; rhodes:2; rottnest island:1; kangaroo island:1; fraser island:1; magnetic island:1; lord howe island:1; norfolk island:1; christmas island:1; macquarie island:1;
 tristan da cunha:1; saint helena:1; ascension island:1; falkland islands:1; south georgia:1; pitcairn:1; chiloe:1; tierra del fuego:1; juan fernandez:1; isabela:1;
 ` },
-  { id: "q-greek-island", theme: "Travel", ask: "Name a Greek island", what: "a Greek island", items: `
+  { id: "q-world-greek-island", theme: "Travel", ask: "Name a Greek island", what: "a Greek island", items: `
 crete:5; santorini|thira:5; mykonos:5; corfu|kerkyra:5; rhodes:5; zakynthos|zante:4; kos:4; naxos:4; paros:4; kefalonia|cephalonia:4;
 lesbos|lesvos:4; samos:4; skiathos:4; hydra|ydra:4; aegina:4; ios:4; milos:4; thassos|thasos:4; lefkada|lefkas:4; chios:3;
 ithaca:3; patmos:3; skopelos:3; poros:3; spetses:3; lemnos|limnos:3; euboea|evia:3; kythira:3; kalymnos:3; leros:3;
@@ -216,7 +216,7 @@ agathonisi:2; fourni:2; elafonisos:2; agistri:2; kasos:2; schinoussa:2; koufonis
 polyaigos:1; thirasia:1; psara:1; oinousses:1; spinalonga:1; chrysi:1; othonoi:1; ereikoussa:1; mathraki:1; kalamos:1;
 kastos:1; strofades:1; dia:1;
 ` },
-  { id: "q-caribbean-island", theme: "Travel", ask: "Name a Caribbean island", what: "a Caribbean island", items: `
+  { id: "q-world-caribbean-island", theme: "Travel", ask: "Name a Caribbean island", what: "a Caribbean island", items: `
 jamaica:5; cuba:5; barbados:5; bahamas:5; puerto rico:5; trinidad:4; aruba:4; st lucia:4; antigua:4; grenada:4;
 cayman islands|grand cayman:4; dominican republic:4; haiti:4; martinique:4; guadeloupe:4; curacao:4; turks and caicos:4; tobago:3; bonaire:3; st kitts:3;
 nevis:3; dominica:3; st martin|sint maarten|saint martin:3; st barts|saint barthelemy|st barthelemy:3; anguilla:3; montserrat:3; british virgin islands|bvi:3; us virgin islands:3; st thomas:3; st john:3;
@@ -227,7 +227,7 @@ acklins:2; crooked island:2; bay islands:2; utila:2; little corn island:2; isla 
 anegada:2; necker island:2; san andres:2; little cayman:1; cayman brac:1; grand turk:1; providenciales:1; north caicos:1; middle caicos:1; south caicos:1;
 salt cay:1; saona island:1; navassa island:1; los roques:1; la tortuga:1; sombrero:1; redonda:1; la desirade:1; petit st vincent:1; petite martinique:1;
 ` },
-  { id: "q-holiday-island", theme: "Travel", ask: "Name a holiday destination island", what: "a holiday destination island", items: `
+  { id: "q-world-holiday-island", theme: "Travel", ask: "Name a holiday destination island", what: "a holiday destination island", items: `
 ibiza:5; majorca|mallorca:5; tenerife:5; crete:5; bali:5; hawaii:5; maldives:5; jamaica:5; mykonos:4; corfu:4;
 cyprus:4; sicily:4; sardinia:4; corsica:4; maui:4; tahiti:4; bora bora:4; fiji:4; barbados:4; seychelles:4;
 zanzibar:4; phuket:4; canary islands:4; madeira:4; lanzarote:4; gran canaria:4; fuerteventura:4; menorca|minorca:4; kos:4; zante|zakynthos:4;
@@ -244,7 +244,7 @@ siargao:2; el nido:2; coron:2; malapascua:2; bohol:2; panglao:2; camiguin:2; siq
 sipadan:2; derawan:2; wakatobi:2; bunaken:2; karimunjawa:2; tarutao|ko tarutao:2; ko kood|koh kood:2; koh rong|ko rong:2; koh rong samloem:2; similan islands:1;
 surin islands:1; ko mook|koh mook:1; ko kradan|koh kradan:1; ko hai|koh hai:1; ko yao noi|koh yao noi:1; ko yao yai|koh yao yai:1; ko phayam|koh phayam:1;
 ` },
-  { id: "q-bridge", theme: "Travel", ask: "Name a famous bridge", what: "a famous bridge", items: `
+  { id: "q-world-bridge", theme: "Travel", ask: "Name a famous bridge", what: "a famous bridge", items: `
 golden gate bridge|golden gate:5; brooklyn bridge|brooklyn:5; tower bridge:5; london bridge:5; sydney harbour bridge|sydney harbor bridge|sydney bridge:5; millau viaduct|millau bridge:4; rialto bridge|rialto:4; ponte vecchio:4; bridge of sighs:4; forth bridge:4;
 clifton suspension bridge|clifton bridge:4; charles bridge:4; george washington bridge:4; verrazzano-narrows bridge|verrazzano bridge|verrazano bridge:4; manhattan bridge:4; williamsburg bridge:4; queensboro bridge:4; oresund bridge|oresund:4; akashi kaikyo bridge:4; humber bridge:4;
 severn bridge:4; bosphorus bridge:4; galata bridge:4; westminster bridge:4; millennium bridge:4; pont neuf:4; pont des arts:4; rainbow bridge:4; tacoma narrows bridge:4; mackinac bridge:4;
@@ -259,7 +259,7 @@ rio-niteroi bridge:2; octavio frias de oliveira bridge:2; puente de triana:2; po
 skye bridge:2; ribblehead viaduct:2; story bridge:2; anzac bridge:2; west gate bridge:2; auckland harbour bridge:2; kingston bridge:2; erskine bridge:2; kincardine bridge:2; clackmannanshire bridge:2;
 kylesku bridge:2; connel bridge:2; stari most|old bridge of mostar|mostar bridge:1; pont valentre:1; devil's bridge|devils bridge:1; ponte del diavolo:1; trajan's bridge:1; visegrad bridge|mehmed pasa sokolovic bridge:1; pont de pierre:1;
 ` },
-  { id: "q-landmark", theme: "Travel", ask: "Name a famous landmark", what: "a famous landmark", items: `
+  { id: "q-world-landmark", theme: "Travel", ask: "Name a famous landmark", what: "a famous landmark", items: `
 eiffel tower:5; statue of liberty:5; big ben:5; taj mahal:5; great wall of china|great wall:5; colosseum:5; pyramids|great pyramid|pyramids of giza|giza:5; golden gate bridge:5; sydney opera house:5; leaning tower of pisa:5;
 stonehenge:5; machu picchu:5; christ the redeemer:4; buckingham palace:4; white house:4; tower of london:4; mount rushmore:4; empire state building:4; acropolis:4; parthenon:4;
 arc de triomphe:4; louvre:4; notre dame:4; sagrada familia:4; tower bridge:4; london eye:4; space needle:4; cn tower:4; brandenburg gate:4; burj khalifa:4;
@@ -288,7 +288,7 @@ windsor castle:1; canterbury cathedral:1; york minster:1; durham cathedral:1; an
 st pancras:1; kew gardens:1; hampton court:1; greenwich observatory:1; cutty sark:1; trafalgar square:1; nelsons column:1; piccadilly circus:1; marble arch:1; cenotaph:1;
 downing street:1; hyde park:1; harrods:1;
 ` },
-  { id: "q-waterfall", theme: "Geography", ask: "Name a famous waterfall", what: "a famous waterfall", items: `
+  { id: "q-world-waterfall", theme: "Geography", ask: "Name a famous waterfall", what: "a famous waterfall", items: `
 niagara falls|niagara:5; victoria falls|mosi-oa-tunya:5; angel falls|salto angel:5; iguazu falls|iguazu|iguacu falls:5; yosemite falls:4; horseshoe falls:4; multnomah falls:4; reichenbach falls:4; gullfoss:4; dettifoss:4;
 skogafoss:4; seljalandsfoss:4; bridal veil falls:3; american falls:3; rhine falls|rheinfall:3; godafoss:3; kaieteur falls:3; havasu falls:3; shoshone falls:3; snoqualmie falls:3;
 vernal fall:3; nevada fall:3; sutherland falls:3; huka falls:3; krimml falls:3; high force:3; aysgarth falls:3; kegon falls:3; nachi falls:3; kuang si falls:3;
@@ -300,7 +300,7 @@ rainbow falls:2; wailua falls:2; athirappilly falls:2; hogenakkal falls:2; nohka
 minnehaha falls:2; taughannock falls:2; letchworth falls:2; latourell falls:2; tequendama falls:2; svartifossen:1; oxararfoss:1; ruby falls:1; toketee falls:1; wahclella falls:1;
 fairy falls:1; rjukanfossen:1; ramnefjellsfossen:1;
 ` },
-  { id: "q-italy-city", theme: "Cities", ask: "Name a city in Italy", what: "a city in Italy", items: `
+  { id: "q-world-italy-city", theme: "Cities", ask: "Name a city in Italy", what: "a city in Italy", items: `
 rome|roma:5; venice|venezia:5; milan|milano:5; florence|firenze:5; naples|napoli:5; pisa:4; verona:4; turin|torino:4; bologna:4; genoa|genova:4;
 palermo:4; siena:4; sorrento:4; bari:3; catania:3; parma:3; padua|padova:3; trieste:3; perugia:3; assisi:3;
 ravenna:3; rimini:3; lucca:3; modena:3; bergamo:3; como:3; cagliari:3; lecce:3; amalfi:3; positano:3;
@@ -320,7 +320,7 @@ isernia:1; benevento:1; avellino:1; caserta:1; ischia porto:1; procida:1; nola:1
 crotone:1; catanzaro:1; vibo valentia:1; lamezia terme:1; scilla:1; reggio:1; bagheria:1; monreale:1; erice:1; sciacca:1;
 caltanissetta:1; enna:1; piazza armerina:1; gela:1; vittoria:1; comiso:1; pachino:1;
 ` },
-  { id: "q-germany-city", theme: "Cities", ask: "Name a city in Germany", what: "a city in Germany", items: `
+  { id: "q-world-germany-city", theme: "Cities", ask: "Name a city in Germany", what: "a city in Germany", items: `
 berlin:5; munich|munchen:5; hamburg:5; frankfurt:5; cologne|koln:5; dusseldorf:4; stuttgart:4; dresden:4; leipzig:4; nuremberg|nurnberg:4;
 hanover|hannover:4; bremen:4; heidelberg:4; essen:3; dortmund:3; bonn:3; freiburg:3; mainz:3; wiesbaden:3; karlsruhe:3;
 mannheim:3; augsburg:3; regensburg:3; wurzburg:3; potsdam:3; kiel:3; lubeck:3; rostock:3; magdeburg:3; erfurt:3;
@@ -337,7 +337,7 @@ fussen:1; oberammergau:1; berchtesgaden:1; bad reichenhall:1; mittenwald:1; lind
 villingen-schwenningen:1; offenburg:1; kehl:1; lahr:1; lorrach:1; weil am rhein:1; waldshut:1; triberg:1; donaueschingen:1; tuttlingen:1;
 singen:1; radolfzell:1;
 ` },
-  { id: "q-japan-city", theme: "Cities", ask: "Name a city in Japan", what: "a city in Japan", items: `
+  { id: "q-world-japan-city", theme: "Cities", ask: "Name a city in Japan", what: "a city in Japan", items: `
 tokyo:5; osaka:5; kyoto:5; yokohama:5; hiroshima:5; nagoya:4; sapporo:4; kobe:4; fukuoka:4; nagasaki:4;
 nara:4; kawasaki:3; sendai:3; kanazawa:3; nikko:3; kamakura:3; naha|okinawa:3; kagoshima:3; kumamoto:3; matsuyama:3;
 hakodate:3; niigata:3; shizuoka:3; hamamatsu:3; okayama:3; himeji:3; nagano:3; matsumoto:3; takayama:3; saitama:3;

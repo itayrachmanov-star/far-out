@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-famous-street", theme: "Travel", ask: "Name a famous street or road", what: "a famous street or road", items: `
+  { id: "q-world-famous-street", theme: "Travel", ask: "Name a famous street or road", what: "a famous street or road", items: `
 broadway:5; fifth avenue:5; wall street:5; route 66:5; abbey road:5; oxford street:5; baker street:5; champs-elysees:5; downing street:5; hollywood boulevard:5;
 sunset boulevard:4; rodeo drive:4; lombard street:4; bourbon street:4; regent street:4; bond street:4; carnaby street:4; piccadilly:4; fleet street:4; harley street:4;
 savile row:4; portobello road:4; rue de rivoli:4; la rambla|las ramblas:4; park avenue:4; madison avenue:4; pennsylvania avenue:4; penny lane:4; silk road:4; pacific coast highway:4;
@@ -15,7 +15,7 @@ kalverstraat:2; damrak:2; herengracht:2; prinsengracht:2; stroget:2; karl johans
 graben:2; ringstrasse:2; friedrichstrasse:2; konigsallee:2; maximilianstrasse:2; bahnhofstrasse:2; sukhumvit road:2; takeshita street:2; mathew street:1; lime street:1;
 bold street:1; hope street:1; rodney street:1; canning street:1;
 ` },
-  { id: "q-museum", theme: "Travel", ask: "Name a famous museum or art gallery", what: "a famous museum or art gallery", items: `
+  { id: "q-world-museum", theme: "Travel", ask: "Name a famous museum or art gallery", what: "a famous museum or art gallery", items: `
 louvre:5; british museum:5; metropolitan museum of art|the met|met museum:5; moma|museum of modern art:5; smithsonian:5; guggenheim:5; prado:5; uffizi:5; tate modern:5; rijksmuseum:4;
 van gogh museum:4; hermitage:4; vatican museums:4; national gallery:4; victoria and albert museum|v and a:4; natural history museum:4; science museum:4; imperial war museum:4; madame tussauds:4; musee d'orsay|orsay:4;
 pompidou centre|centre pompidou:4; acropolis museum:4; egyptian museum:4; pergamon museum:4; tate britain:4; whitney:4; getty:4; american museum of natural history:4; national air and space museum:4; art institute of chicago:4;
@@ -27,7 +27,7 @@ national museum of african american history:3; tretyakov gallery:2; pushkin muse
 museo soumaya:2; museo larco:2; museo botero:2; museo del oro|gold museum:2; malba:2; picasso museum:2; dali museum:2; bilbao guggenheim|guggenheim bilbao:2; ripleys believe it or not|ripleys:2; new museum:2;
 neue galerie:2; mori art museum:2; teamlab:2; national museum of china:2; national palace museum:2; musee carnavalet:1; cluny museum:1; grevin museum:1; studio museum in harlem:1;
 ` },
-  { id: "q-ancient-civilization", theme: "History", ask: "Name an ancient civilization", what: "an ancient civilization", items: `
+  { id: "q-world-ancient-civilization", theme: "History", ask: "Name an ancient civilization", what: "an ancient civilization", items: `
 egyptians|ancient egypt|egypt:5; romans|ancient rome|rome|roman empire:5; greeks|ancient greece|greece:5; mayans|maya:5; aztecs:5; incas:5; mesopotamians|mesopotamia:4; babylonians|babylon:4; persians|persia|persian empire:4; sumerians|sumer:4;
 ancient china|chinese:4; phoenicians|phoenicia:4; carthaginians|carthage:4; assyrians|assyria:4; indus valley|harappan|indus valley civilization:4; minoans:3; mycenaeans:3; hittites:3; etruscans|etruria:3; celts|celtic:3;
 olmecs:3; nubians|nubia|kush:3; akkadians|akkad:3; macedonians|macedon:3; spartans|sparta:3; athenians|athens:3; israelites:3; scythians:3; parthians:3; toltecs:3;
@@ -37,7 +37,7 @@ anasazi|ancestral puebloans:2; mississippians|cahokia:2; polynesians:2; lapita:2
 sabaeans|sheba:2; nabataeans:2; lydians:2; phrygians:2; urartians|urartu:2; philistines:2; canaanites:2; amorites:2; hurrians:2; kassites:2;
 mitanni:2; ubaid:1; ugarit:1; kerma:1; meroe:1; napata:1; garamantes:1; numidians:1; nok:1;
 ` },
-  { id: "q-greek-god", theme: "History", ask: "Name a Greek god or goddess", what: "a Greek god or goddess", items: `
+  { id: "q-world-greek-god", theme: "History", ask: "Name a Greek god or goddess", what: "a Greek god or goddess", items: `
 zeus:5; hera:5; poseidon:5; athena:5; apollo:5; artemis:5; ares:5; aphrodite:5; hades:5; hermes:4;
 hephaestus:4; demeter:4; dionysus:4; persephone:4; hestia:4; eros:4; pan:4; nike:4; helios:4; gaia:4;
 cronus|kronos:4; selene:3; eos:3; nyx:3; uranus|ouranos:3; rhea:3; hecate:3; iris:3; hebe:3; morpheus:3;
@@ -51,7 +51,7 @@ zelus:2; harmonia:2; deimos:2; phobos:2; enyo:2; eileithyia:2; hygieia:2; panace
 moros:2; oizys:2; apate:2; philotes:2; lethe:2; achlys:2; styx:2; ker:2; dike:2; eunomia:2;
 eirene:2; horae:2; charites:2; erinyes:2; nerites:1; leucothea:1; ino:1; palaemon:1; glaucus:1; doris:1;
 ` },
-  { id: "q-roman-god", theme: "History", ask: "Name a Roman god or goddess", what: "a Roman god or goddess", items: `
+  { id: "q-world-roman-god", theme: "History", ask: "Name a Roman god or goddess", what: "a Roman god or goddess", items: `
 jupiter:5; juno:5; neptune:5; minerva:5; mars:5; venus:5; mercury:5; apollo:5; diana:5; vulcan:4;
 ceres:4; bacchus:4; pluto:4; vesta:4; cupid:4; saturn:4; janus:4; aurora:4; hercules:4; fortuna:4;
 proserpina:4; sol:3; luna:3; victoria:3; flora:3; faunus:3; pomona:3; bellona:3; terra:3; caelus:3;
@@ -62,7 +62,7 @@ mater matuta:2; feronia:2; carna:2; cardea:2; pales:2; robigus:2; consus:2; picu
 egeria:2; camenae:2; carmenta:2; angerona:2; fauna:2; volturnus:2; portunus:2; tiberinus:2; vica pota:2; abundantia:2;
 annona:2; copia:2;
 ` },
-  { id: "q-norse-god", theme: "History", ask: "Name a Norse god or goddess", what: "a Norse god or goddess", items: `
+  { id: "q-world-norse-god", theme: "History", ask: "Name a Norse god or goddess", what: "a Norse god or goddess", items: `
 odin:5; thor:5; loki:5; freya:5; frigg:5; baldur|balder:4; tyr:4; heimdall:4; freyr:4; njord:4;
 sif:4; hel:4; idun:3; bragi:3; vidar:3; vali:3; skadi:3; ullr:3; forseti:3; hodr|hod:3;
 mimir:3; aegir:3; ran:3; sigyn:3; eir:3; fulla:3; gefjon:3; lofn:3; magni:3; modi:3;
@@ -71,7 +71,7 @@ surtr:2; thrud:2; snotra:2; sjofn:2; gna:2; syn:2; hlin:2; var:2; vor:2; saga:2;
 laufey:2; hermod:2; kvasir:2; gullveig:2; buri:2; bor:2; bestla:2; nott:2; dagr:2; delling:2;
 hlodyn:2; rind:2; sunna:2;
 ` },
-  { id: "q-roman-emperor", theme: "History", ask: "Name a Roman emperor", what: "a Roman emperor", items: `
+  { id: "q-world-roman-emperor", theme: "History", ask: "Name a Roman emperor", what: "a Roman emperor", items: `
 augustus:5; nero:5; caligula:5; claudius:5; constantine|constantine the great:5; trajan:4; hadrian:4; marcus aurelius:4; commodus:4; tiberius:4;
 diocletian:4; vespasian:4; titus:4; domitian:4; nerva:3; caracalla:3; septimius severus:3; elagabalus|heliogabalus:3; galba:3; otho:3;
 vitellius:3; antoninus pius:3; julian|julian the apostate:3; theodosius|theodosius the great:3; valerian:3; aurelian:3; romulus augustulus:3; justinian:3; honorius:3; gallienus:3;
@@ -81,7 +81,7 @@ aemilian:2; claudius gothicus:2; quintillus:2; tacitus:2; florianus:2; carus:2; 
 maxentius:2; licinius:2; constantine ii:2; constans:2; constantius ii:2; jovian:2; valentinian ii:2; theodosius ii:2; valentinian iii:2; petronius maximus:1;
 avitus:1; majorian:1; libius severus:1; anthemius:1; olybrius:1; glycerius:1; julius nepos:1; hostilian:1; volusianus:1;
 ` },
-  { id: "q-explorer", theme: "History", ask: "Name a famous explorer", what: "a famous explorer", items: `
+  { id: "q-world-explorer", theme: "History", ask: "Name a famous explorer", what: "a famous explorer", items: `
 christopher columbus|columbus:5; marco polo:5; ferdinand magellan|magellan:5; james cook|captain cook:5; vasco da gama:5; neil armstrong:5; lewis and clark:5; amerigo vespucci:4; hernan cortes|cortez:4; francisco pizarro:4;
 leif erikson|leif ericson:4; roald amundsen:4; robert falcon scott|captain scott:4; ernest shackleton:4; edmund hillary:4; tenzing norgay:4; ibn battuta:4; zheng he:4; henry hudson:4; john cabot:4;
 jacques cartier:4; francis drake:4; walter raleigh:4; david livingstone:4; meriwether lewis:4; william clark:4; sacagawea:4; buzz aldrin:4; yuri gagarin:4; samuel de champlain:3;
@@ -94,7 +94,7 @@ john ross:2; james clark ross:2; william parry:2; adolphus greely:2; salomon and
 robert bartlett:2; vilhjalmur stefansson:2; knud rasmussen:2; peter freuchen:2; lauge koch:2; ejnar mikkelsen:2; otto sverdrup:2; hjalmar johansen:2; richard byrd:2; lincoln ellsworth:2;
 hubert wilkins:2; vivian fuchs:2;
 ` },
-  { id: "q-english-monarch", theme: "History", ask: "Name a king or queen of England", what: "a king or queen of England", items: `
+  { id: "q-world-english-monarch", theme: "History", ask: "Name a king or queen of England", what: "a king or queen of England", items: `
 henry viii|henry 8|henry the eighth:5; elizabeth i|elizabeth 1|queen elizabeth|elizabeth|elizabeth the first:5; victoria|queen victoria:5; charles ii|charles 2:5; william the conqueror|william i|william 1:5; richard the lionheart|richard i|richard 1:5; george iii|george 3:5; charles i|charles 1:5; henry:4; george:4;
 william:4; richard:4; edward:4; james:4; charles:4; mary i|mary 1|bloody mary|mary:4; anne|queen anne:4; george v|george 5:4; george vi|george 6:4; elizabeth ii|elizabeth 2:4;
 charles iii|charles 3:4; richard iii|richard 3:4; edward vi|edward 6:4; james i|james 1:4; john|king john:4; alfred the great|alfred:4; canute|cnut|knut:4; harold:4; edward i|edward 1:3; henry vii|henry 7:3;
@@ -104,7 +104,7 @@ athelstan|aethelstan:3; edmund ironside:3; edgar:3; henry i|henry 1:2; henry ii|
 harold harefoot|harold i|harold 1:2; edmund:2; edward the elder:2; edred:2; eadwig|edwy:2; edward the martyr:2; harthacnut:2; egbert|ecgberht:2; ethelwulf:2; ethelbald:2;
 ethelbert:2; ethelred i:2; sweyn forkbeard|sweyn:2; william and mary:2; offa:2; penda:2; raedwald:2; ine:2;
 ` },
-  { id: "q-battle", theme: "History", ask: "Name a famous battle", what: "a famous battle", items: `
+  { id: "q-world-battle", theme: "History", ask: "Name a famous battle", what: "a famous battle", items: `
 hastings|battle of hastings:5; waterloo|battle of waterloo:5; trafalgar|battle of trafalgar:5; agincourt|battle of agincourt:5; gettysburg|battle of gettysburg:5; normandy|d-day|battle of normandy:5; stalingrad|battle of stalingrad:5; pearl harbor:5; the somme|battle of the somme:5; bosworth|battle of bosworth:4;
 midway|battle of midway:4; verdun|battle of verdun:4; gallipoli:4; el alamein:4; dunkirk:4; battle of britain:4; battle of the bulge|bulge:4; iwo jima:4; marathon|battle of marathon:4; thermopylae|battle of thermopylae:4;
 bunker hill:4; alamo|battle of the alamo:4; little bighorn|battle of little bighorn:4; culloden:4; bannockburn:4; lexington and concord:4; yorktown:4; austerlitz:4; ypres:4; zama:3;
@@ -126,7 +126,7 @@ stamford bridge:2; sedgemoor:2; boyne|battle of the boyne:2; killiecrankie:2; pr
 neville's cross:1; halidon hill:1; shrewsbury:1; evesham:1; lewes:1; lincoln:1; northampton:1; st albans:1; wakefield:1; mortimer's cross:1;
 hexham:1; edgecote:1; losecoat field:1; ludford bridge:1; blore heath:1;
 ` },
-  { id: "q-war", theme: "History", ask: "Name a war", what: "a war", items: `
+  { id: "q-world-war", theme: "History", ask: "Name a war", what: "a war", items: `
 world war 1|world war i|first world war|ww1|wwi|great war:5; world war 2|world war ii|second world war|ww2|wwii:5; vietnam war|vietnam:5; korean war|korea:5; american civil war|civil war:5; american revolution|revolutionary war|american war of independence:5; cold war:5; gulf war:5; iraq war:5; hundred years war:5;
 afghanistan war|war in afghanistan:4; thirty years war:4; seven years war:4; wars of the roses:4; napoleonic wars:4; crimean war:4; boer war:4; punic wars:4; peloponnesian war:4; trojan war:4;
 spanish civil war:4; russian civil war:4; english civil war:4; falklands war:4; six-day war:4; war of 1812:4; mexican-american war:4; spanish-american war:4; war on terror:4; crusades:4;
@@ -138,7 +138,7 @@ cod wars:2; pastry war:2; great turkish war:2; russo-turkish wars:2; austro-prus
 wars of scottish independence:2; anglo-dutch wars:2; anglo-spanish war:2; nine years war:2; war of the league of augsburg:2; war of the grand alliance:2; war of devolution:2; dutch war:2; franco-dutch war:2; eighty years war:2;
 dutch revolt:2; wars of religion:2; french wars of religion:2; huguenot wars:2; hussite wars:2; albigensian crusade:2; northern crusades:2; reconquista:2;
 ` },
-  { id: "q-empire", theme: "History", ask: "Name an empire", what: "an empire", items: `
+  { id: "q-world-empire", theme: "History", ask: "Name an empire", what: "an empire", items: `
 roman empire|roman|rome:5; british empire|british|britain:5; ottoman empire|ottoman:5; mongol empire|mongol:5; persian empire|persian|persia|achaemenid empire:5; byzantine empire|byzantine|byzantium:5; holy roman empire:5; russian empire|russia:5; aztec empire|aztec:5; inca empire|inca:5;
 german empire|german:4; austro-hungarian empire|austro-hungarian|habsburg empire|austrian empire:4; french empire|napoleonic empire|french:4; spanish empire|spanish:4; portuguese empire|portuguese:4; dutch empire|dutch:4; mughal empire|mughal:4; qing empire|qing dynasty|qing:4; han empire|han dynasty|han:4; egyptian empire|egyptian|ancient egypt:4;
 assyrian empire|assyrian|assyria:4; babylonian empire|babylonian|babylon:4; macedonian empire|alexander's empire|alexander the great's empire:4; carthaginian empire|carthage|carthaginian:4; mali empire|mali:4; japanese empire|empire of japan|japan:4; mayan empire|maya:4; songhai empire|songhai:3; ghana empire|ghana:3; ethiopian empire|abyssinian empire|abyssinia:3;
@@ -151,7 +151,7 @@ uyghur khaganate:2; khazar khaganate|khazar:2; golden horde:2; ilkhanate:2; chag
 danish empire:2; norwegian empire:2; north sea empire:2; angevin empire:2; carolingian empire|carolingian:2; frankish empire|frankish:2; ostrogothic kingdom:2; visigothic kingdom:2; vandal kingdom:2; lombard kingdom:2;
 bulgarian empire:2; serbian empire:2; latin empire:2; empire of trebizond:2; nicaean empire:2;
 ` },
-  { id: "q-historical-era", theme: "History", ask: "Name a historical era or period", what: "a historical era or period", items: `
+  { id: "q-world-historical-era", theme: "History", ask: "Name a historical era or period", what: "a historical era or period", items: `
 stone age:5; bronze age:5; iron age:5; middle ages|medieval|medieval period:5; renaissance:5; industrial revolution:5; victorian era|victorian|victorian age:5; ice age:5; dark ages:4; enlightenment|age of enlightenment:4;
 roaring twenties|roaring 20s|jazz age:4; great depression:4; cold war:4; tudor period|tudor era|tudor:4; elizabethan era|elizabethan age|elizabethan:4; georgian era|georgian:4; edwardian era|edwardian:4; regency era|regency:4; viking age:4; age of exploration|age of discovery:4;
 space age:4; information age|digital age:4; neolithic|neolithic age|new stone age:3; paleolithic|old stone age:3; mesolithic:3; copper age|chalcolithic:3; classical antiquity|antiquity|classical period:3; prehistory|prehistoric era:3; golden age:3; gilded age:3;
@@ -163,7 +163,7 @@ late middle ages:2; early middle ages:2; carolingian renaissance:2; italian rena
 age of imperialism:2; new imperialism:2; fin de siecle:2; gay nineties:2; dirty thirties:2; depression era:2; postwar boom:2; golden age of capitalism:2; cold war era:2; detente:2;
 perestroika:2; glasnost:2; thatcher era:2; reagan era:2; new deal era:2;
 ` },
-  { id: "q-famous-ship", theme: "History", ask: "Name a famous ship", what: "a famous ship", items: `
+  { id: "q-world-famous-ship", theme: "History", ask: "Name a famous ship", what: "a famous ship", items: `
 titanic|rms titanic:5; mayflower:5; hms victory|victory:5; santa maria:5; black pearl:5; cutty sark:5; bounty|hms bounty:5; golden hind:5; noah's ark|ark:5; nina:4;
 pinta:4; lusitania:4; queen mary:4; queen elizabeth 2|qe2:4; mary rose:4; hms beagle|beagle:4; bismarck:4; kon-tiki:4; flying dutchman:4; pequod:4;
 hispaniola:4; nautilus:4; uss arizona:4; mary celeste:4; hms hood:4; endeavour|hms endeavour:4; uss enterprise|enterprise:4; ss great britain|great britain:4; endurance:4; discovery:4;
@@ -177,14 +177,14 @@ jeannette:2; polaris:2; flying cloud:2; charles w morgan:2; star of india:2; bal
 falls of clyde:1; peking:1; passat:1; pamir:1; moshulu:1; sedov:1; kruzenshtern:1; gorch fock:1; statsraad lehmkuhl:1; christian radich:1;
 sagres:1; amerigo vespucci:1; wavertree:1; acushnet:1;
 ` },
-  { id: "q-us-president", theme: "History", ask: "Name a US president", what: "a US president", items: `
+  { id: "q-world-us-president", theme: "History", ask: "Name a US president", what: "a US president", items: `
 george washington|washington:5; abraham lincoln|lincoln|abe lincoln:5; barack obama|obama:5; donald trump|trump:5; john f kennedy|jfk|john kennedy|kennedy:4; thomas jefferson|jefferson:4; ronald reagan|reagan:4; bill clinton|clinton:4; george w bush|george bush|bush|dubya:4; richard nixon|nixon:4;
 franklin d roosevelt|fdr|franklin roosevelt:4; joe biden|biden:4; theodore roosevelt|teddy roosevelt|roosevelt:4; john adams|adams:3; andrew jackson|jackson:3; ulysses s grant|ulysses grant|grant:3; harry truman|truman:3; dwight eisenhower|eisenhower|ike:3; jimmy carter|carter:3; lyndon johnson|lbj|johnson:3;
 james madison|madison:3; james monroe|monroe:3; gerald ford|ford:3; george h w bush|bush senior|bush sr:3; woodrow wilson|wilson:3; herbert hoover|hoover:3; calvin coolidge|coolidge:3; john quincy adams:2; martin van buren|van buren:2; william henry harrison:2;
 james polk|james k polk|polk:2; zachary taylor|taylor:2; franklin pierce|pierce:2; james buchanan|buchanan:2; andrew johnson:2; rutherford hayes|rutherford b hayes|hayes:2; james garfield|garfield:2; chester arthur|chester a arthur:2; grover cleveland|cleveland:2; benjamin harrison:2;
 william mckinley|mckinley:2; william howard taft|taft:2; warren harding|warren g harding|harding:2; john tyler|tyler:1; millard fillmore|fillmore:1;
 ` },
-  { id: "q-british-pm", theme: "History", ask: "Name a British prime minister", what: "a British prime minister", items: `
+  { id: "q-world-british-pm", theme: "History", ask: "Name a British prime minister", what: "a British prime minister", items: `
 winston churchill|churchill:5; margaret thatcher|thatcher:5; tony blair|blair:5; boris johnson:5; david cameron:5; gordon brown:4; theresa may:4; john major:4; clement attlee|attlee:4; harold wilson:4;
 neville chamberlain|chamberlain:4; william pitt|pitt the younger|william pitt the younger:4; robert walpole|walpole:4; benjamin disraeli|disraeli:4; william gladstone|gladstone:4; anthony eden|eden:4; harold macmillan|macmillan:4; david lloyd george|lloyd george:4; liz truss:4; rishi sunak:4;
 keir starmer:4; edward heath|ted heath|heath:4; james callaghan|callaghan:4; duke of wellington|wellington:3; lord palmerston|palmerston:3; robert peel|peel:3; lord salisbury|salisbury:3; h h asquith|asquith|herbert asquith:3; arthur balfour|balfour:3; ramsay macdonald|macdonald:3;
@@ -192,7 +192,7 @@ stanley baldwin|baldwin:3; andrew bonar law|bonar law:3; lord liverpool|liverpoo
 lord rosebery|rosebery:3; henry campbell-bannerman|campbell-bannerman:3; lord john russell|russell:2; lord derby|derby:2; lord aberdeen|aberdeen:2; duke of newcastle:2; lord shelburne|shelburne:2; lord rockingham|rockingham:2; duke of grafton|grafton:2; lord bute|bute:2;
 henry addington|addington:2; lord grenville|grenville:2; duke of portland|portland:2; viscount goderich|goderich:2; duke of devonshire:2; henry pelham|pelham:2; earl of wilmington:2;
 ` },
-  { id: "q-royal-dynasty", theme: "History", ask: "Name a royal house or dynasty", what: "a royal house or dynasty", items: `
+  { id: "q-world-royal-dynasty", theme: "History", ask: "Name a royal house or dynasty", what: "a royal house or dynasty", items: `
 windsor:5; tudor:5; stuart:5; plantagenet:5; ming:5; habsburg|hapsburg:5; bourbon:5; romanov:5; medici:5; york:4;
 lancaster:4; hanover:4; han:4; tang:4; qing|manchu:4; song:4; yuan:4; qin:4; normandy|norman:4; valois:4;
 capet:4; bonaparte:4; savoy:4; orange-nassau|orange:4; ptolemy|ptolemaic:4; saxe-coburg and gotha|saxe-coburg:4; wessex:4; zhou:3; shang:3; sui:3;
@@ -204,7 +204,7 @@ trastamara:1; este:1; gonzaga:1; visconti:1; farnese:1; rurik:1; piast:1; silla:
 arsacid:1; almoravid:1; almohad:1; blois:1; godwin:1; burgundy:1; lorraine:1; hesse:1; brunswick:1; nassau:1;
 wettin:1; zahringen:1; welf|guelph:1; hohenstaufen:1; salian:1; ottonian:1; luxembourg:1;
 ` },
-  { id: "q-pharaoh", theme: "History", ask: "Name an ancient Egyptian pharaoh", what: "an ancient Egyptian pharaoh", items: `
+  { id: "q-world-pharaoh", theme: "History", ask: "Name an ancient Egyptian pharaoh", what: "an ancient Egyptian pharaoh", items: `
 tutankhamun|king tut|tutankhamen:5; ramesses ii|ramses ii|ramesses the great|ramses the great|ramesses|ramses:5; cleopatra:5; hatshepsut:5; khufu|cheops:4; akhenaten|akhenaton:4; nefertiti:4; thutmose iii|thutmose:4; khafre|chephren:4; menkaure|mycerinus:4;
 narmer|menes:4; djoser|zoser:4; amenhotep iii|amenhotep:4; seti i|seti:3; ramesses iii|ramses iii:3; horemheb:3; thutmose i:3; amenhotep i:3; sneferu:3; ahmose i|ahmose:3;
 mentuhotep ii:3; senusret iii:3; amenemhat iii:3; ptolemy i:3; ptolemy ii:3; ptolemy xii:3; psamtik i:3; necho ii:3; nectanebo ii:3; merneptah:3;
@@ -214,7 +214,7 @@ userkaf:2; sahure:2; niuserre:2; djedkare:2; pepi i:2; merenre:2; amenemhat i:2;
 sobekneferu:2; khyan:2; apophis:2; kamose:2; siamun:2; shoshenq i:2; sheshonq:2; taharqa:2; piye:2; shabaka:2;
 psamtik ii:2; apries:2; amasis:2; nectanebo i:2; ptolemy iii:2; ptolemy iv:2; ptolemy v:2; ptolemy vi:2; ptolemy xiii:2; ptolemy xiv:2;
 ` },
-  { id: "q-historical-figure", theme: "History", ask: "Name a famous person from history", what: "a famous person from history", items: `
+  { id: "q-world-historical-figure", theme: "History", ask: "Name a famous person from history", what: "a famous person from history", items: `
 napoleon|napoleon bonaparte:5; julius caesar|caesar:5; cleopatra:5; abraham lincoln|lincoln:5; alexander the great:5; albert einstein|einstein:5; winston churchill|churchill:5; genghis khan:5; george washington|washington:5; leonardo da vinci|da vinci|leonardo:5;
 christopher columbus|columbus:5; joan of arc:5; queen victoria|victoria:5; isaac newton|newton:4; charles darwin|darwin:4; galileo|galileo galilei:4; martin luther king|martin luther king jr|mlk:4; mahatma gandhi|gandhi:4; nelson mandela|mandela:4; marie curie:4;
 william shakespeare|shakespeare:4; socrates:4; aristotle:4; plato:4; hitler|adolf hitler:4; stalin|joseph stalin:4; thomas jefferson|jefferson:4; van gogh|vincent van gogh:3; picasso|pablo picasso:3; sigmund freud|freud:3;
@@ -241,7 +241,7 @@ hildegard of bingen:1; abelard:1; heloise:1; peter the hermit:1; pope urban ii:1
 cosimo de medici:1; cesare borgia:1; lucrezia borgia:1; rodrigo borgia:1; giordano bruno:1; jan hus:1; john wycliffe:1; william tyndale:1; hugh latimer:1; nicholas ridley:1;
 thomas cranmer:1; anne askew:1; edmund campion:1; robert southwell:1;
 ` },
-  { id: "q-historical-woman", theme: "History", ask: "Name a famous woman from history", what: "a famous woman from history", items: `
+  { id: "q-world-historical-woman", theme: "History", ask: "Name a famous woman from history", what: "a famous woman from history", items: `
 cleopatra:5; joan of arc:5; queen victoria|victoria:5; queen elizabeth i|elizabeth i:5; marie curie:5; florence nightingale:5; rosa parks:5; anne frank:5; amelia earhart:5; mother teresa:5;
 marie antoinette:4; catherine the great:4; harriet tubman:4; eleanor roosevelt:4; emmeline pankhurst:4; susan b anthony:4; boudicca|boadicea:4; nefertiti:4; hatshepsut:4; anne boleyn:4;
 catherine of aragon:4; ada lovelace:4; rosalind franklin:4; helen keller:4; mary queen of scots:4; jane austen:4; queen elizabeth ii|elizabeth ii:4; margaret thatcher|thatcher:4; princess diana|diana:4; indira gandhi:4;
@@ -253,14 +253,14 @@ valentina tereshkova:2; hildegard of bingen:2; anne of cleves:1; catherine parr:
 ida b wells:1; mary mcleod bethune:1; amy johnson:1; beryl markham:1; gertrude bell:1; freya stark:1; ethel smyth:1; mary cassatt:1; artemisia gentileschi:1; clara schumann:1;
 fanny mendelssohn:1; julian of norwich:1; teresa of avila:1; catherine of siena:1;
 ` },
-  { id: "q-pirate", theme: "History", ask: "Name a famous pirate, real or fictional", what: "a famous pirate", items: `
+  { id: "q-world-pirate", theme: "History", ask: "Name a famous pirate, real or fictional", what: "a famous pirate", items: `
 blackbeard|edward teach:5; captain hook|hook:5; jack sparrow|captain jack sparrow:5; long john silver:5; captain kidd|william kidd:5; captain morgan|henry morgan:5; anne bonny:4; mary read:4; calico jack|jack rackham:4; black bart|bartholomew roberts:4;
 barbarossa|redbeard:4; davy jones:4; captain barbossa|hector barbossa:4; captain pugwash|pugwash:4; one-eyed willy:4; captain flint:4; francis drake|sir francis drake:4; jean lafitte:4; black sam bellamy|samuel bellamy:4; stede bonnet:4;
 henry avery|long ben:3; charles vane:3; edward low:3; benjamin hornigold:3; grace o'malley|granuaile:3; ching shih|zheng yi sao:3; william dampier:3; captain blood:3; billy bones:3; black dog:3;
 blind pew:3; israel hands:3; smee:3; mr smee:3; thomas tew:2; howell davis:2; edward england:2; christopher condent:2; francois l'olonnais:2; piet hein:2;
-black caesar:2; john ward:2; mr smee|smee:2; captain feathersword:2;
+black caesar:2; john ward:2; captain feathersword:2;
 ` },
-  { id: "q-philosopher", theme: "History", ask: "Name a famous philosopher", what: "a famous philosopher", items: `
+  { id: "q-world-philosopher", theme: "History", ask: "Name a famous philosopher", what: "a famous philosopher", items: `
 socrates:5; plato:5; aristotle:5; nietzsche:5; descartes:5; kant:5; confucius:5; hume:4; locke:4; hobbes:4;
 rousseau:4; voltaire:4; sartre:4; camus:4; kierkegaard:4; schopenhauer:4; hegel:4; karl marx|marx:4; aquinas|thomas aquinas:4; augustine:4;
 spinoza:4; leibniz:4; francis bacon|bacon:4; john stuart mill|mill:4; bertrand russell|russell:4; wittgenstein:4; heidegger:4; simone de beauvoir|de beauvoir:4; diogenes:4; pythagoras:4;
@@ -272,7 +272,7 @@ bergson|henri bergson:2; husserl|edmund husserl:2; habermas|jurgen habermas:2; p
 malebranche:1; gassendi:1; merleau-ponty:1; levinas:1; adorno:1; horkheimer:1; marcuse:1; gramsci:1; althusser:1; deleuze:1;
 martha nussbaum|nussbaum:1; judith butler|butler:1;
 ` },
-  { id: "q-native-tribe", theme: "History", ask: "Name a Native American tribe or nation", what: "a Native American tribe or nation", items: `
+  { id: "q-world-native-tribe", theme: "History", ask: "Name a Native American tribe or nation", what: "a Native American tribe or nation", items: `
 cherokee:5; apache:5; navajo:5; sioux|lakota:5; cheyenne:5; comanche:5; mohawk:5; iroquois:5; seminole:5; cree:4;
 ojibwe|chippewa|ojibwa:4; hopi:4; pueblo:4; shoshone:4; blackfoot:4; crow:4; arapaho:4; pawnee:4; choctaw:4; chickasaw:4;
 creek:4; mohican:4; huron:4; delaware|lenape:4; algonquin:4; powhatan:4; wampanoag:4; pequot:4; inuit:4; dakota:4;
@@ -286,5 +286,29 @@ pomo:1; hupa:1; modoc:1; bannock:1; passamaquoddy:1; maliseet:1; mohegan:1; nant
 pamunkey:1; chickahominy:1; nottoway:1; tutelo:1; saponi:1; occaneechi:1; yamasee:1; timucua:1; calusa:1; tequesta:1;
 apalachee:1; houma:1; atakapa:1; karankawa:1; tonkawa:1; lipan apache:1; jicarilla:1; western apache:1; yavapai:1; havasupai:1;
 hualapai:1; kumeyaay:1; luiseno:1; tongva:1; tataviam:1; serrano:1; gabrielino:1; juaneno:1; diegueno:1;
+` },
+  { id: "q-world-ancient-city", theme: "History", ask: "Name an ancient city", what: "an ancient city", items: `
+rome:5; athens:5; troy:5; babylon:5; pompeii:5; sparta:5; carthage:5; jerusalem:5; thebes:5; alexandria:5;
+memphis:4; nineveh:4; ur:4; persepolis:4; petra:4; knossos:4; jericho:4; corinth:4; delphi:4; olympia:4;
+ephesus:4; byzantium|constantinople:4; mycenae:4; herculaneum:4; machu picchu:4; tikal:4; chichen itza:4; teotihuacan:4; angkor:4; antioch:3;
+damascus:3; tyre:3; sidon:3; byblos:3; delos:3; syracuse:3; ostia:3; palmyra:3; luxor:3; giza:3;
+karnak:3; mohenjo-daro:3; harappa:3; chang'an|xi'an:3; miletus:3; pergamon:3; uxmal:2; palenque:2; copan:2; monte alban:2;
+tenochtitlan:2; cahokia:2; tiwanaku:2; nazca:2; sigiriya:2; borobudur:2; pagan:2; ayutthaya:2; sukhothai:2; luoyang:2;
+anyang:2; amarna:2; saqqara:2; philae:2; abu simbel:2; meroe:2; aksum|axum:2; lalibela:2; leptis magna:2; cyrene:2;
+utica:2; heliopolis:2; abydos:2; anuradhapura:2; susa:2; ctesiphon:2; ashur:2; nimrud:2; ugarit:2; hattusa:2;
+gordion:2; halicarnassus:2; cusco|cuzco:2; uruk:2; nippur:2; lagash:2; kish:2; eridu:2; akkad:2; mari:2;
+ebla:2; calakmul:1; tula:1; chan chan:1; caral:1; pataliputra:1; taxila:1; polonnaruwa:1; yinxu:1; xianyang:1;
+dendera:1; edfu:1; napata:1; kerma:1; volubilis:1; timgad:1; hippo regius:1; tingis:1; lixus:1; leptis:1;
+sabratha:1; dougga:1; kairouan:1;
+` },
+  { id: "q-world-general", theme: "History", ask: "Name a famous general or military leader", what: "a famous general or military leader", items: `
+napoleon|napoleon bonaparte:5; alexander the great:5; julius caesar:5; hannibal:5; genghis khan:5; george washington:5; winston churchill:5; patton|george patton:5; dwight eisenhower|eisenhower|ike:4; douglas macarthur|macarthur:4;
+bernard montgomery|montgomery|monty:4; erwin rommel|rommel:4; georgy zhukov|zhukov:4; ulysses s grant|grant:4; robert e lee|lee:4; william tecumseh sherman|sherman:4; stonewall jackson:4; horatio nelson|nelson:4; duke of wellington|wellington:4; sun tzu:4;
+attila the hun|attila:4; saladin:4; richard the lionheart:4; charlemagne:4; scipio africanus|scipio:4; pompey:4; spartacus:4; leonidas:4; cyrus the great:4; xerxes:4;
+darius:4; kublai khan:3; hannibal barca:3; frederick the great:3; robert the bruce:3; william wallace:3; tamerlane|timur:2; cao cao:2; zhuge liang:2; gustavus adolphus:2;
+prince eugene:2; marlborough|duke of marlborough:2; oliver cromwell:2; el cid:2; tariq ibn ziyad:2; charles martel:2; genseric:2; alaric:2; theodoric:2; marius:2;
+sulla:2; crassus:2; mark antony:2; octavian:2; pyrrhus:2; themistocles:2; philip ii of macedon|philip of macedon:2; belisarius:1; odoacer:1; stilicho:1;
+aetius:1; agrippa:1; germanicus:1; epaminondas:1; miltiades:1; pausanias:1; lysander:1; alcibiades:1; xenophon:1; nicias:1;
+demosthenes:1; antigonus:1; perdiccas:1; craterus:1; parmenion:1;
 ` },
 ]);

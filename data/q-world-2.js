@@ -1,5 +1,5 @@
 FarOut.addQuestions([
-  { id: "q-france-city", theme: "Cities", ask: "Name a city in France", what: "a city in France", items: `
+  { id: "q-world-france-city", theme: "Cities", ask: "Name a city in France", what: "a city in France", items: `
 paris:5; marseille:5; lyon:5; nice:5; bordeaux:5; toulouse:4; nantes:4; strasbourg:4; lille:4; cannes:4;
 montpellier:4; avignon:4; rennes:3; reims:3; dijon:3; grenoble:3; le havre:3; toulon:3; angers:3; nimes:3;
 aix-en-provence:3; brest:3; limoges:3; tours:3; amiens:3; rouen:3; nancy:3; caen:3; saint-tropez:3; antibes:3;
@@ -17,7 +17,7 @@ remiremont:1; thionville:1; forbach:1; sarreguemines:1; saverne:1; haguenau:1; s
 vesoul:1; dole:1; lons-le-saunier:1; bourg-en-bresse:1; macon:1; chalon-sur-saone:1; beaune:1; auxerre:1; sens:1; melun:1;
 fontainebleau:1; meaux:1; provins:1;
 ` },
-  { id: "q-spain-city", theme: "Cities", ask: "Name a city in Spain", what: "a city in Spain", items: `
+  { id: "q-world-spain-city", theme: "Cities", ask: "Name a city in Spain", what: "a city in Spain", items: `
 madrid:5; barcelona:5; valencia:5; seville|sevilla:5; malaga:5; bilbao:4; granada:4; zaragoza:4; toledo:4; cordoba:4;
 san sebastian|donostia:4; palma:4; marbella:4; alicante:3; cadiz:3; salamanca:3; valladolid:3; santander:3; pamplona:3; murcia:3;
 vigo:3; santiago de compostela:3; gijon:3; oviedo:3; burgos:3; leon:3; segovia:3; avila:3; cuenca:3; girona|gerona:3;
@@ -31,7 +31,7 @@ cambrils:2; tortosa:2; peniscola:2; gandia:2; denia:2; javea:2; calpe:2; altea:2
 mazarron:2; aguilas:2; vera:2; mojacar:2; fuengirola:2; estepona:2; motril:1; almunecar:1; salobrena:1; guadix:1;
 baza:1; ubeda:1; baeza:1; jaen:1; linares:1; antequera:1; nerja:1;
 ` },
-  { id: "q-uk-city", theme: "Cities", ask: "Name a city in the UK", what: "a city in the UK", items: `
+  { id: "q-world-uk-city", theme: "Cities", ask: "Name a city in the UK", what: "a city in the UK", items: `
 london:5; manchester:5; birmingham:5; liverpool:5; edinburgh:5; glasgow:5; cardiff:4; leeds:4; sheffield:4; bristol:4;
 newcastle:4; nottingham:4; belfast:4; oxford:4; cambridge:4; bath:4; york:4; brighton:4; southampton:3; portsmouth:3;
 leicester:3; coventry:3; aberdeen:3; dundee:3; inverness:3; swansea:3; newport:3; plymouth:3; exeter:3; norwich:3;
@@ -41,21 +41,21 @@ wakefield:2; preston:2; salford:2; st albans:2; chichester:2; hereford:2; lichfi
 milton keynes:2; westminster:2; city of london:2; chelmsford:1; southend-on-sea|southend:1; colchester:1; doncaster:1; lisburn:1; newry:1; st davids:1;
 st asaph:1; bangor:1; wells:1; ely:1; ripon:1;
 ` },
-  { id: "q-us-state", theme: "Geography", ask: "Name a US state", what: "a US state", items: `
+  { id: "q-world-us-state", theme: "Geography", ask: "Name a US state", what: "a US state", items: `
 california:5; texas:5; florida:5; new york:5; hawaii:4; alaska:4; nevada:4; arizona:4; colorado:4; washington:4;
 oregon:4; illinois:4; georgia:3; ohio:3; michigan:3; pennsylvania:3; virginia:3; utah:3; louisiana:3; massachusetts:3;
 new jersey:3; tennessee:3; montana:3; wyoming:3; north carolina:2; south carolina:2; new mexico:2; idaho:2; oklahoma:2; kansas:2;
 nebraska:2; iowa:2; minnesota:2; wisconsin:2; missouri:2; kentucky:2; alabama:1; mississippi:1; arkansas:1; indiana:1;
 maine:1; vermont:1; new hampshire:1; connecticut:1; maryland:1; delaware:1; rhode island:1; west virginia:1; north dakota:1; south dakota:1;
 ` },
-  { id: "q-state-capital", theme: "Geography", ask: "Name a US state capital", what: "a US state capital", items: `
+  { id: "q-world-state-capital", theme: "Geography", ask: "Name a US state capital", what: "a US state capital", items: `
 boston:5; austin:5; denver:5; atlanta:5; phoenix:5; sacramento:4; honolulu:4; nashville:4; albany:4; columbus:4;
 indianapolis:4; salt lake city:4; santa fe:4; tallahassee:3; richmond:3; madison:3; olympia:3; raleigh:3; annapolis:3; juneau:3;
 st paul|saint paul:3; montgomery:3; baton rouge:3; harrisburg:3; oklahoma city:3; boise:2; des moines:2; jefferson city:2; lincoln:2; topeka:2;
 little rock:2; jackson:2; charleston:2; columbia:2; springfield:2; hartford:2; providence:2; trenton:1; frankfort:1; montpelier:1;
 concord:1; augusta:1; dover:1; helena:1; cheyenne:1; carson city:1; salem:1; lansing:1; pierre:1; bismarck:1;
 ` },
-  { id: "q-california-city", theme: "Cities", ask: "Name a city in California", what: "a city in California", items: `
+  { id: "q-world-california-city", theme: "Cities", ask: "Name a city in California", what: "a city in California", items: `
 los angeles|la:5; san francisco:5; san diego:5; sacramento:5; san jose:5; oakland:4; santa barbara:4; santa monica:4; palm springs:4; malibu:4;
 beverly hills:4; hollywood:4; long beach:4; anaheim:4; pasadena:3; berkeley:3; napa:3; monterey:3; carmel:3; santa cruz:3;
 fresno:3; bakersfield:3; riverside:3; irvine:3; burbank:3; glendale:3; san bernardino:3; stockton:3; palo alto:3; mountain view:3;
@@ -74,7 +74,7 @@ coarsegold:1; three rivers:1; porterville:1; tulare:1; hanford:1; delano:1; taft
 twentynine palms:1; joshua tree:1; yucca valley:1; borrego springs:1; julian:1; ramona:1; poway:1; el cajon:1; la mesa:1; santee:1;
 national city:1; imperial beach:1; coronado:1; calexico:1; el centro:1; brawley:1;
 ` },
-  { id: "q-texas-city", theme: "Cities", ask: "Name a city in Texas", what: "a city in Texas", items: `
+  { id: "q-world-texas-city", theme: "Cities", ask: "Name a city in Texas", what: "a city in Texas", items: `
 houston:5; dallas:5; austin:5; san antonio:5; fort worth:5; el paso:5; arlington:4; corpus christi:4; plano:4; lubbock:4;
 galveston:4; amarillo:4; waco:4; irving:4; laredo:3; garland:3; brownsville:3; mcallen:3; abilene:3; midland:3;
 odessa:3; beaumont:3; tyler:3; san marcos:3; college station:3; denton:3; frisco:3; mckinney:3; round rock:3; killeen:3;
@@ -90,7 +90,7 @@ brady:1; junction:1; sonora:1; ozona:1; rockport:1; port aransas:1; aransas pass
 beeville:1; goliad:1; cuero:1; gonzales:1; luling:1; yoakum:1; hallettsville:1; schulenburg:1; columbus:1; eagle lake:1;
 wharton:1; bay city:1; freeport:1; angleton:1; lake jackson:1; alvin:1; friendswood:1; kemah:1; seabrook:1; la porte:1;
 ` },
-  { id: "q-us-city", theme: "Cities", ask: "Name a city in the United States", what: "a city in the United States", items: `
+  { id: "q-world-us-city", theme: "Cities", ask: "Name a city in the United States", what: "a city in the United States", items: `
 new york|new york city|nyc:5; los angeles|la:5; chicago:5; miami:5; las vegas:5; san francisco:5; boston:5; seattle:5; houston:5; dallas:5;
 atlanta:5; washington dc|washington:5; philadelphia:4; san diego:4; phoenix:4; denver:4; new orleans:4; orlando:4; austin:4; nashville:4;
 detroit:4; portland:4; san antonio:4; minneapolis:4; baltimore:4; honolulu:4; pittsburgh:4; cleveland:4; st louis:4; kansas city:4;
@@ -114,7 +114,7 @@ hattiesburg:1; meridian:1; lafayette:1; lake charles:1; shreveport:1; monroe:1; 
 jonesboro:1; paducah:1; bowling green:1; owensboro:1; lexington ky:1; covington:1; cape girardeau:1; joplin:1; branson:1; springfield mo:1;
 st joseph:1; columbia mo:1;
 ` },
-  { id: "q-canada-city", theme: "Cities", ask: "Name a Canadian city", what: "a Canadian city", items: `
+  { id: "q-world-canada-city", theme: "Cities", ask: "Name a Canadian city", what: "a Canadian city", items: `
 toronto:5; vancouver:5; montreal:5; ottawa:5; calgary:5; edmonton:4; winnipeg:4; quebec city|quebec:4; halifax:4; victoria:4;
 niagara falls:4; banff:4; whistler:4; hamilton:3; london:3; kitchener:3; saskatoon:3; regina:3; st johns:3; fredericton:3;
 charlottetown:3; whitehorse:3; yellowknife:3; iqaluit:3; mississauga:3; brampton:3; surrey:3; laval:3; markham:3; gatineau:3;
@@ -130,7 +130,7 @@ orillia:1; midland:1; collingwood:1; owen sound:1; goderich:1; sarnia:1; chatham
 brantford:1; welland:1; st catharines:1; niagara-on-the-lake:1; cobourg:1; belleville:1; brockville:1; cornwall:1; pembroke:1; smiths falls:1;
 perth:1;
 ` },
-  { id: "q-australia-city", theme: "Cities", ask: "Name an Australian city", what: "an Australian city", items: `
+  { id: "q-world-australia-city", theme: "Cities", ask: "Name an Australian city", what: "an Australian city", items: `
 sydney:5; melbourne:5; brisbane:5; perth:5; adelaide:5; canberra:4; hobart:4; darwin:4; gold coast:4; newcastle:4;
 cairns:4; wollongong:3; townsville:3; geelong:3; alice springs:3; byron bay:3; ballarat:3; bendigo:3; launceston:3; toowoomba:3;
 sunshine coast:3; noosa:3; fremantle:3; broome:3; kalgoorlie:3; parramatta:3; coffs harbour:3; port macquarie:3; mackay:2; rockhampton:2;
@@ -144,7 +144,7 @@ nowra:1; bowral:1; katoomba:1; lithgow:1; mudgee:1; armidale:1; lismore:1; balli
 murwillumbah:1; kingaroy:1; gympie:1; maryborough:1; emerald:1; longreach:1; winton:1; charleville:1; roma:1; st george:1;
 goondiwindi:1;
 ` },
-  { id: "q-china-city", theme: "Cities", ask: "Name a city in China", what: "a city in China", items: `
+  { id: "q-world-china-city", theme: "Cities", ask: "Name a city in China", what: "a city in China", items: `
 beijing|peking:5; shanghai:5; hong kong:5; shenzhen:5; guangzhou|canton:5; chengdu:4; chongqing:4; xian:4; nanjing:4; hangzhou:4;
 tianjin:4; wuhan:4; macau|macao:4; suzhou:3; qingdao:3; dalian:3; harbin:3; shenyang:3; kunming:3; lhasa:3;
 xiamen:3; guilin:3; lijiang:3; luoyang:3; zhengzhou:3; jinan:3; changsha:3; nanchang:3; fuzhou:3; hefei:3;
@@ -158,7 +158,7 @@ mianyang:2; deyang:2; zigong:2; luzhou:2; yibin:2; nanchong:2; lhasa prefecture:
 qamdo:1; ngari:1; golmud:1; dulan:1; delingha:1; tianshui:1; jiayuguan:1; zhangye:1; wuwei:1; jiuquan:1;
 hami:1; turpan:1; korla:1; aksu:1; hotan:1; yining:1; karamay:1; shihezi:1; altay:1;
 ` },
-  { id: "q-india-city", theme: "Cities", ask: "Name a city in India", what: "a city in India", items: `
+  { id: "q-world-india-city", theme: "Cities", ask: "Name a city in India", what: "a city in India", items: `
 delhi|new delhi:5; mumbai|bombay:5; kolkata|calcutta:5; chennai|madras:5; bangalore|bengaluru:5; hyderabad:4; jaipur:4; agra:4; varanasi|benares:4; pune:4;
 ahmedabad:4; goa:4; amritsar:4; lucknow:3; kanpur:3; nagpur:3; indore:3; bhopal:3; patna:3; surat:3;
 vadodara|baroda:3; chandigarh:3; jodhpur:3; udaipur:3; jaisalmer:3; mysore|mysuru:3; kochi|cochin:3; trivandrum|thiruvananthapuram:3; madurai:3; coimbatore:3;
@@ -172,7 +172,7 @@ kollam:2; alappuzha|alleppey:2; kozhikode|calicut:2; thrissur:2; kannur:2; kasar
 kohima:1; itanagar:1; agartala:1; gangtok:1; siliguri:1; kalimpong:1; jorhat:1; dibrugarh:1; tezpur:1; silchar:1;
 port blair:1; kavaratti:1; daman:1; diu:1; silvassa:1; dadra:1; karaikal:1; mahe:1; yanam:1;
 ` },
-  { id: "q-european-capital", theme: "Cities", ask: "Name a European capital", what: "a European capital", items: `
+  { id: "q-world-european-capital", theme: "Cities", ask: "Name a European capital", what: "a European capital", items: `
 paris:5; london:5; rome:5; berlin:5; madrid:5; lisbon:4; amsterdam:4; brussels:4; dublin:4; athens:4;
 prague:4; budapest:4; warsaw:4; stockholm:4; oslo:4; copenhagen:4; moscow:4; vienna:4; helsinki:3; reykjavik:3;
 bern|berne:3; bucharest:3; sofia:3; belgrade:3; zagreb:3; kyiv|kiev:3; edinburgh:3; cardiff:3; ankara:3; ljubljana:2;
@@ -202,7 +202,7 @@ ndjamena:1; malabo:1; bujumbura|gitega:1; maseru:1; mbabane|lobamba:1; moroni:1;
 nukualofa:1; tarawa:1; majuro:1; palikir:1; yaren:1; funafuti:1; ngerulmud:1; belmopan:1; kingstown:1; andorra la vella:1;
 vaduz:1; san marino:1; vatican city:1; sao tome:1; sri jayawardenepura kotte:1;
 ` },
-  { id: "q-european-city", theme: "Cities", ask: "Name a city in Europe", what: "a city in Europe", items: `
+  { id: "q-world-european-city", theme: "Cities", ask: "Name a city in Europe", what: "a city in Europe", items: `
 paris:5; london:5; rome:5; barcelona:5; amsterdam:5; berlin:5; madrid:5; venice:5; prague:5; vienna:5;
 lisbon:4; dublin:4; athens:4; budapest:4; florence:4; milan:4; munich:4; edinburgh:4; brussels:4; copenhagen:4;
 stockholm:4; oslo:4; moscow:4; saint petersburg|st petersburg:4; krakow:4; warsaw:4; zurich:4; geneva:4; seville:4; valencia:4;
@@ -227,7 +227,7 @@ trondheim:2; stavanger:2; kristiansand:2; alesund:2; bodo:2; alta:2; narvik:2; a
 helsingor:2; akureyri:2; narva:1; valga:1; viljandi:1; rakvere:1; haapsalu:1; kuressaare:1; jelgava:1; jurmala:1;
 ventspils:1; rezekne:1; siauliai:1; panevezys:1; alytus:1; marijampole:1; utena:1; palanga:1; druskininkai:1; trakai:1;
 ` },
-  { id: "q-asian-city", theme: "Cities", ask: "Name a city in Asia", what: "a city in Asia", items: `
+  { id: "q-world-asian-city", theme: "Cities", ask: "Name a city in Asia", what: "a city in Asia", items: `
 tokyo:5; beijing:5; shanghai:5; bangkok:5; hong kong:5; singapore:5; seoul:5; mumbai:5; delhi:5; dubai:5;
 kuala lumpur:4; jakarta:4; manila:4; hanoi:4; ho chi minh city|saigon:4; taipei:4; kyoto:4; osaka:4; kolkata|calcutta:4; tehran:4;
 baghdad:4; riyadh:4; doha:4; abu dhabi:4; karachi:4; istanbul:4; jerusalem:4; tel aviv:4; bangalore|bengaluru:4; bali:4;
@@ -251,7 +251,7 @@ galle:2; jaffna:2; negombo:2; trincomalee:2; pokhara:2; lumbini:2; bhaktapur:2; 
 kargil:1; spiti:1; kaza:1; manali:1; dharamshala:1; mcleodganj:1; dalhousie:1; kullu:1; mandi:1; nainital:1;
 mussoorie:1; almora:1; ranikhet:1; auli:1; joshimath:1;
 ` },
-  { id: "q-african-city", theme: "Cities", ask: "Name a city in Africa", what: "a city in Africa", items: `
+  { id: "q-world-african-city", theme: "Cities", ask: "Name a city in Africa", what: "a city in Africa", items: `
 cairo:5; cape town:5; johannesburg:5; lagos:5; nairobi:5; casablanca:5; marrakech:5; accra:4; addis ababa:4; dar es salaam:4;
 kinshasa:4; algiers:4; tunis:4; tripoli:4; khartoum:4; kampala:4; durban:4; pretoria:4; alexandria:4; luxor:4;
 aswan:4; giza:4; timbuktu:4; abuja:3; dakar:3; abidjan:3; windhoek:3; lusaka:3; harare:3; maputo:3;
@@ -271,7 +271,7 @@ swakopmund:2; francistown:2; maun:2; kasane:2; maseru:2; mbabane:2; manzini:2; e
 polokwane:2; nelspruit|mbombela:2; rustenburg:2; george:2; knysna:2; hermanus:2; paarl:2; franschhoek:2; tamatave|toamasina:1; antsirabe:1;
 mahajanga:1; toliara:1; diego suarez|antsiranana:1; moroni:1;
 ` },
-  { id: "q-south-american-city", theme: "Cities", ask: "Name a city in South America", what: "a city in South America", items: `
+  { id: "q-world-south-american-city", theme: "Cities", ask: "Name a city in South America", what: "a city in South America", items: `
 rio de janeiro|rio:5; buenos aires:5; sao paulo:5; lima:5; bogota:5; santiago:5; caracas:4; quito:4; montevideo:4; la paz:4;
 cusco|cuzco:4; medellin:4; cartagena:4; brasilia:4; asuncion:4; salvador:3; recife:3; fortaleza:3; manaus:3; belo horizonte:3;
 porto alegre:3; curitiba:3; florianopolis:3; valparaiso:3; mendoza:3; cordoba:3; rosario:3; salta:3; bariloche:3; ushuaia:3;
@@ -289,14 +289,14 @@ manta:2; esmeraldas:2; otavalo:2; banos:2; ciudad bolivar:2; puerto la cruz:2; b
 san cristobal:2; concepcion:1; temuco:1; valdivia:1; osorno:1; puerto varas:1; coyhaique:1; puerto natales:1; arica:1; calama:1;
 san pedro de atacama:1; copiapo:1; vina del mar:1; rancagua:1; talca:1; chillan:1;
 ` },
-  { id: "q-olympic-city", theme: "Travel", ask: "Name a city that has hosted the Olympics", what: "a city that has hosted the Olympics", items: `
+  { id: "q-world-olympic-city", theme: "Travel", ask: "Name a city that has hosted the Olympics", what: "a city that has hosted the Olympics", items: `
 london:5; paris:5; tokyo:5; los angeles:5; beijing:5; rio de janeiro|rio:5; athens:5; sydney:5; barcelona:4; atlanta:4;
 seoul:4; moscow:4; berlin:4; rome:4; munich:4; montreal:4; mexico city:4; salt lake city:4; sochi:4; vancouver:4;
 lillehammer:4; calgary:4; innsbruck:4; amsterdam:3; helsinki:3; melbourne:3; stockholm:3; antwerp:3; st louis:3; lake placid:3;
 nagano:3; sapporo:3; turin:3; sarajevo:3; oslo:3; st moritz:3; chamonix:3; garmisch-partenkirchen:3; cortina d'ampezzo|cortina:3; squaw valley|palisades tahoe:3;
 grenoble:3; albertville:3; pyeongchang:3; milan:3; brisbane:3;
 ` },
-  { id: "q-us-national-park", theme: "Travel", ask: "Name a US national park", what: "a US national park", items: `
+  { id: "q-world-us-national-park", theme: "Travel", ask: "Name a US national park", what: "a US national park", items: `
 yellowstone:5; grand canyon:5; yosemite:5; zion:5; glacier:4; rocky mountain:4; great smoky mountains|smoky mountains:4; acadia:4; arches:4; bryce canyon:4;
 grand teton:4; joshua tree:4; death valley:4; everglades:4; denali:4; olympic:4; sequoia:3; kings canyon:3; redwood:3; mount rainier|rainier:3;
 badlands:3; big bend:3; canyonlands:3; capitol reef:3; carlsbad caverns:3; crater lake:3; haleakala:3; hawaii volcanoes:3; mesa verde:3; petrified forest:3;
@@ -305,7 +305,7 @@ theodore roosevelt:2; wind cave:2; great basin:2; pinnacles:2; guadalupe mountai
 isle royale:2; voyageurs:2; black canyon of the gunnison:2; hot springs:2; new river gorge:2; katmai:2; wrangell-st elias:2; lake clark:2; gates of the arctic:2; kobuk valley:2;
 american samoa:2; virgin islands:2; gateway arch:1;
 ` },
-  { id: "q-english-county", theme: "Geography", ask: "Name a county in England", what: "a county in England", items: `
+  { id: "q-world-english-county", theme: "Geography", ask: "Name a county in England", what: "a county in England", items: `
 kent:5; essex:5; surrey:5; devon:5; cornwall:5; yorkshire:5; sussex:4; dorset:4; somerset:4; norfolk:4;
 suffolk:4; hampshire:4; lancashire:4; cheshire:4; cumbria:4; derbyshire:4; oxfordshire:4; berkshire:4; wiltshire:3; buckinghamshire:3;
 hertfordshire:3; bedfordshire:3; cambridgeshire:3; lincolnshire:3; nottinghamshire:3; leicestershire:3; northamptonshire:3; warwickshire:3; worcestershire:3; herefordshire:3;
@@ -313,7 +313,7 @@ shropshire:3; staffordshire:3; northumberland:3; durham:3; north yorkshire:3; we
 west midlands:3; gloucestershire:3; east sussex:3; west sussex:3; middlesex:3; isle of wight:3; greater london:3; rutland:2; cumberland:2; westmorland:2;
 east riding of yorkshire|east riding:2; huntingdonshire:2; avon:2; cleveland:2; humberside:2; hereford and worcester:2; county durham:2; east yorkshire:2;
 ` },
-  { id: "q-airline", theme: "Travel", ask: "Name an airline", what: "an airline", items: `
+  { id: "q-world-airline", theme: "Travel", ask: "Name an airline", what: "an airline", items: `
 british airways:5; delta:5; united airlines|united:5; american airlines:5; lufthansa:5; emirates:5; qantas:5; ryanair:5; easyjet:5; air france:5;
 virgin atlantic:4; southwest airlines|southwest:4; jetblue:4; klm:4; qatar airways:4; singapore airlines:4; cathay pacific:4; turkish airlines:4; air canada:4; etihad:4;
 aer lingus:4; alaska airlines:4; spirit airlines|spirit:4; frontier airlines|frontier:4; wizz air:4; virgin australia:4; air india:4; japan airlines|jal:4; all nippon airways|ana:4; korean air:4;
@@ -331,7 +331,7 @@ cityjet:2; flyglobespan:2; bmibaby:2; eastern airways:2; aurigny:2; blue islands
 jersey european:2; sabena:1; swissair:1; malev:1; tarom:1; czech airlines|csa:1; jat:1; adria airways:1; croatia airlines:1; air serbia:1;
 bulgaria air:1; onur air:1; pegasus airlines|pegasus:1; sun express:1; atlasglobal:1; corendon:1;
 ` },
-  { id: "q-currency", theme: "Travel", ask: "Name a currency", what: "a currency", items: `
+  { id: "q-world-currency", theme: "Travel", ask: "Name a currency", what: "a currency", items: `
 dollar|us dollar:5; euro:5; pound|pound sterling:5; yen:5; peso:5; rupee:5; yuan|renminbi:4; franc|swiss franc:4; rand:4; won:4;
 ruble|rouble:4; krona|krone:4; real:4; lira:4; dinar:4; dirham:4; riyal:4; baht:4; shekel:4; ringgit:3;
 rupiah:3; dong:3; zloty:3; forint:3; koruna:3; lev:3; leu:3; hryvnia:3; tenge:3; naira:3;

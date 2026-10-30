@@ -131,7 +131,10 @@
 
 @media (max-width: 640px) {
   .modes, .modes.together { grid-template-columns: 1fr; }
+  .mode { padding: 12px 14px; gap: 4px; }
   .mode b { font-size: 30px; }
+  .mode-d { font-size: 14px; }
+  .modes-h { font-size: 22px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .split { grid-template-columns: 1fr; }
   .card { grid-template-columns: auto 1fr auto; }
