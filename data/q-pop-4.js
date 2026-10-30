@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 4: music */
+/* Far Out - pop culture question bank, part 4: music */
 FarOut.addQuestions([
   { id: "q-pop-rock-band", theme: "Music", ask: "Name a rock band", what: "a rock band", items: `
 the beatles|beatles:5; the rolling stones|rolling stones:5; led zeppelin:5; queen:5; pink floyd:5; ac/dc|acdc:5; nirvana:5; metallica:5; u2:5; the who|who:4; the doors|doors:4; aerosmith:4;

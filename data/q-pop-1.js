@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 1: movies */
+/* Far Out - pop culture question bank, part 1: movies */
 FarOut.addQuestions([
   { id: "q-pop-disney-animated", theme: "Movies", ask: "Name a Disney animated movie", what: "a Disney animated movie", items: `
 the lion king|lion king:5; frozen:5; aladdin:5; beauty and the beast:5; the little mermaid|little mermaid:5; snow white and the seven dwarfs|snow white:5; cinderella:5; moana:5;

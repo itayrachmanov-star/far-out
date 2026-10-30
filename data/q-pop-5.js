@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 5: games */
+/* Far Out - pop culture question bank, part 5: games */
 FarOut.addQuestions([
   { id: "q-pop-pokemon", theme: "Games", ask: "Name a Pokemon", what: "a Pokemon", items: `
 pikachu:5; charizard:5; bulbasaur:5; squirtle:5; charmander:5; eevee:5; mewtwo:5; snorlax:5; jigglypuff:5; mew:4; gengar:4; magikarp:4;

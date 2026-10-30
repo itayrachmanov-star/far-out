@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 6: books */
+/* Far Out - pop culture question bank, part 6: books */
 FarOut.addQuestions([
   { id: "q-pop-famous-author", theme: "Books", ask: "Name a famous author", what: "an author", items: `
 william shakespeare|shakespeare:5; charles dickens|dickens:5; jane austen|austen:5; mark twain|twain:5; ernest hemingway|hemingway:4; f scott fitzgerald|fitzgerald|scott fitzgerald:4; george orwell|orwell:5; j k rowling|jk rowling|rowling:5; stephen king:5; agatha christie|christie:5; roald dahl|dahl:5; dr seuss|theodor geisel|seuss:5;

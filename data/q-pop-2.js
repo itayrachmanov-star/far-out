@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 2: movies (cont.) and TV */
+/* Far Out - pop culture question bank, part 2: movies (cont.) and TV */
 FarOut.addQuestions([
   { id: "q-pop-movie-franchise", theme: "Movies", ask: "Name a movie franchise", what: "a movie franchise", items: `
 star wars:5; harry potter:5; james bond|bond:5; marvel cinematic universe|mcu|avengers:5; indiana jones:5; jurassic park|jurassic world:5; the lord of the rings|lord of the rings:5; pirates of the caribbean:5; fast and furious|fast & furious:5; mission impossible:5; the matrix|matrix:4; terminator:4;

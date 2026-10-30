@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 3: TV (cont.) and music */
+/* Far Out - pop culture question bank, part 3: TV (cont.) and music */
 FarOut.addQuestions([
   { id: "q-pop-talk-show-host", theme: "TV", ask: "Name a talk show host", what: "a talk show host", items: `
 oprah winfrey|oprah:5; ellen degeneres|ellen:5; jimmy fallon|fallon:5; jimmy kimmel|kimmel:5; stephen colbert|colbert:4; conan obrien|conan:5; jay leno|leno:5; david letterman|letterman:5; johnny carson|carson:5; james corden|corden:4; seth meyers:4; jon stewart:4;

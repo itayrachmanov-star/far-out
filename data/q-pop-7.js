@@ -1,4 +1,4 @@
-/* Far Out — pop culture question bank, part 7: sport (1) */
+/* Far Out - pop culture question bank, part 7: sport (1) */
 FarOut.addQuestions([
   { id: "q-pop-olympic-sport", theme: "Sport", ask: "Name an Olympic sport", what: "an Olympic sport", items: `
 swimming:5; athletics|track and field:5; gymnastics|artistic gymnastics:5; diving:4; cycling:5; rowing:4; sailing:4; boxing:5; judo:4; taekwondo:3; wrestling:4; fencing:4;
@@ -15,8 +15,8 @@ football|soccer:5; basketball:5; baseball:5; tennis:5; golf:5; cricket:4; rugby:
 softball:3; hockey|field hockey:2; lacrosse:3; polo:3; netball:3; squash:3; racquetball:2; bowling|tenpin bowling:3; bowls|lawn bowls:2; croquet:2; pool|billiards:3; snooker:3;
 petanque|boules:2; bocce:2; hurling:2; gaelic football:2; australian rules football|aussie rules|afl:3; rounders:3; kickball:2; dodgeball:3; beach volleyball:3; futsal:2; sepak takraw:1; jai alai|pelota:1;
 fives:1; shinty:1; camogie:1; korfball:1; rugby league:3; rugby union:3; canadian football:2; floorball:1; bandy:1; roller hockey:1; pickleball:3; padel:2;
-tchoukball:1; baseball5:1; stoolball:1; tetherball:2; wallball:1; footvolley:1; bossaball:1; ten-pin bowling:1; skittles:1; boccia:1; goalball:1; quidditch:1;
-basque pelota:1; real tennis:1; rackets:1; paddle tennis:1; speedball:1; cricket 20:1; baseball 5:1; ultimate frisbee:1; cycle ball:1; ball hockey:1; broomball:1; pesapallo:1;
+tchoukball:1; baseball5:1; stoolball:1; tetherball:2; wallball:1; footvolley:1; bossaball:1; skittles:1; boccia:1; goalball:1; 
+basque pelota:1; real tennis:1; rackets:1; paddle tennis:1; speedball:1; cycle ball:1; ball hockey:1; broomball:1; pesapallo:1;
 ` },
 
   { id: "q-pop-nba-team", theme: "Sport", ask: "Name an NBA team", what: "an NBA team", items: `
@@ -61,7 +61,7 @@ flamengo:3; palmeiras:3; corinthians:3; santos:3; sao paulo:2; fluminense:2; gre
 san lorenzo:1; penarol:2; nacional:1; colo-colo|colo colo:1; club america:2; chivas|guadalajara:2; cruz azul:1; pumas unam|pumas:1; tigres:1; monterrey:1; la galaxy:4; inter miami:4;
 lafc|los angeles fc:2; new york red bulls:2; seattle sounders|sounders:2; atlanta united:2; portland timbers|timbers:1; toronto fc:2; dc united:2; new york city fc|nycfc:1; orlando city:1; cf montreal:1; columbus crew:1; philadelphia union:1;
 sporting kansas city:1; al hilal:2; al nassr:3; al ahli:1; urawa red diamonds|urawa reds:1; kashima antlers:1; melbourne victory:1; sydney fc:1; al ahly:2; zamalek:2; mamelodi sundowns:1; kaizer chiefs:1;
-orlando pirates:1; tp mazembe:1; wydad casablanca:1; esperance tunis:1; ulsan hyundai:1; guangzhou evergrande:1; shanghai port:1; ludogorets:1; fc kobenhavn:1; legia warsaw:1; sparta prague:1; slavia prague:1;
+orlando pirates:1; tp mazembe:1; wydad casablanca:1; esperance tunis:1; ulsan hyundai:1; guangzhou evergrande:1; shanghai port:1; ludogorets:1; legia warsaw:1; sparta prague:1; slavia prague:1;
 ` },
 
   { id: "q-pop-footballer", theme: "Sport", ask: "Name a famous footballer (soccer player)", what: "a footballer", items: `
@@ -69,7 +69,7 @@ lionel messi|messi:5; cristiano ronaldo|ronaldo:5; pele:5; diego maradona|marado
 zinedine zidane|zidane:4; ronaldinho:4; ronaldo nazario|r9:3; johan cruyff|cruyff:3; franz beckenbauer|beckenbauer:3; steven gerrard|gerrard:4; frank lampard|lampard:4; john terry:3; michael owen|owen:3; gary lineker|lineker:4; bobby charlton|charlton:3; bobby moore|moore:3;
 geoff hurst|hurst:2; gordon banks|banks:2; george best|best:4; kenny dalglish|dalglish:3; ian rush|rush:2; alan shearer|shearer:4; paul gascoigne|gascoigne|gazza:4; ryan giggs|giggs:4; paul scholes|scholes:3; roy keane|keane:3; eric cantona|cantona:4; thierry henry|henry:4;
 dennis bergkamp|bergkamp:3; patrick vieira|vieira:2; robert pires|pires:1; sol campbell:2; ashley cole:2; rio ferdinand|ferdinand:3; peter schmeichel|schmeichel:3; edwin van der sar|van der sar:2; gianluigi buffon|buffon:3; iker casillas|casillas:3; manuel neuer|neuer:3; thibaut courtois|courtois:2;
-alisson becker|alisson:2; ederson:1; petr cech|cech:2; david seaman|seaman:2; peter shilton|shilton:2; david de gea|de gea:2; jordan pickford|pickford:2; gareth bale|bale:3; luis suarez|suarez:3; sergio aguero|aguero:3; carlos tevez|tevez:2; wayne bridge:1;
+alisson becker|alisson:2; ederson:1; petr cech|cech:2; david seaman|seaman:2; peter shilton|shilton:2; david de gea|de gea:2; jordan pickford|pickford:2; gareth bale|bale:3; luis suarez|suarez:3; sergio aguero|aguero:3; carlos tevez|tevez:2; 
 sadio mane|mane:3; virgil van dijk|van dijk:3; trent alexander-arnold|alexander-arnold:3; jack grealish|grealish:3; phil foden|foden:3; bukayo saka|saka:3; jude bellingham|bellingham:4; declan rice|rice:3; marcus rashford|rashford:3; raheem sterling|sterling:3; jadon sancho|sancho:2; mason mount|mount:2;
 bruno fernandes|fernandes:2; paul pogba|pogba:3; n golo kante|kante:3; antoine griezmann|griezmann:3; karim benzema|benzema:3; luka modric|modric:3; toni kroos|kroos:3; sergio ramos|ramos:3; gerard pique|pique:2; xavi hernandez|xavi:3; andres iniesta|iniesta:3; carles puyol|puyol:2;
 sergio busquets|busquets:2; pedri:2; gavi:2; lamine yamal|yamal:3; robert lewandowski|lewandowski:3; thomas muller|muller:2; miroslav klose|klose:2; michael ballack|ballack:2; lothar matthaus|matthaus:2; gerd muller:2; jurgen klinsmann|klinsmann:2; oliver kahn|kahn:2;
@@ -78,8 +78,8 @@ robin van persie|van persie:3; wesley sneijder|sneijder:2; clarence seedorf|seed
 roger milla|milla:2; abedi pele:1; kaka:3; romario:3; rivaldo:3; cafu:2; roberto carlos:3; zico:2; socrates:2; garrincha:2; jairzinho:1; carlos alberto:1;
 gabriel batistuta|batistuta:2; juan roman riquelme|riquelme:1; diego forlan|forlan:2; edinson cavani|cavani:3; enzo francescoli|francescoli:1; james rodriguez:3; radamel falcao|falcao:2; carlos valderrama|valderrama:2; hugo sanchez|sanchez:2; landon donovan|donovan:2; clint dempsey|dempsey:2; tim howard:2;
 christian pulisic|pulisic:3; mia hamm|hamm:3; megan rapinoe|rapinoe:3; marta:2; alex morgan:3; abby wambach|wambach:2; lucy bronze|bronze:1; alessia russo|russo:1; leah williamson|williamson:1; beth mead|mead:1; ada hegerberg|hegerberg:1; aitana bonmati|bonmati:2;
-heung-min son|son heung-min|son:3; hidetoshi nakata|nakata:1; keisuke honda|honda:1; park ji-sung|park ji sung:2; shinji kagawa|kagawa:1; tim cahill|cahill:2; harry kewell|kewell:2; mark viduka|viduka:1; zlatan ibrahimovic|ibrahimovic|zlatan:4; henrik larsson|larsson:2;
-eden hazard|hazard:3; romelu lukaku|lukaku:3; vincent kompany|kompany:3; thierry:1; kevin keegan|keegan:3; jimmy greaves|greaves:2; stanley matthews|matthews:2; nobby stiles|stiles:1; jack charlton:2; bryan robson|robson:3;
+heung-min son|son heung-min:3; hidetoshi nakata|nakata:1; keisuke honda|honda:1; park ji-sung|park ji sung:2; shinji kagawa|kagawa:1; tim cahill|cahill:2; harry kewell|kewell:2; mark viduka|viduka:1; zlatan ibrahimovic|ibrahimovic|zlatan:4; henrik larsson|larsson:2;
+eden hazard|hazard:3; romelu lukaku|lukaku:3; vincent kompany|kompany:3; kevin keegan|keegan:3; jimmy greaves|greaves:2; stanley matthews|matthews:2; nobby stiles|stiles:1; jack charlton:2; bryan robson|robson:3;
 glenn hoddle|hoddle:2; chris waddle|waddle:2; peter crouch|crouch:3; jamie vardy|vardy:3; teddy sheringham|sheringham:2; les ferdinand:1; matt le tissier|le tissier:2; ian wright:3; dean saunders:1; gareth southgate|southgate:3;
 ` },
 
@@ -87,7 +87,7 @@ glenn hoddle|hoddle:2; chris waddle|waddle:2; peter crouch|crouch:3; jamie vardy
 roger federer|federer:5; rafael nadal|nadal:5; novak djokovic|djokovic:5; serena williams:5; venus williams:4; andy murray|murray:5; pete sampras|sampras:4; andre agassi|agassi:4; john mcenroe|mcenroe:4; bjorn borg|borg:4; jimmy connors|connors:3; ivan lendl|lendl:3;
 boris becker|becker:4; stefan edberg|edberg:3; arthur ashe|ashe:3; rod laver|laver:3; roy emerson:1; ken rosewall|rosewall:1; john newcombe|newcombe:1; stan smith:1; guillermo vilas|vilas:1; ilie nastase|nastase:2; mats wilander|wilander:2; michael chang|chang:2;
 jim courier|courier:2; goran ivanisevic|ivanisevic:3; pat cash|cash:2; patrick rafter|rafter:2; lleyton hewitt|hewitt:3; marat safin|safin:2; andy roddick|roddick:3; juan martin del potro|del potro:2; stan wawrinka|wawrinka:3; marin cilic|cilic:2;
-tim henman|henman:4; greg rusedski|rusedski:2; jack draper|draper:2; emma raducanu|raducanu:4; cameron norrie|norrie:2; dan evans|evans:1; kyle edmund|edmund:1; jo konta|konta:2; johanna konta:1; heather watson|watson:1; sue barker|barker:1; virginia wade|wade:3;
+tim henman|henman:4; greg rusedski|rusedski:2; jack draper|draper:2; emma raducanu|raducanu:4; cameron norrie|norrie:2; dan evans|evans:1; kyle edmund|edmund:1; jo konta|konta:2; heather watson|watson:1; sue barker|barker:1; virginia wade|wade:3;
 fred perry|perry:3; jana novotna|novotna:1; martina navratilova|navratilova:4; chris evert|evert:4; billie jean king|king:3; margaret court|court:2; evonne goolagong|goolagong:2; steffi graf|graf:4; monica seles|seles:3; martina hingis|hingis:3;
 lindsay davenport|davenport:2; jennifer capriati|capriati:2; arantxa sanchez vicario|sanchez vicario:1; gabriela sabatini|sabatini:2; conchita martinez|martinez:1; amelie mauresmo|mauresmo:2; justine henin|henin:3; kim clijsters|clijsters:3; maria sharapova|sharapova:4; ana ivanovic|ivanovic:2;
 jelena jankovic|jankovic:1; caroline wozniacki|wozniacki:3; victoria azarenka|azarenka:2; petra kvitova|kvitova:2; angelique kerber|kerber:2; garbine muguruza|muguruza:2; simona halep|halep:3; naomi osaka|osaka:4; ashleigh barty|barty:3; iga swiatek|swiatek:3;
@@ -99,15 +99,15 @@ carlos moya|moya:1; gustavo kuerten|kuerten:2; thomas muster|muster:1; yannick n
 
   { id: "q-pop-sport-position", theme: "Sport", ask: "Name a position in a team sport", what: "a sports position", items: `
 quarterback|qb:5; running back|halfback|tailback:4; wide receiver:4; tight end:4; offensive lineman|offensive line:3; center:5; guard:4; tackle:3; defensive end:3; linebacker:4; cornerback:4; safety:4;
-kicker|placekicker:3; punter:3; fullback:3; nose tackle:1; long snapper:1; defensive tackle:2; pitcher:5; catcher:5; first baseman|first base:4; second baseman|second base:4; third baseman|third base:4; shortstop:5;
-left fielder|left field:3; center fielder|center field:3; right fielder|right field:3; outfielder:3; infielder:2; designated hitter|dh:3; closer:2; reliever|relief pitcher:2; starting pitcher:2; batter|hitter:3; point guard:5; shooting guard:5;
-small forward:5; power forward:5; sixth man:1; goalkeeper|goalie|keeper:5; defender:4; centre back|center back:4; full back|fullback:3; left back:3; right back:3; wing back|wingback:3; sweeper:2; midfielder:5;
+kicker|placekicker:3; punter:3; nose tackle:1; long snapper:1; defensive tackle:2; pitcher:5; catcher:5; first baseman|first base:4; second baseman|second base:4; third baseman|third base:4; shortstop:5;
+left fielder|left field:3; center fielder|center field:3; right fielder|right field:3; outfielder:3; infielder:2; designated hitter|dh:3; closer:2; reliever|relief pitcher:2; starting pitcher:2; point guard:5; shooting guard:5;
+small forward:5; power forward:5; goalkeeper|goalie|keeper:5; defender:4; centre back|center back:4; full back|fullback:3; left back:3; right back:3; wing back|wingback:3; sweeper:2; midfielder:5;
 defensive midfielder:3; central midfielder:3; attacking midfielder:3; winger|wide player:4; striker:5; forward:4; centre forward|center forward:3; false nine:1; playmaker:2; libero:2; goaltender:3; defenseman|defenceman:3;
-left wing:3; right wing:3; winger hockey:1; enforcer:1; prop:3; hooker:3; lock|second row:3; flanker:3; number eight|no 8:3; scrum half:3; fly half|stand-off|outside half:3; wing:3;
-inside centre|outside centre:2; loosehead prop:1; tighthead prop:1; blindside flanker:1; openside flanker:1; wicketkeeper|wicket keeper:4; bowler:4; batsman|batter:3; slip:3; gully:3; point:3; cover:3;
+left wing:3; right wing:3; prop:3; hooker:3; lock|second row:3; flanker:3; number eight|no 8:3; scrum half:3; fly half|stand-off|outside half:3; wing:3;
+inside centre|outside centre:2; loosehead prop:1; tighthead prop:1; blindside flanker:1; openside flanker:1; wicketkeeper|wicket keeper:4; bowler:4; batsman|batter|hitter:3; slip:3; gully:3; point:3; cover:3;
 mid-off:3; mid-on:3; square leg:3; fine leg:3; third man:3; long on:2; long off:2; silly point:2; short leg:2; extra cover:1; cow corner:1; deep midwicket:1;
-setter:4; libero volleyball:1; outside hitter:3; middle blocker:3; opposite hitter:1; goalkeeper water polo:1; attackman|attacker:1; defenseman lacrosse:1; midfield lacrosse:1; shooter:2; goal attack:2; goal shooter:2;
-wing attack:2; wing defence|wing defense:1; goal defence|goal defense:1; goal keeper netball:1; centre netball:1; skip:2; lead:2; second:1; third:1; vice skip:1; driver:1; navigator:1;
+setter:4; outside hitter:3; middle blocker:3; opposite hitter:1; attackman|attacker:1; goal attack:2; goal 
+wing attack:2; wing defence|wing defense:1; goal defence|goal defense:1; skip:2; lead:2; second:1; third:1; vice skip:1; 
 ` },
 
   { id: "q-pop-ball-equipment", theme: "Sport", ask: "Name something used in tennis, golf or baseball", what: "something used in tennis, golf or baseball", items: `
@@ -115,7 +115,7 @@ racket|racquet|tennis racket:5; tennis ball:5; net:4; golf club|club:5; driver:4
 flag|pin|flagstick:3; baseball bat|bat:5; baseball glove|mitt|glove:5; baseball:5; base:3; home plate:3; helmet:3; catchers mask|mask:3; chest protector:2; shin guards:2; batting gloves:2; cleats:2;
 strings:2; grip:2; sweatband|wristband:2; headband:2; towel:1; ball machine:1; umpires chair|chair:1; hawk-eye:1; scoreboard:1; pitching mound|mound:2; batting helmet:2; batting cage:1;
 caddie:2; golf glove:2; fairway wood|wood:3; hybrid:2; sand wedge:2; pitching wedge:2; lob wedge:1; nine iron:1; scorecard:2; ball marker:1; divot tool:1; pitch mark repairer:1;
-rosin bag:1; pine tar:1; dugout:1; bullpen:1; backstop:1; foul pole:1; baseball cap|cap:2; jersey:1; shoes|trainers:2; visor:1; shorts:1; skirt:1;
-shuttle? :1; ball boy:1; cord:1; tape:1; score pencil:1; stopwatch:1; sunscreen:1; sunglasses:1; umbrella:1; tennis shoes:1; golf shoes:1; spikes:1;
+rosin bag:1; pine tar:1; dugout:1; bullpen:1; backstop:1; foul pole:1; baseball cap|cap:2; shoes|trainers:2; visor:1; skirt:1;
+tennis shoes:1; golf shoes:1; spikes:1;
 ` },
 ]);

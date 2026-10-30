@@ -311,4 +311,47 @@ sulla:2; crassus:2; mark antony:2; octavian:2; pyrrhus:2; themistocles:2; philip
 aetius:1; agrippa:1; germanicus:1; epaminondas:1; miltiades:1; pausanias:1; lysander:1; alcibiades:1; xenophon:1; nicias:1;
 demosthenes:1; antigonus:1; perdiccas:1; craterus:1; parmenion:1;
 ` },
+  { id: "q-world-rhyme-cat", theme: "Words", ask: "Name a word that rhymes with \"cat\"", what: "a word that rhymes with cat", items: `
+bat:5; hat:5; mat:5; rat:5; sat:5; fat:5; flat:5; that:5; chat:4; pat:4;
+brat:4; splat:4; spat:4; vat:4; gnat:4; slat:4; scat:4; drat:4; combat:4; habitat:4;
+wildcat:4; bobcat:4; tomcat:4; acrobat:4; copycat:4; format:4; diplomat:4; democrat:4; stat:3; tat:3;
+sprat:3; prat:3; at:3; cravat:3; wombat:3; muskrat:3; caveat:3; thermostat:3; aristocrat:3; bureaucrat:3;
+autocrat:3; technocrat:3; plutocrat:3; polecat:3; hellcat:3; ratatat:3; alleycat:3; pussycat:3; placemat:3; doormat:3;
+sabbat:2; whereat:2; thereat:2; hereat:2; brickbat:2; fruitbat:2; matt:2;
+` },
+  { id: "q-world-rhyme-day", theme: "Words", ask: "Name a word that rhymes with \"day\"", what: "a word that rhymes with day", items: `
+way:5; say:5; play:5; stay:5; may:5; bay:5; hay:5; pay:5; ray:5; lay:5;
+gray|grey:4; spray:4; okay|ok:4; today:4; away:4; display:4; delay:4; decay:4; betray:4; survey:4;
+obey:4; repay:4; relay:4; pray:4; sway:4; tray:4; clay:4; stray:4; slay:4; weigh:4;
+prey:4; they:4; hey:4; whey:4; neigh:4; sleigh:4; fray:4; jay:4; nay:4; gay:4;
+bray:4; hooray:4; array:3; essay:3; ballet:3; cafe:3; sorbet:3; bouquet:3; buffet:3; cliche:3;
+soiree:3; filet:3; cabaret:3; valet:3; sachet:3; matinee:3; portray:3; convey:3; dismay:3; ashtray:3;
+airway:3; anyway:3; highway:3; runway:3; doorway:3; hallway:3; subway:3; someday:3; birthday:3; holiday:3;
+yesterday:3; weekday:3; payday:3; mayday:3; heyday:3; hurray:3; sundae:3; risque:3; fiance:3; entree:3;
+passe:3; toupee:3; consomme:3; cabriolet:3; bidet:3; croquet:3; gourmet:3; duvet:3; chalet:3; ricochet:3;
+beret:3; parfait:3; protege:3; pate:3; fey:2; dray:2; flay:2; lei:2; yay:2; bey:2;
+kay:2; midday:2; noonday:2; caraway:2; disarray:2; disobey:2; moray:2; passageway:2; underway:2; expressway:2;
+motorway:2; speedway:2; stairway:2; taxiway:2; tramway:2; walkway:2; waterway:2; flyaway:2; getaway:2; hideaway:2;
+castaway:2; breakaway:2; giveaway:2; runaway:2; stowaway:2; takeaway:2;
+` },
+  { id: "q-world-rhyme-tree", theme: "Words", ask: "Name a word that rhymes with \"tree\"", what: "a word that rhymes with tree", items: `
+see:5; me:5; be:5; free:5; three:5; key:5; sea:5; tea:5; knee:5; bee:5;
+flee:4; fee:4; glee:4; agree:4; degree:4; guarantee:4; he:4; she:4; we:4; pee:4;
+plea:4; spree:4; tee:4; flea:4; pea:4; ski:4; referee:4; trustee:4; employee:4; jubilee:4;
+refugee:4; chimpanzee:4; marquee:4; pedigree:4; disagree:4; absentee:3; repartee:3; debris:3; lee:3; thee:3;
+ye:3; wee:3; bourgeoisie:3; devotee:3; nominee:3; committee:3; addressee:3; attendee:3; appointee:3; payee:3;
+licensee:3; grantee:3; lessee:3; mortgagee:3; standee:3; divorcee:3; evacuee:3; escapee:3; amputee:3; fricassee:3;
+apogee:3; perigee:3; settee:3; puree:3; toupee:3; jamboree:3; chickadee:3; banshee:3; yippee:3; whoopee:3;
+ennui:3; ogee:2; trainee:2; tepee:2; tipi:2; honoree:2; draftee:2; enlistee:2; interviewee:2; invitee:2;
+returnee:2; vis-a-vis:2; tee-hee:2; hee-hee:2; fiddle-dee-dee:2; tweedledee:2; bumblebee:2; honeybee:2; queen bee:2; busy bee:2;
+spelling bee:2; filigree:2;
+` },
+  { id: "q-world-rhyme-moon", theme: "Words", ask: "Name a word that rhymes with \"moon\"", what: "a word that rhymes with moon", items: `
+soon:5; june:5; tune:5; noon:5; balloon:5; afternoon:5; cartoon:5; raccoon:4; lagoon:4; harpoon:4;
+typhoon:4; monsoon:4; cocoon:4; baboon:4; saloon:4; maroon:4; platoon:4; bassoon:4; buffoon:4; dune:4;
+prune:4; rune:4; croon:4; swoon:4; boon:4; goon:4; loon:4; tycoon:4; pontoon:4; honeymoon:4;
+festoon:3; spittoon:3; doubloon:3; macaroon:3; attune:3; immune:3; commune:3; opportune:3; jejune:3; lune:3;
+picayune:3; importune:3; teaspoon:3; tablespoon:3; full moon:3; half moon:3; blue moon:3; harvest moon:3; poltroon:3; galloon:3;
+pantaloon:3; lampoon:3; cardoon:3; dragoon:3; rigadoon:3; ratoon:3;
+` },
 ]);
