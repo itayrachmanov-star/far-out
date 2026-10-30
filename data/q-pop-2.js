@@ -1,6 +1,6 @@
 /* Far Out — pop culture question bank, part 2: movies (cont.) and TV */
 FarOut.addQuestions([
-  { id: "q-movie-franchise", theme: "Movies", ask: "Name a movie franchise", what: "a movie franchise", items: `
+  { id: "q-pop-movie-franchise", theme: "Movies", ask: "Name a movie franchise", what: "a movie franchise", items: `
 star wars:5; harry potter:5; james bond|bond:5; marvel cinematic universe|mcu|avengers:5; indiana jones:5; jurassic park|jurassic world:5; the lord of the rings|lord of the rings:5; pirates of the caribbean:5; fast and furious|fast & furious:5; mission impossible:5; the matrix|matrix:4; terminator:4;
 alien|aliens:4; predator:3; rocky|creed:4; rambo:3; die hard:4; lethal weapon:3; back to the future:5; star trek:5; planet of the apes:4; mad max:3; transformers:4; x-men:4;
 spider-man|spiderman:4; batman:5; superman:4; toy story:5; shrek:5; ice age:4; despicable me|minions:4; madagascar:4; kung fu panda:4; how to train your dragon:3; cars:3; the incredibles:3;
@@ -16,7 +16,7 @@ the santa clause|santa clause:3; the parent trap:2; freaky friday:2; honey i shr
 child's play:3; hellraiser:2; texas chainsaw massacre:3; the omen:2; poltergeist:2; the ring:2; the grudge:2; pet sematary:1; children of the corn:1; critters:1; tremors:2; predator vs alien:1;
 ` },
 
-  { id: "q-animated-movie", theme: "Movies", ask: "Name an animated movie", what: "an animated movie", items: `
+  { id: "q-pop-animated-movie", theme: "Movies", ask: "Name an animated movie", what: "an animated movie", items: `
 toy story:5; finding nemo:5; the lion king:5; frozen:5; shrek:5; the incredibles:4; monsters inc:4; up:4; inside out:4; moana:4; coco:4; aladdin:5;
 beauty and the beast:4; the little mermaid:4; snow white and the seven dwarfs|snow white:4; cinderella:4; sleeping beauty:3; bambi:3; dumbo:3; pinocchio:3; peter pan:3; alice in wonderland:3; lady and the tramp:3; the jungle book:3;
 101 dalmatians:3; mulan:4; tangled:4; hercules:3; tarzan:3; pocahontas:3; zootopia:4; encanto:4; big hero 6:3; wreck-it ralph:3; cars:4; ratatouille:4;
@@ -34,7 +34,7 @@ the grinch|how the grinch stole christmas:3; the lorax:3; horton hears a who:2; 
 thumbelina:1; all dogs go to heaven:2; oliver and company:2; the black cauldron:1; watership down:2; the plague dogs:1; the last unicorn:2; the flight of dragons:1; heavy traffic:1; wizards:1; 
 ` },
 
-  { id: "q-marvel-movie", theme: "Movies", ask: "Name a Marvel movie", what: "a Marvel movie", items: `
+  { id: "q-pop-marvel-movie", theme: "Movies", ask: "Name a Marvel movie", what: "a Marvel movie", items: `
 the avengers|avengers:5; avengers endgame|endgame:5; avengers infinity war|infinity war:5; iron man:5; black panther:5; captain america the first avenger|captain america:4; thor:4; thor ragnarok|ragnarok:4; guardians of the galaxy:5; doctor strange:4; ant-man:4; captain marvel:4;
 spider-man homecoming|homecoming:4; spider-man far from home|far from home:4; spider-man no way home|no way home:5; avengers age of ultron|age of ultron:4; captain america civil war|civil war:4; captain america the winter soldier|winter soldier:4; iron man 2:3; iron man 3:3; the incredible hulk|incredible hulk:3; thor the dark world|dark world:3;
 guardians of the galaxy vol 2|guardians of the galaxy 2:4; guardians of the galaxy vol 3|guardians of the galaxy 3:4; ant-man and the wasp:3; black widow:4; shang-chi and the legend of the ten rings|shang-chi:3; eternals:3; doctor strange in the multiverse of madness|multiverse of madness:3; thor love and thunder|love and thunder:3;
@@ -45,7 +45,7 @@ ghost rider spirit of vengeance:1; the punisher|punisher:2; punisher war zone:1;
 venom the last dance|the last dance:2; morbius:3; madame web:2; kraven the hunter|kraven:2; spider-man into the spider-verse|into the spider-verse:4; spider-man across the spider-verse|across the spider-verse:3; howard the duck:2; captain america 1990:1; the punisher 1989:1; hulk|the hulk:3;
 ` },
 
-  { id: "q-movie-villain", theme: "Movies", ask: "Name a movie villain", what: "a movie villain", items: `
+  { id: "q-pop-movie-villain", theme: "Movies", ask: "Name a movie villain", what: "a movie villain", items: `
 darth vader|vader:5; the joker|joker:5; hannibal lecter|lecter:5; freddy krueger|freddy:5; jason voorhees|jason:5; michael myers:5; norman bates:4; voldemort|lord voldemort:5; sauron:4; hans gruber|gruber:4; anton chigurh|chigurh:3; agent smith:4;
 the terminator|terminator:4; t-1000:3; the xenomorph|xenomorph|alien:3; the predator|predator:3; thanos:4; loki:4; magneto:3; lex luthor|luthor:4; bane:4; green goblin:3; doctor octopus|doc ock:3; venom:3;
 scar:5; jafar:4; ursula:5; maleficent:4; cruella de vil|cruella:5; gaston:4; hades:4; captain hook|hook:4; the evil queen|evil queen:4; the wicked witch of the west|wicked witch of the west:5; the queen of hearts|queen of hearts:3; shere khan:4;
@@ -62,7 +62,7 @@ ego:2; the vulture|vulture:2; mysterio:3; electro:3; the lizard|lizard:3; sandma
 voldemort's snake|nagini:2; lucius malfoy:2; fenrir greyback:1; wormtail:1; quirrell:1; gilderoy lockhart:1; grindelwald:2; the dementors|dementors:2; basilisk:2; aragog:1;
 ` },
 
-  { id: "q-lotr-character", theme: "Books", ask: "Name a character from The Lord of the Rings or The Hobbit", what: "a Lord of the Rings or Hobbit character", items: `
+  { id: "q-pop-lotr-character", theme: "Books", ask: "Name a character from The Lord of the Rings or The Hobbit", what: "a Lord of the Rings or Hobbit character", items: `
 frodo baggins|frodo:5; samwise gamgee|sam gamgee|sam:5; gandalf:5; aragorn|strider:5; legolas:5; gimli:5; boromir:4; merry|meriadoc brandybuck:4; pippin|peregrin took:4; gollum|smeagol:5; sauron:5; saruman:4;
 bilbo baggins|bilbo:5; thorin oakenshield|thorin:4; smaug:5; elrond:4; galadriel:4; arwen:4; eowyn:4; faramir:3; theoden:4; eomer:3; denethor:3; grima wormtongue|wormtongue:3;
 treebeard:4; tom bombadil:3; goldberry:2; radagast:3; balin:3; dwalin:2; fili:2; kili:3; dori:2; nori:2; ori:2; oin:2;
@@ -74,7 +74,7 @@ shagrat:1; grishnakh:1; gamling:1; hama:1; gothmog the orc:1; the mouth of sauro
 barliman butterbur|butterbur:2; bill ferny:1; farmer maggot|maggot:1; fatty bolger:1; ted sandyman:1; lotho sackville-baggins:1; the master of laketown|master of laketown:2; alfrid:1; necromancer:1; the three trolls|bert|tom|william:2;
 ` },
 
-  { id: "q-spielberg-film", theme: "Movies", ask: "Name a movie directed by Steven Spielberg", what: "a Spielberg film", items: `
+  { id: "q-pop-spielberg-film", theme: "Movies", ask: "Name a movie directed by Steven Spielberg", what: "a Spielberg film", items: `
 jaws:5; jurassic park:5; et the extra-terrestrial|et:5; raiders of the lost ark:5; schindlers list:5; saving private ryan:5; close encounters of the third kind:4; indiana jones and the temple of doom|temple of doom:4; indiana jones and the last crusade|last crusade:4; hook:4;
 catch me if you can:4; minority report:4; the lost world jurassic park|lost world:3; war of the worlds:3; ai artificial intelligence|a.i.|ai:3; the terminal:3; munich:2; lincoln:3; war horse:3; bridge of spies:3;
 the post:2; ready player one:3; west side story:3; the fabelmans:2; the color purple:3; empire of the sun:3; amistad:2; always:1; 1941:2; duel:2;
@@ -82,7 +82,7 @@ the sugarland express|sugarland express:1; the adventures of tintin|tintin:3; th
 
 ` },
 
-  { id: "q-disney-pixar-character", theme: "Movies", ask: "Name a Disney or Pixar character", what: "a Disney or Pixar character", items: `
+  { id: "q-pop-disney-pixar-character", theme: "Movies", ask: "Name a Disney or Pixar character", what: "a Disney or Pixar character", items: `
 mickey mouse|mickey:5; minnie mouse|minnie:4; donald duck|donald:5; goofy:5; pluto:4; daisy duck|daisy:3; chip|dale|chip and dale:3; scrooge mcduck|scrooge:4; simba:5; mufasa:4; scar:4; nala:4;
 timon:5; pumbaa:5; rafiki:3; zazu:3; elsa:5; anna:5; olaf:5; kristoff:4; sven:3; hans:2; moana:5; maui:4;
 ariel:5; sebastian:4; flounder:4; ursula:4; king triton:2; prince eric|eric:3; belle:5; the beast|beast:5; gaston:4; lumiere:4; cogsworth:4; mrs potts:3;
@@ -106,7 +106,7 @@ syndrome:3; flik:2; hopper:2; atta:1; francis:1; heimlich:1; dot:1; princess att
 barley lightfoot:1; joe gardner:2; 22:1; ember lumen:1; wade ripple:1; mei lee:2; luca paguro:2; alberto:2; giulia:1; 
 ` },
 
-  { id: "q-simpsons-character", theme: "TV", ask: "Name a character from The Simpsons", what: "a Simpsons character", items: `
+  { id: "q-pop-simpsons-character", theme: "TV", ask: "Name a character from The Simpsons", what: "a Simpsons character", items: `
 homer simpson|homer:5; marge simpson|marge:5; bart simpson|bart:5; lisa simpson|lisa:5; maggie simpson|maggie:5; ned flanders|flanders|ned:5; moe szyslak|moe:5; apu nahasapeemapetilon|apu:5; mr burns|montgomery burns|burns:5; waylon smithers|smithers:4; krusty the clown|krusty:5; milhouse van houten|milhouse:5;
 nelson muntz|nelson:4; ralph wiggum|ralph:4; chief wiggum|clancy wiggum:4; principal skinner|seymour skinner|skinner:5; groundskeeper willie|willie:4; barney gumble|barney:4; lenny leonard|lenny:3; carl carlson|carl:3; comic book guy|jeff albertson:3; sideshow bob|robert terwilliger:4; professor frink|frink:3; dr hibbert|julius hibbert:3;
 dr nick|nick riviera:3; edna krabappel|mrs krabappel:4; otto mann|otto:3; patty bouvier|patty:3; selma bouvier|selma:3; grampa simpson|abe simpson|grampa|grandpa simpson:4; santas little helper:3; snowball ii|snowball:3; mayor quimby|quimby:3; fat tony:3; kent brockman|brockman:3; troy mcclure:3;
@@ -118,7 +118,7 @@ frank grimes|grimey:2; bleeding gums murphy:2; kang|kodos:2; mr largo:1; gabbo:1
 cookie kwan:1; llewellyn sinclair:1; mrs muntz:1; the crazy cat lady|crazy cat lady:2; hugh parkfield:1; dr marvin monroe|marvin monroe:1; jub-jub:1; stampy:2; plopper|spider-pig:3; mr plow:1;
 ` },
 
-  { id: "q-sitcom", theme: "TV", ask: "Name a sitcom", what: "a sitcom", items: `
+  { id: "q-pop-sitcom", theme: "TV", ask: "Name a sitcom", what: "a sitcom", items: `
 friends:5; seinfeld:5; the office|office:5; parks and recreation|parks & rec:4; cheers:4; frasier:4; the big bang theory|big bang theory:5; how i met your mother:5; two and a half men:4; modern family:4; arrested development:4; community:3;
 30 rock:3; scrubs:4; will and grace:3; the golden girls|golden girls:4; the fresh prince of bel-air|fresh prince of bel-air|fresh prince:4; full house:4; family matters:3; home improvement:4; everybody loves raymond:4; the king of queens|king of queens:3; married with children:4; roseanne:3;
 the cosby show|cosby show:3; a different world:2; happy days:4; mash|m*a*s*h:4; all in the family:3; the jeffersons|jeffersons:3; good times:2; taxi:3; threes company:3; laverne and shirley:3; mork and mindy:3; welcome back kotter:2;
@@ -137,7 +137,7 @@ the mighty boosh|mighty boosh:2; nathan barley:1; green wing:2; the league of ge
 cuckoo:1; the windsors:1; toast of london:2; detectorists:3; ghosts:3; this country:2; people just do nothing:2; stath lets flats:1; man like mobeen:1; after life:2; hunderby:1;
 ` },
 
-  { id: "q-tv-drama", theme: "TV", ask: "Name a TV drama series", what: "a TV drama", items: `
+  { id: "q-pop-tv-drama", theme: "TV", ask: "Name a TV drama series", what: "a TV drama", items: `
 breaking bad:5; the sopranos|sopranos:5; the wire|wire:4; game of thrones:5; mad men:4; the west wing|west wing:4; er:4; greys anatomy:5; house:5; lost:5; 24:4; the x-files|x-files:4;
 twin peaks:3; dallas:3; dynasty:3; law and order:4; csi:4; ncis:4; criminal minds:4; bones:3; the mentalist|mentalist:3; castle:3; monk:3; columbo:4;
 murder she wrote:4; magnum pi:3; miami vice:3; hill street blues:2; nypd blue:3; the good wife|good wife:3; suits:4; the practice:2; ally mcbeal:3; boston legal:3; chicago fire:3; chicago pd:2;
@@ -153,7 +153,7 @@ dexter:4; hannibal:3; the blacklist:3; prison break:4; alias:2; scandal:3; how t
 the pacific:1; band of brothers:4; chernobyl:3; the night manager:2; the night of:1; big little lies:3; mare of easttown:2; the white lotus:3; the bear:3; severance:3; the diplomat:1; slow horses:2;
 ` },
 
-  { id: "q-cartoon-character", theme: "TV", ask: "Name a cartoon character", what: "a cartoon character", items: `
+  { id: "q-pop-cartoon-character", theme: "TV", ask: "Name a cartoon character", what: "a cartoon character", items: `
 bugs bunny:5; mickey mouse:5; donald duck:5; daffy duck:4; porky pig:4; tweety|tweety bird:4; sylvester:3; road runner:4; wile e coyote|wile e. coyote:4; elmer fudd:4; speedy gonzales:3; pepe le pew:3;
 foghorn leghorn:3; yosemite sam:3; marvin the martian:3; tom|tom cat:5; jerry|jerry mouse:5; scooby-doo|scooby doo:5; shaggy:4; fred flintstone|fred:4; wilma flintstone:3; barney rubble:3; george jetson:3; yogi bear:4;
 boo-boo|boo boo bear:2; top cat:3; huckleberry hound:3; quick draw mcgraw:2; snagglepuss:2; the pink panther|pink panther:4; popeye:4; olive oyl:3; betty boop:3; felix the cat:3; woody woodpecker:3; mighty mouse:3;
@@ -173,7 +173,7 @@ tintin:3; asterix:3; obelix:3; lucky luke:2; babar:2; paddington bear|paddington
 wallace and gromit|wallace|gromit:4; shaun the sheep|shaun:3; morph:1; danger mouse:3; count duckula:2; bananaman:2; roobarb:1; mr men:2; the clangers|clangers:2; bagpuss:2; ivor the engine:1; the wombles|wombles:2;
 ` },
 
-  { id: "q-game-show", theme: "TV", ask: "Name a TV game show", what: "a game show", items: `
+  { id: "q-pop-game-show", theme: "TV", ask: "Name a TV game show", what: "a game show", items: `
 jeopardy:5; wheel of fortune:5; who wants to be a millionaire:5; the price is right|price is right:5; family feud:5; deal or no deal:4; pointless:3; the chase|chase:4; tipping point:3; countdown:4; only connect:3; university challenge:3;
 mastermind:4; blockbusters:3; bullseye:4; catchphrase:4; play your cards right:3; strike it lucky:2; family fortunes:4; the weakest link|weakest link:5; the generation game|generation game:3; blankety blank:3; big break:2; 3-2-1|321:1;
 supermarket sweep:4; press your luck:2; lets make a deal:4; the match game|match game:2; hollywood squares:3; password:2; pyramid|the 100000 pyramid:3; tic tac dough:1; double dare:3; legends of the hidden temple:3; fear factor:3; wipeout:3;

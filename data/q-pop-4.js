@@ -1,6 +1,6 @@
 /* Far Out — pop culture question bank, part 4: music */
 FarOut.addQuestions([
-  { id: "q-rock-band", theme: "Music", ask: "Name a rock band", what: "a rock band", items: `
+  { id: "q-pop-rock-band", theme: "Music", ask: "Name a rock band", what: "a rock band", items: `
 the beatles|beatles:5; the rolling stones|rolling stones:5; led zeppelin:5; queen:5; pink floyd:5; ac/dc|acdc:5; nirvana:5; metallica:5; u2:5; the who|who:4; the doors|doors:4; aerosmith:4;
 guns n roses|guns and roses:5; kiss:4; black sabbath:4; deep purple:3; fleetwood mac:4; eagles|the eagles:4; the clash|clash:3; sex pistols:4; the ramones|ramones:3; green day:5; foo fighters:5; red hot chili peppers:5;
 pearl jam:4; soundgarden:3; radiohead:4; oasis:5; blur:4; coldplay:5; muse:4; arctic monkeys:4; the killers|killers:4; the strokes|strokes:3; the white stripes|white stripes:3; linkin park:5;
@@ -20,7 +20,7 @@ the velvet underground|velvet underground:3; the stooges:2; mc5:1; the pixies|pi
 the grateful dead|grateful dead:3; jefferson airplane:2; santana:3; steppenwolf:2; the monkees:2; chicago:2; styx:2; reo speedwagon:2; toto:3; heart:3; the traveling wilburys|traveling wilburys:2;
 ` },
 
-  { id: "q-boyband-girlgroup", theme: "Music", ask: "Name a boy band or girl group", what: "a boy band or girl group", items: `
+  { id: "q-pop-boyband-girlgroup", theme: "Music", ask: "Name a boy band or girl group", what: "a boy band or girl group", items: `
 backstreet boys:5; nsync|n sync:5; one direction:5; take that:5; westlife:4; boyzone:4; new kids on the block:4; jonas brothers:4; bts:5; blackpink:5; exo:3; twice:3;
 big bang|bigbang:2; super junior:2; 5 seconds of summer|5sos:3; the wanted:3; jls:3; mcfly:3; busted:3; blue:3; a1:1; 98 degrees:3; boyz ii men:4; new edition:2;
 the jackson 5|jackson 5|jackson five:4; the osmonds:2; bay city rollers:3; menudo:1; hanson:4; o-town:2; lfo:1; b2k:1; 3t:1; five:3; 911:2; east 17:3;
@@ -34,7 +34,7 @@ steps:3; s club 7:3; hear'say|hearsay:2; liberty x:2; mis-teeq|misteeq:2; honeyz
 let loose:1; north and south:1; ultimate kaos:1; damage:1; point break:1; 2gether:1; dream street:1; a*teens|ateens:2;
 ` },
 
-  { id: "q-female-singer", theme: "Music", ask: "Name a famous female singer", what: "a female singer", items: `
+  { id: "q-pop-female-singer", theme: "Music", ask: "Name a famous female singer", what: "a female singer", items: `
 beyonce|beyonce knowles:5; taylor swift:5; adele:5; rihanna:5; lady gaga:5; madonna:5; whitney houston:5; mariah carey:5; celine dion:5; britney spears:5; christina aguilera:4; katy perry:5;
 ariana grande:5; billie eilish:5; dua lipa:5; olivia rodrigo:4; sabrina carpenter:3; selena gomez:3; miley cyrus:4; demi lovato:3; shakira:5; jennifer lopez:4; pink|p!nk:4; kelly clarkson:4;
 alicia keys:4; sia:4; lana del rey:4; lorde:3; amy winehouse:5; duffy:2; florence welch|florence and the machine:3; ellie goulding:3; jessie j:3; lily allen:3; kate bush:4; dolly parton:5;
@@ -52,7 +52,7 @@ gloria estefan:3; selena quintanilla|selena:2; jennifer hudson:3; leann rimes:3;
 fergie:2; gwen stefani:4; hilary duff:2; lindsay lohan:1; jessica simpson:3; mandy moore:3; jewel:2; natasha bedingfield:3; vanessa carlton:2; michelle branch:2; kelis:2;
 ` },
 
-  { id: "q-male-singer", theme: "Music", ask: "Name a famous male singer", what: "a male singer", items: `
+  { id: "q-pop-male-singer", theme: "Music", ask: "Name a famous male singer", what: "a male singer", items: `
 elvis presley|elvis:5; frank sinatra|sinatra:5; michael jackson:5; prince:5; david bowie|bowie:5; elton john:5; freddie mercury:5; mick jagger|jagger:5; paul mccartney|mccartney:5; john lennon|lennon:5; bob dylan|dylan:5; bruce springsteen|springsteen:4;
 billy joel:4; stevie wonder:5; marvin gaye:4; ray charles:4; james brown:4; otis redding:3; sam cooke:3; al green:2; barry white:3; lionel richie:4; michael bolton:2; rod stewart:4;
 phil collins:4; sting:4; george michael:5; robbie williams:5; ed sheeran:5; justin bieber:5; justin timberlake:5; bruno mars:5; the weeknd:4; harry styles:5; shawn mendes:3; sam smith:4;
@@ -71,7 +71,7 @@ seal:3; craig david:3; will young:3; gareth gates:2; darius danesh:1; mika:2; ol
 enrique iglesias:4; julio iglesias:3; marc anthony:2; bad bunny:3; j balvin:2; daddy yankee:3; luis fonsi:3; andrea bocelli:4; luciano pavarotti:5; placido domingo:3; jose carreras:3; josh groban:2;
 ` },
 
-  { id: "q-broadway-musical", theme: "Music", ask: "Name a Broadway musical", what: "a Broadway musical", items: `
+  { id: "q-pop-broadway-musical", theme: "Music", ask: "Name a Broadway musical", what: "a Broadway musical", items: `
 hamilton:5; wicked:5; the lion king|lion king:5; the phantom of the opera|phantom of the opera:5; les miserables|les mis:5; cats:5; chicago:5; rent:4; west side story:4; grease:5; hairspray:3; mamma mia:5;
 the book of mormon|book of mormon:4; dear evan hansen:3; fiddler on the roof:4; oklahoma:3; south pacific:3; the sound of music|sound of music:5; the king and i|king and i:3; my fair lady:4; guys and dolls:3; cabaret:4; a chorus line:3; evita:4;
 jesus christ superstar:3; joseph and the amazing technicolor dreamcoat|joseph:4; oliver:4; annie:5; mary poppins:4; matilda:4; billy elliot:3; the producers|producers:3; spamalot:3; avenue q:3; in the heights:3; hadestown:3;
@@ -86,7 +86,7 @@ priscilla queen of the desert:2; sister act:3; footloose:3; thoroughly modern mi
 half a sixpence:2; me and my girl:1; oh what a lovely war:1; jekyll and hyde:2; chess:3; the woman in white:1; 
 ` },
 
-  { id: "q-dance-style", theme: "Music", ask: "Name a style of dance", what: "a dance style", items: `
+  { id: "q-pop-dance-style", theme: "Music", ask: "Name a style of dance", what: "a dance style", items: `
 ballet:5; tap|tap dance:5; jazz|jazz dance:4; hip hop|hip-hop:5; salsa:5; tango:5; waltz:5; foxtrot:4; quickstep:4; cha-cha|cha cha cha|cha cha:4; rumba:4; samba:4;
 paso doble:3; jive:4; charleston:4; swing:4; lindy hop:3; jitterbug:3; breakdance|breakdancing|breaking:4; ballroom:4; latin:3; contemporary:3; modern|modern dance:3; line dancing:3;
 square dancing:3; flamenco:4; belly dancing|belly dance:4; polka:3; mambo:3; merengue:2; bachata:2; bossa nova:2; lambada:2; macarena:3; the twist|twist:3; mashed potato:1;
@@ -100,7 +100,7 @@ cumbia:2; reggaeton:2; dancehall:2; afrobeats:1; gumboot dancing:1; kathak:1; bh
 tarantella:2; fandango:2; sardana:1; sirtaki|zorba:2; cossack dance|hopak:1; kazachok:1; lion dance:2; dragon dance:2; fan dance:1; tinikling:1; 
 ` },
 
-  { id: "q-queen-song", theme: "Music", ask: "Name a song by Queen", what: "a Queen song", items: `
+  { id: "q-pop-queen-song", theme: "Music", ask: "Name a song by Queen", what: "a Queen song", items: `
 bohemian rhapsody:5; we will rock you:5; we are the champions:5; another one bites the dust:5; dont stop me now:5; somebody to love:5; killer queen:5; under pressure:5; radio ga ga:5; i want to break free:5; a kind of magic:4; who wants to live forever:4;
 crazy little thing called love:5; bicycle race:4; fat bottomed girls:4; youre my best friend:4; love of my life:4; tie your mother down:3; seven seas of rhye:2; flash:3; hammer to fall:3; one vision:3; innuendo:3; the show must go on:4;
 these are the days of our lives:3; i want it all:4; breakthru:2; the miracle:2; friends will be friends:3; play the game:3; save me:2; spread your wings:2; now im here:3; stone cold crazy:2; keep yourself alive:2; good old-fashioned lover boy:2;
@@ -110,7 +110,7 @@ sheer heart attack:1;ogre battle:1; father to son:1; teo torriatte:1; rock it:1;
 one year of love:1; is this the world we created:1; machines:1; gimme the prize:1; pain is so close to pleasure:1; was it all worth it:1; i cant live with you:1; delilah:1; bijou:1; a winters tale:1; thank god its christmas:2; 
 ` },
 
-  { id: "q-michael-jackson-song", theme: "Music", ask: "Name a Michael Jackson song", what: "a Michael Jackson song", items: `
+  { id: "q-pop-michael-jackson-song", theme: "Music", ask: "Name a Michael Jackson song", what: "a Michael Jackson song", items: `
 thriller:5; billie jean:5; beat it:5; bad:5; smooth criminal:5; man in the mirror:5; black or white:5; dont stop til you get enough:4; rock with you:4; wanna be startin somethin:3; the way you make me feel:4; dirty diana:3;
 earth song:4; you are not alone:3; heal the world:4; remember the time:3; scream:3; they dont care about us:3; will you be there:2; in the closet:2; jam:2; who is it:2; give in to me:1; gone too soon:1;
 childhood:1; ben:3; rockin robin:2; got to be there:2; one day in your life:1; off the wall:3; shes out of my life:2; girlfriend:1; human nature:3; pyt:2; the lady in my life:1; say say say:3;
@@ -119,7 +119,7 @@ cry:1; invincible:1; hold my hand:1; love never felt so good:2; abc:2; i want yo
 2000 watts:1; tabloid junkie:1; money:1; d s:1; dangerous:2; heaven can wait:1; threatened:1; xscape:1; chicago:1; slave to the rhythm:1; behind the mask:1; planet earth:1;
 ` },
 
-  { id: "q-taylor-swift-song", theme: "Music", ask: "Name a Taylor Swift song", what: "a Taylor Swift song", items: `
+  { id: "q-pop-taylor-swift-song", theme: "Music", ask: "Name a Taylor Swift song", what: "a Taylor Swift song", items: `
 shake it off:5; blank space:5; love story:5; you belong with me:5; bad blood:4; style:3; anti-hero:5; cruel summer:5; all too well:4; we are never ever getting back together:5; i knew you were trouble:4; 22:3;
 red:3; lover:4; willow:4; cardigan:4; august:3; betty:2; the 1:2; exile:2; folklore:2; evermore:2; champagne problems:2; no body no crime:1;
 mean:3; our song:3; teardrops on my guitar:3; tim mcgraw:3; fifteen:3; fearless:3; white horse:3; back to december:3; mine:2; sparks fly:2; begin again:2; ours:1;
@@ -133,7 +133,7 @@ tolerate it:2; my tears ricochet:1; invisible string:2; peace:1; hoax:1; seven:2
 coney island:1; tis the damn season:1; dorothea:1; ivy:2; cowboy like me:1; long story short:1; marjorie:1; closure:1;right where you left me:1; its time to go:1; the lakes:1;
 ` },
 
-  { id: "q-disney-song", theme: "Music", ask: "Name a song from a Disney movie", what: "a Disney song", items: `
+  { id: "q-pop-disney-song", theme: "Music", ask: "Name a song from a Disney movie", what: "a Disney song", items: `
 let it go:5; a whole new world:5; circle of life:5; hakuna matata:5; can you feel the love tonight:4; be our guest:5; beauty and the beast:4; belle:3; part of your world:5; under the sea:5; kiss the girl:4; poor unfortunate souls:4;
 colors of the wind:4; reflection:3; ill make a man out of you:4; youve got a friend in me:5; when you wish upon a star:5; zip-a-dee-doo-dah:2; bibbidi-bobbidi-boo:3; a dream is a wish your heart makes:3; someday my prince will come:3; whistle while you work:2; heigh-ho:3; supercalifragilisticexpialidocious:3;
 chim chim cher-ee:2; a spoonful of sugar:3; feed the birds:2; lets go fly a kite:2; the bare necessities:4; i wanna be like you:4; trust in me:2; friend like me:4; prince ali:2; arabian nights:2; one jump ahead:2; go the distance:3;
@@ -147,7 +147,7 @@ one last hope:1; the gospel truth:1;on the open road:1; in summer:3;
 fixer upper:2; frozen heart:2; the next right thing:2; lost in the woods:2; some things never change:1;where you are:2; we know the way:2; logo te pala:1; 
 ` },
 
-  { id: "q-christmas-song", theme: "Music", ask: "Name a Christmas song or carol", what: "a Christmas song", items: `
+  { id: "q-pop-christmas-song", theme: "Music", ask: "Name a Christmas song or carol", what: "a Christmas song", items: `
 jingle bells:5; silent night:5; white christmas:5; rudolph the red-nosed reindeer|rudolph:5; frosty the snowman:4; santa claus is comin to town:4; here comes santa claus:3; deck the halls:4; o come all ye faithful|adeste fideles:4; joy to the world:4; hark the herald angels sing:4; the first noel:3;
 o holy night:3; away in a manger:3; o christmas tree|o tannenbaum:3; o little town of bethlehem:3; god rest ye merry gentlemen:3; we three kings:3; the twelve days of christmas|twelve days of christmas:4; we wish you a merry christmas:4; good king wenceslas:3; ding dong merrily on high:2; angels we have heard on high:2; it came upon the midnight clear:2;
 carol of the bells:3; the little drummer boy|little drummer boy:3; let it snow:4; winter wonderland:4; sleigh ride:3; jingle bell rock:3; rockin around the christmas tree:3; all i want for christmas is you:5; last christmas:5; merry xmas everybody:3; do they know its christmas:4; fairytale of new york:4;
@@ -158,7 +158,7 @@ run rudolph run:2; santa claus is back in town:1; christmas wrapping:1; thank go
 christmas time is here:2; linus and lucy:1; the nutcracker suite:1; sugar plum fairy:1; ave maria:1; gaudete:1; o come o come emmanuel:2; good christian men rejoice:1; while shepherds watched:2; 
 ` },
 
-  { id: "q-classical-composer", theme: "Music", ask: "Name a classical composer", what: "a classical composer", items: `
+  { id: "q-pop-classical-composer", theme: "Music", ask: "Name a classical composer", what: "a classical composer", items: `
 wolfgang amadeus mozart|mozart:5; ludwig van beethoven|beethoven:5; johann sebastian bach|bach:5; frederic chopin|chopin:5; pyotr ilyich tchaikovsky|tchaikovsky:5; antonio vivaldi|vivaldi:5; george frideric handel|handel:4; joseph haydn|haydn:3; franz schubert|schubert:4; robert schumann|schumann:3; johannes brahms|brahms:4; franz liszt|liszt:4;
 richard wagner|wagner:4; giuseppe verdi|verdi:4; giacomo puccini|puccini:4; gioachino rossini|rossini:3; gustav mahler|mahler:3; claude debussy|debussy:4; maurice ravel|ravel:3; igor stravinsky|stravinsky:3; sergei rachmaninoff|rachmaninoff|rachmaninov:4; sergei prokofiev|prokofiev:3; dmitri shostakovich|shostakovich:3; antonin dvorak|dvorak:3;
 edvard grieg|grieg:3; jean sibelius|sibelius:3; edward elgar|elgar:3; gustav holst|holst:3; ralph vaughan williams|vaughan williams:2; benjamin britten|britten:2; aaron copland|copland:2; george gershwin|gershwin:3; leonard bernstein|bernstein:3; erik satie|satie:2; camille saint-saens|saint-saens:2; georges bizet|bizet:3;
@@ -171,7 +171,7 @@ ottorino respighi|respighi:1; pietro mascagni|mascagni:1; ruggero leoncavallo|le
 percy grainger|grainger:1; frederick delius|delius:2; arthur sullivan|sullivan:2; hubert parry|parry:2; charles villiers stanford|stanford:1; william walton|walton:2; michael tippett|tippett:1; peter maxwell davies|maxwell davies:1; karl jenkins|jenkins:2; ludovico einaudi|einaudi:3; max richter|richter:2; nico muhly|muhly:1;
 ` },
 
-  { id: "q-opera", theme: "Music", ask: "Name an opera", what: "an opera", items: `
+  { id: "q-pop-opera", theme: "Music", ask: "Name an opera", what: "an opera", items: `
 la traviata:4; carmen:5; la boheme:5; tosca:4; madama butterfly:5; turandot:4; the magic flute|magic flute:5; don giovanni:4; the marriage of figaro|marriage of figaro:5; cosi fan tutte:2; rigoletto:4; aida:4;
 otello:2; falstaff:2; il trovatore:3; nabucco:3; macbeth:1; the barber of seville|barber of seville:5; william tell:2; la cenerentola:1; norma:2; lucia di lammermoor:2; lelisir damore:2; don pasquale:1;
 fidelio:2; der freischutz:1; the flying dutchman|flying dutchman:2; tannhauser:2; lohengrin:2; tristan and isolde:3; the ring cycle|ring cycle|der ring des nibelungen:4; das rheingold:2; die walkure:3; siegfried:2; gotterdammerung:2; parsifal:2;
@@ -183,7 +183,7 @@ hansel and gretel:2; the love for three oranges:1; the rakes progress:1; the mik
 i puritani:1; roberto devereux:1; anna bolena:1; la favorite:1; la juive:1; les huguenots:1; the tsar's bride:1; the golden cockerel:1; sadko:1; the snow maiden:1; khovanshchina:1; the nose:1;
 ` },
 
-  { id: "q-country-singer", theme: "Music", ask: "Name a country music singer", what: "a country singer", items: `
+  { id: "q-pop-country-singer", theme: "Music", ask: "Name a country music singer", what: "a country singer", items: `
 dolly parton:5; johnny cash:5; willie nelson:5; garth brooks:5; shania twain:5; kenny rogers:4; george strait:3; alan jackson:3; tim mcgraw:4; faith hill:3; reba mcentire:3; loretta lynn:3;
 tammy wynette:3; patsy cline:3; hank williams:4; merle haggard:3; waylon jennings:3; kris kristofferson:2; glen campbell:3; john denver:4; charley pride:2; conway twitty:2; george jones:2; randy travis:3;
 vince gill:2; brad paisley:3; keith urban:4; kenny chesney:3; toby keith:3; blake shelton:4; luke bryan:3; jason aldean:3; carrie underwood:4; miranda lambert:3; kacey musgraves:3; maren morris:2;
@@ -197,7 +197,7 @@ clint black:2; travis tritt:2; tracy lawrence:1; tracy byrd:1; trace adkins:2; m
 jason isbell:1; margo price:1; orville peck:2; shaboozey:2; ashley mcbryde:1; carly pearce:1; cody johnson:2; riley green:1; parker mccollum:1;
 ` },
 
-  { id: "q-jazz-musician", theme: "Music", ask: "Name a jazz musician", what: "a jazz musician", items: `
+  { id: "q-pop-jazz-musician", theme: "Music", ask: "Name a jazz musician", what: "a jazz musician", items: `
 louis armstrong|satchmo:5; duke ellington:5; ella fitzgerald:5; miles davis:5; john coltrane:4; charlie parker|bird:4; dizzy gillespie:4; thelonious monk:3; billie holiday:4; count basie:3; benny goodman:3; glenn miller:3;
 dave brubeck:3; herbie hancock:3; chick corea:2; wynton marsalis:3; chet baker:3; stan getz:2; art blakey:2; charles mingus:2; sonny rollins:2; ornette coleman:1; bill evans:2; oscar peterson:2;
 nina simone:3; sarah vaughan:2; nat king cole:3; django reinhardt:3; stephane grappelli:2; cab calloway:2; fats waller:2; jelly roll morton:2; sidney bechet:1; bix beiderbecke:1; coleman hawkins:1; lester young:1;
@@ -207,7 +207,7 @@ freddie hubbard:1; dexter gordon:1; paul desmond:1; gerry mulligan:1; lennie tri
 pharoah sanders:1; alice coltrane:1; eric dolphy:1; cecil taylor:1; keith jarrett:2; brad mehldau:1; robert glasper:1; jacob collier:1; gregory porter:2; jamie cullum:3; dr john:1;
 ` },
 
-  { id: "q-guitarist", theme: "Music", ask: "Name a famous guitarist", what: "a guitarist", items: `
+  { id: "q-pop-guitarist", theme: "Music", ask: "Name a famous guitarist", what: "a guitarist", items: `
 jimi hendrix|hendrix:5; eric clapton|clapton:5; jimmy page|page:5; eddie van halen:4; slash:5; brian may:5; keith richards:4; angus young:4; david gilmour|gilmour:4; carlos santana|santana:4; bb king|b.b. king:4; chuck berry:4;
 stevie ray vaughan|srv:3; jeff beck:3; mark knopfler|knopfler:3; the edge|edge:3; pete townshend|townshend:3; george harrison:4; kurt cobain:3; john frusciante|frusciante:2; tom morello:2; jack white:3; joe satriani|satriani:2; steve vai|vai:2;
 yngwie malmsteen:2; randy rhoads:2; tony iommi|iommi:3; kirk hammett:2; james hetfield:2; dimebag darrell|dimebag:2; ritchie blackmore|blackmore:2; rory gallagher:2; gary moore:2; peter green:1; robert johnson:3; muddy waters:3;
@@ -217,7 +217,7 @@ noel gallagher:2; john squire:1; graham coxon:1; jonny greenwood:2; matt bellamy
 ry cooder:1; lindsey buckingham:2; peter frampton:2; joe bonamassa:2; gary clark jr:1; marcus king:1; st vincent:1; orianthi:1; nancy wilson:1; joan jett:2; 
 ` },
 
-  { id: "q-nursery-rhyme", theme: "Books", ask: "Name a nursery rhyme", what: "a nursery rhyme", items: `
+  { id: "q-pop-nursery-rhyme", theme: "Books", ask: "Name a nursery rhyme", what: "a nursery rhyme", items: `
 twinkle twinkle little star:5; baa baa black sheep:5; humpty dumpty:5; jack and jill:5; little bo peep:4; mary had a little lamb:5; hickory dickory dock:4; old macdonald had a farm|old macdonald:5; itsy bitsy spider|incy wincy spider:5; row row row your boat:4; london bridge is falling down|london bridge:5; ring a ring o roses|ring around the rosie:4;
 three blind mice:5; hey diddle diddle:4; little miss muffet|miss muffet:4; little jack horner|jack horner:3; jack be nimble:3; wee willie winkie:3; georgie porgie:3; pat-a-cake|patty cake:3; the grand old duke of york|grand old duke of york:4; oranges and lemons:3; sing a song of sixpence:4; pop goes the weasel:3;
 the wheels on the bus|wheels on the bus:4; if youre happy and you know it:4; head shoulders knees and toes:3; five little ducks:3; ten green bottles:3; this little piggy:4; round and round the garden:3; rock-a-bye baby:3; hush little baby:3; lavenders blue:1; polly put the kettle on:3; ding dong bell:1;

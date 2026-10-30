@@ -1,6 +1,6 @@
 /* Far Out — pop culture question bank, part 3: TV (cont.) and music */
 FarOut.addQuestions([
-  { id: "q-talk-show-host", theme: "TV", ask: "Name a talk show host", what: "a talk show host", items: `
+  { id: "q-pop-talk-show-host", theme: "TV", ask: "Name a talk show host", what: "a talk show host", items: `
 oprah winfrey|oprah:5; ellen degeneres|ellen:5; jimmy fallon|fallon:5; jimmy kimmel|kimmel:5; stephen colbert|colbert:4; conan obrien|conan:5; jay leno|leno:5; david letterman|letterman:5; johnny carson|carson:5; james corden|corden:4; seth meyers:4; jon stewart:4;
 trevor noah:4; john oliver:4; graham norton:4; jonathan ross:4; michael parkinson|parkinson:4; terry wogan|wogan:3; piers morgan:3; jerry springer|springer:4; maury povich|maury:4; dr phil|phil mcgraw:4; kelly clarkson:3; rachael ray:3;
 regis philbin|regis:3; kelly ripa:3; kathie lee gifford:2; hoda kotb:2; whoopi goldberg:3; joy behar:2; barbara walters:3; larry king:4; charlie rose:2; bill maher:3; samantha bee:2; craig ferguson:3;
@@ -11,7 +11,7 @@ trisha goddard:2; jeremy kyle:4; vanessa feltz:1; gloria hunniford:1; cilla blac
 amber ruffin:1; taylor tomlinson:1; greg gutfeld:2; tucker carlson:2; sean hannity:2; anderson cooper:3; wolf blitzer:2; bill oreilly:2;
 ` },
 
-  { id: "q-streaming-or-channel", theme: "TV", ask: "Name a TV channel or streaming service", what: "a TV channel or streaming service", items: `
+  { id: "q-pop-streaming-or-channel", theme: "TV", ask: "Name a TV channel or streaming service", what: "a TV channel or streaming service", items: `
 netflix:5; hulu:5; disney plus|disney+:5; amazon prime video|prime video|amazon prime:5; hbo:5; hbo max|max:4; apple tv plus|apple tv+|apple tv:4; paramount plus|paramount+:4; peacock:4; youtube:4; youtube tv:3; twitch:3;
 crunchyroll:3; tubi:3; pluto tv:3; roku channel:2; shudder:2; mubi:2; criterion channel:2; britbox:3; itvx|itv hub:2; bbc iplayer|iplayer:4; all 4|channel 4 on demand:2; my5:2;
 now tv|now:3; sky go:2; discovery plus|discovery+:2; espn plus|espn+:3; dazn:3; showtime:4; starz:3; amc plus|amc+:2; cinemax:2; mtv:5; vh1:3; cnn:5;
@@ -26,7 +26,7 @@ more4:1; film4:2; 4music:1; challenge:1; yesterday:1; drama:1; pick:1; really:1;
 cartoonito:1; disney xd:2; disney junior:3; nick toons:1; teen nick:1; vevo:2;stan:1; binge:1;
 ` },
 
-  { id: "q-kids-tv-show", theme: "TV", ask: "Name a children's TV show", what: "a children's TV show", items: `
+  { id: "q-pop-kids-tv-show", theme: "TV", ask: "Name a children's TV show", what: "a children's TV show", items: `
 sesame street:5; barney and friends|barney:4; teletubbies:5; thomas and friends|thomas the tank engine:5; peppa pig:5; bluey:5; paw patrol:5; blues clues:5; dora the explorer|dora:5; bob the builder:5; postman pat:4; fireman sam:4;
 in the night garden:3; balamory:3; tweenies:3; rainbow:3; play school:3; blue peter:4; the magic roundabout|magic roundabout:3; camberwick green:2; trumpton:2; bagpuss:3; the clangers|clangers:3; noggin the nog:1;
 ivor the engine:1; mr benn:2; jackanory:3; grange hill:3; byker grove:2; newsround:3; rugrats:5; spongebob squarepants|spongebob:5; arthur:4; clifford the big red dog|clifford:4; caillou:3; max and ruby:2;
@@ -42,7 +42,7 @@ are you afraid of the dark:3; goosebumps:3; double dare:2; legends of the hidden
 the magic school bus|magic school bus:4; bill nye the science guy:4; carmen sandiego|where in the world is carmen sandiego:3; zoboomafoo:2; between the lions:1; cyberchase:2; dragon tales:2; liberty's kids:1; schoolhouse rock:3; animaniacs:3; pinky and the brain:3; tiny toon adventures:3;
 ` },
 
-  { id: "q-animated-tv-show", theme: "TV", ask: "Name an animated TV show", what: "an animated TV show", items: `
+  { id: "q-pop-animated-tv-show", theme: "TV", ask: "Name an animated TV show", what: "an animated TV show", items: `
 the simpsons|simpsons:5; family guy:5; south park:5; futurama:4; american dad:4; rick and morty:5; bobs burgers:4; king of the hill:4; beavis and butt-head|beavis and butthead:4; spongebob squarepants|spongebob:5; rugrats:4; hey arnold:3;
 the flintstones|flintstones:5; the jetsons|jetsons:4; scooby-doo|scooby doo:5; looney tunes:4; tom and jerry:5; the powerpuff girls|powerpuff girls:4; dexters laboratory:4; johnny bravo:3; ed edd n eddy:3; courage the cowardly dog:3; samurai jack:3; adventure time:4;
 regular show:3; steven universe:3; gravity falls:4; phineas and ferb:4; kim possible:3; avatar the last airbender:5; the legend of korra:3; teen titans:3; teen titans go:3; ben 10:3; batman the animated series:4; x-men the animated series:2;
@@ -58,7 +58,7 @@ the pink panther show:2; the road runner show:2; the flintstones kids:1; yogi be
 popeye:3; felix the cat:2; mighty mouse:2; heckle and jeckle:1; rocky and bullwinkle|the rocky and bullwinkle show:3; underdog:2; dudley do-right:1; atom ant:1; secret squirrel:1; magilla gorilla:1; wally gator:1;
 ` },
 
-  { id: "q-fictional-detective", theme: "Books", ask: "Name a fictional detective", what: "a fictional detective", items: `
+  { id: "q-pop-fictional-detective", theme: "Books", ask: "Name a fictional detective", what: "a fictional detective", items: `
 sherlock holmes|sherlock:5; hercule poirot|poirot:5; miss marple|jane marple|marple:5; columbo:5; jessica fletcher:4; inspector clouseau|clouseau:4; nancy drew:5; the hardy boys|hardy boys|frank hardy|joe hardy:4; philip marlowe|marlowe:3; sam spade:3; kojak:3; thomas magnum|magnum pi|magnum:4;
 mike hammer:2; jim rockford|rockford:2; inspector morse|morse:4; endeavour morse|endeavour:2; inspector lewis|lewis:3; jane tennison:3; adam dalgliesh|dalgliesh:2; john rebus|inspector rebus|rebus:3; lord peter wimsey|peter wimsey|wimsey:3; father brown:3; brother cadfael|cadfael:2; phryne fisher|miss fisher:2;
 precious ramotswe:2; kay scarpetta|scarpetta:2; harry bosch|bosch:3; jack reacher|reacher:4; lincoln rhyme:1; alex cross:3; kurt wallander|wallander:3; harry hole:2; sarah lund:2; saga noren:2; jules maigret|maigret:3; inspector gadget|gadget:3;
@@ -71,7 +71,7 @@ easy rawlins:1; spenser:2; travis mcgee:1; lew archer:1; matt scudder:1; philip 
 detective pikachu:3; carmen sandiego:2; inspector rex|rex:2; commissaire moulin:1; montalbano|salvo montalbano:2; guido brunetti|brunetti:1; arne dahl:1; martin beck:1;the three investigators|jupiter jones:1; chief inspector japp|japp:1; miss silver:1;
 ` },
 
-  { id: "q-netflix-series", theme: "TV", ask: "Name a Netflix original series", what: "a Netflix original series", items: `
+  { id: "q-pop-netflix-series", theme: "TV", ask: "Name a Netflix original series", what: "a Netflix original series", items: `
 stranger things:5; the crown:5; bridgerton:5; squid game:5; wednesday:5; money heist|la casa de papel:5; narcos:4; ozark:4; house of cards:4; orange is the new black:4; the witcher|witcher:4; you:4;
 13 reasons why:3; sex education:3; the umbrella academy|umbrella academy:4; dark:3; elite:3; lupin:3; emily in paris:4; the queens gambit|queens gambit:4; tiger king:4; making a murderer:3; black mirror:4; cobra kai:4;
 outer banks:3; never have i ever:3; virgin river:3; the haunting of hill house|haunting of hill house:3; the haunting of bly manor:2; midnight mass:2; mindhunter:3; daredevil:3; jessica jones:2; luke cage:2; iron fist:2; the punisher:2;
@@ -85,7 +85,7 @@ narcos mexico:2; the politician:1; hollywood:1; unorthodox:1; the playlist:1; ma
 julie and the phantoms:1; she-ra and the princesses of power:1; the dragon prince:2; kipo and the age of wonderbeasts:1; carmen sandiego:2; trollhunters:1; voltron legendary defender:2; cuphead show:1; the boss baby back in business:1; 
 ` },
 
-  { id: "q-got-character", theme: "TV", ask: "Name a character from Game of Thrones", what: "a Game of Thrones character", items: `
+  { id: "q-pop-got-character", theme: "TV", ask: "Name a character from Game of Thrones", what: "a Game of Thrones character", items: `
 jon snow:5; daenerys targaryen|daenerys|dany:5; tyrion lannister|tyrion:5; cersei lannister|cersei:5; jaime lannister|jaime:5; arya stark|arya:5; sansa stark|sansa:5; bran stark|bran:4; ned stark|eddard stark|ned:5; catelyn stark|catelyn:4; robb stark|robb:4; rickon stark|rickon:2;
 joffrey baratheon|joffrey:5; tommen baratheon|tommen:2; myrcella baratheon|myrcella:2; robert baratheon|robert:3; stannis baratheon|stannis:3; renly baratheon|renly:3; melisandre:4; davos seaworth|davos:3; brienne of tarth|brienne:4; podrick payne|podrick:2; samwell tarly|samwell|sam tarly:3; gilly:2;
 tywin lannister|tywin:4; petyr baelish|littlefinger:4; varys:4; the hound|sandor clegane|hound:4; the mountain|gregor clegane|mountain:3; theon greyjoy|theon:4; yara greyjoy|asha greyjoy:2; euron greyjoy|euron:2; balon greyjoy:1; ramsay bolton|ramsay snow|ramsay:4; roose bolton:2; walder frey:3;
@@ -97,7 +97,7 @@ rhaenyra targaryen|rhaenyra:2; daemon targaryen|daemon:2; alicent hightower|alic
 nymeria sand:1; ilyn payne:1; meera reed:2; jojen reed:1; the three-eyed raven|three-eyed raven:2; locke:1; kevan lannister:1; lancel lannister:1; lollys:1; bianca:1; talisa:2; roslin frey:1;
 ` },
 
-  { id: "q-friends-character", theme: "TV", ask: "Name a character from Friends", what: "a Friends character", items: `
+  { id: "q-pop-friends-character", theme: "TV", ask: "Name a character from Friends", what: "a Friends character", items: `
 rachel green|rachel:5; ross geller|ross:5; monica geller|monica:5; chandler bing|chandler:5; joey tribbiani|joey:5; phoebe buffay|phoebe:5; gunther:4; janice hosenstein|janice:3; ursula buffay|ursula:3; mike hannigan:3; richard burke:3; emily waltham|emily:2;
 carol willick|carol:3; susan bunch|susan:3; ben geller|ben:3; emma geller-green|emma:3; estelle leonard|estelle:2; frank buffay jr|frank jr:1; mr heckles|heckles:3; mr treeger|treeger:2; paolo:2; david:1; tag jones|tag:2; kathy:1;
 charlie wheeler|charlie:2; eddie menuek|eddie:2; jack geller:2; judy geller:2; nora tyler bing:1; charles bing:1; elizabeth stevens:1; julie:1; pete becker|pete:1; ugly naked guy:2; marcel:3; mona:1;
@@ -105,14 +105,14 @@ joshua:1; barry farber|barry:2; mark robinson|mark:1; janine lecroix|janine:2; e
 dr green:1; sandra green:1; frank buffay sr:1; phoebe abbott:1; 
 ` },
 
-  { id: "q-spongebob-character", theme: "TV", ask: "Name a character from SpongeBob SquarePants", what: "a SpongeBob character", items: `
+  { id: "q-pop-spongebob-character", theme: "TV", ask: "Name a character from SpongeBob SquarePants", what: "a SpongeBob character", items: `
 spongebob squarepants|spongebob:5; patrick star|patrick:5; squidward tentacles|squidward:5; mr krabs|eugene krabs:5; sandy cheeks|sandy:5; plankton|sheldon plankton:5; gary the snail|gary:5; mrs puff|mrs. puff:4; pearl krabs|pearl:3; karen:3; larry the lobster|larry:3; the flying dutchman|flying dutchman:3;
 mermaid man:3; barnacle boy:3; squilliam fancyson|squilliam:2; bubble bass:2; king neptune:2; man ray:2; dirty bubble:2; patchy the pirate|patchy:3; potty the parrot|potty:2; old man jenkins:2; fred:1; nat peterson:1;
 harold squarepants:1; margaret squarepants:1; grandma squarepants:1; bubble buddy:2; kevin c cucumber|kevin the sea cucumber:1; the hash-slinging slasher|hash slinging slasher:1; doodlebob:3; realistic fish head:2; flats the flounder|flats:2; the french narrator|french narrator:2; perch perkins:1; betsy krabs:1;
 dennis:1; nicholas:1; 
 ` },
 
-  { id: "q-muppet-sesame-character", theme: "TV", ask: "Name a Muppet or Sesame Street character", what: "a Muppet or Sesame Street character", items: `
+  { id: "q-pop-muppet-sesame-character", theme: "TV", ask: "Name a Muppet or Sesame Street character", what: "a Muppet or Sesame Street character", items: `
 kermit the frog|kermit:5; miss piggy|piggy:5; fozzie bear|fozzie:5; gonzo|the great gonzo:5; big bird:5; elmo:5; cookie monster:5; oscar the grouch|oscar:5; bert:5; ernie:5; grover:5; the count|count von count:4;
 animal:5; rowlf the dog|rowlf:3; scooter:2; statler:3; waldorf:3; the swedish chef|swedish chef:4; beaker:4; bunsen honeydew|dr bunsen honeydew|bunsen:3; sam the eagle|sam eagle:3; pepe the king prawn|pepe:3; rizzo the rat|rizzo:3;
 camilla the chicken|camilla:2; sweetums:2; lew zealand:1; dr teeth:3; floyd pepper:2; janice:2; zoot:2; crazy harry:1; link hogthrob:1; dr strangepork:2; robin the frog|robin:2; walter:2;
@@ -122,7 +122,7 @@ fiona:1; hoots the owl:1; barkley:1; slimey:2; mr hooper:2; maria:1; luis:1; gor
 ma bear:1; papa bear:1; yip yips|yip yip:1; forgetful jones:1; two-headed monster|two headed monster:2; sherlock hemlock:1; roosevelt franklin:1; the electric mayhem|electric mayhem:2; 
 ` },
 
-  { id: "q-comedian", theme: "People", ask: "Name a famous comedian", what: "a comedian", items: `
+  { id: "q-pop-comedian", theme: "People", ask: "Name a famous comedian", what: "a comedian", items: `
 jerry seinfeld|seinfeld:5; eddie murphy:5; richard pryor|pryor:4; george carlin|carlin:4; robin williams:5; dave chappelle|chappelle:5; chris rock:5; kevin hart:5; louis ck|louis c.k.:3; ricky gervais|gervais:5; billy connolly:4; eddie izzard|izzard:4;
 jimmy carr:4; michael mcintyre|mcintyre:4; peter kay:5; lee evans:3; russell howard:3; john bishop:3; frankie boyle:3; sarah millican:3; jack whitehall|whitehall:4; romesh ranganathan|romesh:3; rob brydon:3; bill bailey:3;
 tim minchin:2; dara o briain|dara obriain:3; jason manford:2; jo brand:2; victoria wood:4; joan rivers:3; phyllis diller:2; lucille ball:3; bob hope:3; jack benny:2; george burns:2; milton berle:2;
@@ -138,7 +138,7 @@ alan carr:3; paul o grady:2; graham norton:2; julian clary:2; alexei sayle:2; be
 sue perkins:1; sandi toksvig:2; miranda hart:3; catherine tate:3; dawn french:4; jennifer saunders:3; lenny henry:3; bradley walsh:1; ross noble:2; kevin bridges:2; stewart lee:2; daniel kitson:1;
 ` },
 
-  { id: "q-anime", theme: "TV", ask: "Name an anime series or movie", what: "an anime", items: `
+  { id: "q-pop-anime", theme: "TV", ask: "Name an anime series or movie", what: "an anime", items: `
 naruto:5; one piece:5; dragon ball z|dragon ball:5; bleach:4; death note:5; attack on titan:5; my hero academia:4; demon slayer:5; jujutsu kaisen:4; fullmetal alchemist brotherhood|fullmetal alchemist:4; hunter x hunter:3; sword art online:3;
 tokyo ghoul:3; one punch man:4; cowboy bebop:4; neon genesis evangelion|evangelion:4; sailor moon:4; pokemon:5; yu-gi-oh:4; digimon:3; spirited away:5; my neighbor totoro|totoro:4; akira:4; ghost in the shell:3;
 fairy tail:3; black clover:2; haikyuu:3; kuroko no basket:1; slam dunk:2; initial d:2; gundam:3; macross:1; astro boy:2; speed racer:2; kimba the white lion:1; doraemon:3;
@@ -152,7 +152,7 @@ bakugan:2; beyblade:3; cardfight vanguard:1; zatch bell:1; medabots:1; shaman ki
 the vision of escaflowne|escaflowne:1; cyborg 009:1; mazinger z:1; voltron:2; robotech:2; captain tsubasa:2; battle of the planets|gatchaman:2; speed racer x:1; grendizer|goldorak:1; heidi:1; maya the bee:1; 
 ` },
 
-  { id: "q-beatles-song", theme: "Music", ask: "Name a Beatles song", what: "a Beatles song", items: `
+  { id: "q-pop-beatles-song", theme: "Music", ask: "Name a Beatles song", what: "a Beatles song", items: `
 yesterday:5; let it be:5; hey jude:5; come together:5; here comes the sun:5; something:4; help:5; a hard days night:5; i want to hold your hand:5; she loves you:5; cant buy me love:4; love me do:4;
 please please me:3; from me to you:3; twist and shout:4; all you need is love:5; yellow submarine:5; eleanor rigby:5; penny lane:5; strawberry fields forever:5; lucy in the sky with diamonds:5; with a little help from my friends:4; sgt peppers lonely hearts club band:4; a day in the life:4;
 getting better:2; when im sixty-four|when im 64:3; lovely rita:2; fixing a hole:2; being for the benefit of mr kite:2; within you without you:2; good morning good morning:1; revolution:4; back in the ussr:4; ob-la-di ob-la-da:4; while my guitar gently weeps:5; blackbird:5;
@@ -170,7 +170,7 @@ for you blue:1; maggie mae:1; dig it:1; i me mine:2; octopuss garden:3; oh darli
 polythene pam:1; she came in through the bathroom window:2; golden slumbers:3; carry that weight:2; the end:2; her majesty:2; free as a bird:2; real love:2; now and then:2;
 ` },
 
-  { id: "q-orchestra-instrument", theme: "Music", ask: "Name an instrument in a symphony orchestra", what: "an orchestra instrument", items: `
+  { id: "q-pop-orchestra-instrument", theme: "Music", ask: "Name an instrument in a symphony orchestra", what: "an orchestra instrument", items: `
 violin:5; viola:4; cello|violoncello:5; double bass|contrabass|string bass:4; harp:5; flute:5; piccolo:3; oboe:4; cor anglais|english horn:2; clarinet:5; bass clarinet:2; bassoon:4;
 contrabassoon|double bassoon:1; french horn|horn:5; trumpet:5; trombone:5; tuba:5; timpani|kettledrum|kettle drum:4; snare drum:3; bass drum:3; cymbals|cymbal:4; triangle:4; xylophone:3; glockenspiel:2;
 celesta:2; piano:4; harpsichord:1; tambourine:3; gong|tam-tam:3; marimba:2; vibraphone:1; tubular bells|chimes:2; castanets:1; saxophone:2; euphonium:1; organ:2;
@@ -178,7 +178,7 @@ bass trombone:1; cornet:1; flugelhorn:1; alto flute:1; bass flute:1; piccolo tru
 guiro:1; ratchet:1; anvil:1; crotales:1;oboe damore:1; heckelphone:1; viola damore:1; 
 ` },
 
-  { id: "q-rapper", theme: "Music", ask: "Name a rapper or hip-hop group", what: "a rapper or hip-hop group", items: `
+  { id: "q-pop-rapper", theme: "Music", ask: "Name a rapper or hip-hop group", what: "a rapper or hip-hop group", items: `
 jay-z|jay z:5; eminem:5; kanye west|kanye|ye:5; drake:5; kendrick lamar|kendrick:5; snoop dogg|snoop:5; dr dre:5; 50 cent:5; tupac shakur|tupac|2pac:5; notorious big|biggie smalls|biggie:5; nas:4; ice cube:4;
 ice-t|ice t:3; lil wayne:5; nicki minaj:5; cardi b:5; megan thee stallion:4; travis scott:4; post malone:4; lil nas x:4; future:3; 21 savage:3; j cole:4; tyler the creator:3;
 asap rocky|a$ap rocky:3; childish gambino:3; chance the rapper:3; lil uzi vert:3; lil baby:2; dababy:3; migos:3; offset:2; quavo:2; takeoff:1; young thug:3; gucci mane:3;

@@ -25,27 +25,38 @@
       <li class="t1"><b>Far Out</b><span>100</span></li>
     </ol>
 
-    <nav class="modes">
-      <button class="mode" data-go="voyage" type="button">
-        <b>Voyage</b>
-        <span class="mode-d">Play alone against the clock. Rare answers refuel your ship, and the questions never run out.</span>
-        <span class="mode-s" id="best-voyage">No voyage yet</span>
-      </button>
-      <button class="mode" data-go="daily" type="button">
-        <b>Daily Orbit</b>
-        <span class="mode-d">Six questions, two answers each, no clock. Everyone gets the same six today.</span>
-        <span class="mode-s" id="best-daily">Ready</span>
-      </button>
-      <button class="mode" data-go="explore" type="button">
-        <b>Explore</b>
-        <span class="mode-d">No clock and no end. Pick a topic, play at your own pace and learn the rare answers.</span>
-        <span class="mode-s">Relaxed, endless</span>
-      </button>
-      <button class="mode crew" data-go="crew" type="button">
-        <b>Crew</b>
-        <span class="mode-d">Play online with 2 to 10 friends. An answer nobody else gave earns a bonus.</span>
-        <span class="mode-s">Create or join a room</span>
-      </button>
+    <nav class="modes-wrap" aria-label="Game modes">
+      <h2 class="modes-h">Play alone</h2>
+      <div class="modes solo">
+        <button class="mode" data-go="voyage" type="button">
+          <b>Voyage</b>
+          <span class="mode-d">Race the clock. Rare answers refuel your ship, and the questions never run out.</span>
+          <span class="mode-s" id="best-voyage">No voyage yet</span>
+        </button>
+        <button class="mode" data-go="daily" type="button">
+          <b>Daily Orbit</b>
+          <span class="mode-d">Six questions, two answers each, no clock. Everyone gets the same six today.</span>
+          <span class="mode-s" id="best-daily">Ready</span>
+        </button>
+        <button class="mode" data-go="explore" type="button">
+          <b>Explore</b>
+          <span class="mode-d">No clock and no end. Play at your own pace and learn the rare answers.</span>
+          <span class="mode-s">Relaxed, endless</span>
+        </button>
+      </div>
+      <h2 class="modes-h">Play together</h2>
+      <div class="modes together">
+        <button class="mode" data-go="party" type="button">
+          <b>Party</b>
+          <span class="mode-d">2 to 8 players pass one phone around. No internet needed.</span>
+          <span class="mode-s">Same room, one device</span>
+        </button>
+        <button class="mode crew" data-go="crew" type="button">
+          <b>Crew</b>
+          <span class="mode-d">Play online with 2 to 10 friends, each on their own phone.</span>
+          <span class="mode-s">Create or join a room</span>
+        </button>
+      </div>
     </nav>
 
     <div class="home-theme">
@@ -124,6 +135,15 @@
     <div id="crew-body" class="crew-body"></div>
   </section>
 
+  <!-- PARTY (one device) -->
+  <section id="s-party" class="screen party" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Leave the party and go to menu">&larr;</button>
+      <span class="hud-mode">Party</span>
+    </div>
+    <div id="party-body" class="crew-body"></div>
+  </section>
+
   <!-- STAR CHART -->
   <section id="s-chart" class="screen chart" hidden>
     <div class="hud">
@@ -154,6 +174,8 @@
       <p>Fuel burns every second. Valid answers refuel you, and rarer answers refuel more. Wrong answers cost 5 seconds. Valid answers in a row raise your multiplier up to ×2.</p>
       <h3>Daily Orbit</h3>
       <p>Six prompts, two answers each, no clock. Everyone gets the same prompts today, so compare scores with friends.</p>
+      <h3>Party</h3>
+      <p>Two to eight players share one phone. Each player answers in secret, then everyone sees the reveal together. Scoring works like Crew. No internet needed.</p>
       <h3>Crew</h3>
       <p>One player creates a room and shares the code or link. Everyone answers the same prompt at once. An answer only you gave earns a <b>Lone Signal</b> (+50%). If two players give the same answer, they <b>collide</b> and split the points. Answers missing from the word bank go to a quick crew vote.</p>
       <h3>Typos</h3>
@@ -250,6 +272,9 @@
 <script src="data/q-nature-33.js"></script>
 <script src="data/q-nature-34.js"></script>
 <script src="data/q-nature-35.js"></script>
+<script src="data/q-nature-36.js"></script>
+<script src="data/q-nature-37.js"></script>
+<script src="data/q-nature-38.js"></script>
 <script src="data/q-nature-4.js"></script>
 <script src="data/q-nature-5.js"></script>
 <script src="data/q-nature-6.js"></script>
@@ -274,4 +299,5 @@
 <script src="js/net.js"></script>
 <script src="js/crew.js"></script>
 <script src="js/crew-view.js"></script>
+<script src="js/party.js"></script>
 <script src="js/main.js"></script>

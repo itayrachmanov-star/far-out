@@ -15,7 +15,13 @@
 @keyframes drift { from { background-position: 0 0; } to { background-position: 100% 0; } }
 .tag { margin: 0; max-width: 40ch; font-size: 19px; line-height: 1.45; color: #c9c7da; }
 .tag em { font-weight: 700; }
-.modes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.modes-wrap { display: flex; flex-direction: column; gap: 10px; }
+.modes-h { margin: 8px 0 0; font: 800 26px/1 var(--display); color: var(--muted); }
+.modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.modes.together { grid-template-columns: repeat(2, 1fr); }
+.handoff { align-items: center; text-align: center; padding-block: 36px; }
+.handoff .planet { width: 72px; height: 72px; }
+.handoff h2 { font-size: clamp(36px, 9vw, 56px); }
 .mode {
   text-align: left; display: flex; flex-direction: column; gap: 6px; padding: 16px; min-width: 0;
   background: rgba(13,16,34,.86); border: 1px solid var(--line); border-radius: 12px;
@@ -124,7 +130,7 @@
 .howto-body p { margin: 0; color: #cfcde0; }
 
 @media (max-width: 640px) {
-  .modes { grid-template-columns: 1fr; }
+  .modes, .modes.together { grid-template-columns: 1fr; }
   .mode b { font-size: 30px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .split { grid-template-columns: 1fr; }

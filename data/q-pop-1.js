@@ -1,6 +1,6 @@
 /* Far Out — pop culture question bank, part 1: movies */
 FarOut.addQuestions([
-  { id: "q-disney-animated", theme: "Movies", ask: "Name a Disney animated movie", what: "a Disney animated movie", items: `
+  { id: "q-pop-disney-animated", theme: "Movies", ask: "Name a Disney animated movie", what: "a Disney animated movie", items: `
 the lion king|lion king:5; frozen:5; aladdin:5; beauty and the beast:5; the little mermaid|little mermaid:5; snow white and the seven dwarfs|snow white:5; cinderella:5; moana:5;
 mulan:4; tangled:4; sleeping beauty:4; pinocchio:4; bambi:4; dumbo:4; the jungle book|jungle book:4; 101 dalmatians|one hundred and one dalmatians:4; peter pan:4; alice in wonderland:4;
 lady and the tramp:4; frozen 2|frozen ii:4; hercules:4; tarzan:4; pocahontas:4; the hunchback of notre dame|hunchback of notre dame:4; lilo and stitch|lilo & stitch:4; zootopia|zootropolis:4; encanto:4; big hero 6:4;
@@ -12,13 +12,13 @@ the three caballeros|three caballeros:1; make mine music:1; fun and fancy free:1
 onward:2; turning red:2; a bugs life|bugs life:2; toy story 2:2; toy story 3:3; toy story 4:2; finding dory:2; monsters university:2; incredibles 2:2; cars 2:1; cars 3:1; lightyear:1; elemental:1; inside out 2:2;
 ` },
 
-  { id: "q-pixar", theme: "Movies", ask: "Name a Pixar movie", what: "a Pixar movie", items: `
+  { id: "q-pop-pixar", theme: "Movies", ask: "Name a Pixar movie", what: "a Pixar movie", items: `
 toy story:5; finding nemo:5; the incredibles|incredibles:5; monsters inc|monsters incorporated:5; up:4; inside out:4; cars:4; coco:4; ratatouille:4; wall-e:4;
 toy story 2:4; toy story 3:4; toy story 4:3; finding dory:3; a bugs life|bugs life:3; incredibles 2:3; monsters university:3; brave:3; soul:3; luca:2;
 turning red:2; onward:2; cars 2:2; cars 3:2; the good dinosaur|good dinosaur:2; lightyear:2; inside out 2:2; elemental:1; elio:1; 
 ` },
 
-  { id: "q-marvel-character", theme: "Movies", ask: "Name a Marvel character", what: "a Marvel character", items: `
+  { id: "q-pop-marvel-character", theme: "Movies", ask: "Name a Marvel character", what: "a Marvel character", items: `
 spider-man|spiderman|peter parker:5; iron man|tony stark:5; captain america|steve rogers:5; thor:5; hulk|the incredible hulk|bruce banner:5; wolverine|logan:5; thanos:5; black panther|tchalla:5; deadpool|wade wilson:5; loki:5; black widow|natasha romanoff:5; doctor strange|stephen strange:5;
 hawkeye|clint barton:4; ant-man|scott lang:4; scarlet witch|wanda maximoff:4; captain marvel|carol danvers:4; star-lord|peter quill:4; groot:4; rocket raccoon|rocket:4; gamora:4; vision:4; falcon|sam wilson:4; winter soldier|bucky barnes|bucky:4; daredevil|matt murdock:4;
 the punisher|punisher|frank castle:4; storm|ororo munroe:4; cyclops|scott summers:4; magneto|erik lehnsherr:4; professor x|charles xavier:4; jean grey|phoenix:4; rogue:4; gambit:4; nick fury:4; venom|eddie brock:4; green goblin|norman osborn:4; doctor doom|victor von doom:4;
@@ -36,7 +36,7 @@ sif:1; volstagg:1; fandral:1; hogun:1; lady sif:1; surtur:1; malekith:1; the col
 morbius:1; madame web:1; silk:1; spider-man 2099|miguel o'hara:1; spider-ham:1; peni parker:1; spider-man noir:1; prowler:1; scorpion:1; hobgoblin:1; chameleon:1; hammerhead:1; tombstone:1; shocker:1; rhino:1;
 ` },
 
-  { id: "q-dc-character", theme: "Movies", ask: "Name a DC Comics character", what: "a DC Comics character", items: `
+  { id: "q-pop-dc-character", theme: "Movies", ask: "Name a DC Comics character", what: "a DC Comics character", items: `
 batman|bruce wayne:5; superman|clark kent:5; wonder woman|diana prince:5; the joker|joker:5; the flash|flash|barry allen:5; aquaman|arthur curry:5; robin|dick grayson:5; harley quinn:5; catwoman|selina kyle:5; green lantern|hal jordan:5; lex luthor|luthor:5;
 supergirl|kara danvers:4; batgirl|barbara gordon:4; green arrow|oliver queen:4; cyborg|victor stone:4; shazam|billy batson:4; nightwing:4; the penguin|penguin|oswald cobblepot:4; the riddler|riddler|edward nygma:4; two-face|harvey dent:4; poison ivy|pamela isley:4; bane:4; scarecrow|jonathan crane:4; mr freeze|victor fries:4;
 alfred pennyworth|alfred:4; commissioner gordon|james gordon|jim gordon:4; lois lane:4; darkseid:4; doomsday:4; general zod|zod:4; deathstroke|slade wilson:4; martian manhunter|j'onn j'onzz:4; black canary|dinah lance:3; starfire:3; raven:3; beast boy|garfield logan:3;
@@ -51,7 +51,7 @@ power girl:2; mister miracle|scott free:2; big barda:2; orion:1; highfather:1; g
 professor pyg:1; victor zsasz|zsasz:2; calendar man:1; solomon grundy:2; copperhead:1; cheshire:1; mr terrific:1; wildcat:1; sandman:1; stargirl|courtney whitmore:2; red tornado:1; jonah hex:2;
 ` },
 
-  { id: "q-star-wars-character", theme: "Movies", ask: "Name a Star Wars character", what: "a Star Wars character", items: `
+  { id: "q-pop-star-wars-character", theme: "Movies", ask: "Name a Star Wars character", what: "a Star Wars character", items: `
 luke skywalker|luke:5; darth vader|anakin skywalker|vader|anakin:5; princess leia|leia organa|leia:5; han solo|han:5; chewbacca|chewie:5; obi-wan kenobi|obi wan kenobi|obi wan|obi-wan|ben kenobi:5; yoda:5; r2-d2|r2d2:5; c-3po|c3po:5; emperor palpatine|palpatine|darth sidious|the emperor:5; boba fett:5; jabba the hutt|jabba:5;
 lando calrissian|lando:4; darth maul|maul:4; jar jar binks|jar jar:4; padme amidala|padme:4; qui-gon jinn|qui gon jinn:4; mace windu:4; count dooku|darth tyranus|dooku:4; general grievous|grievous:4; rey|rey skywalker:4; finn:4; poe dameron|poe:4; kylo ren|ben solo|kylo:4;
 bb-8|bb8:4; supreme leader snoke|snoke:3; general hux|hux:3; captain phasma|phasma:3; jyn erso:3; cassian andor|andor:3; k-2so|k2so:3; grand moff tarkin|tarkin:3; ahsoka tano|ahsoka:4; din djarin|the mandalorian|mandalorian:4; grogu|baby yoda:4; mon mothma:3;
@@ -67,7 +67,7 @@ orson krennic|krennic:3; saw gerrera:2; chirrut imwe:2; baze malbus:2; bodhi roo
 rio durant:1; mara jade:2; jacen solo:1; jaina solo:1; anakin solo:1; ben skywalker:1; yaddle:1; oola:1; max rebo:1; sy snootles:1; figrin dan:1; ponda baba:1; dr evazan:1; momaw nadon:1;
 ` },
 
-  { id: "q-harry-potter-character", theme: "Books", ask: "Name a Harry Potter character", what: "a Harry Potter character", items: `
+  { id: "q-pop-harry-potter-character", theme: "Books", ask: "Name a Harry Potter character", what: "a Harry Potter character", items: `
 harry potter|harry:5; ron weasley|ron:5; hermione granger|hermione:5; albus dumbledore|dumbledore:5; lord voldemort|voldemort|tom riddle:5; severus snape|snape:5; hagrid|rubeus hagrid:5; draco malfoy|draco:5; sirius black|sirius:4; remus lupin|lupin:4; minerva mcgonagall|mcgonagall|professor mcgonagall:4;
 neville longbottom|neville:4; luna lovegood|luna:4; ginny weasley|ginny:4; fred weasley|fred:4; george weasley|george:4; molly weasley|mrs weasley:4; arthur weasley|mr weasley:4; bellatrix lestrange|bellatrix:4; lucius malfoy:4; dobby:4; cedric diggory|cedric:4;
 cho chang|cho:3; dolores umbridge|umbridge:4; gilderoy lockhart|lockhart:3; quirinus quirrell|quirrell|professor quirrell:3; peter pettigrew|wormtail|pettigrew:3; mad-eye moody|alastor moody|moody:3; nymphadora tonks|tonks:3; bill weasley:3; charlie weasley:3; percy weasley:3; fleur delacour:3;
@@ -85,13 +85,13 @@ aurora sinistra:1; charity burbage:2; bathsheda babbling:1; septima vector:1; wi
 helga hufflepuff:2; godric gryffindor|gryffindor:3; rowena ravenclaw:2; salazar slytherin|slytherin:3; merope gaunt:1; marvolo gaunt:1; morfin gaunt:1; tom riddle senior:1; hepzibah smith:1; 
 ` },
 
-  { id: "q-bond-film", theme: "Movies", ask: "Name a James Bond movie", what: "a James Bond movie", items: `
+  { id: "q-pop-bond-film", theme: "Movies", ask: "Name a James Bond movie", what: "a James Bond movie", items: `
 goldfinger:5; skyfall:5; casino royale:5; dr no|dr. no|doctor no:4; from russia with love:4; thunderball:4; you only live twice:4; live and let die:4; diamonds are forever:4; the spy who loved me|spy who loved me:4; moonraker:4; goldeneye:5;
 tomorrow never dies:4; the world is not enough|world is not enough:4; die another day:4; quantum of solace:4; spectre:4; no time to die:4; the man with the golden gun|man with the golden gun:4; for your eyes only:3; octopussy:4; a view to a kill|view to a kill:3;
 the living daylights|living daylights:3; licence to kill|license to kill:3; on her majestys secret service|ohmss:3; never say never again:2;
 ` },
 
-  { id: "q-bond-character", theme: "Movies", ask: "Name a James Bond villain or ally", what: "a James Bond character", items: `
+  { id: "q-pop-bond-character", theme: "Movies", ask: "Name a James Bond villain or ally", what: "a James Bond character", items: `
 james bond|007:5; m:4; q:4; miss moneypenny|moneypenny:4; blofeld|ernst stavro blofeld:5; goldfinger|auric goldfinger:5; oddjob:5; dr no|doctor no:4; jaws:5; scaramanga|francisco scaramanga:4; pussy galore:5; felix leiter:4;
 honey ryder|honeychile rider:4; le chiffre:4; vesper lynd|vesper:4; raoul silva|silva:3; mr white:3; dominic greene:2; camille montes:2; madeleine swann:3; lyutsifer safin|safin:3; paloma:2; nomi:2; mr hinx|hinx:3;
 rosa klebb:4; red grant:3; tatiana romanova:3; domino derval|domino:3; emilio largo|largo:3; fiona volpe:2; tracy di vicenzo|tracy:3; irma bunt:1; solitaire:3; kananga|mr big:3; baron samedi:3; tee hee:3;
@@ -103,7 +103,7 @@ severine:3; patrice:1; gareth mallory:2; eve moneypenny:2; c|max denbigh:2; math
 strangways|john strangways:2; quarrel:2; professor dent:1; miss taro:1; general gogol|gogol:3; whisper:1; mr osato:1; helga brandt:1; aki:2; tanaka|tiger tanaka:2;
 ` },
 
-  { id: "q-horror-movie", theme: "Movies", ask: "Name a horror movie", what: "a horror movie", items: `
+  { id: "q-pop-horror-movie", theme: "Movies", ask: "Name a horror movie", what: "a horror movie", items: `
 the shining|shining:5; psycho:5; halloween:5; a nightmare on elm street|nightmare on elm street:5; friday the 13th|friday the thirteenth:5; scream:5; the exorcist|exorcist:5; jaws:4; alien:4; the texas chainsaw massacre|texas chainsaw massacre:5; saw:5; get out:4; it:5; the conjuring|conjuring:4;
 hereditary:4; midsommar:3; the ring|ring:4; the grudge|grudge:3; poltergeist:4; the omen|omen:4; rosemarys baby:4; carrie:4; misery:3; cujo:3; pet sematary|pet cemetery:3; children of the corn:3;
 the thing|thing:4; the fly|fly:3; the blair witch project|blair witch project|blair witch:4; paranormal activity:4; insidious:4; sinister:3; annabelle:4; the nun|nun:3; us:3; a quiet place|quiet place:4; nope:2; smile:3;
@@ -120,7 +120,7 @@ the monkey:1; dont breathe:2; dont look now:3; dont be afraid of the dark:2; don
 the human centipede:2; green inferno:1; cannibal holocaust:1; the last house on the left:2; i spit on your grave:2; funny games:2; the skin i live in:1; eyes without a face:1; the cabinet of dr caligari:2;
 ` },
 
-  { id: "q-best-picture", theme: "Movies", ask: "Name a movie that won the Oscar for Best Picture", what: "a Best Picture winner", items: `
+  { id: "q-pop-best-picture", theme: "Movies", ask: "Name a movie that won the Oscar for Best Picture", what: "a Best Picture winner", items: `
 titanic:5; forrest gump:5; the godfather|godfather:5; gladiator:5; schindlers list:5; casablanca:5; gone with the wind:5; the sound of music|sound of music:5; braveheart:4; the silence of the lambs|silence of the lambs:4; rocky:4; rain man:4;
 the lord of the rings the return of the king|return of the king|lord of the rings:4; slumdog millionaire:4; the king's speech|kings speech:4; the departed|departed:4; no country for old men:4; parasite:4; everything everywhere all at once:4; oppenheimer:4; moonlight:3; the shape of water|shape of water:3;
 green book:3; argo:3; 12 years a slave|twelve years a slave:3; birdman:3; spotlight:3; nomadland:3; coda:3; anora:3; the artist|artist:3; the hurt locker|hurt locker:3;
@@ -133,7 +133,7 @@ going my way:1; mrs miniver:2; how green was my valley:2; rebecca:3; you cant ta
 grand hotel:2; all quiet on the western front:3; the broadway melody|broadway melody:1; wings:2; sunrise:1; 
 ` },
 
-  { id: "q-movie-director", theme: "Movies", ask: "Name a famous movie director", what: "a movie director", items: `
+  { id: "q-pop-movie-director", theme: "Movies", ask: "Name a famous movie director", what: "a movie director", items: `
 steven spielberg|spielberg:5; martin scorsese|scorsese:5; quentin tarantino|tarantino:5; christopher nolan|nolan:5; alfred hitchcock|hitchcock:5; stanley kubrick|kubrick:5; james cameron|cameron:5; tim burton|burton:5;
 george lucas|lucas:4; francis ford coppola|coppola:4; ridley scott:4; peter jackson:4; woody allen:4; clint eastwood:4; david fincher|fincher:4; wes anderson:4; guillermo del toro|del toro:4; michael bay:4; tony scott:2; denis villeneuve|villeneuve:4;
 steven soderbergh|soderbergh:3; joel coen|ethan coen|coen brothers:3; spike lee:4; sofia coppola:3; greta gerwig|gerwig:4; kathryn bigelow|bigelow:3; jane campion:3; chloe zhao:3; patty jenkins:2; alfonso cuaron|cuaron:3; alejandro gonzalez inarritu|inarritu:3; pedro almodovar|almodovar:3;
@@ -153,7 +153,7 @@ nora ephron|ephron:3; nancy meyers|meyers:3; penny marshall:2; amy heckerling:1;
 james wan|wan:3; eli roth|roth:2; rob zombie|zombie:2; tobe hooper|hooper:3; dario argento|argento:2; mario bava:1; sam peckinpah|peckinpah:2; walter hill:1; michael mann|mann:3;
 ` },
 
-  { id: "q-movie-actor", theme: "Movies", ask: "Name a famous movie actor", what: "a male movie star", items: `
+  { id: "q-pop-movie-actor", theme: "Movies", ask: "Name a famous movie actor", what: "a male movie star", items: `
 tom hanks|hanks:5; tom cruise|cruise:5; brad pitt|pitt:5; leonardo dicaprio|dicaprio:5; johnny depp|depp:5; robert de niro|de niro:5; al pacino|pacino:5; jack nicholson|nicholson:5; denzel washington:5; morgan freeman:5; will smith:5; harrison ford:5;
 arnold schwarzenegger|schwarzenegger:4; sylvester stallone|stallone:4; bruce willis:4; clint eastwood|eastwood:4; keanu reeves|reeves:4; matt damon:4; ben affleck:4; george clooney|clooney:4; robert downey jr|robert downey junior|downey:4; chris hemsworth|hemsworth:4; chris evans:4; chris pratt:4;
 dwayne johnson|the rock:4; ryan reynolds:4; hugh jackman|jackman:4; christian bale|bale:4; joaquin phoenix:4; jim carrey|carrey:4; adam sandler|sandler:4; ben stiller|stiller:3; eddie murphy:4; robin williams:4; steve martin:3; bill murray:4;
@@ -172,7 +172,7 @@ sacha baron cohen|baron cohen:3; rowan atkinson|atkinson:3; jackie gleason:1; da
 jared leto|leto:3; casey affleck:2; jeff daniels:2; steve carell|carell:3; ricky gervais|gervais:2; simon pegg|pegg:3; nick frost:1; dan aykroyd|aykroyd:3; chevy chase|chase:2;
 ` },
 
-  { id: "q-movie-actress", theme: "Movies", ask: "Name a famous actress", what: "an actress", items: `
+  { id: "q-pop-movie-actress", theme: "Movies", ask: "Name a famous actress", what: "an actress", items: `
 meryl streep|streep:5; julia roberts|roberts:5; sandra bullock|bullock:5; angelina jolie|jolie:5; jennifer lawrence:5; scarlett johansson|johansson:5; emma stone:4; emma watson:5; anne hathaway|hathaway:4; nicole kidman|kidman:5; cate blanchett|blanchett:4; kate winslet|winslet:5;
 natalie portman|portman:4; reese witherspoon|witherspoon:4; jennifer aniston|aniston:5; jennifer lopez|j lo:4; cameron diaz|diaz:4; drew barrymore|barrymore:4; charlize theron|theron:4; halle berry:4; viola davis:3; margot robbie|robbie:4; zendaya:4; florence pugh|pugh:3;
 saoirse ronan|ronan:3; keira knightley|knightley:4; helena bonham carter|bonham carter:3; emma thompson|thompson:3; judi dench|dench:4; maggie smith:3; helen mirren|mirren:3; julie andrews|andrews:4; audrey hepburn:5; katharine hepburn:3; marilyn monroe|monroe:5; elizabeth taylor|taylor:4;
@@ -190,7 +190,7 @@ rooney mara|mara:2; noomi rapace|rapace:1; eva green:2; marion cotillard|cotilla
 sofia vergara|vergara:3; eva longoria|longoria:2; eva mendes|mendes:3; jennifer connelly|connelly:3; kate beckinsale|beckinsale:3; liv tyler|tyler:3; liv ullmann|ullmann:1; anna kendrick|kendrick:3; mckenna grace:1; isla fisher|fisher:2;
 ` },
 
-  { id: "q-sci-fi-movie", theme: "Movies", ask: "Name a science fiction movie", what: "a sci-fi movie", items: `
+  { id: "q-pop-sci-fi-movie", theme: "Movies", ask: "Name a science fiction movie", what: "a sci-fi movie", items: `
 star wars:5; the matrix|matrix:5; blade runner:5; alien:5; aliens:4; the terminator|terminator:5; terminator 2 judgment day|terminator 2:4; back to the future:5; et the extra-terrestrial|et:5; close encounters of the third kind|close encounters:4; 2001 a space odyssey|2001:5; star trek:5;
 avatar:5; inception:5; interstellar:5; the martian|martian:4; gravity:4; arrival:3; dune:4; jurassic park:4; independence day:4; men in black:4; the fifth element|fifth element:4; total recall:4;
 robocop:4; predator:4; minority report:4; i robot:3; war of the worlds:4; the day the earth stood still|day the earth stood still:3; planet of the apes:4; tron:3; mad max:3; district 9:3; children of men:3; ex machina:3;

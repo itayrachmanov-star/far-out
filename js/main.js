@@ -23,6 +23,7 @@
     else if (where === 'crew') { UI.show('s-crew'); FO.CrewView.entry(); }
     else if (where === 'howto') UI.show('s-howto');
     else if (where === 'chart') FO.Collection.show();
+    else if (where === 'party') FO.Party.show();
   }
 
   document.addEventListener('click', (e) => {

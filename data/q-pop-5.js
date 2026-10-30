@@ -1,6 +1,6 @@
 /* Far Out — pop culture question bank, part 5: games */
 FarOut.addQuestions([
-  { id: "q-pokemon", theme: "Games", ask: "Name a Pokemon", what: "a Pokemon", items: `
+  { id: "q-pop-pokemon", theme: "Games", ask: "Name a Pokemon", what: "a Pokemon", items: `
 pikachu:5; charizard:5; bulbasaur:5; squirtle:5; charmander:5; eevee:5; mewtwo:5; snorlax:5; jigglypuff:5; mew:4; gengar:4; magikarp:4;
 psyduck:4; meowth:4; gyarados:4; lucario:3; togepi:3; onix:3; geodude:3; vulpix:3; ditto:3; lapras:3; dragonite:3; blastoise:4;
 venusaur:3; ivysaur:2; charmeleon:2; wartortle:2; raichu:4; machamp:3; alakazam:3; abra:3; arcanine:3; ninetales:2; growlithe:3; ponyta:2;
@@ -27,7 +27,7 @@ grookey:2; scorbunny:2; sobble:2; cinderace:2; rillaboom:1; inteleon:1; zacian:1
 sprigatito:2; fuecoco:2; quaxly:1; koraidon:1; miraidon:1; meowscarada:1; skeledirge:1; pawmi:1; tinkaton:1; gholdengo:1; pecharunt:1; ogerpon:1;
 ` },
 
-  { id: "q-nintendo-character", theme: "Games", ask: "Name a Nintendo character", what: "a Nintendo character", items: `
+  { id: "q-pop-nintendo-character", theme: "Games", ask: "Name a Nintendo character", what: "a Nintendo character", items: `
 mario:5; luigi:5; princess peach|peach:5; bowser:5; yoshi:5; toad:4; donkey kong:5; diddy kong:3; link:5; zelda|princess zelda:5; ganon|ganondorf:4; samus aran|samus:4;
 kirby:5; king dedede:2; meta knight:2; fox mccloud|fox:3; falco lombardi|falco:2; captain falcon:3; pikachu:5; jigglypuff:3; ness:2; marth:2; ike:1; pit:2;
 olimar|captain olimar:1; villager:2; isabelle:3; tom nook:4; inkling:2; wario:4; waluigi:4; princess daisy|daisy:3; rosalina:3; bowser jr:3; koopa troopa|koopa:4; goomba:4;
@@ -40,7 +40,7 @@ mallow:1; geno:2; madame broode:1; pom pom:1; lady bow:1; goombario:1; kooper:1;
 mabel:2; timmy and tommy:1; resetti:2; celeste:1; redd:1; lottie:1; cyrus:1; rover:1; pascal:1; gulliver:1; mii:2;
 ` },
 
-  { id: "q-video-game-franchise", theme: "Games", ask: "Name a video game franchise", what: "a video game franchise", items: `
+  { id: "q-pop-video-game-franchise", theme: "Games", ask: "Name a video game franchise", what: "a video game franchise", items: `
 super mario|mario:5; the legend of zelda|zelda:5; pokemon:5; call of duty:5; grand theft auto|gta:5; minecraft:5; fortnite:4; fifa|ea sports fc:4; madden nfl|madden:3; halo:5; gears of war:3; god of war:4;
 the last of us:4; uncharted:3; assassins creed:5; far cry:3; battlefield:4; resident evil:4; silent hill:3; final fantasy:5; kingdom hearts:3; dragon quest:3; metal gear solid|metal gear:4; street fighter:5;
 mortal kombat:5; tekken:4; sonic the hedgehog|sonic:5; pac-man|pacman:5; tetris:4; space invaders:3; donkey kong:4; metroid:3; kirby:3; star fox:2; super smash bros|smash bros:4; animal crossing:4;
@@ -58,7 +58,7 @@ hollow knight:2; celeste:1; cuphead:2; undertale:3; five nights at freddys:3; sl
 earthworm jim:1; toejam and earl:1; lemmings:2; worms:2; theme hospital:1; populous:1; monkey island:2; day of the tentacle:1; myst:2; zork:1; leisure suit larry:1;
 ` },
 
-  { id: "q-video-game-character", theme: "Games", ask: "Name a video game character", what: "a video game character", items: `
+  { id: "q-pop-video-game-character", theme: "Games", ask: "Name a video game character", what: "a video game character", items: `
 mario:5; luigi:4; link:5; sonic the hedgehog|sonic:5; pac-man|pacman:5; lara croft:5; master chief:4; kratos:4; solid snake|snake:3; cloud strife|cloud:3; sephiroth:3; crash bandicoot|crash:4;
 spyro:3; donkey kong:5; samus aran|samus:4; kirby:4; pikachu:5; steve:3; creeper:3; geralt of rivia|geralt:3; ezio auditore|ezio:3; nathan drake|drake:3; ellie:3; joel:2; aloy:2; dante:2;
 bayonetta:2; mega man:3; ryu:4; ken masters|ken:3; chun-li|chun li:4; scorpion:4; sub-zero|subzero:4; liu kang:2; raiden:3; doomguy|doom slayer|doom marine:3; gordon freeman:3; glados:3;
@@ -79,7 +79,7 @@ tracer:3; widowmaker:1; reaper:1; mercy:2; genji:2; d.va|dva:2; reinhardt:1; win
 jett:1; sage:1; phoenix:1; ahri:1; jinx:2; lux:1; ashe:1; teemo:2; garen:1; yasuo:2; vi:1; ekko:1;
 ` },
 
-  { id: "q-video-game-console", theme: "Games", ask: "Name a video game console", what: "a games console", items: `
+  { id: "q-pop-video-game-console", theme: "Games", ask: "Name a video game console", what: "a games console", items: `
 playstation|ps1|psx:5; playstation 2|ps2:5; playstation 3|ps3:5; playstation 4|ps4:5; playstation 5|ps5:5; xbox:5; xbox 360:5; xbox one:5; xbox series x|xbox series s|xbox series:4; nintendo switch|switch:5; wii:5; wii u:4;
 gamecube|nintendo gamecube:4; nintendo 64|n64:5; super nintendo|snes|super nes:5; nintendo entertainment system|nes|famicom:5; game boy|gameboy:5; game boy color:3; game boy advance|gba:4; nintendo ds|ds:5; nintendo 3ds|3ds:4; sega genesis|mega drive|sega mega drive:4; sega saturn|saturn:3; sega dreamcast|dreamcast:4;
 sega master system|master system:3; sega game gear|game gear:3; atari 2600|atari:5; atari 7800:1; atari jaguar|jaguar:2; atari lynx|lynx:1; neo geo:2; turbografx-16|turbografx|pc engine:1; 3do:1; colecovision:1; intellivision:2; magnavox odyssey|odyssey:1;
@@ -88,7 +88,7 @@ game and watch|game & watch:2; nintendo switch lite|switch lite:2; nintendo swit
 sega pico:1; fairchild channel f:1; vectrex:1; atari 5200:1; atari 400:1; atari st:1; dragon 32:1; oric:1; acorn electron:1; msx:1; zx81:2; zx80:1;
 ` },
 
-  { id: "q-board-game", theme: "Games", ask: "Name a board game", what: "a board game", items: `
+  { id: "q-pop-board-game", theme: "Games", ask: "Name a board game", what: "a board game", items: `
 monopoly:5; scrabble:5; chess:5; checkers|draughts:5; backgammon:3; risk:4; cluedo|clue:5; trivial pursuit:5; battleship:5; connect four|connect 4:5; jenga:4; operation:4;
 mouse trap:3; sorry:4; ludo:3; snakes and ladders|chutes and ladders:5; candy land:4; yahtzee:3; boggle:3; pictionary:4; taboo:3; twister:3; guess who:4; mastermind:3;
 othello|reversi:3; stratego:3; catan|settlers of catan:4; ticket to ride:3; carcassonne:3; pandemic:3; dominion:1; 7 wonders|seven wonders:1; azul:2; codenames:3; dixit:1; splendor:2;
@@ -100,7 +100,7 @@ small world:1; alhambra:1; puerto rico:1; power grid:1; twilight struggle:1; axi
 trivial pursuit genus:1; mancala:2; chinese checkers:3; nine mens morris:1; fox and geese:1; tiddlywinks:2; shut the box:1; pachisi:1; parcheesi:2;
 ` },
 
-  { id: "q-card-game", theme: "Games", ask: "Name a card game", what: "a card game", items: `
+  { id: "q-pop-card-game", theme: "Games", ask: "Name a card game", what: "a card game", items: `
 poker:5; texas hold em|texas holdem|hold em:5; blackjack|twenty-one|pontoon|21:5; bridge:5; whist:3; rummy:5; gin rummy|gin:4; canasta:3; hearts:4; spades:3; solitaire|patience|klondike:5; snap:5;
 go fish:5; old maid:4; crazy eights:4; uno:5; war:4; cribbage:4; euchre:2; pinochle:2; baccarat:3; three card poker:1; omaha:2; stud|seven card stud|five card stud:3;
 faro:1; bezique:1; piquet:1; skat:1; president|arsehole|scum:2; spit|speed:3; slapjack:2; beggar my neighbour|beggar-my-neighbor:3; happy families:3; cheat|bullshit|i doubt it:3; newmarket:1; brag|three card brag:2;
@@ -110,7 +110,7 @@ magic the gathering|magic:3; pokemon trading card game|pokemon cards:3; yu-gi-oh
 cards against humanity:2; apples to apples:1; 31|thirty-one:1; hand and foot:1; hanafuda:1; big two:1; tien len:1; red dog:1; ride the bus:1;
 ` },
 
-  { id: "q-arcade-game", theme: "Games", ask: "Name an arcade game", what: "an arcade game", items: `
+  { id: "q-pop-arcade-game", theme: "Games", ask: "Name an arcade game", what: "an arcade game", items: `
 pac-man|pacman:5; space invaders:5; donkey kong:5; asteroids:4; galaga:4; frogger:4; pong:5; centipede:3; defender:3; qbert|q*bert:3; dig dug:3; ms pac-man|ms pacman:3;
 missile command:3; tempest:2; street fighter ii|street fighter 2|street fighter:4; mortal kombat:4; time crisis:3; house of the dead:3; daytona usa:3; outrun:3; pole position:3; dance dance revolution|ddr:3; pinball:3; whac-a-mole:3;
 skee-ball|skeeball:3; air hockey:3; claw machine|crane game:3; galaxian:2; joust:2; robotron:2; paperboy:2; double dragon:2; golden axe:2; final fight:2; teenage mutant ninja turtles:2; the simpsons:2;
@@ -121,7 +121,7 @@ mr do:1; bomb jack:1; burgertime:2; popeye:1; mappy:1; pengo:1; moon patrol:1; s
 tapper:2; arkanoid:2; breakout:3; pitfall:1; smash tv:1; cabal:1; commando:1; ikari warriors:1; kung-fu master:1; yie ar kung-fu:1; super sprint:1;
 ` },
 
-  { id: "q-minecraft-mob", theme: "Games", ask: "Name a mob in Minecraft", what: "a Minecraft mob", items: `
+  { id: "q-pop-minecraft-mob", theme: "Games", ask: "Name a mob in Minecraft", what: "a Minecraft mob", items: `
 creeper:5; zombie:5; skeleton:5; spider:5; enderman:5; ender dragon:5; wither:4; witch:4; blaze:4; ghast:4; slime:4; magma cube:3;
 piglin:3; hoglin:2; zoglin:1; drowned:3; husk:2; stray:2; phantom:3; pillager:3; vindicator:2; evoker:2; ravager:2; vex:2;
 guardian:3; elder guardian:2; shulker:2; silverfish:3; endermite:2; cave spider:2; zombie villager:2; villager:5; iron golem:4; snow golem:3; wandering trader:2; cow:5;
@@ -132,7 +132,7 @@ mooshroom:3; skeleton horse:2; zombified piglin|zombie pigman:3; glow squid:2; t
 chicken jockey:2; spider jockey:2; zombie happy ghast:1; copper golem:1; 
 ` },
 
-  { id: "q-game-company", theme: "Games", ask: "Name a video game company", what: "a video game company", items: `
+  { id: "q-pop-game-company", theme: "Games", ask: "Name a video game company", what: "a video game company", items: `
 nintendo:5; sony|sony interactive entertainment|playstation studios:5; microsoft|xbox game studios:5; sega:5; atari:4; capcom:3; konami:3; namco|bandai namco:3; square enix|squaresoft|square:3; activision:4; blizzard|blizzard entertainment:4; electronic arts|ea|ea sports:5;
 ubisoft:4; rockstar games|rockstar:5; bethesda|bethesda softworks:4; valve:4; epic games:4; riot games:3; naughty dog:3; bungie:3; 343 industries:1; id software:2; cd projekt red|cd projekt:3; bioware:3;
 obsidian entertainment|obsidian:2; insomniac games|insomniac:2; santa monica studio:1; fromsoftware:3; treyarch:1; infinity ward:2; respawn entertainment|respawn:2; mojang|mojang studios:4; supercell:3; king|king digital entertainment:2; zynga:3; rovio:3;
@@ -144,7 +144,7 @@ paradox interactive:1; hoyoverse|mihoyo:3; tencent:2; netease:1; nexon:1; ncsoft
 level-5|level 5:1; atlus:1; koei tecmo|koei:1; sunsoft:1; irem:1; technos:1; data east:1; tecmo:1; natsume:1; hal laboratory:1; game freak:3; creatures inc:1;
 ` },
 
-  { id: "q-mobile-game", theme: "Games", ask: "Name a mobile game", what: "a mobile game", items: `
+  { id: "q-pop-mobile-game", theme: "Games", ask: "Name a mobile game", what: "a mobile game", items: `
 candy crush saga|candy crush:5; angry birds:5; flappy bird:5; pokemon go:5; clash of clans:4; clash royale:4; subway surfers:4; temple run:4; fruit ninja:4; among us:4; wordle:3; 2048:3;
 plants vs zombies:4; cut the rope:3; doodle jump:3; words with friends:3; farmville:3; cookie clicker:1; genshin impact:3; pubg mobile:3; free fire:2; brawl stars:3; roblox:3; minecraft:3;
 monument valley:2; crossy road:3; hay day:2; mario kart tour:1; call of duty mobile:3; fortnite:2; summoners war:1; honor of kings:1; mobile legends:2; clash mini:1; boom beach:1; cityville:1;

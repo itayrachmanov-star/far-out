@@ -54,7 +54,9 @@
 
   // Data is lowercase; restore display casing: "kfc" → KFC, "mcdonalds" → McDonalds, "st john" → St John.
   const NOT_ACRONYM = new Set(['st', 'mr', 'mrs', 'dr', 'jr', 'sr', 'ft', 'mt', 'vs', 'pt', 'nd', 'rd', 'th', 'ms', 'grrrl']);
-  const title = (s) => s.replace(/[a-z0-9]+/g, (w) => {
+  const MINOR = new Set(['of', 'the', 'and', 'in', 'on', 'at', 'to', 'for', 'a', 'an', 'or', 'de', 'da', 'del', 'van', 'von', 'der', 'du', 'la', 'le', 'y']);
+  const title = (s) => s.replace(/[a-z0-9]+/g, (w, at) => {
+    if (at > 0 && MINOR.has(w) && s[at - 1] === ' ') return w;
     if (/^[b-df-hj-np-tv-xz]{2,5}$/.test(w) && !NOT_ACRONYM.has(w)) return w.toUpperCase();
     if (/^mc[a-z]{2}/.test(w)) return 'Mc' + w[2].toUpperCase() + w.slice(3);
     return w[0].toUpperCase() + w.slice(1);
