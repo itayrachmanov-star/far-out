@@ -7,7 +7,7 @@
 (function () {
   'use strict';
   const FO = window.FarOut;
-  const inArtifact = !!(window.claude && typeof window.claude.use === 'function');
+  const inArtifact = !!window.FAROUT_ARTIFACT || !!(window.claude && typeof window.claude.use === 'function');
   const PEERJS_URL = 'https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js';
   const PREFIX = 'farout-v1-';
   let roomCap = null, peerLib = null;

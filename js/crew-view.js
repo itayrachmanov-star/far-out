@@ -131,7 +131,7 @@
     mount(timerEl(), promptEl(p, g), form,
       h('div', { class: 'my-answers', id: 'crew-mine' }),
       h('div', { class: 'row-actions' }, h('span', { class: 'mono', id: 'crew-count' }),
-        h('button', { class: 'btn', type: 'button', id: 'crew-lock', onclick: () => { flushInput(); Cr().lock(); refresh(); } }, 'Lock in')),
+        h('button', { class: 'btn', type: 'button', id: 'crew-lock', onclick: () => { if (!flushInput(false)) return; Cr().lock(); refresh(); } }, 'Lock in')),
       msg, h('ul', { class: 'players', id: 'crew-players' }));
     mine();
     players();
@@ -154,9 +154,18 @@
     mine();
     input.focus({ preventScroll: true });
   }
-  function flushInput() {
+  /** Submit what's still typed. On a timeout (auto) an ambiguous typo takes its best match;
+      on "Lock in" it asks first and returns false so the answers stay open. */
+  function flushInput(auto) {
     const input = $('#crew-ans');
-    if (input && input.value.trim()) { Cr().addAnswer(input.value); input.value = ''; }
+    if (!input || !input.value.trim()) return true;
+    const r = Cr().addAnswer(input.value);
+    if (r.options) {
+      if (auto) Cr().addAnswer(r.options[0].name);
+      else { submit(input, $('#crew-form'), $('#crew-msg')); return false; }
+    }
+    input.value = '';
+    return true;
   }
   function mine() {
     const st = S(), a = st.myA, el = $('#crew-mine');
@@ -299,5 +308,11 @@
     players();
   }
 
-  FO.CrewView = { entry, lobby, ask, vote, reveal, final, waiting, message, hostGone, net, tick, refresh, players, flushInput };
+  function outdated() {
+    mount(h('div', { class: 'panel' }, h('h2', null, 'Update needed'),
+      h('p', null, "Your copy of the game is older than the host's, so you can't see this question. Reload to get the latest version, then rejoin with the same code."),
+      h('div', { class: 'over-actions' }, h('button', { class: 'btn primary', type: 'button', onclick: () => location.reload() }, 'Reload the game'))));
+  }
+
+  FO.CrewView = { outdated, entry, lobby, ask, vote, reveal, final, waiting, message, hostGone, net, tick, refresh, players, flushInput };
 })();

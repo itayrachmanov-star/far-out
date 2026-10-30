@@ -55,8 +55,12 @@
   // Data is lowercase; restore display casing: "kfc" → KFC, "mcdonalds" → McDonalds, "st john" → St John.
   const NOT_ACRONYM = new Set(['st', 'mr', 'mrs', 'dr', 'jr', 'sr', 'ft', 'mt', 'vs', 'pt', 'nd', 'rd', 'th', 'ms', 'grrrl']);
   const MINOR = new Set(['of', 'the', 'and', 'in', 'on', 'at', 'to', 'for', 'a', 'an', 'or', 'de', 'da', 'del', 'van', 'von', 'der', 'du', 'la', 'le', 'y']);
+  const ROMAN = /^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3})$/;
   const title = (s) => s.replace(/[a-z0-9]+/g, (w, at) => {
+    if (at > 0 && s[at - 1] === "'") return w; // fireman's, o'clock stays lowercase after the apostrophe
     if (at > 0 && MINOR.has(w) && s[at - 1] === ' ') return w;
+    if (at > 0 && w.length >= 2 && ROMAN.test(w) && !/^(mix|liv|mi|di|dim|mid|mild|civic|vivid|lid|ill)$/.test(w)) return w.toUpperCase(); // Henry VIII
+    if (/^[b-df-hj-np-tv-xz]{2,5}s$/.test(w) && !/^(css|gps|sms|mms|rss|dns|ups|bbs|nhs|pps)$/.test(w) && !NOT_ACRONYM.has(w.slice(0, -1))) return w.slice(0, -1).toUpperCase() + 's'; // DVDs
     if (/^[b-df-hj-np-tv-xz]{2,5}$/.test(w) && !NOT_ACRONYM.has(w)) return w.toUpperCase();
     if (/^mc[a-z]{2}/.test(w)) return 'Mc' + w[2].toUpperCase() + w.slice(3);
     return w[0].toUpperCase() + w.slice(1);

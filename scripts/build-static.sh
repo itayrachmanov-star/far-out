@@ -14,7 +14,7 @@ python3 - <<'PY'
 import re
 src = open('index.html').read()
 src = re.sub(r'<!-- DATA:start -->.*?<!-- DATA:end -->', '<script src="data/bank.js"></script>', src, flags=re.S)
-open('dist/artifact.html', 'w').write(src)
+open('dist/artifact.html', 'w').write(src.replace('<script src="js/text.js">', '<script>window.FAROUT_ARTIFACT = true;</script>\n<script src="js/text.js">', 1))
 cut = src.index('css/screens.css">') + len('css/screens.css">')
 head, body = src[:cut], src[cut:]
 app = ('<link rel="manifest" href="manifest.webmanifest">\n<meta name="theme-color" content="#05060d">\n'

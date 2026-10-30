@@ -12,35 +12,63 @@
 
   // ---------- themes ----------
   FO.THEMES = [
-    { id: 'food', name: 'Food & Drink', re: /food|drink|cook|kitchen|dish|dessert|bread|pasta|cheese|fruit|veg|nut|herb|spice|breakfast|fastfood/i },
-    { id: 'nature', name: 'Animals & Nature', re: /animal|bird|fish|sea|insect|reptile|mammal|dog|cat-breed|tree|flower|plant|nature|dinosaur|weather/i },
-    { id: 'world', name: 'Places & History', re: /geo|countr|capital|city|cities|state|river|mountain|island|travel|history|landmark|empire|language|currency|world/i },
-    { id: 'culture', name: 'Movies, Music & Fame', re: /movie|film|tv|music|song|band|game|book|author|painter|art|famous|celebr|superhero|people|president|dance|instrument|myth|god/i },
-    { id: 'sport', name: 'Sport & Games', re: /sport|team|olymp|ball|player|club|toy|hobby|game/i },
-    { id: 'science', name: 'Science & Tech', re: /science|space|element|body|health|medic|tech|computer|proglang|math|unit|shape|gem|mineral|chem|physics/i },
-    { id: 'life', name: 'Everyday Life', re: /home|house|everyday|school|job|work|cloth|fashion|vehicle|transport|tool|kitchen|holiday|money|brand|feel|emotion|colou?r|fabric|camp|subject/i },
-    { id: 'words', name: 'Words', re: /word|rhyme|letter|idiom/i },
+    { id: 'food', name: 'Food & Drink' }, { id: 'nature', name: 'Animals & Nature' }, { id: 'world', name: 'Places & History' },
+    { id: 'culture', name: 'Movies, Music & Books' }, { id: 'sport', name: 'Sport & Games' }, { id: 'science', name: 'Science & Tech' },
+    { id: 'life', name: 'Everyday Life' }, { id: 'words', name: 'Words & Ideas' },
   ];
-  const themeOf = (label) => (FO.THEMES.find((t) => t.re.test(label)) || { id: 'life' }).id;
+  // Curated questions carry a theme label; broad categories are mapped by id.
+  const LABEL_THEME = {
+    food: 'food', drink: 'food', animals: 'nature', nature: 'nature', geography: 'world', cities: 'world', history: 'world', travel: 'world',
+    movies: 'culture', tv: 'culture', music: 'culture', books: 'culture', art: 'culture', architecture: 'culture',
+    sport: 'sport', games: 'sport', fitness: 'sport', hobbies: 'sport',
+    science: 'science', space: 'science', body: 'science', tech: 'science', maths: 'science',
+    home: 'life', everyday: 'life', school: 'life', work: 'life', people: 'life', feelings: 'life', holidays: 'life', fashion: 'life', brands: 'life', transport: 'life', cars: 'life',
+    words: 'words', language: 'words', myths: 'words', religion: 'words', philosophy: 'words',
+  };
+  const CAT_THEME = {
+    food: /^(fruit|vegetable|nut-seed-grain|herb-spice|cheese|dish|dessert|drink|bread|pasta|fastfood|breakfast)$/,
+    nature: /^(mammal|bird|fish|sea-creature|insect|reptile-amphibian|dog-breed|cat-breed|tree|flower|dinosaur)$/,
+    world: /^(country|capital|us-state|world-city|river|mountain|island|currency)$/,
+    culture: /^(instrument|music-genre|painter|author|superhero|mythical-creature|god)$/,
+    sport: /^(sport|game|sportsgear|toy|hobby|dance)$/,
+    science: /^(element|gem-mineral|body-part|space|color|scientist|proglang|unit|shape)$/,
+    words: /^(language|emotion|subject)$/,
+  };
+  const themeOf = (kind, def) => {
+    if (kind === 'q') return LABEL_THEME[String(def.theme || '').toLowerCase()] || 'life';
+    return Object.keys(CAT_THEME).find((t) => CAT_THEME[t].test(def.id)) || 'life';
+  };
 
   // ---------- lists ----------
   function parseList(src) {
-    const items = [], index = new Map();
-    for (const raw of String(src).split(';')) {
+    const items = [], index = new Map(), named = [];
+    for (const raw of String(src).split(/[;\n]/)) {
       const m = raw.trim().match(/^(.*):([1-5])$/);
       if (!m) continue;
       const names = m[1].split('|').map((s) => s.trim()).filter(Boolean);
       if (!names.length) continue;
       const item = { name: title(names[0]), c: +m[2], f: strip(names[0]) };
       items.push(item);
-      for (const n of names) {
-        const k = keyOf(n);
-        if (!k || index.has(k)) continue;
-        index.set(k, { item, f: strip(n), s: sound(k) });
-        allKeys.add(k);
-      }
+      named.push([item, names]);
     }
-    return { items, index };
+    // Every answer's own name wins over another answer's alias ("georgetown" vs Penang's alias).
+    const put = (item, n) => {
+      const k = keyOf(n);
+      if (!k || index.has(k)) return;
+      const f = strip(n);
+      index.set(k, { item, f, s: sound(k), r: f.replace(/ /g, '') });
+      allKeys.add(k);
+    };
+    // Duplicates ("lamb chop" and "lamb chops") merge into the first, keeping its rating.
+    const owner = new Map();
+    for (const [item, names] of named) {
+      const first = owner.get(keyOf(names[0]));
+      if (first) { first.extra.push(...names); item.dup = true; continue; }
+      owner.set(keyOf(names[0]), { item, extra: names.slice(1) });
+      put(item, names[0]);
+    }
+    for (const { item, extra } of owner.values()) extra.forEach((n) => put(item, n));
+    return { items: items.filter((it) => !it.dup), index };
   }
   function addList(def, kind, min) {
     if (!def || !def.id || FO.catById[def.id] || !def.items) return;
@@ -49,7 +77,7 @@
     const list = kind === 'q'
       ? { kind, id: def.id, name: String(def.theme || 'Mixed'), ask: String(def.ask), what: String(def.what), items, index }
       : { kind, id: def.id, name: String(def.name), ask: `Name ${def.ask}`, what: String(def.ask), items, index };
-    list.theme = themeOf(kind === 'q' ? `${list.name} ${def.id}` : `${def.id} ${def.name}`);
+    list.theme = themeOf(kind, def);
     (kind === 'q' ? FO.qs : FO.cats).push(list);
     FO.catById[list.id] = list;
   }
@@ -57,7 +85,10 @@
   FO.addQuestions = (arr) => arr.forEach((c) => addList(c, 'q', 15));
 
   // ---------- matching ----------
-  const FILLER = /\b(river|mount|mt|mountains?|volcano|islands?|isle|lake|city|breed|dog|cat|language|cheese|dance|bread|pasta|the|a|an)\b/g;
+  const FILLER = /\b(river|mount|mt|mountains?|volcano|islands?|isle|lake|city|breed|dog|cat|language|cheese|dance|bread|pasta|desert|sea|ocean|bridge|falls|waterfall|canyon|bay|gulf|strait|the|a|an)\b/g;
+
+  // A sound-alike match is strong evidence only when the spelling is also close.
+  const soundScore = (d) => (d <= 1 ? 0.5 + 0.15 * d : 0.5 + 0.35 * d);
 
   /** Find what the player meant. Returns {hit, f, fuzzy} for one answer, {options} when a typo
       could be several answers, or null. `keep(item, f)` filters candidates (rule, already used). */
@@ -72,19 +103,20 @@
     if (k.length < 3) return null;
     const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same
 
-    const L = k.length, maxD = L >= 13 ? 3 : L >= 8 ? 2 : L >= 4 ? 1 : 0, s = sound(k);
+    const L = k.length, maxD = L >= 13 ? 3 : L >= 8 ? 2 : L >= 4 ? 1 : 0, s = sound(k), rk = strip(text).replace(/ /g, '');
     const best = new Map(); // item -> {score, f}
     for (const [kk, v] of list.index) {
       let score = Infinity;
       if (known) {
-        if (L >= 5 && v.s === s) { const d = dist(k, kk, 2); if (d <= 2) score = 0.5 + 0.15 * d; }
+        if (L >= 5 && v.s === s) { const d = dist(k, kk, 2); if (d <= 2) score = soundScore(d); }
         if (score === Infinity) continue;
-      } else if (maxD && Math.abs(kk.length - L) <= maxD) {
-        const d = dist(k, kk, maxD);
+      } else if (maxD) {
+        let d = Math.abs(kk.length - L) <= maxD ? dist(k, kk, maxD) : maxD + 1;
+        if (d > maxD && Math.abs(v.r.length - rk.length) <= maxD) d = dist(rk, v.r, maxD); // "tapass", "tortoies"
         if (d <= maxD) score = d + (kk[0] !== k[0] ? 0.5 : 0);
       }
       const cap = Math.max(2, Math.ceil(L * 0.4));
-      if (known) { /* scored above */ } else if (L >= 4 && s.length >= 3 && v.s === s) { const d = dist(k, kk, cap); if (d <= cap) score = Math.min(score, 0.5 + 0.15 * d); }
+      if (known) { /* scored above */ } else if (L >= 4 && s.length >= 3 && v.s === s) { const d = dist(k, kk, cap); if (d <= cap) score = Math.min(score, soundScore(d)); }
       else if (L >= 6 && s.length >= 4 && Math.abs(v.s.length - s.length) <= 1 && dist(s, v.s, 1) <= 1 && dist(k, kk, 3) <= 3) score = Math.min(score, 1.6);
       if (!known && L >= 5 && kk.length > L && kk.startsWith(k) && L >= kk.length * 0.6) score = Math.min(score, 1.2); // unfinished word
       if (score === Infinity) continue;
@@ -146,6 +178,7 @@
 
   /** Rebuild a prompt from its serializable spec {c, t, v}. */
   FO.buildPrompt = function (spec) {
+    const known = !!FO.catById[spec.c];
     const list = FO.catById[spec.c] || FO.qs[0] || FO.cats[0];
     const rule = Object.prototype.hasOwnProperty.call(RULES, spec.t) ? spec.t : 'any';
     let v;
@@ -155,6 +188,7 @@
     const maxC = pool.reduce((m, it) => Math.max(m, it.c), 1);
     return {
       spec: { c: list.id, t: rule, v },
+      missing: !known, // this device's word bank is older than the host's
       id: `${list.id}:${rule}:${v ?? ''}`,
       cat: list, pool,
       shift: Math.min(2, 5 - maxC), // a hard rule makes its own best-known answers "obvious"

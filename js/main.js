@@ -67,9 +67,11 @@
     setTimeout(() => $('#intro-go').focus(), 50);
   }
   // Installed-app support (GitHub Pages and other real hosts only; never inside claude.ai).
-  if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
-    navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });
-  }
+  try {
+    if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
+      navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });
+    }
+  } catch (e) { /* sandboxed frames can refuse service workers */ }
   const m = location.hash.match(/^#crew-([a-z]{4})$/i);
   if (m) { UI.show('s-crew'); FO.CrewView.entry(m[1].toUpperCase()); }
   else if (['#voyage', '#daily', '#explore'].includes(location.hash)) go(location.hash.slice(1));

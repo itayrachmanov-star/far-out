@@ -81,11 +81,11 @@ indict:3; rhubarb:3; ache:3; school:3; chemistry:3; character:3; psychic:3; pseu
 dough:3; plough:3; leopard:3; people:3; jeopardy:3; yacht:3; colonel:3; almond:3; balm:3; calf:3;
 queue:3; guard:3; guess:3; guest:3; guide:3; guilt:3; guitar:3; league:3; tongue:3; rogue:3;
 vague:3; plague:3; catalogue:3; dialogue:3; build:3; biscuit:3; circuit:3; disguiseowledgeeadeelaveellickersapsackighthood:3; wrath:3; wretch:3;
-writer:3; written:3; wriggle:3; wrought:3; wren:3; wrangle:3; wry:3; whom:3; whose:3; lamb dup:2;
-subpoena:2; czar:2; corps:2; coup:2; debris:2; bourgeois:2; rendezvous:2; pneumatic:2; psoriasis:2; psychiatrist:2;
-psychedelic:2; psychopath:2; psyche:2; ptarmigan:2; gnosis:2; gnostic:2; gneiss:2; gnarl:2; gnarly:2; gnocchi:2;
-wrack:2; wrest:2; ptomaine:2; tsetse:2; phlegm:2; diaphragm:2; paradigm:2; apothegm:2; impugn:2; deign:2;
-feign:2; align:2; assign:2; consign:2; benign:2; malign:2;
+writer:3; written:3; wriggle:3; wrought:3; wren:3; wrangle:3; wry:3; whom:3; whose:3; subpoena:2;
+czar:2; corps:2; coup:2; debris:2; bourgeois:2; rendezvous:2; pneumatic:2; psoriasis:2; psychiatrist:2; psychedelic:2;
+psychopath:2; psyche:2; ptarmigan:2; gnosis:2; gnostic:2; gneiss:2; gnarl:2; gnarly:2; gnocchi:2; wrack:2;
+wrest:2; ptomaine:2; tsetse:2; phlegm:2; diaphragm:2; paradigm:2; apothegm:2; impugn:2; deign:2; feign:2;
+align:2; assign:2; consign:2; benign:2; malign:2;
 ` },
   { id: "q-world-animal-sound", theme: "Words", ask: "Name an animal sound word", what: "an animal sound word", items: `
 moo:5; oink:5; baa:5; quack:5; woof:5; bark:5; meow|miaow:5; purr:5; hiss:5; roar:5;
@@ -264,12 +264,99 @@ virtuoso:4; maestro:4; diva:4; soprano:4; tempo:4; crescendo:4; allegro:4; forte
 ghetto:4; incognito:4; mafia:4; malaria:4; manifesto:4; motto:4; regatta:4; scenario:4; stanza:4; terracotta:4;
 villa:4; zucchini:4; broccoli:4; pepperoni:4; prosciutto:4; risotto:4; ravioli:4; panini:4; mozzarella:4; parmesan:4;
 salami:4; tiramisu:4; vendetta:4; bimbo:3; extravaganza:3; gusto:3; inferno:3; replica:3; solo:3; trio:3;
-quartet:3; cameo:3; alto:3; bass:3; cello:3; violin:3; viola:3; piccolo:3; oboe:3; sonata:3;
-concerto:3; aria:3; libretto:3; falsetto:3; staccato:3; legato:3; pizzicato:3; fresco:3; loggia:3; piazza:3;
-gondola:3; lagoon:3; lava:3; magma:3; pistachio:3; artichoke:3; cantaloupe:3; bandit:3; bankrupt:3; carnival:3;
-confetti:3; cupola:3; dilettante:3; duet:3; esplanade:3; firm:3; gala:3; granite:3; grotto:3; imbroglio:3;
-influenza:3; lottery:3; macaroni:3; marzipan:3; mascara:3; mezzanine:3; minestrone:3; mortadella:3; nuncio:3; pantaloon:3;
-pergola:3; pilaster:3; portico:3; propaganda:3; quarantine:3; rotunda:3; salvo:3; semolina:3; sequin:3; sonnet:3;
-stiletto:3; tarantella:3; torso:3; trampoline:3; tutti frutti:3; vermicelli:3; vista:3; zany:3;
+quartet:3; cameo:3; alto:3; cello:3; violin:3; viola:3; piccolo:3; oboe:3; sonata:3; concerto:3;
+aria:3; libretto:3; falsetto:3; staccato:3; legato:3; pizzicato:3; fresco:3; loggia:3; piazza:3; gondola:3;
+lagoon:3; lava:3; magma:3; pistachio:3; artichoke:3; cantaloupe:3; bandit:3; bankrupt:3; carnival:3; confetti:3;
+cupola:3; dilettante:3; duet:3; esplanade:3; gala:3; granite:3; grotto:3; imbroglio:3; influenza:3; lottery:3;
+macaroni:3; marzipan:3; mascara:3; mezzanine:3; minestrone:3; mortadella:3; nuncio:3; pantaloon:3; pergola:3; pilaster:3;
+portico:3; propaganda:3; quarantine:3; rotunda:3; salvo:3; semolina:3; sequin:3; sonnet:3; stiletto:3; tarantella:3;
+torso:3; trampoline:3; tutti frutti:3; vermicelli:3; vista:3; zany:3;
+` },
+  { id: "q-world-spanish-word", theme: "Words", ask: "Name a word borrowed from Spanish", what: "a word borrowed from Spanish", items: `
+patio:5; siesta:5; tornado:5; canyon:5; plaza:5; mosquito:5; taco:5; burrito:5; tortilla:5; salsa:5;
+fiesta:5; rodeo:5; sombrero:5; lasso:4; stampede:4; bonanza:4; armada:4; guerrilla:4; embargo:4; hacienda:4;
+mesa:4; cargo:4; macho:4; matador:4; aficionado:4; bravado:4; desperado:4; renegade:4; vigilante:4; mustang:4;
+bronco:4; burro:4; alligator:4; cockroach:4; breeze:4; tobacco:4; banana:4; cigar:4; poncho:4; pueblo:4;
+ranch:4; tango:4; rumba:4; mambo:4; nacho:4; guacamole:4; chili:4; avocado:4; tequila:4; mojito:4;
+sangria:4; paella:4; tapas:4; chorizo:4; vanilla:4; potato:4; tomato:4; chocolate:4; hurricane:4; hammock:4;
+canoe:4; barbecue:4; coyote:4; flotilla:3; junta:3; peccadillo:3; cafeteria:3; buckaroo:3; chaparral:3; conquistador:3;
+corral:3; el nino:3; incommunicado:3; loco:3; nada:3; adios:3; amigo:3; hasta la vista:3; vamos:3; gringo:3;
+hombre:3; senor:3; senorita:3; mariachi:3; flamenco:3; bolero:3; fajita:3; empanada:3; enchilada:3; quesadilla:3;
+churro:3; jalapeno:3; habanero:3; pinata:3; machete:3; mescal:3; margarita:3; pina colada:3; daiquiri:3; cabana:3;
+bodega:3; albino:3; alfalfa:3; anchovy:3; armadillo:3; bonito:3; cask:3; cilantro:3; cocoa:3; condor:3;
+creole:3; galleon:3; guitar:3; iguana:3; jaguar:3; llama:3; maize:3; mariposa:3; oregano:3; parakeet:3;
+peon:3; pimento:3; puma:3; quinoa:3; savanna:3; sherry:3; silo:3; tuna:3; vamoose:3; vaquero:3;
+vicuna:3;
+` },
+  { id: "q-world-german-word", theme: "Words", ask: "Name a word borrowed from German", what: "a word borrowed from German", items: `
+kindergarten:5; angst:5; schadenfreude:5; wanderlust:5; zeitgeist:5; doppelganger:5; poltergeist:5; hamburger:5; pretzel:5; sauerkraut:5;
+delicatessen:4; noodle:4; kaput:4; rucksack:4; hinterland:4; ersatz:4; gesundheit:4; glockenspiel:4; lager:4; waltz:4;
+spiel:4; dachshund:4; rottweiler:4; poodle:4; schnapps:4; strudel:4; bratwurst:4; wiener:4; frankfurter:4; schnitzel:4;
+muesli:4; kitsch:4; gestalt:3; wunderkind:3; blitz:3; flak:3; panzer:3; leitmotif:3; abseil:3; realpolitik:3;
+weltanschauung:3; weltschmerz:3; bildungsroman:3; lederhosen:3; dirndl:3; oktoberfest:3; fahrenheit:3; diesel:3; zeppelin:2; edelweiss:2;
+feldspar:2; quartz:2; cobalt:2; nickel:2; zinc:2; loess:2; gneiss:2; hamster:2;
+` },
+  { id: "q-world-japanese-word", theme: "Words", ask: "Name a word borrowed from Japanese", what: "a word borrowed from Japanese", items: `
+tsunami:5; karaoke:5; sushi:5; sashimi:5; tempura:5; ramen:5; tofu:5; sake:5; wasabi:5; origami:5;
+haiku:5; anime:5; manga:5; emoji:5; kimono:5; samurai:5; ninja:5; karate:5; judo:5; bonsai:5;
+zen:5; teriyaki:4; edamame:4; miso:4; bento:4; ikebana:4; shogun:4; geisha:4; sumo:4; aikido:4;
+kendo:4; koi:4; futon:4; tycoon:4; honcho:4; rickshaw:4; sudoku:4; kamikaze:4; tatami:4; sensei:4;
+dojo:4; katana:4; shiatsu:4; reiki:4; kawaii:4; otaku:4; pokemon:3; sayonara:3; banzai:3; soy:3;
+udon:3; soba:3; sukiyaki:3; tamagotchi:3; kabuki:3; noh:3; tanka:3; hibachi:3; hara-kiri:3; matcha:3;
+sencha:3; umami:3; yakuza:3; shiitake:3; daikon:3; nori:3; panko:3; ponzu:3; tonkatsu:3; yakitori:3;
+okonomiyaki:3; takoyaki:3; mochi:3; dorayaki:3; skosh:2; ikigai:2; wabi-sabi:2; kaizen:2; bokeh:2; hikikomori:2;
+karoshi:2; tsundoku:2; komorebi:2; shibui:2; ukiyo-e:2; netsuke:2; obi:2; geta:2; zori:2; tabi:2;
+yukata:2; haori:2; hakama:2; furoshiki:2; tenugui:2; noren:2; shoji:2; fusuma:2; ryokan:2; onsen:2;
+sento:2; izakaya:2; pachinko:2; tamagoyaki:2; natto:2; wagyu:2; kobe beef:2; gyoza:2; tonkotsu:2; shabu-shabu:2;
+kaiju:2; mecha:2; shonen:2; shojo:2; seinen:2; isekai:2; cosplay:2; gaijin:2; yen:2; kanji:2;
+hiragana:2; katakana:2; romaji:2;
+` },
+  { id: "q-world-arabic-word", theme: "Words", ask: "Name a word borrowed from Arabic", what: "a word borrowed from Arabic", items: `
+algebra:5; coffee:5; sugar:5; cotton:5; lemon:5; orange:5; zero:5; giraffe:5; sofa:5; magazine:5;
+alcohol:5; algorithm:5; gazelle:4; mattress:4; admiral:4; arsenal:4; assassin:4; candy:4; checkmate:4; elixir:4;
+genie:4; jar:4; jasmine:4; lime:4; monsoon:4; nadir:4; zenith:4; saffron:4; sherbet:4; syrup:4;
+tariff:4; tuna:4; harem:4; hazard:4; mummy:4; mosque:4; sultan:4; emir:4; sheikh|sheik:4; ghoul:4;
+hummus:4; falafel:4; kebab:4; tahini:4; couscous:4; halal:4; hijab:3; souk:3; henna:3; safari:3;
+cipher:3; caliber|calibre:3; carat:3; gauze:3; alchemy:3; alkali:3; almanac:3; apricot:3; artichoke:3; aubergine:3;
+azimuth:3; caraway:3; carafe:3; crimson:3; divan:3; hashish:3; lute:3; mohair:3; muslin:3; ottoman:3;
+ream:3; sash:3; spinach:3; talc:3; tamarind:3; taffeta:3; zircon:3;
+` },
+  { id: "q-world-latin-phrase", theme: "Words", ask: "Name a Latin word or phrase used in English", what: "a Latin word or phrase", items: `
+et cetera|etc:5; vice versa:5; carpe diem:5; status quo:5; quid pro quo:5; ad hoc:5; bona fide:5; per se:5; alter ego:5; circa:5;
+de facto:5; ad nauseam:4; alma mater:4; ergo:4; in vitro:4; ipso facto:4; magnum opus:4; modus operandi:4; non sequitur:4; persona non grata:4;
+post mortem:4; pro bono:4; quasi:4; sine qua non:4; tempus fugit:4; terra firma:4; veni vidi vici:4; verbatim:4; versus:4; vox populi:4;
+caveat emptor:4; habeas corpus:4; in memoriam:4; in situ:4; mea culpa:4; memento mori:4; pro rata:4; rigor mortis:4; sic:4; a priori:4;
+a posteriori:4; ad infinitum:3; ad libitum:3; annus horribilis:3; ante meridiem:3; post meridiem:3; cogito ergo sum:3; compos mentis:3; corpus delicti:3; cui bono:3;
+curriculum vitae|cv:3; deus ex machina:3; e pluribus unum:3; ex libris:3; ex officio:3; exempli gratia:3; id est:3; in absentia:3; in extremis:3; in loco parentis:3;
+in toto:3; inter alia:3; lingua franca:3; locum tenens:3; mutatis mutandis:3; nil desperandum:3; nota bene|nb:3; per annum:3; per capita:3; per diem:3;
+prima facie:3; pro forma:3; quod erat demonstrandum|qed:3; semper fidelis:3; sub rosa:3; summa cum laude:3; cum laude:3; magna cum laude:3; tabula rasa:3; ultra vires:3;
+urbi et orbi:3; veto:3; vide:3; viva voce:3; ad lib:3; agenda:3; alibi:2; alias:2; bonus:2; campus:2;
+candidate:2; data:2; decorum:2; ego:2; exit:2; extra:2; forum:2; genius:2; gratis:2; honorarium:2;
+impetus:2; index:2; interim:2; item:2; memorandum:2; minimum:2; maximum:2; multitude:2; nucleus:2; omnibus:2;
+opus:2; per cent:2; pro:2; propaganda:2; quorum:2; referendum:2; sector:2; serum:2; stimulus:2; tandem:2;
+terminus:2; ultimatum:2; vacuum:2; verdict:2; via:2; virus:2;
+` },
+  { id: "q-world-europe-language", theme: "Language", ask: "Name a language spoken in Europe", what: "a language spoken in Europe", items: `
+english:5; french:5; german:5; spanish:5; italian:5; portuguese:5; russian:5; dutch:4; polish:4; greek:4;
+swedish:4; norwegian:4; danish:4; finnish:4; irish|irish gaelic:4; welsh:4; latin:4; icelandic:3; czech:3; slovak:3;
+hungarian:3; romanian:3; bulgarian:3; serbian:3; croatian:3; bosnian:3; slovene|slovenian:3; macedonian:3; albanian:3; ukrainian:3;
+belarusian:3; lithuanian:3; latvian:3; estonian:3; turkish:3; maltese:3; scottish gaelic|gaelic:3; breton:3; cornish:3; manx:3;
+basque:3; catalan:3; galician:3; yiddish:3; flemish:3; occitan:2; corsican:2; sardinian:2; sicilian:2; luxembourgish:2;
+frisian:2; romansh:2; ladin:2; friulian:2; faroese:2; sami:2; romani:2; aromanian:2; kashubian:2; sorbian:2;
+silesian:2; karelian:2; neapolitan:2; venetian:2; piedmontese:2; lombard:2; ligurian:2; asturian:2; aragonese:2; walloon:2;
+picard:2; alsatian:2; low german:2; scots:2; ulster scots:2; norman:2; gagauz:2; tatar:2; kalmyk:2; chuvash:2;
+bashkir:2; udmurt:2; mari:2; komi:2; mordvin:2; erzya:2; moksha:2;
+` },
+  { id: "q-world-asia-language", theme: "Language", ask: "Name a language spoken in Asia", what: "a language spoken in Asia", items: `
+mandarin:5; chinese:5; hindi:5; japanese:5; korean:5; arabic:5; thai:5; cantonese:4; bengali:4; urdu:4;
+punjabi:4; tamil:4; telugu:4; marathi:4; gujarati:4; vietnamese:4; indonesian:4; tagalog|filipino:4; hebrew:4; persian|farsi:4;
+turkish:4; kannada:3; malayalam:3; nepali:3; sinhala|sinhalese:3; khmer:3; lao:3; burmese:3; malay:3; pashto:3;
+kurdish:3; uzbek:3; kazakh:3; kyrgyz:3; tajik:3; turkmen:3; mongolian:3; tibetan:3; georgian:3; armenian:3;
+azerbaijani:3; javanese:3; sundanese:3; cebuano:3; hmong:3; odia|oriya:3; assamese:3; sanskrit:3; hokkien:3; hakka:3;
+shanghainese:3; taiwanese:3; dzongkha:2; ilocano:2; hiligaynon:2; waray:2; bikol:2; kapampangan:2; pangasinan:2; balinese:2;
+minangkabau:2; madurese:2; batak:2; acehnese:2; tetum:2; uyghur:2; tatar:2; bashkir:2; ainu:2; okinawan:2;
+manchu:2; evenki:2; yakut:2; buryat:2; kalmyk:2; dari:2; balochi:2; sindhi:2; kashmiri:2; konkani:2;
+maithili:2; bhojpuri:2; santali:2; manipuri:2; bodo:2; dogri:2; rajasthani:2; marwari:2; haryanvi:2; magahi:2;
+awadhi:2; chhattisgarhi:2; tulu:2; kodava:2; divehi|dhivehi:2; aramaic:2; syriac:2; assyrian neo-aramaic:2; chaldean:2; mandaic:2;
 ` },
 ]);

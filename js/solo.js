@@ -7,7 +7,8 @@
 
   let S = null, ticker = 0;
 
-  const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  const ymd = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const today = () => ymd(new Date());
   const multFor = (streak) => (streak >= 8 ? 2 : streak >= 5 ? 1.5 : streak >= 3 ? 1.25 : 1);
 
   function fresh(mode) {
@@ -150,6 +151,7 @@
     const nextIdx = S.slots > 0 ? S.idx : S.idx + 1;
     UI.store.set('daily.' + S.day, { dist: S.dist, grid: S.grid, finds: S.finds.map((f) => [f.name, f.tier.c]),
       idx: nextIdx, slots: S.slots > 0 ? S.slots : DAILY_SLOTS, done: nextIdx >= DAILY_PROMPTS });
+    if (nextIdx >= DAILY_PROMPTS) bumpStreak(S.day);
   }
 
   function skip() {
@@ -182,7 +184,7 @@
   }
 
   /** Consecutive days with a finished Daily Orbit. */
-  const dayBefore = (day) => { const d = new Date(day + 'T12:00:00'); d.setDate(d.getDate() - 1); return d.toISOString().slice(0, 10); };
+  const dayBefore = (day) => { const d = new Date(day + 'T12:00:00'); d.setDate(d.getDate() - 1); return ymd(d); };
   function bumpStreak(day) {
     const s = UI.store.get('streak', { last: '', n: 0 });
     if (s.last === day) return;
@@ -206,7 +208,6 @@
     if (mode === 'voyage' && S.dist > prevBest) UI.store.set('best.voyage', S.dist);
     if (mode === 'daily') { S.idx = DAILY_PROMPTS; S.slots = 0; saveDaily(); }
     if (FO.Collection) FO.Collection.gamePlayed();
-    if (mode === 'daily') bumpStreak(S.day);
     showOver(mode, S, prevBest);
   }
 

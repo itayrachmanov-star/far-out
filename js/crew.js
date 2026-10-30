@@ -103,6 +103,7 @@
     C.deadline = now + left;
     C.myW = '';
     if (g.s) C.prompt = FO.buildPrompt(g.s);
+    if (C.prompt && C.prompt.missing && !C.isHost) { V().outdated(); return; }
     if (g.ph === 'ask') {
       C.myA = { r: g.r, l: [], d: false };
       C.myV = null;
@@ -266,7 +267,7 @@
   function step() {
     const g = C.g, left = C.deadline - performance.now();
     V().tick(left);
-    if (g && g.ph === 'ask' && left <= 0 && C.myA && !C.myA.d) { V().flushInput(); lock(); }
+    if (g && g.ph === 'ask' && left <= 0 && C.myA && !C.myA.d) { V().flushInput(true); lock(); }
     if (g && g.ph === 'vote' && left <= 0 && C.myV && !C.myV.d) sendVotes();
     // Clients nudge the host when a reveal is over, in case the host's tab is throttled in the background.
     if (!C.isHost && g && g.ph === 'reveal' && left <= 0 && !C.myW) { C.myW = C.phaseKey; push(); }

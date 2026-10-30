@@ -5,7 +5,7 @@ const CORE = ['./', 'index.html', 'css/style.css', 'css/screens.css', 'data/bank
   'js/text.js', 'js/core.js', 'js/fx.js', 'js/ui.js', 'js/collection.js', 'js/sharecard.js', 'js/solo.js', 'js/net.js', 'js/crew.js', 'js/crew-view.js', 'js/party.js', 'js/main.js'];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE.map((u) => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));

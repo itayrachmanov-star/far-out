@@ -64,6 +64,27 @@ fix('capital', 'budapesht', 'Budapest');
 FO.addQuestions([{ id: 'q-test-europe', theme: 'Geography', ask: 'Name a European country', what: 'a European country', items: 'austria:4; france:5; germany:5; spain:5; italy:5; portugal:4; poland:4; greece:4; norway:4; sweden:4; finland:3; denmark:4; ireland:4; belgium:3; netherlands:4; switzerland:4' }]);
 fix('q-test-europe', 'australia', 'unknown');
 fix('q-test-europe', 'austira', 'Austria');
+// reviewer's cases: a closer spelling beats a sound-alike; plural slips; reachable answers
+function fixAny(text, want) {
+  const hits = FO.qs.concat(FO.cats).filter((l) => l.items.some((it) => it.name === want));
+  assert(hits.length, 'no list has ' + want);
+  for (const l of hits) {
+    const j = FO.judge(FO.buildPrompt({ c: l.id, t: 'any' }), text);
+    const got = j.ok ? j.item.name : j.why === 'maybe' ? 'maybe:' + j.options.map((o) => o.name).join('/') : j.why;
+    if (got === want || got.startsWith('maybe:' + want)) { checks++; return; }
+  }
+  assert.fail(`"${text}" never resolves to ${want}`);
+}
+[['bussels', 'Brussels'], ['carinet', 'Clarinet'], ['paiter', 'Painter'], ['spier man', 'Spider-Man'], ['johpur', 'Jodhpur'],
+ ['lemonae', 'Lemonade'], ['slippes', 'Slippers'], ['tapass', 'Tapas'], ['dallass', 'Dallas'], ['tortoies', 'Tortoise'],
+ ['georgetown', 'Georgetown'], ['helga hufflepuff', 'Helga Hufflepuff']].forEach(([t, w]) => fixAny(t, w));
+// every answer's own name finds itself
+let unreachable = [];
+for (const l of FO.qs.concat(FO.cats)) {
+  const p = FO.buildPrompt({ c: l.id, t: 'any' });
+  for (const it of l.items) { const j = FO.judge(p, it.f); if (!j.ok || j.item !== it) unreachable.push(l.id + ':' + it.name); }
+}
+assert.strictEqual(unreachable.length, 0, 'unreachable: ' + unreachable.slice(0, 8).join(', '));
 expect('fastfood', {}, "McDonald's", true);
 expect('element', {}, 'unobtainium', false, 'unknown');
 
