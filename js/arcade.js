@@ -62,7 +62,7 @@
 
   // ---------- Meteor Shower ----------
   function shower() {
-    const p = question((q) => q.pool.length >= 40);
+    const p = question((q) => q.pool.length >= 40 && FO.ease(q.cat) >= 8);
     Object.assign(A, { p, used: new Set(), pts: 0, finds: [], run: 0, hyper: 0 });
     const t = UI.timer(), msg = h('div', { class: 'note', 'aria-live': 'polite' }), log = h('div', { class: 'log' });
     const hyper = h('div', { class: 'hyper', hidden: true }, 'Hyperdrive ×2');
@@ -150,7 +150,7 @@
   const VEGA = '#5cc8ff';
   function duelRound() {
     const w = DUEL_TIERS[A.diff] || DUEL_TIERS.normal;
-    const p = question((q) => q.pool.length >= 25);
+    const p = question((q) => q.pool.length >= 25 && FO.ease(q.cat) >= 6);
     const n = tiersIn(p);
     const pickC = () => { const ks = Object.keys(w).filter((c) => n[c]); let r = A.rng() * ks.reduce((s, c) => s + w[c], 0); for (const c of ks) { r -= w[c]; if (r <= 0) return +c; } return +ks[0] || 5; };
     const c = pickC(), opts = p.pool.filter((it) => FO.effOf(p, it) === c);

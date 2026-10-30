@@ -60,7 +60,7 @@
   }
   function nextRound() {
     P.r++;
-    P.prompt = FO.makePrompt(P.rng, { minPool: 12, recent: P.recent, avoid: P.avoid, theme: P.th });
+    P.prompt = FO.makePrompt(P.rng, { minPool: 12, recent: P.recent, avoid: P.avoid, theme: P.th, minEase: 8 });
     P.recent.add(P.prompt.id);
     P.turn = 0;
     P.answers = [];

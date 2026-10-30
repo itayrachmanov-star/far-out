@@ -78,7 +78,8 @@
       S.slots = S.resumeSlots || DAILY_SLOTS;
       S.resumeSlots = 0;
     } else {
-      S.prompt = FO.makePrompt(S.rng, { minPool: 6, recent: S.recent, avoid: S.avoid, theme: S.theme });
+      const warmup = S.recent.size < 3; // open with questions everyone can answer
+      S.prompt = FO.makePrompt(S.rng, { minPool: 6, recent: S.recent, avoid: S.avoid, theme: S.theme, minEase: warmup ? 10 : 0 });
       S.recent.add(S.prompt.id);
     }
     S.used = new Set();
@@ -276,7 +277,7 @@
       if (mode === 'daily') {
         const rng = FO.rng('daily-' + day);
         S.daily = [];
-        for (let i = 0; i < DAILY_PROMPTS; i++) { const p = FO.makePrompt(rng, { minPool: 10, recent: S.recent, avoid: S.avoid, avoidN: 6 }); S.recent.add(p.id); S.daily.push(p); }
+        for (let i = 0; i < DAILY_PROMPTS; i++) { const p = FO.makePrompt(rng, { minPool: 10, recent: S.recent, avoid: S.avoid, avoidN: 6, minEase: i < 2 ? 10 : 4 }); S.recent.add(p.id); S.daily.push(p); }
       } else S.rng = FO.rng(Date.now() + ':' + Math.random());
       UI.show('s-play');
       $('#play-mode').textContent = mode === 'daily' ? 'Daily Orbit' : mode === 'explore' ? 'Explore' : 'Voyage';

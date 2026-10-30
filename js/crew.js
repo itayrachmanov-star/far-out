@@ -166,7 +166,7 @@
     nextRound();
   }
   function nextRound() {
-    const p = FO.makePrompt(C.rng, { minPool: 10, recent: C.recent, avoid: C.avoid, theme: C.hg.th || 'all' });
+    const p = FO.makePrompt(C.rng, { minPool: 10, recent: C.recent, avoid: C.avoid, theme: C.hg.th || 'all', minEase: 8 });
     C.recent.add(p.id);
     setPhase({ ph: 'ask', r: (C.hg.r || 0) + 1, s: p.spec, left: C.hg.T * 1000, res: null, u: null });
   }

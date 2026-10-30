@@ -202,7 +202,7 @@
     };
   };
 
-  /** Next prompt. opts: minPool, recent (Set of ids), avoid (recent list ids), theme, qShare. */
+  /** Next prompt. opts: minPool, recent (Set of ids), avoid (recent list ids), theme, qShare, minEase (friendly lists only). */
   FO.makePrompt = function (rng, opts = {}) {
     const minPool = opts.minPool || 6, recent = opts.recent || new Set(), avoid = opts.avoid || [];
     const inTheme = (l) => !opts.theme || opts.theme === 'all' || l.theme === opts.theme;
@@ -212,6 +212,7 @@
       const useQ = qs.length && (!cats.length || rng() < qShare);
       const list = pick(rng, useQ ? qs : cats.length ? cats : FO.cats);
       if (!list || (tries < 100 && avoid.includes(list.id))) continue;
+      if (opts.minEase && tries < 120 && FO.ease(list) < opts.minEase) continue;
       const t = weighted(rng, useQ ? Q_RULES : CAT_W);
       if (useQ && t === 'start' && list.items.length < 40) continue;
       let v;
@@ -227,6 +228,9 @@
     }
     return FO.buildPrompt({ c: pick(rng, FO.qs.length ? FO.qs : FO.cats).id, t: 'any' });
   };
+
+  /** How friendly a list is: how many answers most people would think of (rated 4 or 5). */
+  FO.ease = (list) => list.ease ?? (list.ease = list.items.filter((it) => it.c >= 4).length);
 
   /** How many distinct prompts the bank can produce (for the home screen). */
   FO.countPrompts = function (minPool = 6) {

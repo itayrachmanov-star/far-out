@@ -52,6 +52,7 @@
   }
 
   function home() {
+    if (FO.updateReady) { location.reload(); return; }
     UI.show('s-home');
     Fx.cruise(0.3);
     // streak and level pills
@@ -132,6 +133,13 @@
   // Installed-app support (GitHub Pages and other real hosts only; never inside claude.ai).
   try {
     if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
+      // A new version installs in the background; switch to it at the menu, never mid-game.
+      const hadWorker = !!navigator.serviceWorker.controller;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!hadWorker) return;
+        FO.updateReady = true;
+        if (UI.current === 's-home' && !document.querySelector('.sheet')) location.reload();
+      });
       navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });
     }
   } catch (e) { /* sandboxed frames can refuse service workers */ }
