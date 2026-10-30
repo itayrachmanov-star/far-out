@@ -29,8 +29,9 @@ expect('fruit', { t: 'start', v: 'p' }, 'apple', false, 'rule');
 expect('country', {}, 'USA', true);
 expect('country', {}, 'the netherlands', true);
 expect('country', {}, 'Côte d’Ivoire', true);
-expect('country', { t: 'len', v: 5 }, 'chile', true);
-expect('country', { t: 'len', v: 5 }, 'france', false, 'rule');
+// letter-count rules are gone: an old host asking for one gets a plain prompt
+expect('country', { t: 'len', v: 5 }, 'france', true);
+assert.strictEqual(FO.buildPrompt({ c: 'country', t: 'end', v: 'a' }).rule, '');
 expect('bird', {}, 'hummingbirds', true);
 expect('element', {}, 'oxygen', true);
 expect('river', {}, 'Nile River', true);
@@ -99,6 +100,7 @@ if (has('fruit')) {
 // prompt generator: 2000 prompts, all viable, ids stable via spec rebuild
 const rng = FO.rng('test');
 const seen = new Set();
+let lettered = 0;
 for (let i = 0; i < 2000; i++) {
   const p = FO.makePrompt(rng, { minPool: 6 });
   if (p.cat.id === 'q-test-europe') continue;
@@ -108,8 +110,14 @@ for (let i = 0; i < 2000; i++) {
   assert.strictEqual(q.pool.length, p.pool.length);
   for (const it of p.pool.slice(0, 3)) assert(FO.judge(p, it.name).ok, `canonical "${it.name}" fails ${p.id}`);
   seen.add(p.id);
+  if (p.spec.t !== 'any') lettered++;
 }
 console.log(`2000 generated prompts, ${seen.size} distinct; ${checks} answer checks passed`);
+// no letter or spelling games: rare starting-letter prompts only, and no question asks for letters
+assert(lettered < 2000 * 0.12, `too many letter prompts: ${lettered} of 2000`);
+const LETTER_GAME = /\b(\d+ letters|letters? in it|with the letter|starts? with|starting with|ends? (with|in)|ending (with|in)|rhymes? with|contains? the (word|letters?)|spelled|vowels?|syllables?|palindromes?|anagrams?|double letters?)\b/i;
+const games = FO.qs.filter((q) => LETTER_GAME.test(q.ask)).map((q) => q.ask);
+assert.strictEqual(games.length, 0, 'letter-game questions: ' + games.slice(0, 5).join(' | '));
 // daily seed is deterministic
 const d1 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id, d2 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id;
 assert.strictEqual(d1, d2);

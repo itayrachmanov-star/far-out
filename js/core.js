@@ -12,27 +12,36 @@
 
   // ---------- themes ----------
   FO.THEMES = [
-    { id: 'food', name: 'Food & Drink' }, { id: 'nature', name: 'Animals & Nature' }, { id: 'world', name: 'Places & History' },
-    { id: 'culture', name: 'Movies, Music & Books' }, { id: 'sport', name: 'Sport & Games' }, { id: 'science', name: 'Science & Tech' },
-    { id: 'life', name: 'Everyday Life' }, { id: 'words', name: 'Words & Ideas' },
+    { id: 'food', name: 'Food & Drink' }, { id: 'nature', name: 'Animals & Nature' }, { id: 'world', name: 'Places & Travel' },
+    { id: 'history', name: 'History & People' }, { id: 'screen', name: 'Movies & TV' }, { id: 'music', name: 'Music' },
+    { id: 'arts', name: 'Books, Art & Myths' }, { id: 'sport', name: 'Sport' }, { id: 'games', name: 'Games & Hobbies' },
+    { id: 'science', name: 'Science & Space' }, { id: 'tech', name: 'Tech & Internet' }, { id: 'body', name: 'Body & Health' },
+    { id: 'life', name: 'Everyday Life' }, { id: 'words', name: 'Words & Language' }, { id: 'kids', name: 'Family friendly' },
   ];
   // Curated questions carry a theme label; broad categories are mapped by id.
   const LABEL_THEME = {
-    food: 'food', drink: 'food', animals: 'nature', nature: 'nature', geography: 'world', cities: 'world', history: 'world', travel: 'world',
-    movies: 'culture', tv: 'culture', music: 'culture', books: 'culture', art: 'culture', architecture: 'culture',
-    sport: 'sport', games: 'sport', fitness: 'sport', hobbies: 'sport',
-    science: 'science', space: 'science', body: 'science', tech: 'science', maths: 'science',
-    home: 'life', everyday: 'life', school: 'life', work: 'life', people: 'life', feelings: 'life', holidays: 'life', fashion: 'life', brands: 'life', transport: 'life', cars: 'life',
-    words: 'words', language: 'words', myths: 'words', religion: 'words', philosophy: 'words',
+    food: 'food', drink: 'food', animals: 'nature', nature: 'nature', geography: 'world', cities: 'world', travel: 'world', architecture: 'world',
+    history: 'history', people: 'history', movies: 'screen', tv: 'screen', music: 'music', books: 'arts', art: 'arts', myths: 'arts', religion: 'arts',
+    sport: 'sport', fitness: 'sport', games: 'games', hobbies: 'games', science: 'science', space: 'science', maths: 'science',
+    tech: 'tech', internet: 'tech', body: 'body', health: 'body', medicine: 'body',
+    home: 'life', everyday: 'life', school: 'life', work: 'life', jobs: 'life', feelings: 'life', holidays: 'life', fashion: 'life', brands: 'life',
+    transport: 'life', cars: 'life', money: 'life', words: 'words', language: 'words', philosophy: 'words', kids: 'kids',
   };
   const CAT_THEME = {
     food: /^(fruit|vegetable|nut-seed-grain|herb-spice|cheese|dish|dessert|drink|bread|pasta|fastfood|breakfast)$/,
     nature: /^(mammal|bird|fish|sea-creature|insect|reptile-amphibian|dog-breed|cat-breed|tree|flower|dinosaur)$/,
     world: /^(country|capital|us-state|world-city|river|mountain|island|currency)$/,
-    culture: /^(instrument|music-genre|painter|author|superhero|mythical-creature|god)$/,
-    sport: /^(sport|game|sportsgear|toy|hobby|dance)$/,
-    science: /^(element|gem-mineral|body-part|space|color|scientist|proglang|unit|shape)$/,
+    history: /^(president|scientist|painter)$/,
+    screen: /^(superhero)$/,
+    music: /^(instrument|music-genre|dance)$/,
+    arts: /^(author|mythical-creature|god)$/,
+    sport: /^(sport|sportsgear)$/,
+    games: /^(game|toy|hobby|campbeach)$/,
+    science: /^(element|gem-mineral|space|unit|shape)$/,
+    tech: /^(proglang)$/,
+    body: /^(body-part)$/,
     words: /^(language|emotion|subject)$/,
+    kids: /^(color)$/,
   };
   const themeOf = (kind, def) => {
     if (kind === 'q') return LABEL_THEME[String(def.theme || '').toLowerCase()] || 'life';
@@ -142,18 +151,13 @@
     1: { c: 1, name: 'Far Out', pts: 100, fuel: 14, cls: 't1' },
   };
 
-  // ---------- prompt rules (only natural ones) ----------
+  // ---------- prompt rules (only natural ones: letter games are rare and never stack) ----------
   const RULES = {
-    any: { w: 4, label: () => '', test: () => true },
-    start: { w: 6, label: (v) => `starting with ${v.toUpperCase()}`, test: (f, v) => f.startsWith(v) },
-    end: { w: 1.2, label: (v) => `ending in ${v.toUpperCase()}`, test: (f, v) => letters(f).endsWith(v) },
-    len: { w: 1.4, label: (v) => `with exactly ${v} letters`, test: (f, v) => letters(f).length === v },
-    long: { w: 0.6, label: () => 'with 10 or more letters', test: (f) => letters(f).length >= 10 },
-    short: { w: 0.6, label: () => 'with 5 letters or fewer', test: (f) => letters(f).length <= 5 },
-    words: { w: 0.5, label: () => 'that is two or more words', test: (f) => f.includes(' ') },
+    any: { w: 6, label: () => '', test: () => true },
+    start: { w: 1, label: (v) => `starting with ${v.toUpperCase()}`, test: (f, v) => f.startsWith(v) },
   };
-  const Q_RULES = { any: 8, start: 2 };
-  const PARAMS = { start: 'abcdefghijklmnoprstuvwyz'.split(''), end: 'aehklnorsty'.split(''), len: [4, 5, 6, 7, 8] };
+  const Q_RULES = { any: 14, start: 1 };
+  const PARAMS = { start: 'abcdefghiklmnoprstw'.split('') };
 
   FO.rng = function (seed) {
     let h = 1779033703 ^ String(seed).length;
@@ -182,8 +186,7 @@
     const list = FO.catById[spec.c] || FO.qs[0] || FO.cats[0];
     const rule = Object.prototype.hasOwnProperty.call(RULES, spec.t) ? spec.t : 'any';
     let v;
-    if (rule === 'len') v = Math.max(1, Math.min(30, Math.round(+spec.v) || 5));
-    else if (PARAMS[rule]) v = typeof spec.v === 'string' && /^[a-z]$/.test(spec.v) ? spec.v : 'a';
+    if (PARAMS[rule]) v = typeof spec.v === 'string' && /^[a-z]$/.test(spec.v) ? spec.v : 'a';
     const pool = poolOf(list, rule, v);
     const maxC = pool.reduce((m, it) => Math.max(m, it.c), 1);
     return {

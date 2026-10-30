@@ -62,10 +62,6 @@ kilo:5; milli:5; centi:5; mega:5; giga:4; micro:4; nano:4; tera:3; deci:3; deca|
 myria:1; kibi:1; mebi:1; gibi:1; tebi:1; pebi:1; exbi:1; zebi:1; yobi:1;
 ` },
 
-  { id: "q-mind-greek-letter", theme: "Maths", ask: "Name a letter of the Greek alphabet", what: "a Greek letter", items: `
-alpha:5; beta:5; gamma:5; delta:5; omega:5; sigma:4; pi:5; theta:4; lambda:4; phi:4; mu:3; epsilon:3; zeta:3; eta:3; iota:3; kappa:3;
-nu:3; xi:3; omicron:3; rho:3; tau:3; upsilon:3; chi:3; psi:3; digamma|wau|vau:1; koppa|qoppa:1; sampi:1; stigma:1; san:1; heta:1; sho:1; yot:1; final sigma|lunate sigma:1; varepsilon:1; vartheta:1; varphi:1; varrho:1; varpi:1; 
-` },
 
   { id: "q-mind-famous-theorem", theme: "Maths", ask: "Name a famous maths theorem, problem or paradox", what: "a famous maths theorem, problem or paradox", items: `
 pythagorean theorem|pythagoras theorem|pythagoras' theorem|pythagoras|pythagorean:5; fermat's last theorem|fermat:3; euler's identity:2; euler's formula:1; riemann hypothesis:2; goldbach conjecture|goldbach's conjecture:2; collatz conjecture|syracuse problem|3n+1 problem:3; twin prime conjecture:1; poincare conjecture:2; four colour theorem|four color theorem:2; godel's incompleteness theorem|incompleteness theorem|godel's incompleteness theorems:2; bayes' theorem|bayes theorem:2; central limit theorem:2; prime number theorem:1;

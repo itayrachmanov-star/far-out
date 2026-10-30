@@ -56,19 +56,6 @@ whimper:1; whine:2; whinny:2; whistle:3; whoop:2; wail:2; yap:2; yelp:2; yip:1; 
 zzz:2;
 ` },
 
-  { id: "q-mind-palindrome", theme: "Words", ask: "Name a palindrome (a word or phrase that reads the same backwards)", what: "a palindrome", items: `
-mom:4; mum:3; dad:5; level:4; radar:5; noon:4; kayak:5; civic:3; racecar|race car:5; refer:3;
-rotor:3; stats:2; madam:4; eye:3; deed:3; did:3; wow:4; pop:3; sagas:1; tenet:3;
-solos:1; minim:1; nan:3; pip:1; pup:2; peep:2; toot:2; sees:2; aha:3; bib:2;
-bob:3; ere:1; eve:3; ewe:1; gag:1; gig:2; huh:2; hah:1; nun:3; otto:2;
-hannah:4; anna:4; ava:3; elle:2; abba:3; ada:2; ana:2; dud:2; pep:2; sis:2;
-kook:2; redivider:2; deified:1; reviver:1; rotator:1; repaper:1; redder:1; denned:1; malayalam:2; tattarrattat:1;
-tut:1; oho:1; pap:1; tat:1; non:1; mam:1; bub:1; lol:1; sos:1; ono:1;
-a man a plan a canal panama|a man, a plan, a canal panama:3; never odd or even:2; was it a car or a cat i saw:2; madam im adam|madam i'm adam:2; step on no pets:2; no lemon no melon:1; do geese see god:1; able was i ere i saw elba:2; taco cat|tacocat:2; red rum:2;
-yo banana boy:2; evil olive:1; go hang a salami im a lasagna hog|go hang a salami i'm a lasagna hog:1; mr owl ate my metal worm:1; eva can i see bees in a cave:1; sit on a potato pan otis:1; rats live on no evil star:1; amore roma:1; kinnikinnik:1; sememes:1;
-senones:1; nauruan:1; wassamassaw:1; live not on evil:1; murder for a jar of red rum:1; was it a rat i saw:1; too hot to hoot:1; dennis sinned:1; borrow or rob:1; nurses run:1;
-a nut for a jar of tuna:1; a santa at nasa:1; poor dan is in a droop:1; dont nod|don't nod:1; we panic in a pew:1; sums are not set as a test on erasmus:1; lion oil:1;
-` },
 
   { id: "q-mind-punctuation", theme: "Words", ask: "Name a punctuation mark", what: "a punctuation mark", items: `
 full stop|period|full point|stop:5; comma:5; question mark:5; exclamation mark|exclamation point|exclamation:5; apostrophe:5; colon:5; semicolon|semi-colon|semi colon:5; hyphen:4; dash:4; quotation mark|quote|quotation marks|speech mark|inverted comma|inverted commas|speech marks|quote marks|quotes:4;
