@@ -38,7 +38,7 @@ heat gun:1; embossing tool:1; craft knife|scalpel|x-acto:2; cutting mat:1; cutti
 
   { id: "q-mind-arch-feature", theme: "Architecture", ask: "Name an architectural feature of a building", what: "an architectural feature", items: `
 arch:5; column|pillar:5; dome:5; roof:4; window:4; door:4; tower:4; spire:4; steeple:3; vault:3;
-buttress|flying buttress:4; gargoyle:4; turret:3; balcony:3; staircase|stairs|stairway:3; chimney:3; portico:3; porch:3; facade|façade:3; atrium:3;
+buttress|flying buttress:4; gargoyle:4; turret:3; balcony:3; staircase|stairs|stairway:3; chimney:3; portico:3; porch:3; facade:3; atrium:3;
 courtyard:3; nave:3; belfry|bell tower:3; minaret:3; cupola:3; colonnade:3; pediment:3; cornice:3; keystone:3; pinnacle:3;
 battlement|battlements|crenellation:3; parapet:3; bay window:3; rose window:3; stained glass window|stained glass:3; gable:3; foundation|foundations:3; wall|walls:3; floor:3; ceiling:3;
 cloister:2; apse:2; transept:2; aisle:2; chancel:2; crypt:2; frieze:2; capital:2; plinth:2; pilaster:2;

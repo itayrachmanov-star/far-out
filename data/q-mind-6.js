@@ -18,7 +18,7 @@ st george's day:1; st andrew's day:1; st david's day:1; feast of st john|st john
 
   { id: "q-mind-religion", theme: "Religion", ask: "Name a religion or belief system", what: "a religion or belief system", items: `
 christianity:5; islam:5; hinduism:5; buddhism:5; judaism:5; sikhism:4; catholicism|roman catholic|catholic:4; jainism:3; shinto:3; taoism|daoism:3;
-confucianism:3; bahai|baha'i|bahá'í:3; wicca:3; rastafari|rastafarianism:3; scientology:3; mormonism|latter-day saints|lds:3; protestantism|protestant:3; orthodox|eastern orthodox|orthodox christianity:3; anglican|church of england|anglicanism:3; baptist:3;
+confucianism:3; bahai|baha'i:3; wicca:3; rastafari|rastafarianism:3; scientology:3; mormonism|latter-day saints|lds:3; protestantism|protestant:3; orthodox|eastern orthodox|orthodox christianity:3; anglican|church of england|anglicanism:3; baptist:3;
 jehovah's witnesses|jehovah's witness:3; sunni|sunni islam:3; shia|shiite|shia islam:3; zen:3; atheism:2; zoroastrianism:2; paganism|pagan:2; methodism|methodist:2; lutheranism|lutheran:2; presbyterian|presbyterianism:2;
 pentecostal:2; evangelical:2; quaker|quakerism|quakers:2; amish:2; sufism:2; theravada:2; vajrayana|tibetan buddhism:2; animism:2; shamanism:2; druidry|druidism:2;
 santeria:2; voodoo|vodou:2; hare krishna|iskcon:2; mennonite:1; seventh-day adventist|adventist:1; unitarian|unitarianism:1; calvinism:1; ahmadiyya:1; druze:1; yazidism|yazidi:1;
