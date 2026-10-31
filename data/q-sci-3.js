@@ -18,20 +18,6 @@ coinbase:1; flightradar24:1; google lens:1; gemini:1; claude:1; copilot:1; notio
 1password:1; authenticator:1; lastpass:1; kahoot:1; quizlet:1; photomath:1; babbel:1; anki:1; sudoku:2; solitaire:2;
 ` },
 
-  { id: "q-sci-batteries", theme: "Tech", ask: "Name something that runs on batteries", what: "something that runs on batteries", items: `
-remote control|tv remote:5; torch|flashlight:5; smoke alarm|smoke detector:5; clock|wall clock:4; toy car|toys|toy:4; watch:4; calculator:4; radio:4; game controller|controller:4; alarm clock:4;
-doorbell:4; wireless mouse|mouse:4; remote control car:4; singing toy|talking toy:4; car key fob|key fob:4; mobile phone|phone:3; camera:3; laptop:3; game boy:3; electric toothbrush:3;
-hearing aid:3; wireless keyboard:3; baby monitor:3; headphones|earbuds:3; bluetooth speaker:3; power bank:3; drone:3; e-reader|kindle:3; fairy lights:4; led candle|tealight|led tealight:3;
-thermometer:3; digital scales|scales:3; electric car|car:3; electric scooter|e-scooter:3; e-bike|electric bike:3; tablet:3; smartwatch:3; fitness tracker:3; toy robot:3; tamagotchi:3;
-walkie talkie|walkie-talkie:3; electric razor|shaver:3; nightlight|night light:3; bike light:3; headtorch|head torch:3; lantern|camping lantern:3; kitchen timer:3; laser pointer:3; security camera:3; ring doorbell:3;
-motion sensor:3; musical birthday card|singing card|musical card:3; light-up trainers|light up shoes:3; christmas lights:3; talking doll:3; toy train:3; rc helicopter|remote control helicopter:3; nerf blaster|nerf gun:3; keyboard|musical keyboard:3; microphone:3;
-mp3 player|ipod:3; walkman|discman:3; boombox:3; solar garden lights|garden lights:3; handheld fan|fan:3; hoverboard:2; metal detector:2; pacemaker:2; hair clippers|clippers:2; massager:2;
-cooking thermometer|meat thermometer:2; smart lock:2; garage door opener:2; air freshener spray|air freshener:2; automatic soap dispenser|soap dispenser:2; bubble machine:2; scalextric:2; lightsaber toy|toy lightsaber:2; karaoke machine:2; guitar tuner:2;
-metronome:2; guitar pedal:2; amp|guitar amp:2; portable cd player:2; cassette player:2; hand warmer:2; teddy bear that talks|talking teddy:2; insulin pump:1; glucose monitor:1; cochlear implant:1;
-heated gloves:1; heated socks:1; digital tape measure:1; laser level:1; digital spirit level:1; electronic dartboard:1; shock collar:1; pedometer:2; sat nav:2; gps tracker:2;
-mouse trap electronic|electronic mousetrap:1; bug zapper handheld|tennis racket zapper:1; lava lamp battery:1; toy dinosaur:2; electric guitar tuner:1; ipad:2; stopwatch:2; voice recorder|dictaphone:2; camcorder:2; polaroid camera:1;
-` },
-
   { id: "q-sci-has-screen", theme: "Tech", ask: "Name something that has a screen", what: "something that has a screen", items: `
 tv|television:5; phone|mobile phone|smartphone:5; laptop:5; computer|pc|desktop computer:5; tablet|ipad:5; monitor:4; smartwatch:4; cinema|cinema screen:4; handheld console|nintendo switch|game boy:4; calculator:4;
 atm|cash machine:4; sat nav|gps:4; kindle|e-reader:4; camera:4; self-checkout|self-service checkout:4; seat-back screen|in-flight entertainment|plane seat:4; arcade machine|arcade game:4; cash register|till:4; ticket machine:3; microwave:3;
@@ -49,10 +35,10 @@ tv remote with screen:1; electric kettle with display:1; smart thermostat:3; dis
 phone|mobile phone:5; laptop:5; tablet|ipad:4; headphones|earbuds|airpods:4; smartwatch|apple watch:4; power bank:4; electric car:4; games controller|controller:4; electric toothbrush:4; kindle|e-reader:3;
 camera:3; electric razor|shaver:3; e-bike|electric bike:3; e-scooter|electric scooter:3; hoverboard:3; drone:3; bluetooth speaker:3; wireless mouse:3; fitness tracker|fitbit:3; handheld console|switch:3;
 cordless drill:3; cordless vacuum:3; robot vacuum|roomba:3; hearing aid:3; vr headset|oculus|quest:3; gopro|action camera:3; car battery:3; rechargeable batteries|aa batteries:3; bike light:3; tesla:3;
-vape|e-cigarette:2; wireless keyboard:2; apple pencil|stylus:2; rechargeable torch|torch:2; baby monitor:2; hair clippers|clippers|hair trimmer:2; massage gun:2; portable fan:2; mobility scooter:2; electric wheelchair:2;
+wireless keyboard:2; apple pencil|stylus:2; rechargeable torch|torch:2; baby monitor:2; hair clippers|clippers|hair trimmer:2; massage gun:2; portable fan:2; mobility scooter:2; electric wheelchair:2;
 electric skateboard:2; cordless lawn mower|lawn mower:2; ring doorbell:2; security camera:2; camcorder:2; dashcam:2; walkie talkie:2; radio:2; pocket warmer|hand warmer:2; hybrid car:2;
 head torch|headtorch:2; lantern|rechargeable lantern:2; ipod:2; mp3 player:2; epilator:1; trackers|bluetooth tracker:1; segway:1; golf trolley:1; strimmer:1; leaf blower:1;
-smart lock:1; usb fan:1; phone case battery|battery case:1; electric blanket:1; hearing aids:2; glucose monitor:1; pacemaker:1; e-cigarette:2; flashlight:2; ipad pro:1;
+smart lock:1; usb fan:1; phone case battery|battery case:1; electric blanket:1; hearing aids:2; glucose monitor:1; pacemaker:1; flashlight:2; ipad pro:1;
 ` },
 
   { id: "q-sci-wifi", theme: "Tech", ask: "Name something that connects to Wi-Fi", what: "something that connects to Wi-Fi", items: `
@@ -69,7 +55,7 @@ mouse:5; keyboard:5; flash drive|usb stick|memory stick|pen drive:5; phone charg
 card reader|sd card reader|memory card reader:3; game controller:3; speaker:3; scanner:3; usb hub|hub:3; power bank:3; laptop:3; usb fan|fan:3; usb lamp|usb light|lamp:3; tablet:3;
 e-reader:3; modem|dongle:3; wi-fi dongle|wifi adapter:3; smartwatch charger:3; mug warmer|cup warmer:2; hand warmer:2; led strip:2; usb fairy lights|fairy lights:2; router:2; bluetooth adapter:2;
 ethernet adapter:2; sound card:2; graphics tablet|drawing tablet:2; midi keyboard:2; audio interface|guitar interface:2; 3d printer:2; airpods case:2; electric toothbrush:2; shaver:2; torch:2;
-games console|ps4:2; dashcam:2; tv:2; security key|yubikey:2; barcode scanner:2; heated gloves:1; vr headset:1; drone:1; vape:1; rechargeable batteries:1;
+games console|ps4:2; dashcam:2; tv:2; security key|yubikey:2; barcode scanner:2; heated gloves:1; vr headset:1; drone:1; rechargeable batteries:1;
 car stereo:1; projector:1; apple pencil:1; fingerprint reader:1; label printer:1; usb microscope:1; arc lighter|lighter:1; mosquito zapper:1; mini fridge:1; humidifier|usb humidifier:1;
 keyboard light:1; pen tablet:1; android phone:3; iphone:3; ipad:2; kindle:3; nintendo switch dock:1; stylus:1; sat nav:2; radio:1;
 ` },
@@ -141,7 +127,7 @@ app:4; microwave:3; washing machine:3; arduino:3; coffee machine:3; alarm clock:
 spreadsheet:3; website:3; chatbot:3; ai:3; hearing aid:3; smart watch:3; router:3; sat nav|satnav:2; smart speaker:2; scratch:2;
 cnc machine:2; satellite:2; rover:3; slow cooker:2; smart plug:2; embroidery machine:2; synthesizer:2; midi:2; light show|stage lighting:2; fireworks display:2;
 drone light show:2; minecraft redstone|minecraft:2; excel:2; firewall:2; prosthetic hand|bionic arm:2; plc:1; rice cooker:1; garage door opener:1; doorbell:1; cruise control:1;
-cricut:1; knitting machine:1; pacemaker:1; cochlear implant:1; exoskeleton:1; fitbit:1; kindle:1; sphero:2; micro:bit|microbit:2; vending machine:1;
+cricut:1; knitting machine:1; pacemaker:1; cochlear implant:1; exoskeleton:1; fitbit:1; kindle:1; sphero:2; microbit:2; vending machine:1;
 ` },
 
   { id: "q-sci-has-memory", theme: "Tech", ask: "Name something that has a memory", what: "something that has a memory", items: `
@@ -190,7 +176,7 @@ chatgpt:4; alexa:4; android:4; covid vaccine|mrna vaccine:4; ipod:4; airbnb:3; s
 fitbit:3; apple watch:3; airpods:3; hoverboard:3; segway:3; roomba:3; nintendo wii|wii:3; nintendo switch:3; google maps:3; gmail:3;
 ai chatbot:3; consumer drone|drone:3; 3d printer:3; vr headset:3; snapchat:3; whatsapp:3; zoom:3; tinder:3; pokemon go:3; minecraft:3;
 wordle:3; apple pay:3; contactless payment:3; crispr:3; 5g:3; kickstarter:3; nft:3; self-driving car:3; falcon 9|reusable rocket:3; starlink:3;
-james webb telescope:3; large hadron collider|lhc:3; e-cigarette|vape:3; app store:3; siri:3; graphene:3; slack:2; candy crush:2; fortnite:2; among us:2;
+james webb telescope:3; large hadron collider|lhc:3; app store:3; siri:3; graphene:3; slack:2; candy crush:2; fortnite:2; among us:2;
 xbox 360:2; playstation 3:2; oculus rift:2; usb-c:2; lightning cable:2; bluetooth earbuds:2; smart speaker:3; smart tv:3; streaming stick:2; chromecast:2;
 gene editing:2; higgs boson discovery:2; gravitational waves detection:2; 4g:2; ride sharing:2; crowdfunding:2; ethereum:2; gofundme:2; waymo:2; lab-grown meat:2;
 impossible burger|plant-based burger:2; google glass:2; ev charger:1; wifi 6:1; 3d tv:1; curved tv:1; deepfake:1; mars rover curiosity|curiosity rover:2; human genome sequencing:2; android phone:3;
@@ -203,17 +189,6 @@ home computer:2; palmtop|pda:2; ultrabook:2; all-in-one:2; arduino:2; e-reader:2
 thinkpad:2; minicomputer:1; microcomputer:1; thin client:1; embedded system:1; 2-in-1:1; ipod touch:1; kiosk:1; single-board computer:1; analytical engine:1;
 difference engine:1; slide rule:1; analogue computer:1; tablet pc:1; handheld pc:1; smart speaker:1; car computer:1; flight computer:1; mac pro:1; cloud computer:1;
 virtual machine:1; hybrid computer:1; digital computer:1; wearable computer:1; steam deck:1; nintendo switch:2; apple watch:2; kindle:1; set top box:1; router:1;
-` },
-
-  { id: "q-sci-fictional-robot", theme: "Tech", ask: "Name a fictional robot or android", what: "a fictional robot or android", items: `
-r2-d2|r2d2:5; c-3po|c3po:5; wall-e|walle:5; terminator|t-800:4; optimus prime:5; bender:4; baymax:4; iron giant:4; bb-8|bb8:4; rosie the robot|rosie:4;
-johnny 5|johnny five|number 5:4; eve:4; data:3; robocop:3; marvin the paranoid android|marvin:3; megatron:3; bumblebee:3; k-9|k9:3; astro boy|astroboy:3; robby the robot|robby:3;
-kryten:3; cylon:3; ultron:3; vision:3; ava:3; t-1000:3; k-2so:3; the tin man|tin man|tin woodman:3; gundam:3; transformers:3;
-gort:2; maria:2; twiki:2; sonny:2; chappie:2; david:2; bishop:2; ash:2; ed-209:2; mega man|megaman:2;
-clank:2; mechagodzilla:2; voltron:2; evangelion:2; mazinger z|mazinger:2; autobots:2; decepticons:2; sentinels:3; metal mickey:2; bicentennial man|andrew martin:2;
-the iron man|iron man robot:2; robot b-9|b-9:2; crow t. robot|crow:2; tom servo:2; wheatley:2; auto:2; m-o:2; claptrap:2; tik-tok:1; mr handy:1;
-ig-88:1; l3-37:1; chopper:1; d-o:1; gigantor:1; mr roboto:1; robotboy:1; calculon:1; hedonismbot:1; roberto:1;
-hector:1; dot matrix:1; tobor:1; gypsy:1; p-body:1; atlas:1; ratchet:1; metal gear rex:1; cyberman:2; dalek:3;
 ` },
 
   { id: "q-sci-real-robot", theme: "Tech", ask: "Name a real robot or robotic machine", what: "a real robot or robotic machine", items: `
@@ -281,25 +256,6 @@ robot:3; arcade machine:3; slot machine:3; tannoy|pa system|public address:3; fi
 stage|concert:2; record player:2; projector:2; pinball machine:2; game boy:2; nintendo switch:2; toy phone:2; bus:2; train:2; lift|elevator:2;
 police car:2; ice cream van:2; e-reader:1; kindle:1; camera:1; drone:1; robot vacuum:1; school bell:1; ambulance:1; atm:1;
 sat phone:1; taxi meter:1; microwave:1; washing machine:1; fridge:1; video doorbell:2; dashcam:1; kids tablet:2; walkman:1; cd player:3;
-` },
-
-  { id: "q-sci-has-keys", theme: "Tech", ask: "Name something that has keys on it", what: "something with keys on it", items: `
-piano:5; keyboard:5; typewriter:5; calculator:4; key ring|keyring:5; keychain:4; organ:4; cash register|till:4; phone|old phone:4; computer:3;
-laptop:3; accordion:3; synthesizer|synth:3; harpsichord:3; digital piano:3; saxophone:3; clarinet:3; flute:3; door:3; lock:3;
-electronic organ:2; keytar:2; melodica:2; oboe:2; bassoon:2; map:2; ring of keys:2; janitor|caretaker:2; jailer|jail guard:2; atm keypad:2;
-tv remote:2; hammond organ:2; celesta:1; clavichord:1; microwave keypad:1; fax:1; calliope:1; hurdy-gurdy:1; concertina:1; bandoneon:1;
-mellotron:1; ondes martenot:1; stenotype:1; linotype:1; telegraph key:1; morse key:1; adding machine:1; car:2; piano accordion:2; grand piano:3;
-upright piano:3; electric piano:2; keyboard instrument:2; mobile phone:3; blackberry:2; typewriter ribbon:1; bunch of keys:3; skeleton key:2; master key:2; key cabinet:1;
-` },
-
-  { id: "q-sci-has-buttons", theme: "Tech", ask: "Name something with buttons", what: "something with buttons", items: `
-remote control:5; shirt:5; phone:4; coat:4; calculator:4; keyboard:4; lift|elevator:4; jacket:4; game controller:4; doorbell:4;
-vending machine:4; telephone:4; arcade machine:4; pedestrian crossing|crossing:4; ticket machine:4; mouse:4; microwave:3; tv:3; washing machine:3; cardigan:3;
-jeans:3; trousers:3; cash machine|atm:3; radio:3; light switch:3; camera:3; car dashboard|car:3; cooker|oven:3; dishwasher:3; alarm clock:3;
-pinball:3; jukebox:3; dress:3; blouse:3; waistcoat|vest:3; pyjamas:3; cushion:3; uniform:3; panic button|red button:3; buzzer:3;
-intercom:3; fire alarm:3; bus stop:3; parking meter:3; laptop:3; joystick:3; steering wheel:3; toaster:3; blender:3; stereo:2;
-duvet cover:2; teddy bear's eyes|teddy bear:2; sofa:2; mattress:2; sleeve:2; military uniform:2; button badge:2; petrol pump:2; kettle:2; food processor:2;
-hairdryer:2; nuclear button:2; doll:1; chesterfield:1; braces:1; police uniform:1; iron:1; drill:1; hoover:1; accordion:2;
 ` },
 
   { id: "q-sci-has-gears", theme: "Tech", ask: "Name something with gears", what: "something with gears", items: `
