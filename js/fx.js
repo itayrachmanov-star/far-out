@@ -126,9 +126,11 @@
   };
   Fx.countUp = function (el, from, to, ms = 700) {
     if (!el) return;
+    const id = (el.countId = (el.countId || 0) + 1); // a newer count (or a reset) wins over an older one
     if (reduce || from === to) { el.textContent = to.toLocaleString(); return; }
     const t0 = performance.now();
     const step = (now) => {
+      if (el.countId !== id) return;
       const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3);
       el.textContent = Math.round(from + (to - from) * e).toLocaleString();
       if (k < 1) requestAnimationFrame(step);

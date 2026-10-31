@@ -21,7 +21,7 @@
     ['daily-7', 'Clockwork', 'Finish Daily Orbit 7 days in a row', (s) => s.best.daily >= 7],
     ['shower-15', 'Meteor Storm', '15 answers in one Meteor Shower', (s) => s.best.shower >= 15],
     ['spectrum', 'Full Spectrum', 'Fill all five rarity slots on one question', (s) => s.n.spectrum >= 1],
-    ['rarer-10', 'Sharp Eye', '10 right in a row in Rarer or Not', (s) => s.best.rarer >= 10],
+    ['rarer-10', 'Sharp Eye', '10 right in a row in Twin Stars', (s) => s.best.rarer >= 10],
     ['duel-win', 'Outbid', 'Beat Vega in a duel', (s) => s.n.duelWins >= 1],
     ['duel-hard', 'Vega Who?', 'Beat Vega on Hard', (s) => s.n.duelHard >= 1],
     ['typos-10', 'Spell Check', 'Have 10 typos fixed for you', (s) => s.n.typos >= 10],

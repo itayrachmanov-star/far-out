@@ -36,6 +36,7 @@
 
   function hud() {
     const el = $('#arc-score');
+    el.countId = (el.countId || 0) + 1;
     el.textContent = T.score;
     el.dataset.v = T.score;
     $('#arc-unit').replaceChildren(h('span', { class: 'lives', 'aria-label': `${T.lives} lives left` },

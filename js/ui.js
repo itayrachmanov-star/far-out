@@ -86,7 +86,7 @@
   // ---------- shared pieces ----------
   UI.badge = (tier, sub) => UI.h('span', { class: 'badge ' + tier.cls }, tier.name, sub ? UI.h('small', null, sub) : null);
   UI.missBadge = (label = 'Miss') => UI.h('span', { class: 'badge miss' }, label);
-  UI.chip = (text, cls) => UI.h('span', { class: 'chip ' + (cls || '') }, text);
+  UI.chip = (text, cls) => { const t = /\bt([1-5])\b/.exec(cls || ''); return UI.h('span', { class: 'chip ' + (cls || '') }, text, t ? UI.h('span', { class: 'sr' }, `, ${FO.TIERS[t[1]].name}`) : null); };
   UI.planet = (color, small) => UI.h('span', { class: 'planet' + (small ? ' sm' : ''), style: { '--sw': color } });
   UI.EMOJI = { 1: '🟥', 2: '🟧', 3: '🟨', 4: '🟩', 5: '🟦', 0: '⬛' };
 
@@ -166,15 +166,23 @@
   /** Bottom sheet with any content. Returns close(). */
   UI.sheet = function (...content) {
     const prev = document.activeElement;
-    const card = UI.h('div', { class: 'sheet-card', role: 'dialog', 'aria-modal': 'true' }, content);
+    const card = UI.h('div', { class: 'sheet-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'sheet-h' }, content);
     const wrap = UI.h('div', { class: 'sheet', onclick: (e) => { if (e.target === wrap) close(); } }, card);
     let closed = false;
-    const close = () => { if (closed) return; closed = true; wrap.classList.add('out'); setTimeout(() => wrap.remove(), FO.Fx.reduce ? 0 : 200); document.removeEventListener('keydown', esc); if (prev && prev.focus) prev.focus({ preventScroll: true }); };
-    const esc = (e) => { if (e.key === 'Escape') close(); };
+    const close = (restore = true) => { if (closed) return; closed = true; wrap.classList.add('out'); setTimeout(() => wrap.remove(), FO.Fx.reduce ? 0 : 200); document.removeEventListener('keydown', esc); if (restore && prev && prev.focus) prev.focus({ preventScroll: true }); };
+    const esc = (e) => {
+      if (e.key === 'Escape') return close();
+      if (e.key !== 'Tab') return;
+      const f = [...card.querySelectorAll('button, input')].filter((x) => !x.disabled);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !card.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+    };
     document.addEventListener('keydown', esc);
     document.body.append(wrap);
     setTimeout(() => { const f = card.querySelector('[data-autofocus]') || card.querySelector('button'); if (f) f.focus({ preventScroll: true }); }, 30);
-    UI.onLeave(close);
+    UI.onLeave(() => close(false));
     return close;
   };
 

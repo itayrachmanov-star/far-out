@@ -39,9 +39,9 @@
   function launch(m) {
     Fx.sfx.unlock();
     const o = { theme: UI.theme(), diff: UI.store.get('duel.diff', 'normal') };
-    const start = () => { close(); UI.store.set('tried.' + m.id, true); m.go(o); };
+    const start = () => { close(false); UI.store.set('tried.' + m.id, true); m.go(o); };
     const close = UI.sheet(
-      h('div', { class: 'sheet-head' }, h('span', { class: 'planet' + (m.id === 'shower' ? ' ringed' : ''), style: { '--sw': m.color } }), h('h2', null, m.name)),
+      h('div', { class: 'sheet-head' }, h('span', { class: 'planet' + (m.id === 'shower' ? ' ringed' : ''), style: { '--sw': m.color } }), h('h2', { id: 'sheet-h' }, m.name)),
       h('p', { class: 'sheet-sub' }, m.d),
       h('ul', { class: 'rules' }, m.rules.map((r) => h('li', null, r))),
       m.diff ? h('div', { class: 'field' }, h('span', { class: 'opt-h' }, 'How good is Vega?'),
@@ -146,5 +146,6 @@
   const m = location.hash.match(/^#crew-([a-z]{4})$/i);
   if (m) { UI.show('s-crew'); FO.CrewView.entry(m[1].toUpperCase()); }
   else if (/^#(voyage|daily|explore|shower|spectrum|twin|duel|party)$/.test(location.hash)) go(location.hash.slice(1));
+  if (location.hash) try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* sandboxed frame */ }
   FO.home = home;
 })();

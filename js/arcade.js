@@ -7,12 +7,12 @@
   const NAMES = { shower: 'Meteor Shower', spectrum: 'Spectrum', duel: 'Duel' };
   const SHOWER_T = 60, SPECTRUM_T = 90, DUEL_T = 25, HYPER_T = 10;
   const DUEL_TIERS = { easy: { 5: 5, 4: 4, 3: 1 }, normal: { 4: 3, 3: 4, 2: 2 }, hard: { 3: 2, 2: 4, 1: 2 } };
-  let A = null, tick = 0, cancelCount = null;
+  let A = null, tick = 0, hyperTick = 0, cancelCount = null;
 
   const body = () => $('#arcade-body');
   const mount = (...n) => { body().replaceChildren(...n.filter(Boolean)); window.scrollTo(0, 0); };
-  const score = (n, unit) => { const el = $('#arc-score'); if (n > +el.dataset.v) { Fx.countUp(el, +el.dataset.v || 0, n, 400); Fx.pop(el.parentElement); } else el.textContent = n.toLocaleString(); el.dataset.v = n; if (unit) $('#arc-unit').textContent = unit; };
-  const stop = () => { clearInterval(tick); tick = 0; if (cancelCount) cancelCount(); cancelCount = null; };
+  const score = (n, unit) => { const el = $('#arc-score'); if (n > +el.dataset.v) { Fx.countUp(el, +el.dataset.v || 0, n, 400); Fx.pop(el.parentElement); } else { el.countId = (el.countId || 0) + 1; el.textContent = n.toLocaleString(); } el.dataset.v = n; if (unit) $('#arc-unit').textContent = unit; };
+  const stop = () => { clearInterval(tick); clearInterval(hyperTick); tick = hyperTick = 0; if (cancelCount) cancelCount(); cancelCount = null; };
 
   /** A question whose answer list passes ok(p); curated questions most of the time. */
   function question(ok) {
@@ -36,6 +36,7 @@
   };
   /** Shared typed-answer handling. Calls onOk(j) for a valid answer; shows did-you-mean and misses itself. */
   function judgeInto(p, text, used, msg, form, onOk) {
+    if (A.paused) return; // the 3-2-1 countdown is still running
     const j = FO.judge(p, text, used);
     if (j.why === 'empty') return;
     if (j.why === 'maybe') { msg.replaceChildren(UI.didYouMean(j.options, (it) => judgeInto(p, it.name, used, msg, form, onOk))); Fx.sfx.flip(); return; }
@@ -68,7 +69,7 @@
     const hyper = h('div', { class: 'hyper', hidden: true }, 'Hyperdrive ×2');
     const box = UI.answerBox('arc-ans', 'Go', (text) => judgeInto(p, text, A.used, msg, box.form, (j) => {
       A.used.add(j.item);
-      const now = A.left, x = A.hyper > now ? 2 : 1;
+      const now = A.left, x = A.hyper && now > A.hyper ? 2 : 1;
       A.run = j.tier.c <= 3 ? A.run + 1 : 0;
       if (A.run >= 3 && x === 1) { A.hyper = now - HYPER_T; A.run = 0; hyper.hidden = false; Fx.pop(hyper); Fx.sfx.lone(); Fx.warp(3, 1); }
       const gain = j.pts * x;
@@ -81,7 +82,7 @@
       if (j.tier.c <= 2) Fx.warp(1 + (3 - j.tier.c), j.tier.c);
       record(j, p);
     }));
-    const hyperTick = setInterval(() => { if (!A || A.mode !== 'shower') return clearInterval(hyperTick); if (A.hyper && A.left < A.hyper) { A.hyper = 0; hyper.hidden = true; } }, 250);
+    hyperTick = setInterval(() => { if (A.hyper && A.left <= A.hyper) { A.hyper = 0; hyper.hidden = true; } }, 250);
     mount(card(p, 'Name as many as you can'), t.el, hyper, box.form, msg, log);
     score(0, 'pts');
     A.paused = true;
@@ -90,7 +91,6 @@
       big: A.pts, unit: 'pts', head: `${A.finds.length} answer${A.finds.length === 1 ? '' : 's'} in 60 seconds`,
       best: ['shower', A.finds.length], finds: A.finds, p, exclude: A.used,
     }));
-    box.input.focus({ preventScroll: true });
   }
 
   // ---------- Spectrum ----------
@@ -102,7 +102,7 @@
       h('li', { class: 'slot ' + FO.TIERS[c].cls, 'data-c': c }, h('b', null, FO.TIERS[c].name), h('span', null, 'Empty'))));
     const peek = h('button', { class: 'link', type: 'button', onclick: () => {
       const c = [1, 2, 3, 4, 5].find((x) => !A.got[x]);
-      if (!c || A.peeks <= 0) return;
+      if (!c || A.peeks <= 0 || A.paused) return;
       const it = p.pool.filter((x) => FO.effOf(p, x) === c && !A.used.has(x))[0];
       if (!it) return;
       A.peeks--;
@@ -143,7 +143,6 @@
     A.paused = true;
     cancelCount = UI.countdown(body(), () => { cancelCount = null; A.paused = false; box.input.focus({ preventScroll: true }); });
     clock(t, SPECTRUM_T, () => finish(false));
-    box.input.focus({ preventScroll: true });
   }
 
   // ---------- Duel ----------
@@ -169,7 +168,7 @@
       Fx.sfx[res === 'win' ? 'lone' : res === 'tie' ? 'flip' : 'clash']();
       if (res === 'win') { Fx.warp(2.5, mine); Fx.buzz('ok'); } else Fx.buzz('bad');
       score(A.me, `vs ${A.vega}`);
-      const decided = (A.round >= 5 && A.me !== A.vega) || A.me === 3 || A.vega === 3 || A.round >= 9;
+      const decided = A.me === 3 || A.vega === 3 || A.round >= 9; // first to three; nine rounds at most
       mount(card(p, `Round ${A.round}`),
         h('div', { class: 'duel-row' },
           h('div', { class: 'duel-side' + (res === 'win' ? ' won' : '') }, h('span', { class: 'who' }, 'You'), h('b', null, j ? j.item.name : 'No answer'), j ? UI.badge(j.tier) : UI.missBadge('Time')),
@@ -191,8 +190,9 @@
   function duelEnd() {
     const won = A.me > A.vega;
     if (won) FO.Progress.event('duelWins', { hard: A.diff === 'hard', xp: { easy: 50, normal: 120, hard: 250 }[A.diff] });
-    over({ big: A.me, unit: `vs ${A.vega}`, head: won ? 'You beat Vega' : 'Vega wins this one', win: won,
-      sub: won ? (A.diff === 'hard' ? 'On Hard, too.' : 'Try a harder Vega next time.') : 'Vega plays rare. Try going farther out sooner.', finds: [] });
+    const draw = A.me === A.vega;
+    over({ big: A.me, unit: `vs ${A.vega}`, head: won ? 'You beat Vega' : draw ? 'A draw after nine rounds' : 'Vega wins this one', win: won,
+      sub: won ? (A.diff === 'hard' ? 'On Hard, too.' : 'Try a harder Vega next time.') : draw ? 'Neither pilot reached three. Play again to settle it.' : 'Vega plays rare. Try going farther out sooner.', finds: [] });
   }
 
   // ---------- end ----------

@@ -140,6 +140,7 @@
     });
     if (same) return { msg: 'You already said that.' };
     a.l.push(t);
+    C.playedGid = g.gid; // for XP: this player took part in this game
     if (a.l.length >= (g.A || 1)) a.d = true;
     push();
     return { ok: true, fixed, unknown: j.why === 'unknown' };

@@ -180,12 +180,13 @@
 @media (max-width: 520px) {
   .slots-row { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
   .slot { padding: 8px 5px; min-height: 70px; }
-  .slot b { font-size: 9.5px; }
+  .slot b { font: 800 11px/1.1 var(--body); letter-spacing: 0; } /* Unbounded is too wide for five slots */
   .slot span { font-size: 12.5px; }
 }
 
 /* ---------- logbook ---------- */
 .chart-body { display: flex; flex-direction: column; gap: 18px; }
+.chart-head { display: flex; flex-direction: column; gap: 10px; }
 .rank-card { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: center; }
 .rank-card .ring { width: 76px; height: 76px; grid-row: span 3; }
 .rank-card .ring::before { inset: 8px; }
