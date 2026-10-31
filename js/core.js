@@ -82,6 +82,7 @@
   // Lists are parsed the first time they are played: tens of thousands of answers would otherwise
   // take seconds to prepare on a phone. Counts come from one cheap scan of the ratings.
   const RATING = /:([1-5])\s*(?=[;\n]|$)/g;
+  const asked = new Set();
   function addList(def, kind, min) {
     if (!def || !def.id || FO.catById[def.id] || typeof def.items !== 'string') return;
     const by = [0, 0, 0, 0, 0, 0];
@@ -91,6 +92,10 @@
     const list = kind === 'q'
       ? { kind, id: def.id, name: String(def.theme || 'Mixed'), ask: String(def.ask), what: String(def.what) }
       : { kind, id: def.id, name: String(def.name), ask: `Name ${def.ask}`, what: String(def.ask) };
+    // The same question from two files would come up twice with different answers: the first one loaded wins.
+    const key = list.ask.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    if (asked.has(key)) return;
+    asked.add(key);
     let parsed = null;
     const load = () => parsed || (parsed = parseList(def.items), list.src = null, parsed);
     Object.defineProperty(list, 'items', { get: () => load().items, enumerable: true });

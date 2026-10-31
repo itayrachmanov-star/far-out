@@ -120,6 +120,10 @@ assert(lettered < 2000 * 0.12, `too many letter prompts: ${lettered} of 2000`);
 const LETTER_GAME = /\b(\d+ letters|letters? in it|with the letter|starts? with|starting with|ends? (with|in)|ending (with|in)|rhymes? with|contains? the (word|letters?)|spelled|vowels?|syllables?|palindromes?|anagrams?|double letters?)\b/i;
 const games = FO.qs.filter((q) => LETTER_GAME.test(q.ask)).map((q) => q.ask);
 assert.strictEqual(games.length, 0, 'letter-game questions: ' + games.slice(0, 5).join(' | '));
+// each question is asked once, across the curated and the big bank
+const asked = new Map(), twice = [];
+for (const q of FO.qs.concat(FO.cats)) { const k = q.ask.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); if (asked.has(k)) twice.push(`${q.ask} (${asked.get(k)}, ${q.id})`); else asked.set(k, q.id); }
+assert.strictEqual(twice.length, 0, 'asked twice: ' + twice.slice(0, 5).join(' | '));
 // friendly mode: minEase only picks lists with plenty of everyday answers
 const r3 = FO.rng('easy');
 for (let i = 0; i < 200; i++) { const p = FO.makePrompt(r3, { minPool: 6, minEase: 10 }); assert(FO.ease(p.cat) >= 10, 'not friendly: ' + p.ask); }
