@@ -5,15 +5,12 @@
   const FO = window.FarOut, UI = FO.UI, h = UI.h, $ = UI.$;
   let chart = UI.store.get('chart', {});
   if (!chart || typeof chart !== 'object' || Array.isArray(chart)) chart = {};
-  let totalRare = 0;
 
   const stats = () => Object.assign({ answers: 0, rare: 0, games: 0 }, UI.store.get('stats', {}));
   const bump = (patch) => { const s = stats(); for (const k in patch) s[k] = (s[k] || 0) + patch[k]; UI.store.set('stats', s); };
 
-  function total() {
-    if (!totalRare) totalRare = FO.qs.concat(FO.cats).reduce((n, l) => n + l.items.filter((it) => it.c <= 2).length, 0);
-    return totalRare;
-  }
+  // Counted each time: the big question bank arrives after startup.
+  const total = () => FO.qs.concat(FO.cats).reduce((n, l) => n + l.rare, 0);
 
   function render() {
     const entries = Object.values(chart).sort((a, b) => b.t - a.t);

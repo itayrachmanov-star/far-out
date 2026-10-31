@@ -56,7 +56,7 @@
       if (!m) continue;
       const names = m[1].split('|').map((s) => s.trim()).filter(Boolean);
       if (!names.length) continue;
-      const item = { name: title(names[0]), c: +m[2], f: strip(names[0]) };
+      const item = { name: /[A-Z]/.test(names[0]) ? names[0] : title(names[0]), c: +m[2], f: strip(names[0]) }; // cased data keeps its casing
       items.push(item);
       named.push([item, names]);
     }
@@ -79,17 +79,45 @@
     for (const { item, extra } of owner.values()) extra.forEach((n) => put(item, n));
     return { items: items.filter((it) => !it.dup), index };
   }
+  // Lists are parsed the first time they are played: tens of thousands of answers would otherwise
+  // take seconds to prepare on a phone. Counts come from one cheap scan of the ratings.
+  const RATING = /:([1-5])\s*(?=[;\n]|$)/g;
   function addList(def, kind, min) {
-    if (!def || !def.id || FO.catById[def.id] || !def.items) return;
-    const { items, index } = parseList(def.items);
-    if (items.length < min) return;
+    if (!def || !def.id || FO.catById[def.id] || typeof def.items !== 'string') return;
+    const by = [0, 0, 0, 0, 0, 0];
+    for (const m of def.items.matchAll(RATING)) by[m[1]]++;
+    const n = by[1] + by[2] + by[3] + by[4] + by[5];
+    if (n < min) return;
     const list = kind === 'q'
-      ? { kind, id: def.id, name: String(def.theme || 'Mixed'), ask: String(def.ask), what: String(def.what), items, index }
-      : { kind, id: def.id, name: String(def.name), ask: `Name ${def.ask}`, what: String(def.ask), items, index };
+      ? { kind, id: def.id, name: String(def.theme || 'Mixed'), ask: String(def.ask), what: String(def.what) }
+      : { kind, id: def.id, name: String(def.name), ask: `Name ${def.ask}`, what: String(def.ask) };
+    let parsed = null;
+    const load = () => parsed || (parsed = parseList(def.items), list.src = null, parsed);
+    Object.defineProperty(list, 'items', { get: () => load().items, enumerable: true });
+    Object.defineProperty(list, 'index', { get: () => load().index });
+    Object.assign(list, { n, ease: by[4] + by[5], rare: by[1] + by[2], src: def.items, deep: /^w-/.test(def.id), fame: +def.fame || 0 });
     list.theme = themeOf(kind, def);
     (kind === 'q' ? FO.qs : FO.cats).push(list);
     FO.catById[list.id] = list;
   }
+
+  /** The known-word guard needs every answer key in the game. They are collected in small slices
+      (FO.learnKeys(ms) from idle time), and all at once only if a typo check needs them sooner. */
+  let keyed = 0;
+  FO.learnKeys = function (budgetMs = Infinity) {
+    const lists = FO.qs.concat(FO.cats), t0 = Date.now();
+    while (keyed < lists.length) {
+      const l = lists[keyed++];
+      if (l.src) {
+        for (const raw of l.src.split(/[;\n]/)) {
+          const m = raw.trim().match(/^(.*):[1-5]$/);
+          if (m) for (const nm of m[1].split('|')) { const k = keyOf(nm); if (k) allKeys.add(k); }
+        }
+      }
+      if (Date.now() - t0 > budgetMs) return false;
+    }
+    return true;
+  };
   FO.addCategories = (arr) => arr.forEach((c) => addList(c, 'cat', 12));
   FO.addQuestions = (arr) => arr.forEach((c) => addList(c, 'q', 15));
 
@@ -110,6 +138,7 @@
     const ex2 = k2 && k2 !== k && list.index.get(k2);
     if (ex2) return { item: ex2.item, f: ex2.f, fuzzy: false };
     if (k.length < 3) return null;
+    FO.learnKeys();
     const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same
 
     const L = k.length, maxD = L >= 13 ? 3 : L >= 8 ? 2 : L >= 4 ? 1 : 0, s = sound(k), rk = strip(text).replace(/ /g, '');
@@ -202,19 +231,34 @@
     };
   };
 
-  /** Next prompt. opts: minPool, recent (Set of ids), avoid (recent list ids), theme, qShare, minEase (friendly lists only). */
+  /** A sampler over one topic's lists: hand-written questions half the time, broad categories a fifth,
+      and the big Wikidata bank the rest. opts: theme, core (no Wikidata bank), deepShare. */
+  FO.sampler = function (opts = {}) {
+    const ok = (l) => !opts.theme || opts.theme === 'all' || l.theme === opts.theme;
+    const pools = [[FO.qs.filter((l) => !l.deep && ok(l)), 0.5], [FO.cats.filter(ok), 0.2],
+      [opts.core ? [] : FO.qs.filter((l) => l.deep && ok(l)), opts.deepShare ?? 0.3]].filter(([p]) => p.length);
+    if (!pools.length) pools.push([FO.qs.filter((l) => !l.deep).concat(FO.cats), 1]);
+    const total = pools.reduce((s, [, w]) => s + w, 0);
+    // From the big bank, the best known of three random picks: Spielberg comes up often, obscure authors rarely.
+    const draw = (rng, p) => (p[0] && p[0].deep ? [pick(rng, p), pick(rng, p), pick(rng, p)].sort((a, b) => b.fame - a.fame)[0] : pick(rng, p));
+    return (rng) => {
+      let r = rng() * total;
+      for (const [p, w] of pools) { r -= w; if (r <= 0) return draw(rng, p); }
+      return draw(rng, pools[0][0]);
+    };
+  };
+
+  /** Next prompt. opts: minPool, recent (Set of ids), avoid (recent list ids), theme, minEase (friendly lists only),
+      core (skip the big Wikidata bank: Daily and online rooms must match on every device). */
   FO.makePrompt = function (rng, opts = {}) {
     const minPool = opts.minPool || 6, recent = opts.recent || new Set(), avoid = opts.avoid || [];
-    const inTheme = (l) => !opts.theme || opts.theme === 'all' || l.theme === opts.theme;
-    const qs = FO.qs.filter(inTheme), cats = FO.cats.filter(inTheme);
-    const qShare = opts.qShare ?? 0.7;
+    const next = FO.sampler(opts);
     for (let tries = 0; tries < 160; tries++) {
-      const useQ = qs.length && (!cats.length || rng() < qShare);
-      const list = pick(rng, useQ ? qs : cats.length ? cats : FO.cats);
+      const list = next(rng);
       if (!list || (tries < 100 && avoid.includes(list.id))) continue;
-      if (opts.minEase && tries < 120 && FO.ease(list) < opts.minEase) continue;
-      const t = weighted(rng, useQ ? Q_RULES : CAT_W);
-      if (useQ && t === 'start' && list.items.length < 40) continue;
+      if (opts.minEase && tries < 120 && (list.deep || FO.ease(list) < opts.minEase)) continue;
+      const t = list.deep ? 'any' : weighted(rng, list.kind === 'q' ? Q_RULES : CAT_W); // no letter rules on the big bank
+      if (list.kind === 'q' && t === 'start' && list.n < 40) continue;
       let v;
       if (PARAMS[t]) {
         const ok = PARAMS[t].filter((x) => poolOf(list, t, x).length >= minPool);
@@ -226,11 +270,11 @@
       if (opts.avoid) { avoid.push(list.id); if (avoid.length > (opts.avoidN || 6)) avoid.shift(); }
       return p;
     }
-    return FO.buildPrompt({ c: pick(rng, FO.qs.length ? FO.qs : FO.cats).id, t: 'any' });
+    return FO.buildPrompt({ c: next(rng).id, t: 'any' });
   };
 
   /** How friendly a list is: how many answers most people would think of (rated 4 or 5). */
-  FO.ease = (list) => list.ease ?? (list.ease = list.items.filter((it) => it.c >= 4).length);
+  FO.ease = (list) => list.ease;
 
   /** How many distinct prompts the bank can produce (for the home screen). */
   FO.countPrompts = function (minPool = 6) {

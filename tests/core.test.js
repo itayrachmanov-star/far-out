@@ -4,6 +4,8 @@ global.window = global;
 require(path.join(__dirname, '../js/text.js'));
 require(path.join(__dirname, '../js/core.js'));
 for (const f of fs.readdirSync(path.join(__dirname, '../data')).filter((f) => f.endsWith('.js')).sort()) require(path.join(__dirname, '../data', f));
+const WIKI = path.join(__dirname, '../data/wiki'); // the generated Wikidata bank (scripts/wikidata/generate.js)
+if (fs.existsSync(WIKI)) for (const f of fs.readdirSync(WIKI).filter((f) => f.endsWith('.js')).sort()) require(path.join(WIKI, f));
 const FO = window.FarOut;
 console.log(`${FO.qs.length} questions, ${FO.cats.length} categories, ${FO.cats.reduce((n, c) => n + c.items.length, 0)} answers, ${FO.countPrompts()} prompts`);
 
@@ -121,6 +123,12 @@ assert.strictEqual(games.length, 0, 'letter-game questions: ' + games.slice(0, 5
 // friendly mode: minEase only picks lists with plenty of everyday answers
 const r3 = FO.rng('easy');
 for (let i = 0; i < 200; i++) { const p = FO.makePrompt(r3, { minPool: 6, minEase: 10 }); assert(FO.ease(p.cat) >= 10, 'not friendly: ' + p.ask); }
+// Daily Orbit and online rooms never use the big bank (other devices may not have it loaded yet),
+// and the big bank never gets letter rules
+const r4 = FO.rng('core');
+for (let i = 0; i < 300; i++) { const p = FO.makePrompt(r4, { minPool: 10, core: true }); assert(!p.cat.deep, 'core prompt from the big bank: ' + p.ask); }
+const r5 = FO.rng('deep');
+for (let i = 0; i < 300; i++) { const p = FO.makePrompt(r5, { minPool: 6 }); if (p.cat.deep) assert.strictEqual(p.spec.t, 'any', 'letter rule on ' + p.ask); }
 // daily seed is deterministic
 const d1 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id, d2 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id;
 assert.strictEqual(d1, d2);

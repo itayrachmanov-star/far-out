@@ -277,7 +277,7 @@
       if (mode === 'daily') {
         const rng = FO.rng('daily-' + day);
         S.daily = [];
-        for (let i = 0; i < DAILY_PROMPTS; i++) { const p = FO.makePrompt(rng, { minPool: 10, recent: S.recent, avoid: S.avoid, avoidN: 6, minEase: i < 2 ? 10 : 4 }); S.recent.add(p.id); S.daily.push(p); }
+        for (let i = 0; i < DAILY_PROMPTS; i++) { const p = FO.makePrompt(rng, { minPool: 10, recent: S.recent, avoid: S.avoid, avoidN: 6, minEase: i < 2 ? 10 : 4, core: true }); S.recent.add(p.id); S.daily.push(p); }
       } else S.rng = FO.rng(Date.now() + ':' + Math.random());
       UI.show('s-play');
       $('#play-mode').textContent = mode === 'daily' ? 'Daily Orbit' : mode === 'explore' ? 'Explore' : 'Voyage';

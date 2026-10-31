@@ -117,8 +117,21 @@
     if (e.key === 'Escape' && UI.current !== 's-home' && !e.target.closest('input') && !document.querySelector('.sheet')) home();
   });
 
-  const lists = FO.qs.length + FO.cats.length, answers = FO.qs.concat(FO.cats).reduce((n, c) => n + c.items.length, 0);
-  $('#bank-stat').textContent = `${lists.toLocaleString()} questions, ${FO.THEMES.length} topics and ${answers.toLocaleString()} known answers.`;
+  const stat = () => {
+    const lists = FO.qs.length + FO.cats.length, answers = FO.qs.concat(FO.cats).reduce((n, c) => n + c.n, 0);
+    $('#bank-stat').textContent = `${lists.toLocaleString()} questions, ${FO.THEMES.length} topics and ${answers.toLocaleString()} known answers.`;
+  };
+  stat();
+  // Typo checks need every known answer; collect them in small slices so the page stays responsive.
+  const learn = () => { if (!FO.learnKeys(12)) setTimeout(learn, 30); };
+  // The big Wikidata question bank arrives after the menu is up (it is several megabytes).
+  setTimeout(() => {
+    const s = document.createElement('script');
+    s.src = 'data/deep.js';
+    s.onload = () => { stat(); learn(); };
+    s.onerror = learn; // not built in this copy
+    document.head.append(s);
+  }, 400);
 
   home();
   // First visit: a three-step intro.

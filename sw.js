@@ -1,7 +1,7 @@
 /* Far Out — offline support for the installed app. Serves the game from cache and refreshes it
    in the background, so it opens instantly and works without a connection (except online play). */
 const CACHE = 'farout-__BUILD__';
-const CORE = ['./', 'index.html', 'css/style.css', 'css/screens.css', 'data/bank.js', 'manifest.webmanifest', 'assets/icon-192.png',
+const CORE = ['./', 'index.html', 'css/style.css', 'css/screens.css', 'data/bank.js', 'data/deep.js', 'manifest.webmanifest', 'assets/icon-192.png',
   'js/text.js', 'js/core.js', 'js/fx.js', 'js/ui.js', 'js/progress.js', 'js/collection.js', 'js/sharecard.js', 'js/solo.js', 'js/net.js', 'js/crew.js', 'js/crew-view.js', 'js/party.js', 'js/arcade.js', 'js/twin.js', 'js/main.js'];
 
 self.addEventListener('install', (e) => {

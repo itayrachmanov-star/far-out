@@ -16,11 +16,9 @@
 
   /** A question whose answer list passes ok(p); curated questions most of the time. */
   function question(ok) {
-    const inTheme = (l) => A.theme === 'all' || l.theme === A.theme;
-    const qs = FO.qs.filter(inTheme), cats = FO.cats.filter(inTheme);
+    const next = FO.sampler({ theme: A.theme });
     for (let i = 0; i < 300; i++) {
-      const from = qs.length && (!cats.length || A.rng() < 0.8) ? qs : cats.length ? cats : FO.cats;
-      const l = from[Math.floor(A.rng() * from.length)];
+      const l = next(A.rng);
       if (!l || (i < 200 && A.recent.has(l.id))) continue;
       const p = FO.buildPrompt({ c: l.id, t: 'any' });
       if (ok(p)) { A.recent.add(l.id); return p; }

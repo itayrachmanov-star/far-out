@@ -13,10 +13,9 @@
   /** A question and two answers whose effective tiers differ by at least `gap`. */
   function pair() {
     const gap = gapFor(T.score);
-    const inTheme = (l) => T.theme === 'all' || l.theme === T.theme;
-    const lists = FO.qs.filter(inTheme).concat(FO.cats.filter(inTheme));
+    const next = FO.sampler({ theme: T.theme });
     for (let i = 0; i < 300; i++) {
-      const l = lists[Math.floor(T.rng() * lists.length)];
+      const l = next(T.rng);
       if (!l || (i < 200 && T.recent.has(l.id))) continue;
       const p = FO.buildPrompt({ c: l.id, t: 'any' });
       const by = {};
