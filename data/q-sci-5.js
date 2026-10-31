@@ -17,7 +17,7 @@ orange:3; sunday:3; sun hat|sunhat:3; deckchair:3; picnic:3; barbecue|bbq:3; sun
 golden:3; desert:3; tan lines:3; japan flag|rising sun|japan:3; stonehenge:3; midsummer:3; equinox:3; plants|growth:3; sundress|sun dress:3; sandals|flip flops:3;
 lemonade|cold drinks:3; the sun newspaper|the sun:2; helios:2; apollo:2; sol:2; sunspots:2; sunny side up:2; sun-dried tomatoes:2; drought:2; thirst:2;
 sweat:2; sun king|louis xiv:2; sun salutation|sunrise yoga:2; sun worship:2; basking|lizards basking:2; sunbed:2; inti:1; amaterasu:1; sunny delight:1; sun records:1;
-sun belt:1; sunny disposition:1; tanning bed:1; sun tzu:0; suncatcher:1; solar eclipse glasses:2; sunroof:2; sun visor:2; sun lounger:3; parasol:3;
+sun belt:1; sunny disposition:1; tanning bed:1; suncatcher:1; solar eclipse glasses:2; sunroof:2; sun visor:2; sun lounger:3; parasol:3;
 ` },
 
   { id: "q-sci-take-to-mars", theme: "Space", ask: "Name something you'd take on a trip to Mars", what: "something to take on a trip to Mars", items: `
@@ -55,7 +55,7 @@ great bear|ursa major|the great bear:5; lion|leo:5; scorpion|scorpius:5; great d
 dragon|draco:4; little bear|ursa minor:4; pegasus|winged horse:4; dolphin|delphinus:3; whale|cetus:3; wolf|lupus:3; little dog|canis minor:3; goat|capricornus|sea goat:3; hare|lepus:3; phoenix:3;
 unicorn|monoceros:3; centaur|centaurus:3; snake|serpens:3; giraffe|camelopardalis:3; raven|crow|corvus:3; toucan|tucana:3; lynx:3; fox|vulpecula:2; crane|grus:2; dove|columba:2;
 peacock|pavo:2; hydra|water snake:2; chameleon:2; fly|musca:2; lizard|lacerta:2; horse|little horse|equuleus:2; hunting dogs|canes venatici:2; bird of paradise|apus:1; goldfish|dorado:1; swordfish|xiphias:1;
-flying fish|volans:1; southern fish|piscis austrinus:1; sea monster:1; cat|felis:1; hawk:0; heron:0; owl:0; bee:0; ox:0; tortoise:0;
+flying fish|volans:1; southern fish|piscis austrinus:1; sea monster:1; cat|felis:1;
 ` },
 
   { id: "q-sci-mostly-water", theme: "Science", ask: "Name something that is mostly water", what: "something that is mostly water", items: `
@@ -66,7 +66,7 @@ courgette|zucchini:3; broccoli:3; peach:3; pineapple:3; grapefruit:3; mushrooms|
 urine|wee:3; fog:3; glacier:3; iceberg:3; jelly:3; ice lolly|popsicle:3; smoothie:3; lemonade:3; cola|coke:3; sparkling water|soda water:3;
 broth|stock:3; a baby|baby:3; brain|brains:3; radish:2; cauliflower:2; aubergine|eggplant:2; skin:2; mist:2; steam:2; hail:2;
 sap|tree sap:2; gravy:2; yoghurt:2; egg white:2; slime:2; leaf:2; ketchup:2; heart:2; muscles:2; lungs:2;
-tonic water:2; comb jelly:1; sea cucumber:1; kiwi:2; peas:1; hot chocolate:2; cider:2; iced tea:3; sap; fruit smoothie:2;
+tonic water:2; comb jelly:1; sea cucumber:1; kiwi:2; peas:1; hot chocolate:2; cider:2; iced tea:3; fruit smoothie:2;
 ` },
 
   { id: "q-sci-acidic", theme: "Science", ask: "Name something that is acidic", what: "something acidic", items: `
@@ -155,7 +155,7 @@ cup:3; bowl:3; mug:3; vase:3; jar:3; drainpipe|drain pipe:3; barrel:3; doughnut|
 coconut:3; eggshell|egg shell:3; seashell|shell:3; pinata:3; canoe:3; kayak:3; bubble:3; tyre|tire:3; whistle:3; horn:3;
 pan pipes:3; tooth:2; bagel:2; wedding ring:2; boat|hull:2; hollow earth theory|hollow earth:2; bicycle frame:2; scaffolding pole:2; flagpole:2; megaphone:2;
 trombone:2; tuba:2; saxophone:2; clarinet:2; pen barrel:2; syringe needle:2; lindt bunny:2; car:1; building|house:1; lamppost:1;
-telescope tube:1; oboe:1; bassoon:1; ocarina:1; hypodermic:1; hollow point:0; bamboo cane:2; reed:2; kazoo:2; organ pipes|organ pipe:2;
+telescope tube:1; oboe:1; bassoon:1; ocarina:1; hypodermic:1; bamboo cane:2; reed:2; kazoo:2; organ pipes|organ pipe:2;
 ` },
 
   { id: "q-sci-flat", theme: "Science", ask: "Name something that is flat", what: "something flat", items: `
@@ -236,7 +236,7 @@ seasons:5; suits in a pack of cards|card suits|suits:5; compass points|north sou
 fantastic four:4; ninja turtles|teenage mutant ninja turtles:4; weeks in a month:3; legs of a dog|dog legs|cow legs|horse legs:3; four horsemen of the apocalypse|horsemen:3; gospels|four gospels:3; quadruplets:3; quartet:3; four-poster bed:3; four-wheel drive|4x4:3;
 four seasons:3; quarters of a basketball game|quarters in basketball:3; sides of a rectangle:3; chambers of the heart|heart chambers:2; blood types:2; bases of dna:1; four weddings and a funeral:2; four candles:2; four doors of a car|car doors:2; four winds:2;
 four corners:2; tetris blocks|tetromino:2; bridge players|bridge game:2; four seasons by vivaldi:2; four tops:1; fourball golf|fourball:1; four-minute warning:1; four noble truths:1; four humours:1; four evangelists:1;
-four score:1; tetrahedron faces:1; four pillars:1; four go:0; quads:1; four-day week:1; four courses:1; four-star hotel|four star:2; four in a row|connect four:3; four-letter word:0;
+four score:1; tetrahedron faces:1; four pillars:1; quads:1; four-day week:1; four courses:1; four-star hotel|four star:2; four in a row|connect four:3;
 ` },
 
   { id: "q-sci-five-of", theme: "Maths", ask: "Name something there are five of", what: "something there are five of", items: `
@@ -244,7 +244,7 @@ fingers on a hand|fingers:5; toes on a foot|toes:4; senses|five senses:5; olympi
 weekdays|working days|school days:4; starfish arms|starfish:4; five-a-side football|five a side:4; great lakes:4; oceans:3; jackson 5|jackson five:3; lines on a musical stave|stave:3; high five:3; five guys:3; five-star hotel|five star:3;
 five pillars of islam|pillars of islam:3; five nights at freddy's|five nights at freddys:3; five little ducks:3; five little monkeys:3; five currant buns:3; quintuplets:3; quintet:3; pentathlon:3; 5g:3; pentagon building|the pentagon:3;
 five o'clock shadow|five oclock shadow:2; five pence|5p coin:2; five books of moses|torah:2; five go adventuring:2; pentagram:2; five stages of grief:2; jacks game|jacks:2; hawaii five-0|hawaii five-o:2; five card draw:1; five dollar bill:1;
-five elements:1; five alive:1; take 5:1; five nations:1; five rings:3; five fingers:3; five golden rings:2; five points of the compass:0; five wounds:1; five ws|who what where when why:2;
+five elements:1; five alive:1; take 5:1; five nations:1; five rings:3; five fingers:3; five golden rings:2; five wounds:1; five ws|who what where when why:2;
 ` },
 
   { id: "q-sci-seven-of", theme: "Maths", ask: "Name something there are seven of", what: "something there are seven of", items: `
@@ -256,16 +256,16 @@ bridges of konigsberg:1; seven pillars of wisdom:1; seven sages:1; seven churche
 
   { id: "q-sci-eight-of", theme: "Maths", ask: "Name something there are eight of", what: "something there are eight of", items: `
 legs of a spider|spider legs|spider:5; arms of an octopus|octopus:5; planets|eight planets:5; notes in an octave|octave:4; sides of an octagon|octagon|stop sign:4; bits in a byte|byte:4; santa's reindeer|santas reindeer|reindeer:4; pints in a gallon:3; figure of eight|figure eight:3; eight ball|8 ball|pool:3;
-hanukkah candles|menorah|hanukkah:3; rowers in a rowing boat|rowing eight|rowing crew:3; scorpion legs|scorpion:3; eight hours of sleep|eight hours:3; pieces of eight|pirate coins:3; v8 engine|v8:3; eighth note|quaver:3; eight-hour working day|working day:3; crayons in a box:0; tarantula:2;
+hanukkah candles|menorah|hanukkah:3; rowers in a rowing boat|rowing eight|rowing crew:3; scorpion legs|scorpion:3; eight hours of sleep|eight hours:3; pieces of eight|pirate coins:3; v8 engine|v8:3; eighth note|quaver:3; eight-hour working day|working day:3; tarantula:2;
 tick|mite:2; eight maids a-milking:2; octuplets:2; octet:2; infinity sign sideways|infinity:2; crazy eights:2; hateful eight:2; eight days a week:2; g8:2; squid arms:2;
-eight-track:1; ounces in a cup|cup:2; eightfold path:1; octopus's garden|octopus garden:1; eight mile:1; lobster claws:0; eight bells:1; snooker reds? skip:0; eight treasures:1; octagonal:1;
+eight-track:1; ounces in a cup|cup:2; eightfold path:1; octopus's garden|octopus garden:1; eight mile:1; eight bells:1; eight treasures:1; octagonal:1;
 ` },
 
   { id: "q-sci-ten-of", theme: "Maths", ask: "Name something there are ten of", what: "something there are ten of", items: `
 fingers:5; toes:5; ten commandments|commandments:5; ten-pin bowling|bowling pins|ten pin|bowling:5; downing street|10 downing street|number 10:5; ten green bottles:5; perfect score|a perfect ten:4; decade:4; decathlon events|decathlon:4; plagues of egypt|ten plagues:4;
 countdown from ten|ten seconds countdown:4; top ten|charts:4; decimal|base ten|number system:3; ten pence|10p:3; ten pound note|tenner:3; ten little fingers:3; ten-gallon hat|ten gallon hat:3; 10 things i hate about you:3; cents in a dime|dime:3; ten out of ten:3;
 fingernails:3; ten-four:2; decagon sides|decagon:2; ten lords a-leaping:2; ten dollar bill|hamilton:2; ten-speed bike:2; ten items or less|ten items or fewer:2; ten tors:1; ten years after:1; tenfold|ten times:1;
-ten lepers:1; ten-year-old:1; ten to one:1; ten degrees:1; ten-man:0; ten pin bowling alley:1; ten little indians:0; ten cent:1; ten spot:1; ten bells:1;
+ten lepers:1; ten-year-old:1; ten to one:1; ten degrees:1; ten pin bowling alley:1; ten cent:1; ten spot:1; ten bells:1;
 ` },
 
   { id: "q-sci-dozen", theme: "Maths", ask: "Name something that comes in a dozen", what: "something that comes in a dozen", items: `
@@ -276,10 +276,10 @@ semitones|notes in a chromatic scale:2; twelve step programme|twelve step progra
 ` },
 
   { id: "q-sci-hundred-of", theme: "Maths", ask: "Name something there are 100 of", what: "something there are 100 of", items: `
-percent|per cent|percentage:5; centimetres in a metre|centimetres|centimeters:5; years in a century|century:5; cents in a dollar|cents:5; pence in a pound|pennies in a pound|pence:5; runs in a century|cricket century|a century:4; full marks|perfect score on a test:4; 100m sprint|100 metres|100 metre dash:4; us senators|us senate|senate:4; senators:0;
+percent|per cent|percentage:5; centimetres in a metre|centimetres|centimeters:5; years in a century|century:5; cents in a dollar|cents:5; pence in a pound|pennies in a pound|pence:5; runs in a century|cricket century|a century:4; full marks|perfect score on a test:4; 100m sprint|100 metres|100 metre dash:4; us senators|us senate|senate:4;
 hundred acre wood|100 acre wood:3; centipede legs|centipede:3; hundred years war|hundred years' war:3; roman centurion|centurion:3; centenary|centenarian:3; 100th birthday|hundredth birthday:3; hundreds and thousands|sprinkles:3; hundred pound note|hundred dollar bill|100 dollar bill:3; 100 emoji|hundred points emoji:3; euro cents in a euro|euro cents:3;
 top 100|billboard hot 100:3; family feud survey|people surveyed in family fortunes:3; yards on an american football field|football field:3; hundred days:1; hundredweight:1; the hundred cricket competition|the hundred:2; first hundred days:1; centimes in a franc|centimes:1; centavos|centavo:1; hundred and one uses:1;
-degrees celsius boiling point of water|boiling point of water:4; 100 days of school|hundredth day of school:2; 101 dalmatians:3; years of a lifetime|a lifetime:2; kilopascals? skip:0; dalmatians:3; one hundred club:1; hundred-year flood:1; hundredth meridian:1; 100 club:1;
+degrees celsius boiling point of water|boiling point of water:4; 100 days of school|hundredth day of school:2; 101 dalmatians:3; years of a lifetime|a lifetime:2; dalmatians:3; one hundred club:1; hundred-year flood:1; hundredth meridian:1; 100 club:1;
 ` },
 
   { id: "q-sci-only-one", theme: "Maths", ask: "Name something there is only one of", what: "something there is only one of", items: `
@@ -316,7 +316,7 @@ sneeze:4; blink:4; tie shoelaces|tie your shoes:5; send a text|text message|text
 say hello|greet someone:3; take a selfie|selfie:4; take a photo:4; flip a coin:3; light a candle|light a match:3; turn on the tv:3; lift ride|lift journey:3; send an email:3; switch on the kettle|put the kettle on:3; pour a drink|pour a glass of water:4;
 sprint 100m|100 metre sprint:4; hold your breath:3; hug:4; kiss:3; cough:3; tv advert|advert|ad:4; red light|traffic light:3; pay by card|contactless payment|tap a card:4; unlock your phone|unlock phone:4; lock the door:3;
 close the door:3; brush your hair:3; put on shoes|put on your shoes:3; put on a coat:3; crack an egg:3; peel a banana:4; open a letter:3; read a text:3; check your phone:3; google something|google search:3;
-flush the toilet:4; click a button|click:3; hiccup:2; post a tweet|tweet:2; scan an item|scan a barcode:2; rinse a plate:2; lightning strike:2; tiktok video|tiktok:3; make a cup of tea:1; boil an egg:0;
+flush the toilet:4; click a button|click:3; hiccup:2; post a tweet|tweet:2; scan an item|scan a barcode:2; rinse a plate:2; lightning strike:2; tiktok video|tiktok:3; make a cup of tea:1;
 blow out candles:3; wave goodbye|wave:3; say goodbye:3; toast a slice of bread|toast bread:1; microwave a mug of milk:1; set an alarm:3; change the channel:3; tap water running|fill a glass:2; zip up a coat|do up a zip:3; buckle a seatbelt|put on a seatbelt:4;
 ` },
 
@@ -340,7 +340,7 @@ peanut:1; aspirin:1; surfboard:1; sunglasses lens:1; stamp:1; seal|signet:1; bub
 starfish:5; star:5; sheriff's badge|sheriff badge|sheriffs badge:4; christmas tree topper|tree topper|star on a christmas tree:4; fireworks|firework burst:4; hollywood walk of fame star|walk of fame:4; gold star sticker|gold stars|gold star:4; star anise:4; ninja star|throwing star|shuriken:4; starfruit|carambola:3;
 star cookie|cookie cutter:3; pentagram:3; star rating|rating:3; military medal|military star|medal:3; star of david|magen david:3; star of bethlehem|bethlehem star:3; paper stars|origami star|lucky star:3; glow in the dark stars:3; mercedes logo|mercedes-benz logo|mercedes:4; star spangled banner:3;
 starburst|star-shaped sweets:3; converse all star logo|converse:3; star biscuit|shortbread star:2; star pasta|stelline:2; star lantern|moravian star:2; star flower|stellaria|flower:2; brittle star|sea star:2; texaco logo|texaco:2; sparkler:2; snowflake:1;
-sand dollar:1; morning star weapon|morning star:1; star lollipop:1; sheriff woody's badge:1; star decoration|christmas star:3; asterisk:3; sparkle emoji|star emoji:2; shining star:2; supernova remnant? skip:0; compass rose:2;
+sand dollar:1; morning star weapon|morning star:1; star lollipop:1; sheriff woody's badge:1; star decoration|christmas star:3; asterisk:3; sparkle emoji|star emoji:2; shining star:2; compass rose:2;
 ` },
 
   { id: "q-sci-heart-shaped", theme: "Maths", ask: "Name something that is heart-shaped", what: "something heart-shaped", items: `
@@ -364,6 +364,6 @@ corner of a book|book corner|book:5; door|doorway:4; window|window frame:4; squa
 letter l|l-shape|l shape:4; t-junction|crossroads|junction:4; clock at 3 o'clock|three o'clock|9 o'clock|clock hands at three:4; paper|a4 paper|sheet of paper:5; picture frame:3; shelf bracket|bracket|shelf:3; cross|plus sign:3; staircase corner|stairs:3; tile|floor tile|tiles:3; chessboard|chess board:4;
 notebook|exercise book:3; envelope:3; tv screen|tv:3; laptop screen|laptop:3; phone:3; football pitch corner|pitch corner:3; tennis court|court:3; building corner|buildings:3; carpenter's square|try square|builders square:3; right-angled triangle|right triangle|pythagoras triangle:4;
 bookshelf|bookcase:3; cupboard|cupboard corner:3; bed frame|bed:3; box|cardboard box:4; cube:4; street grid|city blocks|manhattan grid|grid:3; graph paper|graph axes|graph:4; coordinate axes|axes|x and y axis:3; picture:3; ruler corner:2;
-kitchen worktop corner|worktop:2; pavement kerb|kerb:2; skyscraper:2; protractor 90 degrees mark:1; door hinge:1; folded napkin:1; origami fold:1; pizza box corner:1; wallpaper:0; l-shaped sofa:2;
+kitchen worktop corner|worktop:2; pavement kerb|kerb:2; skyscraper:2; protractor 90 degrees mark:1; door hinge:1; folded napkin:1; origami fold:1; pizza box corner:1; l-shaped sofa:2;
 ` },
 ]);
