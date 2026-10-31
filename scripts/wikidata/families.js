@@ -2,6 +2,21 @@
 // and their members (films, cities…). Patterns use ?g for the group and ?item for an answer.
 // links: minimum Wikipedia language count for an answer; glinks: for the group itself.
 const COUNTRY = ''; // country families take their groups from a list of countries; re-checking here made queries 8x slower
+const series = (g) => g.replace(/ (video game )?series$/i, '').replace(/^The /, '');
+const world = (g) => (/mythology$|'s /i.test(g) ? g : `the ${g}`);
+
+// Group names as people say them: "the Netherlands", "China", "Ford", "Cardiff City". '' drops the group.
+const NAMES = { 'United States of America': 'the United States', 'United States': 'the United States', 'United Kingdom': 'the United Kingdom',
+  'People\'s Republic of China': 'China', 'Kingdom of the Netherlands': 'the Netherlands', Netherlands: 'the Netherlands', Philippines: 'the Philippines',
+  'Czech Republic': 'the Czech Republic', 'Democratic Republic of the Congo': 'the Democratic Republic of the Congo', 'Republic of the Congo': 'the Republic of the Congo',
+  'Central African Republic': 'the Central African Republic', 'Dominican Republic': 'the Dominican Republic', 'United Arab Emirates': 'the United Arab Emirates',
+  Bahamas: 'the Bahamas', 'The Bahamas': 'the Bahamas', Gambia: 'the Gambia', 'The Gambia': 'the Gambia', Maldives: 'the Maldives', 'Solomon Islands': 'the Solomon Islands',
+  'Soviet Union': 'the Soviet Union', 'British Broadcasting Corporation': 'the BBC', 'American Broadcasting Company': 'ABC', 'Fox Broadcasting Company': 'Fox',
+  'Korean Broadcasting System': 'KBS', 'Munhwa Broadcasting Corporation': 'MBC', 'Seoul Broadcasting System': 'SBS', 'The CW': 'the CW', 'The WB': 'the WB',
+  'The Walt Disney Company': 'Disney', 'The Weinstein Company': 'the Weinstein Company', 'The Cannon Group': 'the Cannon Group', 'broadcast syndication': '',
+  'Audi AG': 'Audi', 'Tata Motors Limited': 'Tata Motors', 'AB Volvo': 'the Volvo Group', 'Mercedes-Benz Group': 'the Mercedes-Benz Group',
+  'Volkswagen Group': 'the Volkswagen Group', 'American Motors Corporation': 'American Motors', 'Real Madrid Club de Fútbol': 'Real Madrid' };
+const nice = (g) => (g in NAMES ? NAMES[g] : g.replace(/ (A\.F\.C\.|F\.C\.)$/, '').replace(/ Motor (Company|Corporation)$/, ''));
 
 const families = [
   { id: 'director', theme: 'Movies', ask: (g) => `Name a film directed by ${g}`, what: (g) => `a film directed by ${g}`,
@@ -28,7 +43,7 @@ const families = [
     pattern: '?item wdt:P31 wd:Q3305213 ; wdt:P170 ?g .', links: 2, glinks: 20, limit: 120 },
   { id: 'composer', theme: 'Music', ask: (g) => `Name a work by ${g}`, what: (g) => `a work by ${g}`,
     pattern: '?item wdt:P86 ?g . ?g wdt:P106 wd:Q36834 .', links: 3, glinks: 20, limit: 100 },
-  { id: 'gameseries', theme: 'Games', ask: (g) => `Name a game in the ${g.replace(/ (video game )?series$/i, '')} series`, what: (g) => `a game in the ${g.replace(/ (video game )?series$/i, '')} series`,
+  { id: 'gameseries', theme: 'Games', ask: (g) => `Name a game in the ${series(g)} series`, what: (g) => `a game in the ${series(g)} series`,
     pattern: '?item wdt:P31 wd:Q7889 ; wdt:P179 ?g .', links: 3, glinks: 10, limit: 120 },
   { id: 'city', theme: 'Cities', ask: (g) => `Name a city in ${g}`, what: (g) => `a city in ${g}`,
     pattern: `VALUES ?t { wd:Q515 wd:Q1549591 wd:Q1637706 wd:Q5119 wd:Q200250 } ?item wdt:P31 ?t ; wdt:P17 ?g . ${COUNTRY}`, links: 10, countries: true, limit: 180 },
@@ -58,7 +73,7 @@ const families = [
     pattern: `VALUES ?t { wd:Q4830453 wd:Q891723 wd:Q6881511 } ?item wdt:P31 ?t ; wdt:P17 ?g . ${COUNTRY}`, links: 20, countries: true, limit: 60 },
   { id: 'dogbreed', theme: 'Animals', ask: (g) => `Name a dog breed from ${g}`, what: (g) => `a dog breed from ${g}`,
     pattern: `?item wdt:P31 wd:Q39367 ; wdt:P495 ?g . ${COUNTRY}`, links: 3, countries: true, limit: 20 },
-  { id: 'myth', theme: 'Myths', ask: (g) => `Name a figure from ${g}`, what: (g) => `a figure from ${g}`,
+  { id: 'myth', theme: 'Myths', ask: (g) => `Name a character or thing from ${world(g)}`, what: (g) => `something from ${world(g)}`,
     pattern: '?item wdt:P1080 ?g .', links: 5, glinks: 20, limit: 40 },
 ];
 
@@ -83,4 +98,4 @@ const DEMONYM = { 'United States of America': 'American', 'United Kingdom': 'Bri
   Poland: 'Polish', Spain: 'Spanish', Turkey: 'Turkish', Thailand: 'Thai', Iceland: 'Icelandic', Portugal: 'Portuguese', Wales: 'Welsh', Scotland: 'Scottish',
   England: 'English', France: 'French', Greece: 'Greek', Peru: 'Peruvian', Israel: 'Israeli', Iraq: 'Iraqi', Pakistan: 'Pakistani', Bangladesh: 'Bangladeshi' };
 
-module.exports = { families, occupations, DEMONYM };
+module.exports = { families, occupations, DEMONYM, nice };

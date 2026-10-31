@@ -4,7 +4,7 @@
 // the obscure ones Far Out. Replies are cached in scripts/wikidata/.cache, so re-runs are quick.
 // Output: data/wiki/w-<family>-<n>.js, loaded by the game after the menu appears.
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
-const { families, occupations, DEMONYM } = require('./families');
+const { families, occupations, DEMONYM, nice } = require('./families');
 const ROOT = path.join(__dirname, '../..'), CACHE = path.join(__dirname, '.cache'), OUT = path.join(ROOT, 'data/wiki');
 global.window = global;
 require(path.join(ROOT, 'js/text.js'));
@@ -149,7 +149,7 @@ function write(fam, qs) {
 // ---------- families ----------
 async function runFamily(f) {
   const groups = (await sparql(f.countries ? countryQuery(f.limit) : groupQuery(f)))
-    .map((r) => ({ id: qid(r.g), label: clean(r.gLabel), fame: +(r.gl || r.l || r.n) || 0 })).filter((g) => usable(g.label));
+    .map((r) => ({ id: qid(r.g), label: nice(clean(r.gLabel)), fame: +(r.gl || r.l || r.n) || 0 })).filter((g) => g.label && usable(g.label));
   const size = f.people ? 4 : f.countries ? 3 : 10, out = [];
   for (let i = 0; i < groups.length; i += size) {
     const batch = groups.slice(i, i + size);
