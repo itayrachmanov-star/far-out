@@ -58,7 +58,7 @@
   /** Share (phones) or save (desktop) the result card. r: {title, dist, grid, rarest:{name,c}, extra, text} */
   FO.ShareCard = {
     draw,
-    available: () => !FO.Net.inArtifact && !!document.createElement('canvas').toBlob,
+    available: () => !FO.inArtifact && !!document.createElement('canvas').toBlob,
     async share(r) {
       const blob = await draw(r);
       if (!blob) return UI.toast('Could not draw the image');

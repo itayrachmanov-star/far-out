@@ -3,9 +3,10 @@
 // Answers are ranked by how many Wikipedia languages cover them: the famous ones are Low Orbit,
 // the obscure ones Far Out. Replies are cached in scripts/wikidata/.cache, so re-runs are quick.
 // Output: data/wiki/w-<family>-<n>.js, loaded by the game after the menu appears.
-const fs = require('fs'), path = require('path'), crypto = require('crypto');
+const fs = require('fs'), path = require('path');
+const { sparql, stats, qid, clean } = require('./wd');
 const { families, occupations, DEMONYM, nice } = require('./families');
-const ROOT = path.join(__dirname, '../..'), CACHE = path.join(__dirname, '.cache'), OUT = path.join(ROOT, 'data/wiki');
+const ROOT = path.join(__dirname, '../..'), OUT = path.join(ROOT, 'data/wiki');
 global.window = global;
 require(path.join(ROOT, 'js/text.js'));
 require(path.join(ROOT, 'js/core.js'));
@@ -15,39 +16,6 @@ for (const f of fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith
 const askKey = (s) => norm(s).replace(/^name (a|an|the|some)? ?/, '');
 const taken = new Set(FO.qs.concat(FO.cats).map((l) => askKey(l.ask)));
 const SKIP = /\b(porn\w*|erotic|nazi\w*|terror\w*|massacre|genocide|murder\w*|serial killer|hentai)\b/i;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const qid = (uri) => uri.slice(uri.lastIndexOf('/') + 1);
-
-// ---------- Wikidata ----------
-const UA = 'FarOutGame/1.0 (https://github.com/itayrachmanov-star/far-out; offline question generator)';
-let lastCall = 0, live = 0;
-async function sparql(q) {
-  const file = path.join(CACHE, crypto.createHash('sha1').update(q).digest('hex') + '.json');
-  if (fs.existsSync(file)) return JSON.parse(fs.readFileSync(file, 'utf8'));
-  for (let attempt = 0; attempt < 4; attempt++) {
-    await sleep(Math.max(0, lastCall + 1100 - Date.now())); // one request at a time, politely
-    lastCall = Date.now();
-    live++;
-    try {
-      const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 80000);
-      const r = await fetch('https://query.wikidata.org/sparql', { method: 'POST', signal: ctl.signal,
-        headers: { 'User-Agent': UA, Accept: 'application/sparql-results+json', 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'query=' + encodeURIComponent(q) });
-      clearTimeout(timer);
-      if (process.env.WD_LOG) console.log(`  query ${live}: HTTP ${r.status} in ${Date.now() - lastCall} ms`);
-      if (r.status === 429 || r.status >= 500) { await sleep(Math.max((+r.headers.get('retry-after') || 0) * 1000, 6000 * 3 ** attempt)); continue; }
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      const rows = (await r.json()).results.bindings.map((b) => Object.fromEntries(Object.entries(b).map(([k, v]) => [k, v.value])));
-      fs.mkdirSync(CACHE, { recursive: true });
-      fs.writeFileSync(file, JSON.stringify(rows));
-      return rows;
-    } catch (e) {
-      if (attempt === 3) throw e;
-      await sleep(6000 * 3 ** attempt);
-    }
-  }
-  throw new Error('Wikidata kept refusing this query');
-}
 
 // Groups people know come first: famous directors, bands and authors (by their own Wikipedia reach),
 // or for places, the countries with the most to name.
@@ -82,7 +50,6 @@ const occGroupQuery = (codes) => `SELECT ?g ?gLabel (SAMPLE(?dem) AS ?d) (COUNT(
 } GROUP BY ?g ?gLabel HAVING(COUNT(DISTINCT ?item) >= 15) ORDER BY DESC(?n) LIMIT 40`;
 
 // ---------- turning rows into a question ----------
-const clean = (s) => String(s || '').replace(/[;|`\n\r\t]+/g, ' ').replace(/\s+/g, ' ').trim();
 const usable = (s) => s.length >= 2 && s.length <= 60 && /[a-z]/i.test(s) && !/^Q\d+$/.test(s) && !SKIP.test(s);
 const surname = (name) => { const w = name.split(' ').filter((x) => !/^(jr\.?|sr\.?|ii|iii|iv)$/i.test(x)); return w.length > 1 ? w[w.length - 1] : ''; };
 const subtitle = (name) => { const m = name.match(/(?:: | – | - )([^:–]+)$/); return m ? m[1].trim() : ''; };
@@ -202,7 +169,7 @@ async function runPeople() {
       const qs = await runFamily(f);
       write(f.id, qs);
       total += qs.length;
-      console.log(`${f.id}: ${qs.length} questions (${Math.round((Date.now() - t) / 1000)}s, ${live} live queries so far)`);
+      console.log(`${f.id}: ${qs.length} questions (${Math.round((Date.now() - t) / 1000)}s, ${stats.live} live queries so far)`);
     } catch (e) { console.log(`${f.id}: failed (${e.message})`); }
   }
   if (pick('people')) { const qs = await runPeople(); write('people' + (PART ?? ''), qs); total += qs.length; console.log(`people: ${qs.length} questions`); }

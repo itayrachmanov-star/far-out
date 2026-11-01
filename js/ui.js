@@ -6,6 +6,8 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   UI.$ = $; UI.$$ = $$;
+  // Inside a claude.ai artifact: no service worker, no share links to this page.
+  FO.inArtifact = !!window.FAROUT_ARTIFACT || !!(window.claude && typeof window.claude.use === 'function');
 
   /** h('div', {class:'x', onclick: fn}, 'text', child, [more]) */
   UI.h = function h(tag, props, ...kids) {
@@ -127,7 +129,7 @@
 
   /** Answer box: {form, input}. onSubmit(text) runs on Enter or the button. */
   UI.answerBox = function (id, button, onSubmit, placeholder = 'Type your rarest answer') {
-    const input = UI.h('input', { id, maxlength: 48, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false', enterkeyhint: 'go', placeholder });
+    const input = UI.h('input', { id, dir: 'auto', maxlength: 48, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false', enterkeyhint: 'go', placeholder });
     const form = UI.h('form', { class: 'answer', autocomplete: 'off', onsubmit: (e) => { e.preventDefault(); onSubmit(input.value); } },
       UI.h('label', { for: id, class: 'sr' }, 'Your answer'), input, UI.h('button', { class: 'btn primary', type: 'submit' }, button));
     input.addEventListener('input', () => FO.Fx.sfx.key());

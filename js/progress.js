@@ -27,10 +27,9 @@
     ['typos-10', 'Spell Check', 'Have 10 typos fixed for you', (s) => s.n.typos >= 10],
     ['topics-10', 'Wide Explorer', 'Answer questions in 10 different topics', (s) => s.topics.length >= 10],
     ['party', 'Life of the Party', 'Finish a Party game', (s) => s.n.party >= 1],
-    ['crew', 'Crewmate', 'Finish a Crew game online', (s) => s.n.crew >= 1],
   ];
 
-  const blank = () => ({ xp: 0, n: { answers: 0, far: 0, typos: 0, spectrum: 0, duelWins: 0, duelHard: 0, party: 0, crew: 0 },
+  const blank = () => ({ xp: 0, n: { answers: 0, far: 0, typos: 0, spectrum: 0, duelWins: 0, duelHard: 0, party: 0 },
     best: { streak: 0, voyage: 0, daily: 0, shower: 0, rarer: 0 }, topics: [], got: {} });
   function load() {
     const s = UI.store.get('prog', null), b = blank();

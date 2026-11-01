@@ -1,6 +1,8 @@
 // Checks question files before they join the bank. Run: node scripts/check-data.js data/q-new-1.js [more files]
 // Loads the whole bank, then reports for the given files: questions that failed to load, duplicate ids or asks,
 // answers that their own name cannot reach, thin lists, lopsided ratings and letter-game asks.
+// FarOut.extend files (Israeli answers, Hebrew names) are checked too: unknown lists, names for answers a list
+// does not have, "new" answers it already has, and Hebrew names another answer already uses.
 // Print every ask already in the bank: node scripts/check-data.js --asks
 const fs = require('fs'), path = require('path');
 global.window = global;
@@ -17,9 +19,12 @@ const wrap = (fn) => (arr) => {
   if (targets.has(current)) defs.push(...arr.map((d) => Object.assign({ file: current }, d)));
   return fn(arr);
 };
-const defs = [];
-FO.addQuestions = wrap(FO.addQuestions);
-FO.addCategories = wrap(FO.addCategories);
+const defs = [], baseItems = new Map(), exts = [];
+const keep = (fn) => (arr) => { for (const d of arr) if (d && d.id && !baseItems.has(d.id)) baseItems.set(d.id, String(d.items || '')); return fn(arr); };
+FO.addQuestions = wrap(keep(FO.addQuestions));
+FO.addCategories = wrap(keep(FO.addCategories));
+const extend = FO.extend;
+FO.extend = (map) => { for (const [id, src] of Object.entries(map || {})) exts.push({ file: current, id, src: String(src) }); return extend(map); };
 const files = fs.readdirSync(dataDir).filter((f) => f.endsWith('.js')).sort().map((f) => path.join(dataDir, f));
 for (const f of targets) if (!files.includes(f)) files.push(f);
 for (const f of files) {
@@ -65,6 +70,38 @@ for (const d of defs) {
   if (by[5] > n * 0.3) warn(`${where}: ${by[5]} of ${n} answers rated 5; keep 5 for the handful everyone says`);
   if (!unreachable.length) ok++;
 }
+// ---------- FarOut.extend entries ----------
+const { keyOf, HEB } = FO.text, names = new Map(); // list id -> Map(key -> answer it belongs to)
+const entries = (src) => src.split(/[;\n]/).map((raw) => raw.trim().match(/^(.*?)(?::([1-5]))?$/)).filter((m) => m && m[1].trim())
+  .map((m) => ({ names: m[1].split('|').map((x) => x.trim()).filter(Boolean), c: m[2] }));
+const namesOf = (id) => {
+  if (!names.has(id)) { const m = new Map(); for (const e of entries(baseItems.get(id) || '')) if (e.c) e.names.forEach((n) => { const k = keyOf(n); if (k && !m.has(k)) m.set(k, e.names[0]); }); names.set(id, m); }
+  return names.get(id);
+};
+let extended = 0;
+for (const x of exts) {
+  const mine = targets.has(x.file), where = `${path.basename(x.file)} ${x.id}`;
+  if (!FO.catById[x.id]) { if (mine) bad(`${where}: there is no list with this id`); continue; }
+  const known = namesOf(x.id);
+  for (const e of entries(x.src)) {
+    if (!e.names.length) continue;
+    const first = e.names[0], k0 = keyOf(first), owner0 = known.get(k0);
+    if (mine) {
+      extended++;
+      if (!e.c && !owner0) bad(`${where}: "${first}" is not an answer here; add a rating (1-5) to make it a new answer`);
+      if (e.c) {
+        const taken = e.names.map(keyOf).find((k) => known.has(k));
+        if (taken) bad(`${where}: "${first}" is already an answer ("${known.get(taken)}"); drop the rating to only add names`);
+        if (!/[a-z]/i.test(first)) bad(`${where}: a new answer's first name must be in English letters: "${first}"`);
+        if (!e.names.some((n) => HEB.test(n))) warn(`${where}: "${first}" has no Hebrew name`);
+      }
+      for (const n of e.names.slice(1)) { const o = known.get(keyOf(n)); if (o && o !== (owner0 || first)) bad(`${where}: "${n}" already belongs to "${o}"`); }
+    }
+    const owner = owner0 || first;
+    for (const n of e.names) { const k = keyOf(n); if (k && !known.has(k)) known.set(k, owner); }
+  }
+}
+if (extended) console.log(`${extended} extend entries checked.`);
 console.log(`\n${defs.length} questions checked, ${ok} clean, ${answers} answers. ${problems} to fix, ${warnings} warnings.`);
 console.log(`Bank now: ${FO.qs.length} questions, ${FO.cats.length} categories.`);
 if (problems) process.exitCode = 1;

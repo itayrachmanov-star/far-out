@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   const FO = (window.FarOut = window.FarOut || {});
-  const { norm, strip, letters, keyOf, dist, sound, title } = FO.text;
+  const { HEB, norm, strip, letters, keyOf, dist, sound, title, swapLayout } = FO.text;
   FO.cats = [];   // broad categories
   FO.qs = [];     // curated questions
   FO.catById = Object.create(null);
@@ -49,7 +49,16 @@
   };
 
   // ---------- lists ----------
-  function parseList(src) {
+  // One more name for an answer. A name already taken stays with its answer; a Hebrew name keeps the
+  // answer's own letters for rules like "starting with B".
+  function put(index, item, n) {
+    const k = keyOf(n);
+    if (!k || index.has(k)) return;
+    const own = strip(n);
+    index.set(k, { item, f: HEB.test(own) ? item.f : own, s: sound(k), r: own.replace(/ /g, '') });
+    allKeys.add(k);
+  }
+  function parseList(src, more) {
     const items = [], index = new Map(), named = [];
     for (const raw of String(src).split(/[;\n]/)) {
       const m = raw.trim().match(/^(.*):([1-5])$/);
@@ -61,23 +70,31 @@
       named.push([item, names]);
     }
     // Every answer's own name wins over another answer's alias ("georgetown" vs Penang's alias).
-    const put = (item, n) => {
-      const k = keyOf(n);
-      if (!k || index.has(k)) return;
-      const f = strip(n);
-      index.set(k, { item, f, s: sound(k), r: f.replace(/ /g, '') });
-      allKeys.add(k);
-    };
     // Duplicates ("lamb chop" and "lamb chops") merge into the first, keeping its rating.
     const owner = new Map();
     for (const [item, names] of named) {
       const first = owner.get(keyOf(names[0]));
       if (first) { first.extra.push(...names); item.dup = true; continue; }
       owner.set(keyOf(names[0]), { item, extra: names.slice(1) });
-      put(item, names[0]);
+      put(index, item, names[0]);
     }
-    for (const { item, extra } of owner.values()) extra.forEach((n) => put(item, n));
-    return { items: items.filter((it) => !it.dup), index };
+    for (const { item, extra } of owner.values()) extra.forEach((n) => put(index, item, n));
+    const parsed = { items: items.filter((it) => !it.dup), index };
+    for (const m of more || []) extendParsed(parsed, m);
+    return parsed;
+  }
+  // Extra entries from FarOut.extend: "Banana|בננה" gives an answer more names, "Reva LeSheva|רבע לשבע:2" is a new answer.
+  function extendParsed(parsed, src) {
+    for (const raw of String(src).split(/[;\n]/)) {
+      const m = raw.trim().match(/^(.*?)(?::([1-5]))?$/), names = m[1].split('|').map((s) => s.trim()).filter(Boolean);
+      if (!names.length) continue;
+      const own = parsed.index.get(keyOf(names[0]));
+      if (own) { names.slice(1).forEach((n) => put(parsed.index, own.item, n)); continue; }
+      if (!m[2]) continue; // names for an answer this list does not have
+      const item = { name: /[A-Z]/.test(names[0]) ? names[0] : title(names[0]), c: +m[2], f: strip(names[0]) };
+      parsed.items.push(item);
+      names.forEach((n) => put(parsed.index, item, n));
+    }
   }
   // Lists are parsed the first time they are played: tens of thousands of answers would otherwise
   // take seconds to prepare on a phone. Counts come from one cheap scan of the ratings.
@@ -97,28 +114,43 @@
     if (asked.has(key)) return;
     asked.add(key);
     let parsed = null;
-    const load = () => parsed || (parsed = parseList(def.items), list.src = null, parsed);
+    const more = [];
+    const load = () => parsed || (parsed = parseList(def.items, more), list.src = null, parsed);
     Object.defineProperty(list, 'items', { get: () => load().items, enumerable: true });
     Object.defineProperty(list, 'index', { get: () => load().index });
     Object.assign(list, { n, ease: by[4] + by[5], rare: by[1] + by[2], src: def.items, deep: /^w-/.test(def.id), fame: +def.fame || 0 });
     list.theme = themeOf(kind, def);
+    list.extend = (src) => {
+      for (const m of src.matchAll(RATING)) { list.n++; if (m[1] >= 4) list.ease++; if (m[1] <= 2) list.rare++; }
+      if (parsed) extendParsed(parsed, src); else more.push(src);
+      unlearned.push(src);
+    };
     (kind === 'q' ? FO.qs : FO.cats).push(list);
     FO.catById[list.id] = list;
+    (waiting[list.id] || []).forEach(list.extend);
+    delete waiting[list.id];
   }
+  /** More names and answers for lists from other files: FarOut.extend({ 'q-food-chocolate': 'Kit Kat|קיט קט; Reva LeSheva|רבע לשבע:2' }).
+      An entry with a rating adds an answer; one without gives the answer it starts with more names.
+      A list that has not loaded yet gets its entries when it does. */
+  const waiting = Object.create(null), unlearned = [];
+  FO.extend = (map) => {
+    for (const [id, src] of Object.entries(map || {})) {
+      if (typeof src !== 'string') continue;
+      if (FO.catById[id]) FO.catById[id].extend(src); else (waiting[id] = waiting[id] || []).push(src);
+    }
+  };
 
   /** The known-word guard needs every answer key in the game. They are collected in small slices
       (FO.learnKeys(ms) from idle time), and all at once only if a typo check needs them sooner. */
   let keyed = 0;
+  const learn = (src) => {
+    for (const raw of src.split(/[;\n]/)) for (const nm of raw.replace(/:[1-5]\s*$/, '').split('|')) { const k = keyOf(nm); if (k) allKeys.add(k); }
+  };
   FO.learnKeys = function (budgetMs = Infinity) {
     const lists = FO.qs.concat(FO.cats), t0 = Date.now();
-    while (keyed < lists.length) {
-      const l = lists[keyed++];
-      if (l.src) {
-        for (const raw of l.src.split(/[;\n]/)) {
-          const m = raw.trim().match(/^(.*):[1-5]$/);
-          if (m) for (const nm of m[1].split('|')) { const k = keyOf(nm); if (k) allKeys.add(k); }
-        }
-      }
+    while (keyed < lists.length || unlearned.length) {
+      if (keyed < lists.length) { const l = lists[keyed++]; if (l.src) learn(l.src); } else learn(unlearned.pop());
       if (Date.now() - t0 > budgetMs) return false;
     }
     return true;
@@ -142,6 +174,12 @@
     const k2 = keyOf(norm(text).replace(FILLER, ' '));
     const ex2 = k2 && k2 !== k && list.index.get(k2);
     if (ex2) return { item: ex2.item, f: ex2.f, fuzzy: false };
+    // Hebrew "the" and "and" are letters on the word: "הבננה" is "בננה".
+    const ex3 = HEB.test(k) && list.index.get(keyOf(norm(text).replace(/(^| )[הו](?=[א-ת]{2})/g, '$1')));
+    if (ex3) return { item: ex3.item, f: ex3.f, fuzzy: false };
+    // The keyboard was in the other language: "ןאשךט" for "italy".
+    const ex4 = list.index.get(keyOf(swapLayout(text)));
+    if (ex4) return { item: ex4.item, f: ex4.f, fuzzy: true };
     if (k.length < 3) return null;
     FO.learnKeys();
     const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same

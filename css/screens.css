@@ -81,26 +81,17 @@
 .share-text { width: 100%; min-height: 110px; background: var(--sky-deep); color: var(--fg); border: 0; border-radius: var(--r-sm); padding: 10px; font: 14px/1.5 var(--body); }
 
 /* ---------- panels, rooms, party ---------- */
-.crew-body { display: flex; flex-direction: column; gap: 16px; }
+.party-body { display: flex; flex-direction: column; gap: 16px; }
 .panel { background: var(--card); border-radius: var(--r-lg); padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 6px 0 var(--edge); }
 .panel h2 { margin: 0; font: 800 clamp(24px, 6vw, 32px)/1.08 var(--display); letter-spacing: -.03em; }
 .panel p { margin: 0; color: var(--muted); }
-.hud-room { margin-left: auto; color: var(--gold); font: 800 18px var(--display); letter-spacing: .12em; }
-.hud-net { font-size: 14px; color: var(--muted); }
-.hud-net::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dim); margin-right: 6px; }
-.hud-net.on::before { background: var(--good); }
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field label { font: 700 15px var(--body); color: var(--muted); }
 .field input { min-height: 52px; background: var(--fg); color: var(--ink); border: 0; border-radius: var(--r-sm); padding: 10px 14px; font: 700 18px var(--body); min-width: 0; }
 .field input:focus { outline: none; box-shadow: 0 0 0 4px var(--gold); }
-.code-input { text-transform: uppercase; letter-spacing: .3em; font-family: var(--display) !important; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .inline { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
 .inline .field { flex: 1; min-width: 140px; }
-.swatches { display: flex; gap: 10px; flex-wrap: wrap; }
-.swatch { width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--sw); padding: 0; box-shadow: inset -4px -3px 0 rgba(0,0,0,.2); }
-.swatch[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--card), 0 0 0 6px var(--fg); }
-.code-big { font: 900 clamp(52px, 16vw, 88px)/.9 var(--display); letter-spacing: .1em; color: var(--gold); }
 .players { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
 .players li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--card-2); border-radius: var(--r-sm); min-width: 0; animation: rise .35s ease both; }
 .players li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
@@ -109,13 +100,9 @@
 .players li.done small { color: var(--good); }
 .settings { display: flex; flex-wrap: wrap; gap: 14px 22px; }
 .settings .field.wide { flex-basis: 100%; }
-.my-answers { display: flex; flex-wrap: wrap; gap: 8px; }
 .wait { display: flex; align-items: center; gap: 12px; color: var(--muted); }
 .wait::before { content: ''; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--gold); animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.vote-list { display: flex; flex-direction: column; gap: 8px; }
-.vote-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--card-2); border-radius: var(--r-sm); flex-wrap: wrap; }
-.vote-row b { font-size: 19px; flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .handoff { align-items: center; text-align: center; padding-block: 32px; }
 .handoff .planet { width: 76px; height: 76px; }
 .cards { display: flex; flex-direction: column; gap: 10px; perspective: 900px; }
@@ -135,12 +122,6 @@
 .board li .nm { font-weight: 700; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .board li .sc { font: 900 20px/1 var(--display); font-variant-numeric: tabular-nums; }
 .board li .rk { font: 800 15px var(--display); color: var(--muted); width: 2ch; }
-.podium { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: end; gap: 8px; text-align: center; }
-.podium div { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
-.podium .step { width: 100%; border-radius: var(--r-sm) var(--r-sm) 0 0; background: var(--card-2); font: 900 30px/1 var(--display); padding-top: 12px; animation: grow-up .9s cubic-bezier(.2,.9,.2,1) both; transform-origin: bottom; }
-.podium .first .step { background: var(--gold); color: var(--ink); }
-.podium .nm { font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-@keyframes grow-up { from { transform: scaleY(0); } }
 
 /* ---------- arcade ---------- */
 .arcade-body { display: flex; flex-direction: column; gap: 14px; }

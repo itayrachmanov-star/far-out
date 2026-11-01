@@ -52,7 +52,6 @@ body {
 em { font-style: normal; font-weight: 700; color: var(--fg); }
 h1, h2, h3 { text-wrap: balance; }
 .note { font-size: 15px; color: var(--muted); }
-.mono { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* ---------- keycap buttons: they sit up on an edge and press down ---------- */
 button { font: inherit; color: inherit; cursor: pointer; }

@@ -70,7 +70,7 @@
 
       <form class="answer" id="answer-form" autocomplete="off">
         <label for="ans" class="sr">Your answer</label>
-        <input id="ans" name="ans" type="text" maxlength="48" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type your rarest answer">
+        <input id="ans" name="ans" type="text" dir="auto" maxlength="48" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type your rarest answer">
         <button class="btn primary" type="submit">Launch</button>
       </form>
       <div class="row-actions">
@@ -111,24 +111,13 @@
     <div id="arcade-body" class="arcade-body"></div>
   </section>
 
-  <!-- CREW (online) -->
-  <section id="s-crew" class="screen crew" hidden>
-    <div class="hud">
-      <button class="icon-btn" data-home type="button" aria-label="Leave and go to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <span class="hud-mode">Crew</span>
-      <span class="hud-room" id="crew-room"></span>
-      <span class="hud-net" id="crew-net"></span>
-    </div>
-    <div id="crew-body" class="crew-body"></div>
-  </section>
-
   <!-- PARTY (one device) -->
   <section id="s-party" class="screen party" hidden>
     <div class="hud">
       <button class="icon-btn" data-home type="button" aria-label="Leave the party and go to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <span class="hud-mode">Party</span>
     </div>
-    <div id="party-body" class="crew-body"></div>
+    <div id="party-body" class="party-body"></div>
   </section>
 
   <!-- LOGBOOK: level, badges, star chart -->
@@ -172,10 +161,10 @@
       <p>No clock and no end. Answer, ask for a hint, skip, and learn the rare answers.</p>
       <h3>Party</h3>
       <p>Two to eight players share one phone. Each player answers in secret, then everyone sees the reveal together. An answer only you gave earns a bonus; the same answer as someone else splits the points. No internet needed.</p>
-      <h3>Crew</h3>
-      <p>Play online, each on your own phone. One player creates a room and shares the code or link. Everyone answers the same question at once. Answers missing from the word bank go to a quick crew vote.</p>
       <h3>Typos</h3>
       <p>Spell it how it sounds. "Brocoli" counts as Broccoli and "Phillipines" as the Philippines, and the game shows what it fixed. If a typo is close to two answers, it asks which one you meant, with no penalty. Plurals, capital letters and accents never matter.</p>
+      <h3>Hebrew</h3>
+      <p>Answer in English or in Hebrew: "בננה" counts as Banana, and Israeli answers like Reva LeSheva (רבע לשבע) count too. Typed with the keyboard in the wrong language? "ןאשךט" still counts as Italy.</p>
       <h3>Levels and badges</h3>
       <p>Every valid answer earns XP equal to its points, in every mode. Level up from Cadet to Far Out Legend, and collect badges in your logbook. It all stays in this browser.</p>
     </div>
@@ -363,9 +352,6 @@
 <script src="js/collection.js"></script>
 <script src="js/sharecard.js"></script>
 <script src="js/solo.js"></script>
-<script src="js/net.js"></script>
-<script src="js/crew.js"></script>
-<script src="js/crew-view.js"></script>
 <script src="js/party.js"></script>
 <script src="js/arcade.js"></script>
 <script src="js/twin.js"></script>

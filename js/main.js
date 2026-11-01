@@ -25,12 +25,11 @@
   ];
   const GROUP = [
     { id: 'party', name: 'Party', color: '#ff8fb8', d: '2 to 8 players pass one phone. Works offline.', best: () => 'Same room', go: () => FO.Party.show() },
-    { id: 'crew', name: 'Crew', color: '#b6f36a', d: 'Online rooms: everyone on their own phone.', best: () => 'Create or join', go: () => { UI.show('s-crew'); FO.CrewView.entry(); } },
   ];
 
   function tile(m) {
     return h('button', { class: 'tile', type: 'button', onclick: () => (m.rules ? launch(m) : (Fx.sfx.unlock(), m.go())) },
-      h('span', { class: 'planet' + (m.id === 'shower' || m.id === 'crew' ? ' ringed' : ''), style: { '--sw': m.color } }),
+      h('span', { class: 'planet' + (m.id === 'shower' ? ' ringed' : ''), style: { '--sw': m.color } }),
       h('b', null, m.name), h('span', { class: 't-d' }, m.d),
       m.isNew && !UI.store.get('tried.' + m.id, false) ? h('span', { class: 'tag-new' }, 'New') : h('span', { class: 't-s' }, m.best() || 'Not played yet'));
   }
@@ -145,7 +144,7 @@
   }
   // Installed-app support (GitHub Pages and other real hosts only; never inside claude.ai).
   try {
-    if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.Net.inArtifact) {
+    if ('serviceWorker' in navigator && location.protocol === 'https:' && !FO.inArtifact) {
       // A new version installs in the background; switch to it at the menu, never mid-game.
       const hadWorker = !!navigator.serviceWorker.controller;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
@@ -156,9 +155,7 @@
       navigator.serviceWorker.register('sw.js').catch(() => { /* offline mode is optional */ });
     }
   } catch (e) { /* sandboxed frames can refuse service workers */ }
-  const m = location.hash.match(/^#crew-([a-z]{4})$/i);
-  if (m) { UI.show('s-crew'); FO.CrewView.entry(m[1].toUpperCase()); }
-  else if (/^#(voyage|daily|explore|shower|spectrum|twin|duel|party)$/.test(location.hash)) go(location.hash.slice(1));
+  if (/^#(voyage|daily|explore|shower|spectrum|twin|duel|party)$/.test(location.hash)) go(location.hash.slice(1));
   if (location.hash) try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* sandboxed frame */ }
   FO.home = home;
 })();

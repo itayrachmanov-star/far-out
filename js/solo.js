@@ -244,7 +244,7 @@
     st.share = [`Far Out, ${mode === 'daily' ? 'Daily Orbit ' + (st.day || today()) : 'Voyage'}`, `${st.dist.toLocaleString()} ly`, grid,
       rarest ? `Rarest find: ${rarest.name} (${rarest.tier.name})` : '', mode === 'daily' && streakNow() > 1 ? `${streakNow()}-day streak` : ''].filter(Boolean).join('\n');
     $('#share-text').hidden = true;
-    $('#share').onclick = () => UI.share(st.share + (/^https?:/.test(location.protocol) && !FO.Net.inArtifact ? '\n' + location.origin + location.pathname : ''), $('#share-text'));
+    $('#share').onclick = () => UI.share(st.share + (/^https?:/.test(location.protocol) && !FO.inArtifact ? '\n' + location.origin + location.pathname : ''), $('#share-text'));
     const img = $('#share-img');
     img.hidden = !(FO.ShareCard && FO.ShareCard.available());
     img.onclick = () => FO.ShareCard.share({

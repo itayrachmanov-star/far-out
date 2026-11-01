@@ -1,5 +1,5 @@
 /* Far Out — Party: 2–8 players pass one phone around. Everyone answers the same question in
-   private, then the reveal scores it like Crew (Lone Signal +50%, collisions split). Works offline. */
+   private, then the reveal scores it (Lone Signal +50%, collisions split). Works offline. */
 (function () {
   'use strict';
   const FO = window.FarOut, UI = FO.UI, Fx = FO.Fx, h = UI.h, $ = UI.$;

@@ -4,8 +4,11 @@
   'use strict';
   const FO = (window.FarOut = window.FarOut || {});
 
-  const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/&/g, ' and ').replace(/\+/g, ' plus ').replace(/#/g, ' sharp ').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  // Hebrew answers count too: points dropped, final letters written plain (ם → מ), maqaf is a space.
+  const HEB = /[א-ת]/, FINAL = { 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' };
+  const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-֑ͯ-ֽֿ-ׇ]/g, '')
+    .replace(/[ךםןףץ]/g, (c) => FINAL[c]).replace(/&/g, ' and ').replace(/\+/g, ' plus ').replace(/#/g, ' sharp ')
+    .replace(/[^a-z0-9א-ת ]+/g, ' ').replace(/\s+/g, ' ').trim();
   const strip = (s) => norm(s).replace(/^(the|a|an) /, '');
   const letters = (f) => f.replace(/[^a-z]/g, '');
 
@@ -42,6 +45,7 @@
   /** Sound-alike skeleton of a key, so "brocoli", "fillipines", "zuchini" land on the real spelling.
       English spelling rules folded together, doubled letters collapsed, later vowels dropped. */
   function sound(k) {
+    if (HEB.test(k)) return soundHe(k);
     let s = k.replace(/[^a-z]/g, '');
     if (s.length < 3) return s;
     s = s.replace(/^(kn|gn|pn|wr|ps)/, (m) => m[1])
@@ -51,6 +55,21 @@
       .replace(/dg(?=[eiy])/g, 'j').replace(/y/g, 'i').replace(/(.)\1+/g, '$1');
     return s[0] + s.slice(1).replace(/[aeiouh]/g, '').replace(/(.)\1+/g, '$1');
   }
+  // The same for Hebrew: "שוקלד" and "שוקולד", "בננות" and "בננה". Letters that sound alike are folded
+  // (ק/כ/ח, ט/ת, ע/א, ס/ש), the vowel letters ו י א ה after the first letter and a plural ending are dropped.
+  function soundHe(k) {
+    let s = k.replace(/[^א-ת]/g, '');
+    if (s.length > 3) s = s.replace(/(ים|ות)$/, '');
+    s = s.replace(/[קח]/g, 'כ').replace(/ט/g, 'ת').replace(/ע/g, 'א').replace(/ס/g, 'ש');
+    return s.length < 2 ? s : s[0] + s.slice(1).replace(/[ויאה]/g, '');
+  }
+
+  // Typed with the keyboard in the other language (Israeli layout): "ןאשךט" is "italy", "cbbv" is "בננה".
+  const EN_KEYS = "ertyuiopasdfghjkl;zxcvbnm,.qw", HE_KEYS = "קראטוןםפשדגכעיחלךףזסבהנמצתץ/'";
+  const swapLayout = (s) => {
+    const he = HEB.test(s), from = he ? HE_KEYS : EN_KEYS, to = he ? EN_KEYS : HE_KEYS;
+    return [...String(s).toLowerCase()].map((c) => { const i = from.indexOf(c); return i < 0 ? c : to[i]; }).join('');
+  };
 
   // Data is lowercase; restore display casing: "kfc" → KFC, "mcdonalds" → McDonalds, "st john" → St John.
   const NOT_ACRONYM = new Set(['st', 'mr', 'mrs', 'dr', 'jr', 'sr', 'ft', 'mt', 'vs', 'pt', 'nd', 'rd', 'th', 'ms', 'grrrl']);
@@ -68,6 +87,7 @@
 
   /** Segments of `fixed` with the letters the player missed or mistyped marked {fix:true}. */
   function diff(typed, fixed) {
+    if (HEB.test(typed) !== HEB.test(fixed)) return [{ t: String(fixed), fix: false }]; // answered in the other language
     const a = String(typed).toLowerCase(), b = String(fixed), bl = b.toLowerCase();
     const n = a.length, m = b.length;
     const L = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
@@ -87,5 +107,5 @@
     return segs;
   }
 
-  FO.text = { norm, strip, letters, keyOf, dist, sound, title, diff };
+  FO.text = { HEB, norm, strip, letters, keyOf, dist, sound, title, diff, swapLayout };
 })();
