@@ -17,6 +17,24 @@ const heName = (s) => {
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 // Wikidata names animal families and dishes formally: "קרנפיים", "סוס הבית", "מנת ספגטי". Players type the plain word.
 const plain = (he) => he.replace(/^(דמויי|מנת|מאכלי|משפחת) /, '').replace(/ (הבית|המצוי|המצויה)$/, '');
+// Wikidata found another meaning for these English words (a phone is not הגה, a fan is not אוהד). `he` is the
+// Hebrew to use instead ('' = none), `by` overrides it for lists that mean another sense, `only` limits a fix to
+// the lists where the found meaning was wrong (an orange in a fruit list is a תפוז).
+const MEANT = {
+  Phone: { he: 'טלפון' }, Fan: { he: 'מאוורר' }, Speaker: { he: 'רמקול' }, Swan: { he: 'ברבור' }, Navy: { he: 'כחול כהה' },
+  Tablet: { he: 'טאבלט', by: { 'q-body-medicine-form': 'טבלייה', 'q-sci-dissolves': 'טבלייה', 'q-candy': 'טבלה', 'q-eat-irish-scottish': '' } },
+  Plane: { he: 'מטוס', by: { 'q-sci-geometry-word': 'מישור', 'q-easy-carpenter-tools': 'מקצועה', 'q-home-hardwarestore': 'מקצועה', 'q-nature-tree': 'דולב', 'q-nature-deciduous-tree': 'דולב', 'q-wild-british-tree': 'דולב', 'q-home-turn': '' } },
+  Bat: { he: 'עטלף', by: { 'q-play-cricketterm': 'מחבט', 'q-play-baseballterm': 'מחבט', 'q-mind-file-ext': '' } },
+  Pan: { he: 'מחבת', by: { god: 'פאן', space: 'פאן', 'q-arts-part-human-creature': 'פאן', 'q-screen-film-terms': '' } },
+  Orange: { he: 'כתום', only: ['color', 'q-arts-guitar-thing', 'q-social-autumn', 'q-sci-sun-assoc'] },
+  Mars: { he: 'מארס', only: ['q-eat-chocolate-brand', 'q-eat-roadtrip-snack', 'q-home-cold'] },
+  'Tim Cook': { he: 'טים קוק' }, 'Never Have I Ever': { he: '' }, B: { he: '' },
+};
+const meant = (listId, name, he) => {
+  const m = MEANT[name];
+  if (!m || (m.only && !m.only.includes(listId))) return he;
+  return m.by && listId in m.by ? m.by[listId] : m.he;
+};
 const heVariants = (he) => {
   const p = plain(he);
   return uniq([he, p, /^[^ ]{4,}יים$/.test(p) ? p.slice(0, -3) : '', /^[^ ]{4,}ים$/.test(p) ? p.slice(0, -2) : '']);
@@ -66,7 +84,8 @@ async function curated() {
   require(path.join(ROOT, 'js/text.js'));
   require(path.join(ROOT, 'js/core.js'));
   const FO = window.FarOut, { keyOf } = FO.text;
-  for (const f of fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith('.js')).sort()) require(path.join(ROOT, 'data', f));
+  // The lists as written, without the hand-written Israeli additions (data/il-*.js), so look-ups stay the same.
+  for (const f of fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith('.js') && !f.startsWith('il-')).sort()) require(path.join(ROOT, 'data', f));
   const lists = FO.qs.filter((l) => !l.deep).concat(FO.cats);
   // Wikidata writes "golden retriever", "Mount Everest", "Pride and Prejudice": try each answer three ways.
   const spell = (name) => uniq([name, name.toLowerCase(), name[0] + name.slice(1).toLowerCase()]).filter((s) => s.length <= 60);
@@ -106,7 +125,8 @@ async function curated() {
     for (const e of entries) {
       const fit = e.cs.find((c) => [...c.types].some((t) => main.has(t)));
       const c = fit || (!main.size && e.cs[0].sl >= 3 ? e.cs[0] : null); // a mixed list takes the best-known meaning
-      if (c) picks.push([e.it, c.he]);
+      const he = c && meant(l.id, e.it.name, c.he);
+      if (he) picks.push([e.it, he]);
     }
     // Two answers with one Hebrew name (crow and raven are both עורב): neither gets it.
     const uses = new Map();
