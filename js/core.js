@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   const FO = (window.FarOut = window.FarOut || {});
-  const { HEB, norm, strip, letters, keyOf, dist, sound, title, swapLayout } = FO.text;
+  const { HEB, norm, strip, letters, keyOf, dist, sound, stemHe, title, swapLayout } = FO.text;
   FO.cats = [];   // broad categories
   FO.qs = [];     // curated questions
   FO.catById = Object.create(null);
@@ -179,25 +179,27 @@
     if (ex3) return { item: ex3.item, f: ex3.f, fuzzy: false };
     // The keyboard was in the other language: "ןאשךט" for "italy".
     const ex4 = list.index.get(keyOf(swapLayout(text)));
-    if (ex4) return { item: ex4.item, f: ex4.f, fuzzy: true };
+    if (ex4) return { item: ex4.item, f: ex4.f, fuzzy: true, layout: true };
     if (k.length < 3) return null;
     FO.learnKeys();
     const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same
 
     const L = k.length, maxD = L >= 13 ? 3 : L >= 8 ? 2 : L >= 4 ? 1 : 0, s = sound(k), rk = strip(text).replace(/ /g, '');
+    const st = HEB.test(k) ? stemHe(k) : null;
     const best = new Map(); // item -> {score, f}
     for (const [kk, v] of list.index) {
-      let score = Infinity;
+      let score = st && stemHe(kk) === st ? 0.6 : Infinity;
       if (known) {
-        if (L >= 5 && v.s === s) { const d = dist(k, kk, 2); if (d <= 2) score = soundScore(d); }
+        if (L >= 5 && v.s === s) { const d = dist(k, kk, 2); if (d <= 2) score = Math.min(score, soundScore(d)); }
         if (score === Infinity) continue;
       } else if (maxD) {
         let d = Math.abs(kk.length - L) <= maxD ? dist(k, kk, maxD) : maxD + 1;
         if (d > maxD && Math.abs(v.r.length - rk.length) <= maxD) d = dist(rk, v.r, maxD); // "tapass", "tortoies"
-        if (d <= maxD) score = d + (kk[0] !== k[0] ? 0.5 : 0);
+        if (d <= maxD) score = Math.min(score, d + (kk[0] !== k[0] ? 0.5 : 0));
       }
-      const cap = Math.max(2, Math.ceil(L * 0.4));
-      if (known) { /* scored above */ } else if (L >= 4 && s.length >= 3 && v.s === s) { const d = dist(k, kk, cap); if (d <= cap) score = Math.min(score, soundScore(d)); }
+      // Hebrew is written with fewer vowels, so a three-letter word can still be "שטר" for "שוטר".
+      const cap = L >= 4 ? Math.max(2, Math.ceil(L * 0.4)) : 1;
+      if (known) { /* scored above */ } else if ((L >= 4 || (st && L === 3)) && s.length >= 3 && v.s === s) { const d = dist(k, kk, cap); if (d <= cap) score = Math.min(score, soundScore(d)); }
       else if (L >= 6 && s.length >= 4 && Math.abs(v.s.length - s.length) <= 1 && dist(s, v.s, 1) <= 1 && dist(k, kk, 3) <= 3) score = Math.min(score, 1.6);
       if (!known && L >= 5 && kk.length > L && kk.startsWith(k) && L >= kk.length * 0.6) score = Math.min(score, 1.2); // unfinished word
       if (score === Infinity) continue;
@@ -350,7 +352,8 @@
     }
     if (used && used.has(m.item)) return { ok: false, why: 'repeat', raw, item: m.item };
     const tier = FO.TIERS[FO.effOf(p, m.item)];
-    return { ok: true, raw, item: m.item, tier, pts: tier.pts, fuzzy: m.fuzzy, typed: m.fuzzy ? String(text).trim() : '' };
+    const fuzzy = m.fuzzy && (m.layout || !HEB.test(text)); // an answer in Hebrew is shown by its name, not as a typo
+    return { ok: true, raw, item: m.item, tier, pts: tier.pts, fuzzy, typed: fuzzy ? String(text).trim() : '' };
   };
 
   /** A few valid answers per tier, rarest first, to show what else was out there. */

@@ -59,10 +59,13 @@
   // (ק/כ/ח, ט/ת, ע/א, ס/ש), the vowel letters ו י א ה after the first letter and a plural ending are dropped.
   function soundHe(k) {
     let s = k.replace(/[^א-ת]/g, '');
-    if (s.length > 3) s = s.replace(/(ים|ות)$/, '');
+    if (s.length > 3) s = s.replace(/(ימ|ות)$/, ''); // keys spell a final ם as מ
     s = s.replace(/[קח]/g, 'כ').replace(/ט/g, 'ת').replace(/ע/g, 'א').replace(/ס/g, 'ש');
     return s.length < 2 ? s : s[0] + s.slice(1).replace(/[ויאה]/g, '');
   }
+
+  // Singular and plural are the same answer: "תאנים" is "תאנה", "בננות" is "בננה", "דגים" is "דג".
+  const stemHe = (k) => (k.length >= 4 && HEB.test(k) ? k.replace(/(ימ|ות|ה|ת)$/, '') : k);
 
   // Typed with the keyboard in the other language (Israeli layout): "ןאשךט" is "italy", "cbbv" is "בננה".
   const EN_KEYS = "ertyuiopasdfghjkl;zxcvbnm,.qw", HE_KEYS = "קראטוןםפשדגכעיחלךףזסבהנמצתץ/'";
@@ -107,5 +110,5 @@
     return segs;
   }
 
-  FO.text = { HEB, norm, strip, letters, keyOf, dist, sound, title, diff, swapLayout };
+  FO.text = { HEB, norm, strip, letters, keyOf, dist, sound, stemHe, title, diff, swapLayout };
 })();

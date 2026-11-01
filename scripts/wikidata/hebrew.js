@@ -15,6 +15,12 @@ const heName = (s) => {
   return /[א-ת]/.test(t) && t.length <= 40 ? t : '';
 };
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
+// Wikidata names animal families and dishes formally: "קרנפיים", "סוס הבית", "מנת ספגטי". Players type the plain word.
+const plain = (he) => he.replace(/^(דמויי|מנת|מאכלי|משפחת) /, '').replace(/ (הבית|המצוי|המצויה)$/, '');
+const heVariants = (he) => {
+  const p = plain(he);
+  return uniq([he, p, /^[^ ]{4,}יים$/.test(p) ? p.slice(0, -3) : '', /^[^ ]{4,}ים$/.test(p) ? p.slice(0, -2) : '']);
+};
 
 const labelQuery = (ids) => `SELECT ?item ?he (GROUP_CONCAT(DISTINCT ?al; separator="|") AS ?als) WHERE {
   VALUES ?item { ${ids.map((i) => 'wd:' + i).join(' ')} }
@@ -105,7 +111,7 @@ async function curated() {
     // Two answers with one Hebrew name (crow and raven are both עורב): neither gets it.
     const uses = new Map();
     for (const [, he] of picks) uses.set(keyOf(he), (uses.get(keyOf(he)) || 0) + 1);
-    const lines = picks.filter(([, he]) => uses.get(keyOf(he)) === 1).map(([it, he]) => `${it.name}|${he}`);
+    const lines = picks.filter(([, he]) => uses.get(keyOf(he)) === 1).map(([it, he]) => [it.name, ...heVariants(he)].join('|'));
     if (lines.length) { out[l.id] = lines.join('; '); named += lines.length; }
   }
   fs.mkdirSync(OUT, { recursive: true });
@@ -118,6 +124,8 @@ async function curated() {
   console.log(`Done: Hebrew names for ${named} answers in ${ids.length} lists, written to data/he/`);
 }
 
+module.exports = { heVariants, ITEMS };
+if (require.main !== module) return;
 const mode = process.argv[2];
 (mode === 'items' ? items() : mode === 'curated' ? curated() : Promise.reject(new Error('usage: hebrew.js items | curated')))
   .catch((e) => { console.error(e.message); process.exit(1); });

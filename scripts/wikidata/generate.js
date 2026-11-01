@@ -6,6 +6,7 @@
 const fs = require('fs'), path = require('path');
 const { sparql, stats, qid, clean } = require('./wd');
 const { families, occupations, DEMONYM, nice } = require('./families');
+const { heVariants, ITEMS } = require('./hebrew');
 const ROOT = path.join(__dirname, '../..'), OUT = path.join(ROOT, 'data/wiki');
 global.window = global;
 require(path.join(ROOT, 'js/text.js'));
@@ -13,6 +14,8 @@ require(path.join(ROOT, 'js/core.js'));
 const FO = window.FarOut, { keyOf, norm } = FO.text;
 for (const f of fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith('.js'))) require(path.join(ROOT, 'data', f));
 
+// Hebrew names of answers (node scripts/wikidata/hebrew.js items), so Israeli players can answer in Hebrew.
+const HE = fs.existsSync(ITEMS) ? JSON.parse(fs.readFileSync(ITEMS, 'utf8')) : {};
 const askKey = (s) => norm(s).replace(/^name (a|an|the|some)? ?/, '');
 const taken = new Set(FO.qs.concat(FO.cats).map((l) => askKey(l.ask)));
 const SKIP = /\b(porn\w*|erotic|nazi\w*|terror\w*|massacre|genocide|murder\w*|serial killer|hentai)\b/i;
@@ -61,9 +64,9 @@ function question(id, theme, ask, what, rows, people) {
     if (!usable(name) || !k) continue;
     const links = +r.links || 0, al = clean(r.aliases).length ? String(r.aliases).split('|').map(clean) : [];
     const cur = byKey.get(k);
-    if (!cur || cur.links < links) byKey.set(k, { name, k, links, al });
+    if (!cur || cur.links < links) byKey.set(k, { name, k, links, al, id: qid(r.item) });
   }
-  const items = [...byKey.values()].sort((a, b) => b.links - a.links).slice(0, 100);
+  const items = [...byKey.values()].sort((a, b) => b.links - a.links).slice(0, 200);
   if (items.length < 15) return null;
   // Friendlier extra names, when only one answer in the list has them: "Messi", "A New Hope".
   const extra = (it) => (people ? surname(it.name) : subtitle(it.name));
@@ -80,10 +83,10 @@ function question(id, theme, ask, what, rows, people) {
       seen.add(k); keep.push(a);
       if (keep.length >= 4) break;
     }
-    it.al = keep;
+    it.al = keep.concat([...new Set((HE[it.id] || []).flatMap(heVariants))].slice(0, 4));
   }
-  // Rarity by fame rank within the list.
-  items.forEach((it, i) => { const r = i / items.length; it.c = i === 0 || (r < 0.12 && i < 8) ? 5 : r < 0.3 ? 4 : r < 0.5 ? 3 : r < 0.75 ? 2 : 1; });
+  // Rarity by fame rank within the list; past the first hundred everything is Far Out.
+  items.forEach((it, i) => { const r = i / Math.min(items.length, 100); it.c = i === 0 || (r < 0.12 && i < 8) ? 5 : r < 0.3 ? 4 : r < 0.5 ? 3 : r < 0.75 ? 2 : 1; });
   let src = items.map((it) => [it.name, ...it.al].join('|') + ':' + it.c).join('; ');
   // Check it the way the game will play it, and drop answers the game couldn't match.
   FO.addQuestions([{ id: 'w-check-' + id, theme, ask, what, items: src }]);
@@ -116,13 +119,14 @@ function write(fam, qs) {
 // ---------- families ----------
 async function runFamily(f) {
   const groups = (await sparql(f.countries ? countryQuery(f.limit) : groupQuery(f)))
-    .map((r) => ({ id: qid(r.g), label: nice(clean(r.gLabel)), fame: +(r.gl || r.l || r.n) || 0 })).filter((g) => g.label && usable(g.label));
+    .map((r) => ({ id: qid(r.g), raw: clean(r.gLabel), label: nice(clean(r.gLabel)), fame: +(r.gl || r.l || r.n) || 0 })).filter((g) => usable(g.raw));
   const size = f.people ? 4 : f.countries ? 3 : 10, out = [];
   for (let i = 0; i < groups.length; i += size) {
     const batch = groups.slice(i, i + size);
     let rows;
     try { rows = await sparql(memberQuery(f.pattern, f.links, batch.map((g) => g.id))); } catch (e) { console.log(`  skipped a batch of ${f.id}: ${e.message}`); continue; }
     for (const g of batch) {
+      if (!g.label) continue; // a group nice() drops, still batched as before so cached replies match
       const ask = f.ask(g.label);
       if (!claim(ask)) continue;
       const q = question(`w-${f.id}-${g.id.toLowerCase()}`, f.theme, ask, f.what(g.label), rows.filter((r) => qid(r.g) === g.id), f.people);

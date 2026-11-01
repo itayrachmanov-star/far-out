@@ -14,9 +14,9 @@ sed "s/__BUILD__/$(date +%Y%m%d%H%M%S)/" sw.js > dist/sw.js
 for f in data/*.js; do
   if node --check "$f" 2>/dev/null; then cat "$f" >> dist/data/bank.js; else echo "WARNING: $f has a syntax error and was left out" >&2; fi
 done
-# The generated Wikidata bank is a separate file that the game loads after the menu appears.
+# The generated Wikidata bank and the Hebrew names are a separate file that the game loads after the menu appears.
 : > dist/data/deep.js
-for f in data/wiki/*.js; do
+for f in data/wiki/*.js data/he/*.js; do
   [ -f "$f" ] || continue
   if node --check "$f" 2>/dev/null; then cat "$f" >> dist/data/deep.js; else echo "WARNING: $f has a syntax error and was left out" >&2; fi
 done

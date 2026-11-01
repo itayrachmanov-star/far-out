@@ -6,6 +6,8 @@ require(path.join(__dirname, '../js/core.js'));
 for (const f of fs.readdirSync(path.join(__dirname, '../data')).filter((f) => f.endsWith('.js')).sort()) require(path.join(__dirname, '../data', f));
 const WIKI = path.join(__dirname, '../data/wiki'); // the generated Wikidata bank (scripts/wikidata/generate.js)
 if (fs.existsSync(WIKI)) for (const f of fs.readdirSync(WIKI).filter((f) => f.endsWith('.js')).sort()) require(path.join(WIKI, f));
+const HE = path.join(__dirname, '../data/he'); // Hebrew names for the hand-written lists (scripts/wikidata/hebrew.js)
+if (fs.existsSync(HE)) for (const f of fs.readdirSync(HE).filter((f) => f.endsWith('.js')).sort()) require(path.join(HE, f));
 const FO = window.FarOut;
 console.log(`${FO.qs.length} questions, ${FO.cats.length} categories, ${FO.cats.reduce((n, c) => n + c.items.length, 0)} answers, ${FO.countPrompts()} prompts`);
 
@@ -133,6 +135,28 @@ const r4 = FO.rng('core');
 for (let i = 0; i < 300; i++) { const p = FO.makePrompt(r4, { minPool: 10, core: true }); assert(!p.cat.deep, 'core prompt from the big bank: ' + p.ask); }
 const r5 = FO.rng('deep');
 for (let i = 0; i < 300; i++) { const p = FO.makePrompt(r5, { minPool: 6 }); if (p.cat.deep) assert.strictEqual(p.spec.t, 'any', 'letter rule on ' + p.ask); }
+// Hebrew answers count: as written, with "the" (ה) on the front, typed on the English keyboard, and rules
+// ("starting with B") still look at the English name
+const judgeAny = (id, text) => FO.judge(any(id), text);
+assert.strictEqual(judgeAny('fruit', 'בננה').item.name, 'Banana');
+assert.strictEqual(judgeAny('fruit', 'הבננה').item.name, 'Banana');
+assert.strictEqual(judgeAny('fruit', 'cbbv').item.name, 'Banana');
+assert.strictEqual(judgeAny('country', 'צרפת').item.name, 'France');
+assert.strictEqual(judgeAny('country', 'ןאשךט').item.name, 'Italy');
+const startB = FO.buildPrompt({ c: 'fruit', t: 'start', v: 'b' });
+assert(FO.judge(startB, 'בננה').ok, 'Hebrew name breaks a letter rule');
+assert.strictEqual(FO.judge(startB, 'תפוח').why, 'rule');
+// FarOut.extend: new answers and extra names, for a list that loads later and for one already played
+FO.extend({ 'q-test-later': 'Reva LeSheva|רבע לשבע|reva le sheva:2; plum|שזיף' });
+FO.addQuestions([{ id: 'q-test-later', theme: 'Food', ask: 'Name a test snack', what: 'a test snack', items: 'apple:5; pear:5; plum:4; fig:4; kiwi:4; date:3; lime:3; lemon:3; cherry:3; grape:2; guava:2; lychee:2; quince:1; medlar:1; sloe:1' }]);
+const later = any('q-test-later');
+assert.strictEqual(later.cat.n, 16);
+assert.strictEqual(FO.judge(later, 'רבע לשבע').item.name, 'Reva LeSheva');
+assert.strictEqual(FO.judge(later, 'reva lesheva').item.name, 'Reva LeSheva');
+assert.strictEqual(FO.judge(later, 'שזיף').item.name, 'Plum');
+FO.extend({ 'q-test-later': 'Bamba|במבה:3; fig|תאנה' });
+assert.strictEqual(FO.judge(any('q-test-later'), 'במבה').item.name, 'Bamba');
+assert.strictEqual(FO.judge(any('q-test-later'), 'תאנים').item.name, 'Fig');
 // daily seed is deterministic
 const d1 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id, d2 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id;
 assert.strictEqual(d1, d2);
