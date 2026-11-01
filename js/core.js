@@ -50,12 +50,14 @@
 
   // ---------- lists ----------
   // One more name for an answer. A name already taken stays with its answer; a Hebrew name keeps the
-  // answer's own letters for rules like "starting with B".
+  // answer's own letters for rules like "starting with B". One Hebrew word for two answers (כף: Spoon and
+  // Tablespoon) is kept for both, and the player is asked which one they meant.
   function put(index, item, n) {
     const k = keyOf(n);
-    if (!k || index.has(k)) return;
-    const own = strip(n);
-    index.set(k, { item, f: HEB.test(own) ? item.f : own, s: sound(k), r: own.replace(/ /g, '') });
+    if (!k) return;
+    const own = strip(n), he = HEB.test(own), cur = index.get(k);
+    if (cur) { if (he && cur.he && cur.item !== item && !(cur.alt || []).includes(item)) (cur.alt = cur.alt || []).push(item); return; }
+    index.set(k, { item, f: he ? item.f : own, s: sound(k), r: own.replace(/ /g, ''), he });
     allKeys.add(k);
   }
   function parseList(src, more) {
@@ -169,17 +171,23 @@
   function match(list, text, keep) {
     const k = keyOf(text);
     if (!k) return null;
+    // A name of one answer, or a Hebrew word for several: ask which one, unless only one is still allowed.
+    const hit = (e, more) => {
+      if (!e.alt) return Object.assign({ item: e.item, f: e.f, fuzzy: false }, more);
+      const all = [e.item, ...e.alt], open = keep ? all.filter((it) => keep(it, it.f)) : all;
+      return open.length === 1 ? Object.assign({ item: open[0], f: open[0].f, fuzzy: false }, more) : { options: (open.length ? open : all).slice(0, 3) };
+    };
     const exact = list.index.get(k);
-    if (exact) return { item: exact.item, f: exact.f, fuzzy: false };
+    if (exact) return hit(exact);
     const k2 = keyOf(norm(text).replace(FILLER, ' '));
     const ex2 = k2 && k2 !== k && list.index.get(k2);
-    if (ex2) return { item: ex2.item, f: ex2.f, fuzzy: false };
+    if (ex2) return hit(ex2);
     // Hebrew "the" and "and" are letters on the word: "הבננה" is "בננה".
     const ex3 = HEB.test(k) && list.index.get(keyOf(norm(text).replace(/(^| )[הו](?=[א-ת]{2})/g, '$1')));
-    if (ex3) return { item: ex3.item, f: ex3.f, fuzzy: false };
+    if (ex3) return hit(ex3);
     // The keyboard was in the other language: "ןאשךט" for "italy".
     const ex4 = list.index.get(keyOf(swapLayout(text)));
-    if (ex4) return { item: ex4.item, f: ex4.f, fuzzy: true, layout: true };
+    if (ex4) return hit(ex4, { fuzzy: true, layout: true });
     if (k.length < 3) return null;
     FO.learnKeys();
     const known = allKeys.has(k); // a real answer elsewhere is only "fixed" to something that sounds the same

@@ -157,6 +157,11 @@ assert.strictEqual(FO.judge(later, 'שזיף').item.name, 'Plum');
 FO.extend({ 'q-test-later': 'Bamba|במבה:3; fig|תאנה' });
 assert.strictEqual(FO.judge(any('q-test-later'), 'במבה').item.name, 'Bamba');
 assert.strictEqual(FO.judge(any('q-test-later'), 'תאנים').item.name, 'Fig');
+// one Hebrew word for two answers: the player picks, and a used one drops out of the choice
+FO.extend({ 'q-test-later': 'lime|ליים|לימון ירוק; lemon|לימון|לימון ירוק' });
+const both = FO.judge(any('q-test-later'), 'לימון ירוק');
+assert.deepStrictEqual(both.options.map((it) => it.name).sort(), ['Lemon', 'Lime']);
+assert.strictEqual(FO.judge(any('q-test-later'), 'לימון ירוק', new Set([both.options.find((it) => it.name === 'Lime')])).item.name, 'Lemon');
 // daily seed is deterministic
 const d1 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id, d2 = FO.makePrompt(FO.rng('daily-2026-10-29'), { minPool: 10 }).id;
 assert.strictEqual(d1, d2);
