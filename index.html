@@ -111,6 +111,17 @@
     <div id="arcade-body" class="arcade-body"></div>
   </section>
 
+  <!-- CREW (online) -->
+  <section id="s-crew" class="screen crew" hidden>
+    <div class="hud">
+      <button class="icon-btn" data-home type="button" aria-label="Leave and go to menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="hud-mode">Crew</span>
+      <span class="hud-room" id="crew-room"></span>
+      <span class="hud-net" id="crew-net"></span>
+    </div>
+    <div id="crew-body" class="crew-body"></div>
+  </section>
+
   <!-- PARTY (one device) -->
   <section id="s-party" class="screen party" hidden>
     <div class="hud">
@@ -161,6 +172,8 @@
       <p>No clock and no end. Answer, ask for a hint, skip, and learn the rare answers.</p>
       <h3>Party</h3>
       <p>Two to eight players share one phone. Each player answers in secret, then everyone sees the reveal together. An answer only you gave earns a bonus; the same answer as someone else splits the points. No internet needed.</p>
+      <h3>Crew</h3>
+      <p>Play online, each on your own phone. One player creates a room and shares the code or link. Everyone answers the same question at once.</p>
       <h3>Typos</h3>
       <p>Spell it how it sounds. "Brocoli" counts as Broccoli and "Phillipines" as the Philippines, and the game shows what it fixed. If a typo is close to two answers, it asks which one you meant, with no penalty. Plurals, capital letters and accents never matter.</p>
       <h3>Hebrew</h3>
@@ -402,6 +415,9 @@
 <script src="js/collection.js"></script>
 <script src="js/sharecard.js"></script>
 <script src="js/solo.js"></script>
+<script src="js/net.js"></script>
+<script src="js/crew.js"></script>
+<script src="js/crew-view.js"></script>
 <script src="js/party.js"></script>
 <script src="js/arcade.js"></script>
 <script src="js/twin.js"></script>
