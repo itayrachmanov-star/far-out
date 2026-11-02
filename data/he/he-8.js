@@ -137,7 +137,7 @@ FarOut.extend({
   "q-social-couples-argue": "Money|כסף; Driving|נהיגה; Getting Lost|הליכה לאיבוד; Parking|חניה; Holidays|חגים; Discipline|משמעת; Screen Time|זמן מסך; Snoring|נחירה; Jealousy|קנאה; Flirting|פלירט; Social Media|מדיה חברתית; Date Night|דייט לילי; Clutter|מכשול; Cleaning|ניקוי; The Garden|הגן; Renting|שכירות; Shopping|שופינג; Storage|החסן; Drinking|שתייה; Smoking|עישון; Gambling|הימור; Football|כדור רגל; Friends|חברים; Retirement|פרישה לגמלאות; Religion|דת; Politics|פוליטיקה; Honesty|כנות; Trust|אמון; Privacy|פרטיות; Sarcasm|סרקזם; Teasing|הקנטה; Hunger|רעב",
   "q-social-parents-say": "Stay Close|תישאר קרוב; Get a Job|לך תעבוד",
   "q-social-small-talk": "Work|עבודה; Jobs|ג'ובס; Family|משפחה; Holidays|חגים; Traffic|טראפיק; Music|מיוזיק; The Journey|המסע; The Event|האירוע; The Host|גוף מארח; Gossip|משחק השמועות; The Room|החדר; The Bride|הכלה; Dreams|חלומות",
-  "q-social-personality-trait": "Confidence|ביטחון; Patient|חולה; Brave|אמיצה; Smart|סמארט; Cold|קור; Charming|בלגן בממלכה; Wise|וייס; Spontaneous|תיכון פיצוץ; Mean|ממוצע",
+  "q-social-personality-trait": "Confidence|ביטחון; Patient|חולה; Brave|אמיצה; Smart|סמארט; Cold|קור; Charming|בלגן בממלכה; Wise|חכם; Spontaneous|תיכון פיצוץ; Mean|ממוצע",
   "q-social-christmas-tree": "Angel|אנג'ל; Toy Soldiers|חיילי צעצוע; Sweets|סוכריות; Toys|צעצועים|צעצוע; Houses|בתים; Elf|קטן עליו; Mermaids|בתולות הים; Dolls|בובות",
   "q-social-christmas-day": "Secret Santa|הגמד והענק; Nap|תנומה; Volunteer|מתנדב",
   "q-social-halloween-sight": "Sweets|סוכריות; Mummies|מומיות; Frankenstein|פרנקנשטיין; Hocus Pocus|הוקוס פוקוס; Halloween|ליל המסכות; Scream|צעקה; Dracula|דרקולה; Batman|באטמן; Pirates|פיראטים|פיראט; Cowboys|קאובויז; Cats|קאטס; Animals|חיות אדם; Frogs|אימת הצפרדע",

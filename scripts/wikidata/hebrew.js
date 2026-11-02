@@ -29,6 +29,7 @@ const MEANT = {
   Orange: { he: 'כתום', only: ['color', 'q-arts-guitar-thing', 'q-social-autumn', 'q-sci-sun-assoc'] },
   Mars: { he: 'מארס', only: ['q-eat-chocolate-brand', 'q-eat-roadtrip-snack', 'q-home-cold'] },
   'Tim Cook': { he: 'טים קוק' }, 'Never Have I Ever': { he: '' }, B: { he: '' },
+  Sad: { he: 'עצוב' }, Wise: { he: 'חכם' }, Mad: { he: '' }, Hola: { he: '' }, Am: { he: '' }, 'Over the Moon': { he: '' },
 };
 const meant = (listId, name, he) => {
   const m = MEANT[name];
