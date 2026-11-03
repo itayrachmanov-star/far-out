@@ -2,20 +2,21 @@
    state in its presence (`g`); every player publishes name, colour, answers and reactions.
    Twists: Same Wavelength rounds (match your crew instead of avoiding it) and a Supernova
    finale (double points). Optional teams; the most-reacted answer is the Crowd Favourite.
-   Rendering lives in crew-view.js (FO.CrewView). */
+   A room plays one of two games (`g.m`): classic Crew rounds ('c') or Puffer Race ('p', rules in race.js).
+   Rendering lives in crew-view.js (FO.CrewView) and race.js (FO.Race). */
 (function () {
   'use strict';
   const FO = window.FarOut, UI = FO.UI;
   const COLORS = ['#ff8a4c', '#7fe3d1', '#a9c8ff', '#ffd166', '#ff3d7f', '#b98cff', '#8cff9a', '#ff6bd6'];
   const CODE_CHARS = 'BCDFGHJKLMNPQRSTVWXZ';
-  const GRACE_MS = 1500, MAX_PLAYERS = 10, PHASES = ['lobby', 'ask', 'reveal', 'final'];
+  const GRACE_MS = 1500, MAX_PLAYERS = 10, PHASES = ['lobby', 'ask', 'reveal', 'race', 'pop', 'final'];
   const V = () => FO.CrewView;
 
   const C = {
     sess: null, kind: null, code: '', isHost: false, connected: false,
     me: { n: UI.store.get('name', ''), col: UI.store.get('color', COLORS[Math.floor(Math.random() * COLORS.length)]), j: 0 },
     peers: [], host: null, hostId: null, g: null, hg: null, phaseKey: '', deadline: 0, hostDeadline: 0, leftPushed: 0,
-    prompt: null, myA: null, myW: '', myR: null, myRm: 0, entries: null, rng: null, recent: null, avoid: [],
+    prompt: null, myA: null, myP: null, myW: '', myR: null, myRm: 0, entries: null, rng: null, recent: null, avoid: [],
     stopLoop: null, hostMissing: 0, gone: false,
   };
 
@@ -30,6 +31,7 @@
     const p = { n: C.me.n, col: C.me.col, j: C.me.j };
     if (C.isHost) { p.host = true; p.g = C.hg; }
     if (C.myA) p.a = { r: C.myA.r, l: C.myA.l.slice(), d: C.myA.d };
+    if (C.myP) p.pa = { r: C.myP.r, l: C.myP.l.slice() };
     if (C.myW) p.w = C.myW;
     if (C.myR) p.re = C.myR;
     if (C.myRm) p.rm = C.myRm;
@@ -51,7 +53,8 @@
   function cleanGame(g) {
     if (!g || typeof g !== 'object' || !PHASES.includes(g.ph)) return null;
     const out = { ph: g.ph, gid: int(g.gid, 0, 1e6, 0), r: int(g.r, 0, 99, 0), R: int(g.R, 1, 30, 8), T: int(g.T, 5, 120, 30), left: int(g.left, 0, 120000, 0), th: str(g.th, 12) || 'all',
-      tw: int(g.tw, 0, 1, 1), tt: g.tt === 2 ? 2 : 0, k: g.k === 'w' || g.k === 's' ? g.k : 'n' };
+      tw: int(g.tw, 0, 1, 1), tt: g.tt === 2 ? 2 : 0, k: g.k === 'w' || g.k === 's' ? g.k : 'n', m: g.m === 'p' ? 'p' : 'c', win: str(g.win, 64) };
+    if (Array.isArray(g.rr)) out.rr = g.rr.slice(0, 12).map((r) => ({ p: str(r && r.p, 64), air: int(r && r.air, 0, 100, 0), pts: int(r && r.pts, 0, 5000, 0), n: int(r && r.n, 0, 12, 0), b: int(r && r.b, 0, 500, 0) }));
     if (Array.isArray(g.tm)) out.tm = g.tm.slice(0, 12).filter((e) => Array.isArray(e) && typeof e[0] === 'string').map((e) => [e[0].slice(0, 64), e[1] ? 1 : 0]);
     if (g.fav && typeof g.fav === 'object') out.fav = { a: str(g.fav.a, 40), p: str(g.fav.p, 64), n: int(g.fav.n, 0, 99, 0) };
     if (g.s && typeof g.s === 'object') out.s = { c: str(g.s.c, 40), t: str(g.s.t, 10), v: typeof g.s.v === 'number' ? int(g.s.v, 1, 30, 5) : str(g.s.v, 1) || undefined };
@@ -70,6 +73,7 @@
       const l = (Array.isArray(p.a.l) ? p.a.l : []).slice(0, 3).map((s) => str(s, 48)).filter(Boolean);
       out.a = { r: +p.a.r || 0, d: !!p.a.d, l: l.filter((s, i) => l.findIndex((t) => FO.text.keyOf(t) === FO.text.keyOf(s)) === i) };
     }
+    if (p.pa && typeof p.pa === 'object') out.pa = { r: +p.pa.r || 0, l: (Array.isArray(p.pa.l) ? p.pa.l : []).slice(0, 12).map((s) => str(s, 48)).filter(Boolean) };
     return { id: String(x.id), isMe: !!x.isMe, p: out, claimsHost: !!p.host, g: p.g, raw: !!p.n };
   }
 
@@ -113,9 +117,14 @@
       C.myA = { r: g.r, l: [], d: false };
       push();
       V().ask();
+    } else if (g.ph === 'race') {
+      C.myP = { r: g.r, l: [] };
+      push();
+      FO.Race.race();
     } else if (g.ph === 'reveal') V().reveal();
+    else if (g.ph === 'pop') FO.Race.popped();
     else if (g.ph === 'final') V().final();
-    else { C.myA = null; V().lobby(); }
+    else { C.myA = null; C.myP = null; V().lobby(); }
   }
 
   // ---------- my actions ----------
@@ -171,14 +180,16 @@
     nextRound();
   }
   function nextRound() {
-    const p = FO.makePrompt(C.rng, { minPool: 10, recent: C.recent, avoid: C.avoid, theme: C.hg.th || 'all', minEase: 8, core: true });
+    const race = C.hg.m === 'p'; // a race needs a question with plenty of answers to puff with
+    const p = FO.makePrompt(C.rng, { minPool: race ? 30 : 10, recent: C.recent, avoid: C.avoid, theme: C.hg.th || 'all', minEase: race ? 6 : 8, core: true });
     C.recent.add(p.id);
-    // Twists: the last round is a Supernova (double points); rounds 3, 7 and 11 are Same Wavelength.
     const r = (C.hg.r || 0) + 1, R = C.hg.R;
+    if (race) return setPhase({ ph: 'race', r, k: 'n', s: p.spec, left: C.hg.T * 1000, res: null, rr: null, win: '' });
+    // Twists: the last round is a Supernova (double points); rounds 3, 7 and 11 are Same Wavelength.
     const k = !C.hg.tw ? 'n' : r === R && R > 1 ? 's' : r % 4 === 3 && C.peers.length >= 2 ? 'w' : 'n';
     setPhase({ ph: 'ask', r, k, s: p.spec, left: C.hg.T * 1000, res: null });
   }
-  function backToLobby() { setPhase({ ph: 'lobby', gid: (C.hg.gid || 0) + 1, r: 0, sc: [], res: null, s: null, left: 0, tm: null, fav: null, k: 'n' }); }
+  function backToLobby() { setPhase({ ph: 'lobby', gid: (C.hg.gid || 0) + 1, r: 0, sc: [], res: null, rr: null, win: '', s: null, left: 0, tm: null, fav: null, k: 'n' }); }
   function setting(k, v) { if (C.isHost && C.hg.ph === 'lobby') { C.hg = Object.assign({}, C.hg, { [k]: v }); push(); V().refresh(); } }
 
   function collect() {
@@ -231,9 +242,11 @@
     if (g.ph === 'ask') {
       const all = C.peers.length > 0 && C.peers.every((pl) => pl.p.a && pl.p.a.r === g.r && pl.p.a.d);
       if (all || now > C.hostDeadline + GRACE_MS) return collect();
-    } else if (g.ph === 'reveal' && now > C.hostDeadline) {
-      C.hg = Object.assign({}, C.hg, { fav: crowdFavourite() });
-      return g.r >= g.R ? setPhase({ ph: 'final', left: 0, res: null }) : nextRound();
+    } else if (g.ph === 'race') {
+      if (FO.Race.hostStep(now, now > C.hostDeadline + GRACE_MS)) return;
+    } else if ((g.ph === 'reveal' || g.ph === 'pop') && now > C.hostDeadline) {
+      if (g.ph === 'reveal') C.hg = Object.assign({}, C.hg, { fav: crowdFavourite() });
+      return g.r >= g.R ? setPhase({ ph: 'final', left: 0, res: null, rr: null }) : nextRound();
     }
     // Keep `left` fresh so late joiners and reloaded tabs see the real clock.
     if (g.ph !== 'lobby' && g.ph !== 'final' && now - C.leftPushed > 2000) {
@@ -260,7 +273,7 @@
     V().tick(left);
     if (g && g.ph === 'ask' && left <= 0 && C.myA && !C.myA.d) { V().flushInput(); lock(); }
     // Clients nudge the host when a reveal is over, in case the host's tab is throttled in the background.
-    if (!C.isHost && g && g.ph === 'reveal' && left <= 0 && !C.myW) { C.myW = C.phaseKey; push(); }
+    if (!C.isHost && g && (g.ph === 'reveal' || g.ph === 'pop') && left <= 0 && !C.myW) { C.myW = C.phaseKey; push(); }
     if (C.isHost) hostStep();
     else if (C.sess && !C.gone && C.hostMissing && performance.now() - C.hostMissing > 8000) { C.gone = true; V().hostGone(); }
   }
@@ -279,7 +292,7 @@
   }
 
   // ---------- session ----------
-  async function connect(code, host) {
+  async function connect(code, host, m) {
     C.me.n = C.me.n.trim().slice(0, 16) || 'Pilot';
     C.me.j = Date.now();
     UI.store.set('name', C.me.n);
@@ -287,7 +300,8 @@
     leave();
     C.code = code;
     C.isHost = host;
-    if (host) C.hg = { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, th: 'all', tw: 1, tt: 0, sc: [], left: 0 };
+    if (host) C.hg = m === 'p' ? { ph: 'lobby', gid: 1, r: 0, R: 5, T: 45, th: 'all', tw: 1, tt: 0, m: 'p', sc: [], left: 0 }
+      : { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, th: 'all', tw: 1, tt: 0, m: 'c', sc: [], left: 0 };
     C.sess = await FO.Net.open(code, host);
     C.kind = C.sess.kind;
     C.hostMissing = performance.now();
@@ -304,9 +318,9 @@
     C.stopLoop = ticker(step, 200);
     UI.onLeave(leave);
   }
-  async function create() {
+  async function create(m) {
     for (let i = 0; i < 3; i++) {
-      try { return await connect(newCode(), true); }
+      try { return await connect(newCode(), true, m); }
       catch (e) { if ((e && e.type) !== 'unavailable-id') throw e; }
     }
   }
@@ -315,8 +329,8 @@
     if (C.stopLoop) C.stopLoop();
     if (C.sess) { try { C.sess.close(); } catch (e) { /* already closed */ } }
     Object.assign(C, { sess: null, stopLoop: null, peers: [], host: null, hostId: null, g: null, hg: null, phaseKey: '', prompt: null,
-      myA: null, myW: '', myR: null, myRm: 0, isHost: false, connected: false });
+      myA: null, myP: null, myW: '', myR: null, myRm: 0, isHost: false, connected: false });
   }
 
-  FO.Crew = { state: C, COLORS, create, join, leave, addAnswer, lock, react, wantRematch, startGame, backToLobby, setting, nameOf, colorOf, meId, scores };
+  FO.Crew = { state: C, COLORS, create, join, leave, addAnswer, lock, react, wantRematch, startGame, backToLobby, setting, nameOf, colorOf, meId, scores, push, setPhase };
 })();

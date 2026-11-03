@@ -26,6 +26,8 @@
   const GROUP = [
     { id: 'party', name: 'Party', color: '#ff8fb8', d: '2 to 8 players pass one phone. Works offline.', best: () => 'Same room', go: () => FO.Party.show() },
     { id: 'crew', name: 'Crew', color: '#b6f36a', d: 'Online rooms: everyone on their own phone.', best: () => 'Create or join', go: () => { UI.show('s-crew'); FO.CrewView.entry(); } },
+    { id: 'race', name: 'Puffer Race', color: '#ff9f43', d: 'Online with friends: feed your pufferfish answers. First to pop wins.', isNew: true,
+      best: () => 'Create or join', go: () => { UI.store.set('tried.race', true); UI.show('s-crew'); FO.CrewView.entry(undefined, 'p'); } },
   ];
 
   function tile(m) {

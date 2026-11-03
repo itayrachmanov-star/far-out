@@ -20,10 +20,15 @@
   const seg = (opts, cur, onPick, disabled) => h('div', { class: 'seg', role: 'group' },
     opts.map((o) => h('button', { type: 'button', 'aria-pressed': String(o === cur), disabled: disabled || null, onclick: () => onPick(o) }, String(o))));
 
+  const RACE_INTRO = 'Everyone gets the same question and feeds their own space pufferfish as many answers as they can. Rarer answers puff it up more, and the first puffer to pop wins the round.';
+  const label = (m) => { $('#s-crew .hud-mode').textContent = m === 'p' ? 'Puffer Race' : 'Crew'; };
+
   // ---------- entry ----------
-  async function entry(prefill) {
+  /** mode: 'p' when opened from the Puffer Race tile; it's the game a new room starts with. */
+  async function entry(prefill, mode) {
     const st = S();
     $('#crew-room').textContent = '';
+    label(mode);
     const err = h('p', { class: 'note', id: 'crew-err', role: 'alert' });
     const name = h('input', { id: 'crew-name', dir: 'auto', maxlength: 16, value: st.me.n, placeholder: 'Your pilot name', autocomplete: 'nickname' });
     const code = h('input', { id: 'crew-code', class: 'code-input', maxlength: 4, value: prefill || '', placeholder: 'ABCD', autocomplete: 'off', autocapitalize: 'characters' });
@@ -41,15 +46,15 @@
       createBtn.disabled = joinBtn.disabled = true;
       try { await fn(); } catch (e) { console.warn(e); err.textContent = FO.Net.explain(e); createBtn.disabled = joinBtn.disabled = false; }
     };
-    createBtn.onclick = () => go(() => Cr().create());
+    createBtn.onclick = () => go(() => Cr().create(mode));
     joinBtn.onclick = () => {
       if (code.value.replace(/[^a-z]/gi, '').length !== 4) { err.textContent = 'Room codes are 4 letters.'; code.focus(); return; }
       go(() => Cr().join(code.value));
     };
     code.addEventListener('keydown', (e) => { if (e.key === 'Enter') joinBtn.click(); });
     mount(h('div', { class: 'panel' },
-      h('h2', null, 'Fly with friends'),
-      h('p', null, 'Everyone answers the same prompt at once. An answer only you gave earns a Lone Signal bonus; the same answer as a friend collides and splits the points. Watch for Same Wavelength rounds, where matching your crew pays, and the double-points Supernova finale.'),
+      h('h2', null, mode === 'p' ? 'Race your friends' : 'Fly with friends'),
+      mode === 'p' ? h('p', null, RACE_INTRO) : h('p', null, 'Everyone answers the same prompt at once. An answer only you gave earns a Lone Signal bonus; the same answer as a friend collides and splits the points. Watch for Same Wavelength rounds, where matching your crew pays, and the double-points Supernova finale.'),
       h('div', { class: 'split' },
         h('div', { class: 'field' }, h('label', { for: 'crew-name' }, 'Name'), name),
         h('div', { class: 'field' }, h('label', null, 'Planet colour'), sw)),
@@ -76,6 +81,7 @@
   function lobby() {
     const st = S(), g = st.g;
     $('#crew-room').textContent = 'Room ' + st.code;
+    label(g.m);
     const settings = h('div', { class: 'settings', id: 'crew-settings' });
     const action = st.isHost
       ? h('button', { class: 'btn primary', type: 'button', onclick: () => { Fx.sfx.unlock(); Cr().startGame(); } }, 'Start game')
@@ -96,11 +102,16 @@
   function renderSettings(g) {
     const el = $('#crew-settings');
     if (!el || !g) return;
-    const host = S().isHost, set = (k) => (v) => Cr().setting(k, v);
+    const host = S().isHost, set = (k) => (v) => Cr().setting(k, v), race = g.m === 'p';
+    label(g.m); // the host may switch games while guests watch
+    // Switching games also picks that game's usual length.
+    const game = (v) => { const p = v === 'Puffer Race'; if (p === race) return; Cr().setting('R', p ? 5 : 8); Cr().setting('T', p ? 45 : 30); Cr().setting('m', p ? 'p' : 'c'); };
     el.replaceChildren(
+      h('div', { class: 'field wide' }, h('label', null, 'Game'), seg(['Classic', 'Puffer Race'], race ? 'Puffer Race' : 'Classic', game, !host),
+        race ? h('p', { class: 'note' }, RACE_INTRO) : null),
       h('div', { class: 'field' }, h('label', null, 'Rounds'), seg([5, 8, 12], g.R, set('R'), !host)),
       h('div', { class: 'field' }, h('label', null, 'Seconds'), seg([20, 30, 45, 60], g.T, set('T'), !host)),
-      h('div', { class: 'field' }, h('label', null, 'Twists'), seg(['On', 'Off'], g.tw ? 'On' : 'Off', (v) => Cr().setting('tw', v === 'On' ? 1 : 0), !host)),
+      race ? null : h('div', { class: 'field' }, h('label', null, 'Twists'), seg(['On', 'Off'], g.tw ? 'On' : 'Off', (v) => Cr().setting('tw', v === 'On' ? 1 : 0), !host)),
       h('div', { class: 'field' }, h('label', null, 'Teams'), seg(['Solo', '2 teams'], g.tt === 2 ? '2 teams' : 'Solo', (v) => Cr().setting('tt', v === '2 teams' ? 2 : 0), !host)),
       h('div', { class: 'field wide' }, h('label', null, 'Theme'), UI.themePicker(g.th || 'all', set('th'), !host)));
   }
@@ -113,7 +124,7 @@
       let status = pl.isMe ? 'You' : pl.p.host ? 'Host' : '';
       let done = false;
       if (g.ph === 'ask') { done = !!(pl.p.a && pl.p.a.r === g.r && pl.p.a.d); status = done ? 'Answered' : 'Thinking'; }
-      else if (g.ph === 'reveal' || g.ph === 'final') status = (Cr().scores(g).get(pl.id) || 0).toLocaleString();
+      else if (g.ph === 'reveal' || g.ph === 'pop' || g.ph === 'final') status = (Cr().scores(g).get(pl.id) || 0).toLocaleString();
       const team = teamOf(g, pl.id);
       return h('li', { class: done ? 'done' : '' }, UI.planet(pl.p.col, true), h('span', null, pl.p.n),
         team == null ? null : h('i', { class: 'team-dot', style: { '--tc': TEAMS[team].c }, title: TEAMS[team].n }), h('small', null, status));
@@ -303,7 +314,7 @@
     bar.style.width = Math.max(0, Math.min(1, left / total)) * 100 + '%';
     $('#crew-tsec').textContent = String(sec);
     $('#crew-timer').classList.toggle('low', sec <= 5);
-    if (sec <= 5 && sec > 0 && sec !== lastTickSec && g.ph === 'ask') Fx.sfx.tick();
+    if (sec <= 5 && sec > 0 && sec !== lastTickSec && (g.ph === 'ask' || g.ph === 'race')) Fx.sfx.tick();
     lastTickSec = sec;
   }
   function refresh() {
@@ -311,6 +322,7 @@
     if (!g) return;
     if (g.ph === 'lobby') renderSettings(g);
     if (g.ph === 'ask') mine();
+    if (g.ph === 'race') FO.Race.refresh();
     if (g.ph === 'reveal') reactions();
     if (g.ph === 'final' && S().isHost && $('#crew-ready')) {
       const n = S().peers.filter((pl) => !pl.isMe && pl.p.rm === g.gid).length;
