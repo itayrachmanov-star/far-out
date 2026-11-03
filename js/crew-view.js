@@ -13,7 +13,7 @@
   };
   const teamOf = (g, id) => { const e = (g && g.tm || []).find((x) => x[0] === id); return e ? e[1] : null; };
   const teamTotals = (g) => { const t = [0, 0], sc = Cr().scores(g); for (const [id, team] of g.tm || []) t[team] += sc.get(id) || 0; return t; };
-  let revealTimers = [], lastTickSec = -1;
+  let revealTimers = [], lastTickSec = -1, fixedNote = null;
 
   const clearReveal = () => { revealTimers.forEach(clearTimeout); revealTimers = []; };
   function mount(...nodes) { clearReveal(); body().replaceChildren(...nodes); }
@@ -100,7 +100,6 @@
     el.replaceChildren(
       h('div', { class: 'field' }, h('label', null, 'Rounds'), seg([5, 8, 12], g.R, set('R'), !host)),
       h('div', { class: 'field' }, h('label', null, 'Seconds'), seg([20, 30, 45, 60], g.T, set('T'), !host)),
-      h('div', { class: 'field' }, h('label', null, 'Answers each'), seg([1, 2, 3], g.A, set('A'), !host)),
       h('div', { class: 'field' }, h('label', null, 'Twists'), seg(['On', 'Off'], g.tw ? 'On' : 'Off', (v) => Cr().setting('tw', v === 'On' ? 1 : 0), !host)),
       h('div', { class: 'field' }, h('label', null, 'Teams'), seg(['Solo', '2 teams'], g.tt === 2 ? '2 teams' : 'Solo', (v) => Cr().setting('tt', v === '2 teams' ? 2 : 0), !host)),
       h('div', { class: 'field wide' }, h('label', null, 'Theme'), UI.themePicker(g.th || 'all', set('th'), !host)));
@@ -113,7 +112,7 @@
     el.replaceChildren(...st.peers.map((pl) => {
       let status = pl.isMe ? 'You' : pl.p.host ? 'Host' : '';
       let done = false;
-      if (g.ph === 'ask') { done = !!(pl.p.a && pl.p.a.r === g.r && pl.p.a.d); status = done ? 'Locked' : 'Thinking'; }
+      if (g.ph === 'ask') { done = !!(pl.p.a && pl.p.a.r === g.r && pl.p.a.d); status = done ? 'Answered' : 'Thinking'; }
       else if (g.ph === 'reveal' || g.ph === 'final') status = (Cr().scores(g).get(pl.id) || 0).toLocaleString();
       const team = teamOf(g, pl.id);
       return h('li', { class: done ? 'done' : '' }, UI.planet(pl.p.col, true), h('span', null, pl.p.n),
@@ -133,15 +132,14 @@
   }
   function ask() {
     const st = S(), g = st.g, p = st.prompt;
-    const input = h('input', { id: 'crew-ans', dir: 'auto', maxlength: 48, autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: 'Type an answer, press Enter' });
+    const input = h('input', { id: 'crew-ans', dir: 'auto', maxlength: 48, autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: 'One answer, so make it rare' });
     const msg = h('p', { class: 'note', id: 'crew-msg', 'aria-live': 'polite' });
     const form = h('form', { class: 'answer', id: 'crew-form', autocomplete: 'off', onsubmit: (e) => { e.preventDefault(); submit(input, form, msg); } },
-      h('label', { for: 'crew-ans', class: 'sr' }, 'Your answer'), input, h('button', { class: 'btn primary', type: 'submit' }, 'Add'));
+      h('label', { for: 'crew-ans', class: 'sr' }, 'Your answer'), input, h('button', { class: 'btn primary', type: 'submit' }, 'Send'));
     mount(timerEl(), promptEl(p, g), form,
       h('div', { class: 'my-answers', id: 'crew-mine' }),
-      h('div', { class: 'row-actions' }, h('span', { class: 'mono', id: 'crew-count' }),
-        h('button', { class: 'btn', type: 'button', id: 'crew-lock', onclick: () => { if (!flushInput(false)) return; Cr().lock(); refresh(); } }, 'Lock in')),
       msg, h('ul', { class: 'players', id: 'crew-players' }));
+    fixedNote = null;
     mine();
     players();
     input.focus({ preventScroll: true });
@@ -156,36 +154,29 @@
       return;
     }
     if (!r.ok) { msg.textContent = r.msg; Fx.shake(form); Fx.sfx.bad(); return; }
-    msg.replaceChildren(r.fixed ? h('span', null, UI.fixLine(r.fixed.typed, r.fixed.name), ' Typo fixed.') : '');
     if (input.value.trim() || text) { Fx.sfx.key(); Fx.burstAt(input, 3, 10); }
     input.value = '';
+    fixedNote = r.fixed || null;
     mine();
-    input.focus({ preventScroll: true });
   }
-  /** Submit what's still typed. On a timeout (auto) an ambiguous typo takes its best match;
-      on "Lock in" it asks first and returns false so the answers stay open. */
-  function flushInput(auto) {
+  /** When time runs out, send what's still typed; an ambiguous typo takes its best match. */
+  function flushInput() {
     const input = $('#crew-ans');
-    if (!input || !input.value.trim()) return true;
+    if (!input || !input.value.trim()) return;
     const r = Cr().addAnswer(input.value);
-    if (r.options) {
-      if (auto) Cr().addAnswer(r.options[0].name);
-      else { submit(input, $('#crew-form'), $('#crew-msg')); return false; }
-    }
+    if (r.options) Cr().addAnswer(r.options[0].name);
     input.value = '';
-    return true;
   }
   function mine() {
     const st = S(), a = st.myA, el = $('#crew-mine');
     if (!el || !a) return;
-    el.replaceChildren(...a.l.map((t, i) => h('span', { class: 'chip' }, t,
-      a.d ? null : h('button', { type: 'button', class: 'link', 'aria-label': 'Remove ' + t, onclick: () => { Cr().removeAnswer(i); mine(); } }, '×'))));
-    $('#crew-count').textContent = `${a.l.length} of ${st.g.A} answer${st.g.A > 1 ? 's' : ''}`;
+    el.replaceChildren(...a.l.map((t) => h('span', { class: 'chip' }, t)));
     const locked = a.d;
     $('#crew-ans').disabled = locked;
     UI.$('#crew-form button').disabled = locked;
-    $('#crew-lock').hidden = locked;
-    if (locked) $('#crew-msg').replaceChildren(h('span', { class: 'wait' }, 'Locked in. Waiting for the crew…'));
+    if (!locked) return;
+    const wait = h('span', { class: 'wait' }, a.l.length ? 'Sent. Waiting for the crew…' : 'Time’s up. Waiting for the crew…');
+    $('#crew-msg').replaceChildren(...(fixedNote ? [h('span', null, UI.fixLine(fixedNote.typed, fixedNote.name), ' Typo fixed. '), wait] : [wait]));
   }
 
   // ---------- reveal ----------

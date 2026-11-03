@@ -50,7 +50,7 @@
   /** Game state from the host's presence: untrusted, so rebuild it field by field. */
   function cleanGame(g) {
     if (!g || typeof g !== 'object' || !PHASES.includes(g.ph)) return null;
-    const out = { ph: g.ph, gid: int(g.gid, 0, 1e6, 0), r: int(g.r, 0, 99, 0), R: int(g.R, 1, 30, 8), T: int(g.T, 5, 120, 30), A: int(g.A, 1, 3, 1), left: int(g.left, 0, 120000, 0), th: str(g.th, 12) || 'all',
+    const out = { ph: g.ph, gid: int(g.gid, 0, 1e6, 0), r: int(g.r, 0, 99, 0), R: int(g.R, 1, 30, 8), T: int(g.T, 5, 120, 30), left: int(g.left, 0, 120000, 0), th: str(g.th, 12) || 'all',
       tw: int(g.tw, 0, 1, 1), tt: g.tt === 2 ? 2 : 0, k: g.k === 'w' || g.k === 's' ? g.k : 'n' };
     if (Array.isArray(g.tm)) out.tm = g.tm.slice(0, 12).filter((e) => Array.isArray(e) && typeof e[0] === 'string').map((e) => [e[0].slice(0, 64), e[1] ? 1 : 0]);
     if (g.fav && typeof g.fav === 'object') out.fav = { a: str(g.fav.a, 40), p: str(g.fav.p, 64), n: int(g.fav.n, 0, 99, 0) };
@@ -119,8 +119,9 @@
   }
 
   // ---------- my actions ----------
-  /** Add one answer. Returns {ok, msg, options, fixed:{typed,name}}. Typos are stored fixed; answers the game
-      doesn't know are turned away, as in every other mode (nobody votes on what counts). */
+  /** Send this round's one answer; once it's in, it's final. Returns {ok, msg, options, fixed:{typed,name}}.
+      Typos are stored fixed; answers the game doesn't know are turned away, as in every other mode
+      (nobody votes on what counts), so a slip doesn't cost the round. */
   function addAnswer(text) {
     const g = C.g, a = C.myA;
     if (!g || g.ph !== 'ask' || !a || a.d) return { msg: 'Answers are locked.' };
@@ -133,20 +134,12 @@
     if (j.why === 'unknown') return { msg: UI.missText(C.prompt, j) };
     const fixed = j.ok && j.fuzzy ? { typed: t, name: j.item.name } : null;
     if (j.ok) t = j.item.name; // the host judges this name, which it has even before its Hebrew names arrive
-    const key = FO.text.keyOf(t);
-    const same = a.l.some((x) => {
-      if (FO.text.keyOf(x) === key) return true;
-      const jx = FO.judge(C.prompt, x);
-      return j.ok && jx.ok && jx.item === j.item;
-    });
-    if (same) return { msg: 'You already said that.' };
-    a.l.push(t);
+    a.l = [t];
+    a.d = true;
     C.playedGid = g.gid; // for XP: this player took part in this game
-    if (a.l.length >= (g.A || 1)) a.d = true;
     push();
     return { ok: true, fixed };
   }
-  function removeAnswer(i) { if (C.myA && !C.myA.d) { C.myA.l.splice(i, 1); push(); } }
   function lock() { if (C.myA && !C.myA.d) { C.myA.d = true; push(); } }
   /** React to answer card i of this reveal with emoji k (0-3); the same one again takes it back. */
   function react(i, k) {
@@ -192,7 +185,7 @@
     const g = C.hg, p = FO.buildPrompt(g.s), entries = [];
     for (const pl of C.peers) {
       const a = pl.p.a;
-      const list = a && a.r === g.r ? a.l.slice(0, g.A) : [];
+      const list = a && a.r === g.r ? a.l.slice(0, 1) : [];
       if (!list.length) { entries.push({ pid: pl.id, text: '', j: { ok: false, why: 'none' } }); continue; }
       const used = new Set();
       for (const text of list) {
@@ -265,7 +258,7 @@
   function step() {
     const g = C.g, left = C.deadline - performance.now();
     V().tick(left);
-    if (g && g.ph === 'ask' && left <= 0 && C.myA && !C.myA.d) { V().flushInput(true); lock(); }
+    if (g && g.ph === 'ask' && left <= 0 && C.myA && !C.myA.d) { V().flushInput(); lock(); }
     // Clients nudge the host when a reveal is over, in case the host's tab is throttled in the background.
     if (!C.isHost && g && g.ph === 'reveal' && left <= 0 && !C.myW) { C.myW = C.phaseKey; push(); }
     if (C.isHost) hostStep();
@@ -294,7 +287,7 @@
     leave();
     C.code = code;
     C.isHost = host;
-    if (host) C.hg = { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, A: 2, th: 'all', tw: 1, tt: 0, sc: [], left: 0 };
+    if (host) C.hg = { ph: 'lobby', gid: 1, r: 0, R: 8, T: 30, th: 'all', tw: 1, tt: 0, sc: [], left: 0 };
     C.sess = await FO.Net.open(code, host);
     C.kind = C.sess.kind;
     C.hostMissing = performance.now();
@@ -325,5 +318,5 @@
       myA: null, myW: '', myR: null, myRm: 0, isHost: false, connected: false });
   }
 
-  FO.Crew = { state: C, COLORS, create, join, leave, addAnswer, removeAnswer, lock, react, wantRematch, startGame, backToLobby, setting, nameOf, colorOf, meId, scores };
+  FO.Crew = { state: C, COLORS, create, join, leave, addAnswer, lock, react, wantRematch, startGame, backToLobby, setting, nameOf, colorOf, meId, scores };
 })();
